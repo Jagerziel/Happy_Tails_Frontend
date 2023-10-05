@@ -1,5 +1,5 @@
 import React from 'react';
-import { View , Text , StyleSheet, Button } from 'react-native';
+import { View , Text , StyleSheet, Button , TouchableHighlight } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 function Navigation(  ) {
@@ -7,27 +7,36 @@ function Navigation(  ) {
     
     return (
         <View style={styles.container}>
-           <Button style={styles.button}
-                title="Home"
+            <TouchableHighlight 
+                style={styles.button}
                 onPress={() => navigation.navigate('HomeScreen')}
-            />    
-            <Button style={styles.button}
-                title="Learning"
-                onPress={() => (navigation.navigate('LearningScreen'))}
-            /> 
-            <Button style={styles.button}
-                title="Chat"
+            >
+                <Text>Home</Text>
+            </TouchableHighlight>
+            <TouchableHighlight 
+                style={styles.button}
+                onPress={() => navigation.navigate('LearningScreen')}
+            >
+                <Text>Learning</Text>
+            </TouchableHighlight>
+            <TouchableHighlight 
+                style={styles.button}
                 onPress={() => navigation.navigate('ChatScreen')}
-            /> 
-            <Button style={styles.button}
-                title="AboutUs"
+            >
+                <Text>Chat</Text>
+            </TouchableHighlight>
+            <TouchableHighlight 
+                style={styles.button}
                 onPress={() => navigation.navigate('AboutUsScreen')}
-                
-            /> 
-            <Button style={styles.button}
-                title="Settings"
+            >
+                <Text>About Us</Text>
+            </TouchableHighlight>
+            <TouchableHighlight 
+                style={styles.button}
                 onPress={() => navigation.navigate('SettingsScreen')}
-            /> 
+            >
+                <Text>Settings</Text>
+            </TouchableHighlight>
         </View>
     );
 }
@@ -40,10 +49,12 @@ const styles = StyleSheet.create({
       backgroundColor: '#eee',
       alignItems: 'center',
       justifyContent: 'center',
-      flexDirection: 'row'
+      flexDirection: 'row',
+      width: '100%',
+      justifyContent: 'space-evenly'
     },
     button: {
-        width: '10%'
+        width: '1100'
     }
 });
   
