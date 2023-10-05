@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-function userProfileScreen(props) {
+function Navigation(props) {
     return (
         <View>
             
@@ -9,4 +9,4 @@ function userProfileScreen(props) {
     );
 }
 
-export default userProfileScreen;
+export default Navigation;
