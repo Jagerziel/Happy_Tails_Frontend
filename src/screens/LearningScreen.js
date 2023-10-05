@@ -1,15 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Navigation from '../components/Navigation';
 
-function LoginScreen(props) {
+function LearningScreen(props) {
     return (
         <View style={styles.container}>
-            <Text>This is the Login Screen</Text>
+            <Text>This is the Learning Screen</Text>
+            <Navigation />
         </View>
     );
 }
 
-export default LoginScreen;
+export default LearningScreen;
 
 const styles = StyleSheet.create({
     container: {

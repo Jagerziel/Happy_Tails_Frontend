@@ -6,14 +6,26 @@ import { useNavigation } from '@react-navigation/native';
 function Navigation(  ) {
     const navigation = useNavigation(); 
     return (
-        <View>
+        <View style={styles.container}>
            <Button
                 title="Home"
                 onPress={() => navigation.navigate('HomeScreen')}
             />    
             <Button
-                title="Login"
-                onPress={() => navigation.navigate('LoginScreen')}
+                title="Learning"
+                onPress={() => navigation.navigate('LearningScreen')}
+            /> 
+            <Button
+                title="Chat"
+                onPress={() => navigation.navigate('ChatScreen')}
+            /> 
+            <Button
+                title="AboutUs"
+                onPress={() => navigation.navigate('AboutUsScreen')}
+            /> 
+            <Button
+                title="Settings"
+                onPress={() => navigation.navigate('SettingsScreen')}
             /> 
         </View>
     );
