@@ -1,3 +1,4 @@
+// React Native
 import { 
   Platform,
   SafeAreaView,
@@ -6,13 +7,30 @@ import {
   Text, 
   View, 
 } from 'react-native';
+// Screens
+import HomeScreen from './src/screens/HomeScreen.js'
+import LoginScreen from './src/screens/LoginScreen.js'
+import UpdatePetScreen from './src/screens/UpdatePetScreen.js'
+import UserProfileScreen from './src/screens/UserProfileScreen.js'
+import VaccinationScreen from './src/screens/VaccinationScreen.js'
+
+// Navigation
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    <NavigationContainer>
+        <Stack.Navigator initialRouteName='HomeScreen'>
+          <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+          <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+          <Stack.Screen name="UpdatePetScreen" component={UpdatePetScreen}/>
+          <Stack.Screen name="UserProfileScreen" component={UserProfileScreen}/>
+          <Stack.Screen name="VaccinationScreen" component={VaccinationScreen}/>
+        </Stack.Navigator>
+      </NavigationContainer>
   );
 }
 

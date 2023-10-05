@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-function loginScreen(props) {
+function VaccinationScreen(props) {
     return (
         <View>
             
@@ -9,4 +9,4 @@ function loginScreen(props) {
     );
 }
 
-export default loginScreen;
+export default VaccinationScreen;

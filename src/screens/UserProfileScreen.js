@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-function homeScreen(props) {
+function UserProfileScreen(props) {
     return (
         <View>
             
@@ -9,4 +9,4 @@ function homeScreen(props) {
     );
 }
 
-export default homeScreen;
+export default UserProfileScreen;
