@@ -2,6 +2,10 @@ import React from 'react';
 import { View , Text , StyleSheet, Button , TouchableHighlight } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+// Icons
+import { AntDesign, Entypo, Feather, Ionicons } from '@expo/vector-icons' //Home
+
+
 function Navigation(  ) {
     const navigation = useNavigation(); 
     
@@ -11,31 +15,31 @@ function Navigation(  ) {
                 style={styles.button}
                 onPress={() => navigation.navigate('HomeScreen')}
             >
-                <Text>Home</Text>
+                <AntDesign name="home" size={24} color="black" />
             </TouchableHighlight>
             <TouchableHighlight 
                 style={styles.button}
                 onPress={() => navigation.navigate('LearningScreen')}
             >
-                <Text>Learning</Text>
+                <Ionicons name="school-outline" size={26} color="black" />
             </TouchableHighlight>
             <TouchableHighlight 
                 style={styles.button}
                 onPress={() => navigation.navigate('ChatScreen')}
             >
-                <Text>Chat</Text>
+                <Ionicons name="chatbox-outline" size={22} color="black" />
             </TouchableHighlight>
             <TouchableHighlight 
                 style={styles.button}
                 onPress={() => navigation.navigate('AboutUsScreen')}
             >
-                <Text>About Us</Text>
+                <Entypo name="star" size={27} color="black" />
             </TouchableHighlight>
             <TouchableHighlight 
                 style={styles.button}
                 onPress={() => navigation.navigate('SettingsScreen')}
             >
-                <Text>Settings</Text>
+                <Feather name="settings" size={24} color="black" />
             </TouchableHighlight>
         </View>
     );
@@ -45,16 +49,18 @@ export default Navigation;
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#eee',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'row',
-      width: '100%',
-      justifyContent: 'space-evenly'
+        // flex: 1,
+        height: 70,
+        backgroundColor: '#999',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'space-evenly'
+
     },
     button: {
-        width: '1100'
+        
     }
 });
   
