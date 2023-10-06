@@ -1,5 +1,5 @@
 import React from 'react';
-import { View , Text , StyleSheet, Button , TouchableHighlight } from 'react-native';
+import { View , Text , StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 // Icons
@@ -11,36 +11,36 @@ function Navigation(  ) {
     
     return (
         <View style={styles.container}>
-            <TouchableHighlight 
+            <TouchableOpacity 
                 style={styles.button}
                 onPress={() => navigation.navigate('HomeScreen')}
             >
                 <AntDesign name="home" size={24} color="black" />
-            </TouchableHighlight>
-            <TouchableHighlight 
+            </TouchableOpacity>
+            <TouchableOpacity 
                 style={styles.button}
                 onPress={() => navigation.navigate('LearningScreen')}
             >
                 <Ionicons name="school-outline" size={26} color="black" />
-            </TouchableHighlight>
-            <TouchableHighlight 
+            </TouchableOpacity>
+            <TouchableOpacity 
                 style={styles.button}
                 onPress={() => navigation.navigate('ChatScreen')}
             >
                 <Ionicons name="chatbox-outline" size={22} color="black" />
-            </TouchableHighlight>
-            <TouchableHighlight 
+            </TouchableOpacity>
+            <TouchableOpacity 
                 style={styles.button}
                 onPress={() => navigation.navigate('AboutUsScreen')}
             >
                 <Entypo name="star" size={27} color="black" />
-            </TouchableHighlight>
-            <TouchableHighlight 
+            </TouchableOpacity>
+            <TouchableOpacity 
                 style={styles.button}
                 onPress={() => navigation.navigate('SettingsScreen')}
             >
                 <Feather name="settings" size={24} color="black" />
-            </TouchableHighlight>
+            </TouchableOpacity>
         </View>
     );
 }
