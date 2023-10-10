@@ -5,3 +5,7 @@ Folder Structure: https://techjugaar.com/best-react-native-folder-structure-expo
 React Native Navigation: https://reactnavigation.org/docs/getting-started
 
 React Native Expo Icons: https://icons.expo.fyi/Index
+
+##### SHORTCUTS #####
+rsf: creates new react component
+rnss: creates react native stylesheet
