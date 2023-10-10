@@ -1,6 +1,6 @@
 // Import React
 import React from "react";
-import { Platform, StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 
 // Import Components
 import UserProfileHome from "../components/screen/UserProfileHome.js";
@@ -11,10 +11,12 @@ import { styleMaster } from "../constants/stylesMaster.js";
 
 function HomeScreen(props) {
   return (
-    <View style={[styles.container, styleMaster.parent]}>
-      <Text>This is the home screen</Text>
+    <SafeAreaView style={[styles.container, styleMaster.parent]}>
+        <View style={[styleMaster.subParent]}>
+            <Text>This is the home screen</Text>
+        </View>
       <Navigation />
-    </View>
+    </SafeAreaView>
   );
 }
 

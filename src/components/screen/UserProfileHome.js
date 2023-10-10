@@ -13,6 +13,6 @@ export default UserProfileHome;
 
 const styles = StyleSheet.create({
     container: {
-        
+        flex: 1,
     }
 })

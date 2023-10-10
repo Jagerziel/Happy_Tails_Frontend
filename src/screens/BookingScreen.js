@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import Navigation from "../components/shared/Navigation";
 
 // Import Constants
@@ -7,10 +7,12 @@ import { styleMaster } from "../constants/stylesMaster.js";
 
 function BookingScreen(props) {
   return (
-    <View style={[styles.container, styleMaster.parent]}>
-      <Text>This is the Booking Screen</Text>
+    <SafeAreaView style={[styles.container, styleMaster.parent]}>
+      <View style={[styleMaster.subParent]}>
+        <Text>This is the Booking Screen</Text>
+      </View>
       <Navigation />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -20,7 +22,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#eee",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
 });

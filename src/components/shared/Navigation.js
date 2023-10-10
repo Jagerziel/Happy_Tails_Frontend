@@ -7,6 +7,7 @@ import { AntDesign, Entypo, Feather, MaterialIcons } from "@expo/vector-icons"; 
 
 // Colors
 import { colors } from "../../constants/colorPalette.js";
+import { styleMaster } from "../../constants/stylesMaster.js";
 
 function Navigation() {
   const navigation = useNavigation();
@@ -91,9 +92,9 @@ export default Navigation;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     height: 70,
-    width: "100%",
+    width: '100%' + styleMaster.parent.padding * 2, 
     backgroundColor: colors.white,
     alignItems: "center",
     justifyContent: "center",
