@@ -7,6 +7,6 @@ export const styleMaster = StyleSheet.create({
     },
     subParent: {
         padding: 13,
-        fontFamily: 'Raleway'
+        // fontFamily: 'Raleway'
     },
 })
