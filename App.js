@@ -11,7 +11,7 @@ import {
 import AboutUsScreen from './src/screens/AboutUsScreen.js';
 import ChatScreen from './src/screens/ChatScreen.js';
 import HomeScreen from './src/screens/HomeScreen.js'
-import LearningScreen from './src/screens/LearningScreen.js';
+import MyPetsScreen from './src/screens/MyPetsScreen.js';
 import LoginScreen from './src/screens/LoginScreen.js'
 import UpdatePetScreen from './src/screens/UpdatePetScreen.js'
 import UserProfileScreen from './src/screens/UserProfileScreen.js'
@@ -32,7 +32,7 @@ export default function App() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="HomeScreen" component={HomeScreen}/>
-        <Stack.Screen name="LearningScreen" component={LearningScreen}/>
+        <Stack.Screen name="MyPetsScreen" component={MyPetsScreen}/>
         <Stack.Screen name="ChatScreen" component={ChatScreen}/>
         <Stack.Screen name="AboutUsScreen" component={AboutUsScreen}/>
         <Stack.Screen name="SettingsScreen" component={SettingsScreen}/>

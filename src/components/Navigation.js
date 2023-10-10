@@ -3,7 +3,7 @@ import { View , Text , StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 // Icons
-import { AntDesign, Entypo, Feather, Ionicons } from '@expo/vector-icons' //Home
+import { AntDesign, Entypo, Feather, Ionicons, MaterialIcons } from '@expo/vector-icons' //Home
 
 // Colors
 import { colors } from '../constants/colorPalette.js';
@@ -29,9 +29,9 @@ function Navigation(  ) {
             </TouchableOpacity>
             <TouchableOpacity 
                 style={styles.button}
-                onPress={() => navigation.navigate('LearningScreen')}
+                onPress={() => navigation.navigate('MyPetsScreen')}
             >
-                <Ionicons name="school-outline" size={26} color={iconColor('LearningScreen')} />
+                <MaterialIcons name="pets" size={24} color={iconColor('MyPetsScreen')} />
             </TouchableOpacity>
             <TouchableOpacity 
                 style={styles.button}
@@ -66,8 +66,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flexDirection: 'row',
         width: '100%',
-        justifyContent: 'space-evenly'
-
+        justifyContent: 'space-evenly',
     },
     button: {
         

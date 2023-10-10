@@ -2,16 +2,16 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Navigation from '../components/Navigation';
 
-function LearningScreen(props) {
+function MyPetsScreen(props) {
     return (
         <View style={styles.container}>
-            <Text>This is the Learning Screen</Text>
+            <Text>This is the My Pets Screen</Text>
             <Navigation />
         </View>
     );
 }
 
-export default LearningScreen;
+export default MyPetsScreen;
 
 const styles = StyleSheet.create({
     container: {
