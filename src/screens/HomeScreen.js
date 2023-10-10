@@ -13,7 +13,7 @@ function HomeScreen(props) {
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
         <View style={[styleMaster.subParent]}>
-            <Text>This is the home screen</Text>
+            <UserProfileHome />
         </View>
       <Navigation />
     </SafeAreaView>
