@@ -4,6 +4,7 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 
 // Import Components
 import UserProfileHome from "../components/screen/UserProfileHome.js";
+import PromotionsHome from "../components/screen/PromotionsHome.js";
 import Navigation from "../components/shared/Navigation";
 
 // Import Constants
@@ -14,6 +15,7 @@ function HomeScreen(props) {
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
         <View style={[styleMaster.subParent]}>
             <UserProfileHome />
+            <PromotionsHome />
         </View>
       <Navigation />
     </SafeAreaView>

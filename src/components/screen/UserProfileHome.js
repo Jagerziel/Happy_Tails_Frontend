@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
+import { colors } from '../../constants/colorPalette.js';
 
 function UserProfileHome(props) {
     return (
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontSize: 28,
+        color: colors.darkBlue,
     },
     profileImg: {
         height: 100,
