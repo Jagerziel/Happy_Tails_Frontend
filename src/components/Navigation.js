@@ -3,7 +3,7 @@ import { View , Text , StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 // Icons
-import { AntDesign, Entypo, Feather, Ionicons, MaterialIcons } from '@expo/vector-icons' //Home
+import { AntDesign, Entypo, Feather, MaterialIcons } from '@expo/vector-icons' //Home
 
 // Colors
 import { colors } from '../constants/colorPalette.js';
@@ -35,9 +35,9 @@ function Navigation(  ) {
             </TouchableOpacity>
             <TouchableOpacity 
                 style={styles.button}
-                onPress={() => navigation.navigate('ChatScreen')}
+                onPress={() => navigation.navigate('BookingScreen')}
             >
-                <Ionicons name="chatbox-outline" size={22} color={iconColor('ChatScreen')} />
+                <AntDesign name="calendar" size={26} color={iconColor('BookingScreen')} />
             </TouchableOpacity>
             <TouchableOpacity 
                 style={styles.button}

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 // Screens
 import AboutUsScreen from './src/screens/AboutUsScreen.js';
-import ChatScreen from './src/screens/ChatScreen.js';
+import BookingScreen from './src/screens/BookingScreen.js';
 import HomeScreen from './src/screens/HomeScreen.js'
 import MyPetsScreen from './src/screens/MyPetsScreen.js';
 import LoginScreen from './src/screens/LoginScreen.js'
@@ -33,7 +33,7 @@ export default function App() {
       >
         <Stack.Screen name="HomeScreen" component={HomeScreen}/>
         <Stack.Screen name="MyPetsScreen" component={MyPetsScreen}/>
-        <Stack.Screen name="ChatScreen" component={ChatScreen}/>
+        <Stack.Screen name="BookingScreen" component={BookingScreen}/>
         <Stack.Screen name="AboutUsScreen" component={AboutUsScreen}/>
         <Stack.Screen name="SettingsScreen" component={SettingsScreen}/>
         <Stack.Screen name="LoginScreen" component={LoginScreen}/>

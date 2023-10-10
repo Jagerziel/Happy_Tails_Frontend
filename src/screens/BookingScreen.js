@@ -2,16 +2,16 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Navigation from '../components/Navigation';
 
-function ChatScreen(props) {
+function BookingScreen(props) {
     return (
         <View style={styles.container}>
-            <Text>This is the Chat Screen</Text>
+            <Text>This is the Booking Screen</Text>
             <Navigation />
         </View>
     );
 }
 
-export default ChatScreen;
+export default BookingScreen;
 
 const styles = StyleSheet.create({
     container: {

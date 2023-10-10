@@ -1,5 +1,7 @@
-Reference Link for Folder Structure: https://techjugaar.com/best-react-native-folder-structure-expo-2023/
+##### REFERENCE LINKS #####
 
-Reference Link for React Native Navigation: https://reactnavigation.org/docs/getting-started
+Folder Structure: https://techjugaar.com/best-react-native-folder-structure-expo-2023/
 
-Reference Link for React Native Expo Icons: https://icons.expo.fyi/Index
+React Native Navigation: https://reactnavigation.org/docs/getting-started
+
+React Native Expo Icons: https://icons.expo.fyi/Index
