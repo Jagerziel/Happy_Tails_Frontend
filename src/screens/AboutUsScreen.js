@@ -2,9 +2,12 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Navigation from "../components/shared/Navigation";
 
+// Import Constants
+import { styleMaster } from "../constants/stylesMaster.js";
+
 function AboutUsScreen(props) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, styleMaster.parent]}>
       <Text>This is the About Us Screen</Text>
       <Navigation />
     </View>
@@ -17,7 +20,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#eee",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 });
