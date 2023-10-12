@@ -1,15 +1,15 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors } from '../../constants/colorPalette.js';
 
 function PromotionsHome(props) {
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
-                <Text style={styles.title}>Testing</Text>
-                <TouchableOpacity onPress={() => console.log('view all pressed (PromotionsHome.js)')}>
+                <Text style={styles.title}>Monthly Specials</Text>
+                {/* <TouchableOpacity onPress={() => console.log('view all pressed (PromotionsHome.js)')}>
                     <Text style={styles.viewAll}>View All</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
             <View style={styles.contentContainer}>
                 <Text style={styles.content}>20% off all spay and neuter services during the months of July </Text>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     headingContainer: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'baseline',
         justifyContent: 'space-between'
     },
     title: {
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     },
     viewAll: {
         color: colors.secondary,
+        fontSize: 17,
     },
     contentContainer: {
         backgroundColor: "white",
