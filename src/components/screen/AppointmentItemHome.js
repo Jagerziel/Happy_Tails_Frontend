@@ -1,34 +1,34 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
-// Import colors and SVGs
+// Import constants and SVGs
 import { colors } from '../../constants/colorPalette.js';
+import { styleMaster } from '../../constants/stylesMaster.js';
 import Calendar from '../../assets/calendar.svg'
 import Clock from '../../assets/clock.svg'
 import GreenDot from '../../assets/green_dot.svg'
 
 function AppointmentItemHome( { data } ) {
-
     return (
         <View style={styles.container}>
             <View style={styles.dateTimeContainer}>
                 <View style={styles.dateTimeSubContainer}>
                     <Calendar height={27} width={29}/>
-                    <Text style={styles.dateTimeText}>{data.item.date}</Text>
+                    <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.date}</Text>
                 </View>
                 <View style={styles.dateTimeSubContainer}>
                     <Clock height={24} width={24}/>
-                    <Text style={styles.dateTimeText}>{data.item.time}</Text>
+                    <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.time}</Text>
                 </View>
             </View>
-            <Text style={styles.dateTimeText}>{data.item.type}</Text>
+            <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.type}</Text>
             <View style={styles.bottomContainer}>
-                <Text style={styles.dateTimeText}>{`Who: ${data.item.pet_id}`}</Text>
+                <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{`Who: ${data.item.pet_id}`}</Text>
                 <View style={styles.bottomSubContainer}>
                     <View style={{paddingTop: 2}}>
                         <GreenDot height={8} width={8}/>
                     </View>
-                    <Text style={[styles.dateTimeText, {fontSize: 14, paddingLeft: 8}]}>{data.item.status}</Text>
+                    <Text style={[styleMaster.defaultFont, styles.dateTimeText, {fontSize: 14, paddingLeft: 8}]}>{data.item.status}</Text>
                 </View>
             </View>
         </View>
@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     dateTimeText: {
-        color: colors.darkBlue,
-        fontSize: 16,
+        // All code previously here is now contained in StyleMaster
+        // Retained object item in case further customization is needed
     },
     bottomContainer: {
         display: 'flex',

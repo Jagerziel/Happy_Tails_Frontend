@@ -5,9 +5,9 @@ import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native
 // Import Components
 import AppointmentItemHome from './AppointmentItemHome.js';
 
-// Import Palette
+// Import Constants
 import { colors } from '../../constants/colorPalette.js';
-
+import { styleMaster } from '../../constants/stylesMaster.js';
 import { appointmentData } from '../../data/testingData/testingData.js';
 
 function AppointmentsHome(props) {
@@ -16,9 +16,9 @@ function AppointmentsHome(props) {
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
-                <Text style={styles.title}>Appointments</Text>
+                <Text style={[styleMaster.defaultFont, styles.title]}>Appointments</Text>
                 <TouchableOpacity onPress={() => console.log('view all pressed (AppointmentsHome.js)')}>
-                    <Text style={styles.viewAll}>View All</Text>
+                    <Text style={[styleMaster.defaultFont, styles.viewAll]}>View All</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.contentContainer}>
@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 21,
-        color: colors.darkBlue,
         fontWeight: "bold",
         paddingBottom: 14,
     },
