@@ -6,10 +6,12 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import UserProfileHome from "../components/screen/UserProfileHome.js";
 import PromotionsHome from "../components/screen/PromotionsHome.js";
 import AppointmentsHome from "../components/screen/AppointmentsHome.js";
+import VaccinationsHome from "../components/screen/VaccinationsHome.js";
 import Navigation from "../components/shared/Navigation";
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
+import { colors } from "../constants/colorPalette.js";
 
 // Other Hooks
 
@@ -21,6 +23,7 @@ function HomeScreen(props) {
             <UserProfileHome />
             <PromotionsHome />
             <AppointmentsHome />
+            <VaccinationsHome />
         </View>
       <Navigation />
     </SafeAreaView>
@@ -32,6 +35,6 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eee",
+    backgroundColor: colors.grayscale06,
   },
 });

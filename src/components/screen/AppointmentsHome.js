@@ -23,7 +23,6 @@ function AppointmentsHome(props) {
             </View>
             <View style={styles.contentContainer}>
                 <FlatList 
-                    style={styles.contentFlatList} // Style
                     keyExtractor={(appointment) => appointment.uid} // Key
                     ItemSeparatorComponent={itemSeparator} // Gap between items
                     data={appointmentData} // Data
@@ -67,7 +66,4 @@ const styles = StyleSheet.create({
         // borderWidth: 2,
         overflow: 'hidden',
     }, 
-    contentFlatList: {
-
-    }
 })

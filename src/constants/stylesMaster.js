@@ -6,6 +6,7 @@ export const styleMaster = StyleSheet.create({
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight + 20: 20,
     },
     subParent: {
+        flex: 1,
         padding: 13,
     },
     viewAllLink: {
