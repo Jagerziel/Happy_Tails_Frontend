@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { Text, View, StyleSheet } from 'react-native';
 import AppLoading from 'expo-app-loading';
+
+
 import {
   useFonts,
   Raleway_100Thin,
@@ -24,7 +26,7 @@ import {
   Raleway_900Black_Italic,
 } from '@expo-google-fonts/raleway';
 
-export default () => {
+export const fontLoaded = () => {
   let [fontsLoaded] = useFonts({
     Raleway_100Thin,
     Raleway_200ExtraLight,
@@ -46,4 +48,12 @@ export default () => {
     Raleway_900Black_Italic,
   })
 }
+
+  // const [fontsLoaded] = useFonts({
+    //   "Raleway Regular": require('./src/assets/fonts/Raleway\ Regular.ttf')
+    // })
+    
+    // if (!fontsLoaded) {
+      //   return undefined
+  // }
 

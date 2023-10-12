@@ -1,5 +1,5 @@
 import { Platform, StatusBar, StyleSheet } from "react-native"
-
+import { colors } from "./colorPalette"
 
 export const styleMaster = StyleSheet.create({
     parent: {
@@ -7,6 +7,8 @@ export const styleMaster = StyleSheet.create({
     },
     subParent: {
         padding: 13,
-        // fontFamily: 'Raleway'
     },
+    viewAllLink: {
+        color: colors.secondary,
+    }
 })

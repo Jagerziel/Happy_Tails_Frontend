@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../constants/colorPalette.js';
 
+
 function UserProfileHome(props) {
     return (
         <View style={styles.container}>
@@ -20,11 +21,12 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     heading: {
-        fontSize: 28,
+        fontSize: 32,
         color: colors.darkBlue,
+        fontWeight: "bold",
     },
     profileImg: {
         height: 100,

@@ -1,8 +1,10 @@
 // React Native
 import { 
   StyleSheet, 
+  Text,
   View, 
 } from 'react-native';
+import React, { useState } from 'react';
 // Screens
 import AboutUsScreen from './src/screens/AboutUsScreen.js';
 import BookingScreen from './src/screens/BookingScreen.js';
@@ -18,9 +20,11 @@ import VaccinationScreen from './src/screens/VaccinationScreen.js'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+// Fonts
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
 
   return (
     <View style={styles.container}>
@@ -47,6 +51,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // fontStyle: 'Raleway_400Regular'
   },
 });
