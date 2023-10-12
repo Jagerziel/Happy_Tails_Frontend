@@ -1,19 +1,36 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
+// Import colors and SVGs
 import { colors } from '../../constants/colorPalette.js';
-
+import Calendar from '../../assets/calendar.svg'
 import Clock from '../../assets/clock.svg'
+import GreenDot from '../../assets/green_dot.svg'
 
 function AppointmentItemHome( { data } ) {
 
     return (
         <View style={styles.container}>
             <View style={styles.dateTimeContainer}>
-                {/* <Image source={require('../../assets/clock.svg')} style={styles.svg}/> */}
-                <Clock />
+                <View style={styles.dateTimeSubContainer}>
+                    <Calendar height={27} width={29}/>
+                    <Text style={styles.dateTimeText}>{data.item.date}</Text>
+                </View>
+                <View style={styles.dateTimeSubContainer}>
+                    <Clock height={24} width={24}/>
+                    <Text style={styles.dateTimeText}>{data.item.time}</Text>
+                </View>
             </View>
-            <Text>{data.item.type}</Text>
+            <Text style={styles.dateTimeText}>{data.item.type}</Text>
+            <View style={styles.bottomContainer}>
+                <Text style={styles.dateTimeText}>{`Who: ${data.item.pet_id}`}</Text>
+                <View style={styles.bottomSubContainer}>
+                    <View style={{paddingTop: 2}}>
+                        <GreenDot height={8} width={8}/>
+                    </View>
+                    <Text style={[styles.dateTimeText, {fontSize: 14, paddingLeft: 8}]}>{data.item.status}</Text>
+                </View>
+            </View>
         </View>
     );
 }
@@ -32,15 +49,30 @@ const styles = StyleSheet.create({
         paddingLeft: 18,
         paddingRight: 18,
         paddingBottom: 15,
+        justifyContent: 'space-between'
     },
     dateTimeContainer: {
-
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
-    dateTime: {
-        
+    dateTimeSubContainer: {
+        display: 'flex',
+        flexDirection: 'row'
     },
-    svg: {
-        height: 10,
-        width: 10,
+    dateTimeText: {
+        color: colors.darkBlue,
+        fontSize: 16,
+    },
+    bottomContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    bottomSubContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 })
