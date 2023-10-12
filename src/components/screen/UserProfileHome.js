@@ -1,12 +1,16 @@
+// Import React
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
+
+// Import Constants
 import { colors } from '../../constants/colorPalette.js';
+import { styleMaster } from '../../constants/stylesMaster.js';
 
 
 function UserProfileHome(props) {
     return (
         <View style={styles.container}>
-            <Text style={styles.heading}>Hi, [Username]</Text>
+            <Text style={[styleMaster.defaultFont, styles.heading]}>Hi, [Username]</Text>
             <Image source={require('../../assets/temp_profile_pic.jpg')} style={styles.profileImg}/>
         </View>
     );
@@ -25,7 +29,6 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontSize: 32,
-        color: colors.darkBlue,
         fontWeight: "bold",
     },
     profileImg: {

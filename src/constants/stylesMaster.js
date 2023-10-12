@@ -11,5 +11,10 @@ export const styleMaster = StyleSheet.create({
     },
     viewAllLink: {
         color: colors.secondary,
+    },
+    defaultFont: {
+        fontSize: 16,
+        fontFamily: 'RalewayRegular',
+        color: colors.darkBlue,
     }
 })

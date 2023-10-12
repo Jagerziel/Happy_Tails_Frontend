@@ -1,19 +1,20 @@
+// Import React
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+// Import Constants
 import { colors } from '../../constants/colorPalette.js';
+import { styleMaster } from '../../constants/stylesMaster.js';
 
 function PromotionsHome(props) {
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
-                <Text style={styles.title}>Monthly Specials</Text>
-                {/* <TouchableOpacity onPress={() => console.log('view all pressed (PromotionsHome.js)')}>
-                    <Text style={styles.viewAll}>View All</Text>
-                </TouchableOpacity> */}
+                <Text style={[styleMaster.defaultFont, styles.title]}>Monthly Specials</Text>
             </View>
             <View style={styles.contentContainer}>
-                <Text style={styles.content}>20% off all spay and neuter services during the months of July </Text>
-                <TouchableOpacity style={styles.button} onPress={() => console.log('book now pressed (PromotionsHome.js)')}>
+                <Text style={[styleMaster.defaultFont, styles.content]}>20% off all spay and neuter services during the months of July </Text>
+                <TouchableOpacity style={[styleMaster.defaultFont, styles.button]} onPress={() => console.log('book now pressed (PromotionsHome.js)')}>
                     <Text style={styles.buttonText}>Book Now</Text>
                 </TouchableOpacity>
             </View>
@@ -38,7 +39,6 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 21,
-        color: colors.darkBlue,
         fontWeight: "bold",
         paddingBottom: 14,
     },

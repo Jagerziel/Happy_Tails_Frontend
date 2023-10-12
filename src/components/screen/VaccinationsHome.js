@@ -10,7 +10,6 @@ import HourGlass from '../../assets/hourglass.bottomhalf.fill.svg'
 import { vaccinationData } from '../../data/testingData/testingData.js';
 
 function VaccinationsHome(props) {
-    console.log(vaccinationData)
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
     contentLeft: {
         // borderColor: "red",
         // borderWidth: 2,
-        flexGrow: 2,
+        flexGrow: 8,
         marginTop: 24,
         marginBottom: 24,
         marginLeft: 16,

@@ -4,7 +4,7 @@ import {
   Text,
   View, 
 } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 // Screens
 import AboutUsScreen from './src/screens/AboutUsScreen.js';
 import BookingScreen from './src/screens/BookingScreen.js';
@@ -21,13 +21,37 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Fonts
+import { useFonts } from 'expo-font';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    'RalewayBlack': require('./src/assets/fonts/Raleway-Black.ttf'),
+    'RalewayBlackItalic': require('./src/assets/fonts/Raleway-BlackItalic.ttf'),
+    'RalewayBold': require('./src/assets/fonts/Raleway-Bold.ttf'),
+    'RalewayExtraBold': require('./src/assets/fonts/Raleway-ExtraBold.ttf'),
+    'RalewayExtraBoldItalic': require('./src/assets/fonts/Raleway-Regular.ttf'),
+    'RalewayExtraLight': require('./src/assets/fonts/Raleway-ExtraLight.ttf'),
+    'RalewayExtraLightItalic': require('./src/assets/fonts/Raleway-ExtraLightItalic.ttf'),
+    'RalewayItalic': require('./src/assets/fonts/Raleway-Italic.ttf'),
+    'RalewayLight': require('./src/assets/fonts/Raleway-Light.ttf'),
+    'RalewayLightItalic': require('./src/assets/fonts/Raleway-LightItalic.ttf'),
+    'RalewayMedium': require('./src/assets/fonts/Raleway-Medium.ttf'),
+    'RalewayMediumItalic': require('./src/assets/fonts/Raleway-MediumItalic.ttf'),
+    'RalewayRegular': require('./src/assets/fonts/Raleway-Regular.ttf'),
+    'RalewaySemiBold': require('./src/assets/fonts/Raleway-SemiBold.ttf'),
+    'RalewaySemiBoldItalic': require('./src/assets/fonts/Raleway-SemiBoldItalic.ttf'),
+    'RalewayThin': require('./src/assets/fonts/Raleway-Thin.ttf'),
+    'RalewayThinItalic': require('./src/assets/fonts/Raleway-ThinItalic.ttf'),
+  });
 
+  if (!fontsLoaded) {
+    return null
+  }
 
   return (
     <View style={styles.container}>
+      {/* <Text style={{fontFamily: 'RalewayItalic', paddingTop: 30, fontSize: 30}}>Hello</Text> */}
       <NavigationContainer>
         <Stack.Navigator 
           initialRouteName='HomeScreen'
