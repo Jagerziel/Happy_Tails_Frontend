@@ -4,6 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 // Import Constants
 import { colors } from '../../constants/colorPalette.js';
+import { styleMaster } from '../../constants/stylesMaster.js';
 import HourGlass from '../../assets/hourglass.bottomhalf.fill.svg'
 
 // Import Data
@@ -13,14 +14,14 @@ function VaccinationsHome(props) {
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
-                <Text style={styles.title}>Vaccinations</Text>
+                <Text style={[styleMaster.defaultFont, styles.title]}>Vaccinations</Text>
                 <TouchableOpacity onPress={() => console.log('view all pressed (VaccinationsHome.js)')}>
-                    <Text style={styles.viewAll}>View All</Text>
+                    <Text style={[styleMaster.defaultFont, styles.viewAll]}>View All</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.contentContainer}>
                 <View style={styles.contentLeft}>
-                    <Text style={styles.fontStyle}>
+                    <Text style={[styleMaster.defaultFont, styles.fontStyle]}>
                         {vaccinationData[0].vaccine}
                     </Text>
                 </View>
@@ -28,8 +29,8 @@ function VaccinationsHome(props) {
                     <HourGlass />
                 </View>
                 <View style={styles.contentRight}>
-                    <Text style={styles.fontStyle}>Due Date</Text>
-                    <Text style={[styles.fontStyle, {color: 'red'}]}>{vaccinationData[0].expiration_date}</Text>
+                    <Text style={[styleMaster.defaultFont, styles.fontStyle]}>Due Date</Text>
+                    <Text style={[styleMaster.defaultFont, styles.fontStyle, {color: 'red'}]}>{vaccinationData[0].expiration_date}</Text>
                 </View>
             </View>
         </View>
@@ -53,7 +54,6 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 21,
-        color: colors.darkBlue,
         fontWeight: "bold",
         paddingBottom: 14,
     },
@@ -96,8 +96,8 @@ const styles = StyleSheet.create({
         marginRight: 16,
     },
     fontStyle: {
-        fontSize: 16,
-        color: colors.darkBlue,
+        // Code previously here is now contained in StyleMaster
+        // Retained object item in the event further custom styling is needed
     }
 
 })
