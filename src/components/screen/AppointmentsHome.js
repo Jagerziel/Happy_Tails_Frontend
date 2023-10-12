@@ -11,9 +11,7 @@ import { colors } from '../../constants/colorPalette.js';
 import { appointmentData } from '../../data/testingData/testingData.js';
 
 function AppointmentsHome(props) {
-    const itemSeparator = () => {
-        return <View style={{ height: 10, marginHorizontal:10 }} />;
-    };
+    const itemSeparator = () => <View style={{ marginHorizontal: 5 }} />; // Gap for Flatlist
 
     return (
         <View style={styles.container}>
@@ -25,14 +23,14 @@ function AppointmentsHome(props) {
             </View>
             <View style={styles.contentContainer}>
                 <FlatList 
-                    style={styles.contentFlatList}
-                    keyExtractor={(appointment) => appointment.uid}
-                    ItemSeparatorComponent={itemSeparator}
-                    data={appointmentData}
-                    renderItem={(data) => <AppointmentItemHome data={data}/>}
-                    showsHorizontalScrollIndicator = { false }
-                    scrollEnabled={ true }
-                    horizontal
+                    style={styles.contentFlatList} // Style
+                    keyExtractor={(appointment) => appointment.uid} // Key
+                    ItemSeparatorComponent={itemSeparator} // Gap between items
+                    data={appointmentData} // Data
+                    renderItem={(data) => <AppointmentItemHome data={data}/>} // Component to be rendered
+                    showsHorizontalScrollIndicator = { false } // Removes Scrollbar
+                    scrollEnabled={ true } // Enables Scrolling
+                    horizontal // Key to making flatlist scrollable
                 />
             </View>
         </View>
