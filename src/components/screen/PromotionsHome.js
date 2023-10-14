@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         // borderColor: "red",
         // borderWidth: 2,
         width: '100%',
-        marginTop: 20,
+        // aspectRatio: 1.81/1,
     }, 
     headingContainer: {
         display: 'flex',
@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         backgroundColor: "white",
-        height: 150,
         width: '100%',
+        aspectRatio: 2.29/1,
+
         borderRadius: 7,
         display: 'flex',
         flexDirection: 'column',
@@ -65,8 +66,8 @@ const styles = StyleSheet.create({
         fontSize: 18,
     },
     button: {
-        width: 130,
-        height: 40,
+        width: '38%',
+        aspectRatio: 3.25/1,
         backgroundColor: colors.primary,
         justifyContent: 'center',
         alignItems: 'center',
