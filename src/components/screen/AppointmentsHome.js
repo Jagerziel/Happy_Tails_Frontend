@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
         // borderColor: "red",
         // borderWidth: 2,
         width: '100%',
+        aspectRatio: 2/1,
         marginTop: 20,
     }, 
     headingContainer: {

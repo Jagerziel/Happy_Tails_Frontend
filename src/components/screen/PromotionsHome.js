@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         width: '100%',
         aspectRatio: 2.29/1,
-
         borderRadius: 7,
         display: 'flex',
         flexDirection: 'column',
