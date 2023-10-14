@@ -12,7 +12,7 @@ import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScali
 import { appointmentData } from '../../data/testingData/testingData.js';
 
 function AppointmentsHome(props) {
-    const itemSeparator = () => <View style={{ marginHorizontal: 5 }} />; // Gap for Flatlist
+    const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(5) }} />; // Gap for Flatlist
 
     return (
         <View style={styles.container}>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
         // borderWidth: 2,
         width: '100%',
         aspectRatio: 2/1,
-        marginTop: 20,
+        marginTop: scale_mod(20),
     }, 
     headingContainer: {
         display: 'flex',
@@ -54,13 +54,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     title: {
-        fontSize: 21,
+        fontSize: scale_V(21),
         fontWeight: "bold",
-        paddingBottom: 14,
+        paddingBottom: scale_mod(14),
     },
     viewAll: {
         color: colors.secondary,
-        fontSize: 17,
+        fontSize: scale_V(17),
     },
     contentContainer: {
         // borderColor: "red",

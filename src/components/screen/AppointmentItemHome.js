@@ -14,11 +14,11 @@ function AppointmentItemHome( { data } ) {
         <View style={styles.container}>
             <View style={styles.dateTimeContainer}>
                 <View style={styles.dateTimeSubContainer}>
-                    <Calendar height={27} width={29}/>
+                    <Calendar height={scale_mod(27)} width={scale_mod(29)}/>
                     <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.date}</Text>
                 </View>
                 <View style={styles.dateTimeSubContainer}>
-                    <Clock height={24} width={24}/>
+                    <Clock height={scale_mod(24)} width={scale_mod(24)}/>
                     <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.time}</Text>
                 </View>
             </View>
@@ -26,10 +26,10 @@ function AppointmentItemHome( { data } ) {
             <View style={styles.bottomContainer}>
                 <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{`Who: ${data.item.pet_id}`}</Text>
                 <View style={styles.bottomSubContainer}>
-                    <View style={{paddingTop: 2}}>
-                        <GreenDot height={8} width={8}/>
+                    <View style={{paddingTop: scale_mod(2)}}>
+                        <GreenDot height={scale_mod(8)} width={scale_mod(8)}/>
                     </View>
-                    <Text style={[styleMaster.defaultFont, styles.dateTimeText, {fontSize: 14, paddingLeft: 8}]}>{data.item.status}</Text>
+                    <Text style={[styleMaster.defaultFont, styles.dateTimeText, {fontSize: scale_V(14), paddingLeft: scale_mod(8)}]}>{data.item.status}</Text>
                 </View>
             </View>
         </View>
@@ -42,14 +42,14 @@ const styles = StyleSheet.create({
     container: {
         // borderColor: "green",
         // borderWidth: 2,
-        width: 280,
-        height: 124,
+        width: scale_mod(280),
+        height: scale_mod(124),
         borderRadius: 7,
         backgroundColor: colors.white,
-        paddingTop: 15,
-        paddingLeft: 18,
-        paddingRight: 18,
-        paddingBottom: 15,
+        paddingTop: scale_mod(15),
+        paddingLeft: scale_mod(18),
+        paddingRight: scale_mod(18),
+        paddingBottom: scale_mod(15),
         justifyContent: 'space-between'
     },
     dateTimeContainer: {
