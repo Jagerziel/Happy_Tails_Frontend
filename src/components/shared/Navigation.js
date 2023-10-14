@@ -5,9 +5,10 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 // Icons
 import { AntDesign, Entypo, Feather, MaterialIcons } from "@expo/vector-icons"; //Home
 
-// Colors
+// Constants
 import { colors } from "../../constants/colorPalette.js";
 import { styleMaster } from "../../constants/stylesMaster.js";
+import { scale_H, scale_V, scale_mod } from "../../data/functions/normalizeScaling.js";
 
 function Navigation() {
   const navigation = useNavigation();
@@ -25,7 +26,7 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("HomeScreen")}
       >
-        <AntDesign name="home" size={24} color={iconColor("HomeScreen")} />
+        <AntDesign name="home" size={scale_mod(24)} color={iconColor("HomeScreen")} />
         <Text style={[styles.buttonText, { color: iconColor("HomeScreen") }]}>
           Home
         </Text>
@@ -36,7 +37,7 @@ function Navigation() {
       >
         <MaterialIcons
           name="pets"
-          size={24}
+          size={scale_mod(24)}
           color={iconColor("MyPetsScreen")}
         />
         <Text style={[styles.buttonText, { color: iconColor("MyPetsScreen") }]}>
@@ -49,7 +50,7 @@ function Navigation() {
       >
         <AntDesign
           name="calendar"
-          size={26}
+          size={scale_mod(26)}
           color={iconColor("BookingScreen")}
         />
         <Text
@@ -62,7 +63,7 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("AboutUsScreen")}
       >
-        <Entypo name="star" size={27} color={iconColor("AboutUsScreen")} />
+        <Entypo name="star" size={scale_mod(27)} color={iconColor("AboutUsScreen")} />
         <Text
           style={[styles.buttonText, { color: iconColor("AboutUsScreen") }]}
         >
@@ -75,7 +76,7 @@ function Navigation() {
       >
         <Feather
           name="settings"
-          size={24}
+          size={scale_mod(24)}
           color={iconColor("SettingsScreen")}
         />
         <Text
@@ -92,9 +93,8 @@ export default Navigation;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    height: 70,
     width: '100%' + styleMaster.parent.padding * 2, 
+    aspectRatio: 5.36/1,
     backgroundColor: colors.white,
     alignItems: "center",
     justifyContent: "center",
@@ -102,13 +102,13 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "space-evenly",
     position: "absolute", // Align navBar on bottom of screen
-    bottom: 0, // Align navBar on bottom of screen
+    bottom: scale_mod(0), // Align navBar on bottom of screen
   },
   button: {
     display: "flex",
     alignItems: "center",
   },
   buttonText: {
-    fontSize: 12,
+    fontSize: scale_V(12),
   },
 });
