@@ -109,6 +109,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonText: {
-    fontSize: scale_V(12),
+    fontSize: scale_V(10),
   },
 });

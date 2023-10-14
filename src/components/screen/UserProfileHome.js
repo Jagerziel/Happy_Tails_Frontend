@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontSize: scale_V(32),
-        fontWeight: "bold",
+        fontWeight: 700,
     },
     profileImg: {
         height: scale_mod(72),
