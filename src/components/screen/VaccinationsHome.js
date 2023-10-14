@@ -6,6 +6,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 import HourGlass from '../../assets/hourglass.bottomhalf.fill.svg'
+import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 
 // Import Data
 import { vaccinationData } from '../../data/testingData/testingData.js';

@@ -5,6 +5,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 // Import Constants
 import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
+import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 
 function PromotionsHome(props) {
     return (
@@ -38,13 +39,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     title: {
-        fontSize: 21,
+        fontSize: scale_V(21),
         fontWeight: "bold",
-        paddingBottom: 14,
+        paddingBottom: scale_mod(14),
     },
     viewAll: {
         color: colors.secondary,
-        fontSize: 17,
+        fontSize: scale_V(17),
     },
     contentContainer: {
         backgroundColor: "white",
@@ -54,15 +55,15 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        paddingTop: 24,
-        paddingLeft: 16,
-        paddingRight: 16,
-        paddingBottom: 24,
+        paddingTop: scale_mod(24),
+        paddingLeft: scale_mod(16),
+        paddingRight: scale_mod(16),
+        paddingBottom: scale_mod(24),
         justifyContent: 'space-between'
 
     },
     content: {
-        fontSize: 18,
+        fontSize: scale_V(18),
     },
     button: {
         width: '38%',
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
         borderRadius: 7,
     },
     buttonText: {
-        fontSize: 16,
+        fontSize: scale_V(16),
         color: colors.white
     }
 })

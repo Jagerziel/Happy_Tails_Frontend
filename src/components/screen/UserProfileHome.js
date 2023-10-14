@@ -5,7 +5,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 // Import Constants
 import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
-
+import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 
 function UserProfileHome(props) {
     return (
@@ -28,13 +28,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     heading: {
-        fontSize: 32,
+        fontSize: scale_V(32),
         fontWeight: "bold",
     },
     profileImg: {
-        height: 72,
-        width: 72,
+        height: scale_mod(72),
+        width: scale_mod(72),
         resizeMode: 'cover',
-        borderRadius: 7,
+        borderRadius: scale_mod(7),
     }
 })

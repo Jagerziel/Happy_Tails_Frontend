@@ -8,6 +8,7 @@ import AppointmentItemHome from './AppointmentItemHome.js';
 // Import Constants
 import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
+import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 import { appointmentData } from '../../data/testingData/testingData.js';
 
 function AppointmentsHome(props) {
