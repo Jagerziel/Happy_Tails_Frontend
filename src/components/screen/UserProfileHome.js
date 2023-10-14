@@ -21,7 +21,8 @@ export default UserProfileHome;
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        height: 100,
+        // height: 100,
+        aspectRatio: 2.29/1,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -32,8 +33,8 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     profileImg: {
-        height: 100,
-        width: 100,
+        height: 72,
+        width: 72,
         resizeMode: 'cover',
         borderRadius: 7,
     }
