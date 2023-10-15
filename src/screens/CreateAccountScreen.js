@@ -16,6 +16,9 @@ function CreateAccountScreen(props) {
     const route = useRoute()
 
     function handlePress ( target ) {
+        if (target === 'Create with Email') {
+            navigation.navigate("CreateAccountEmailScreen")
+        }
         console.log(`${target} button pressed`)
     }
 

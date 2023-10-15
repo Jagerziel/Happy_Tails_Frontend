@@ -20,34 +20,19 @@ function CreateAccountEmailScreen(props) {
     }
 
     function handleSkip () {
-        navigation.navigate("LoginScreen")
+        navigation.navigate("CreateAccountScreen")
     }
 
     return (
         <View style={[styleMaster.parent, styles.container]}>
             <View style={styles.subContainer}>
                 <View style={styles.headingContainer}>
-                    <Text style={styles.heading}>Happy Tails</Text>
+                    <Text style={styles.heading}>Create an account</Text>
                 </View>
                 <View style={styles.buttonContainer}>
                     <LoginScreenButton 
-                        text={'Create with Google'} 
-                        handlePress={() => handlePress('Create with Google')}
-                    />
-                    <View style={styles.padding}></View>
-                    <LoginScreenButton 
-                        text={'Create with Facebook'} 
-                        handlePress={() => handlePress('Create with Facebook')}
-                    />
-                    <View style={styles.padding}></View>
-                    <LoginScreenButton 
-                        text={'Create with Apple'} 
-                        handlePress={() => handlePress('Create with Apple')}
-                    />
-                    <View style={styles.padding}></View>
-                    <LoginScreenButton 
-                        text={'Create with Email'} 
-                        handlePress={() => handlePress('Create with Email')}
+                        text={'Create an Account'} 
+                        handlePress={() => handlePress('Create an Account')}
                     />
                     <View style={styles.padding}></View>
                     <View style={styles.skipContainer}>
