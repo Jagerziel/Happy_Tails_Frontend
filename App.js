@@ -54,7 +54,7 @@ export default function App() {
       {/* <Text style={{fontFamily: 'RalewayItalic', paddingTop: 30, fontSize: 30}}>Hello</Text> */}
       <NavigationContainer>
         <Stack.Navigator 
-          initialRouteName='HomeScreen'
+          initialRouteName='LoginScreen'
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="HomeScreen" component={HomeScreen}/>

@@ -15,7 +15,7 @@ export const styleMaster = StyleSheet.create({
     },
     defaultFont: {
         fontSize: scale_V(16),
-        fontFamily: 'RalewayRegular',
+        fontFamily: 'RalewayMedium',
         color: colors.darkBlue,
     }
 })

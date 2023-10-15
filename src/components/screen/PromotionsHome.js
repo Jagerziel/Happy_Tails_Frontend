@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
         paddingBottom: scale_mod(16),
     },
     contentContainer: {
+        // borderWidth: 2,
         backgroundColor: "white",
         width: '100%',
         aspectRatio: 2.29/1,
