@@ -1,5 +1,5 @@
 // Import React
-import React from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text,  View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -10,10 +10,26 @@ import { styleMaster } from '../constants/stylesMaster.js';
 
 // Components
 import LoginScreenButton from '../components/shared/LoginScreenButton.js';
+import TextInputField from '../components/shared/TextInputField.js';
 
 function LoginAccountScreen(props) {
-    const navigation = useNavigation()
-    const route = useRoute()
+    const [ textInputData, setTextDataInput ] = useState({
+        email: "",
+        password: ""
+    })
+
+    // Navigation
+    const navigation = useNavigation() 
+    const route = useRoute() 
+
+    function handleTextInput ( key, text ) {
+        setTextDataInput({...textInputData, [key]: text})
+    }
+
+    function handleEmailLogin () {
+        navigation.navigate("HomeScreen")
+        console.log(textInputData)
+    }
 
     function handlePress ( target ) {
         console.log(`${target} button pressed`)
@@ -23,17 +39,31 @@ function LoginAccountScreen(props) {
         navigation.navigate("LoginScreen")
     }
 
+
     return (
         <View style={[styleMaster.parent, styles.container]}>
             <View style={styles.subContainer}>
                 <View style={styles.headingContainer}>
-                    <Text style={styles.heading}>Happy Tails</Text>
+                    <Text style={styles.heading}>Log In</Text>
                 </View>
                 <View style={styles.buttonContainer}>
+                    <TextInputField 
+                        placeholder={'Email'}
+                        handleTextInput={handleTextInput}
+                        name={"email"}
+                    />
                     <View style={styles.padding}></View>
+                    <TextInputField 
+                        placeholder={'Password'}
+                        handleTextInput={handleTextInput}
+                        name={"password"}
+                    />
+                    <TouchableOpacity style={styles.forgotPasswordContainer} onPress={() => handlePress('Forgot Password')}>
+                        <Text style={[styleMaster.defaultFont, styles.forgotPassword]}>Forgot your Password?</Text>
+                    </TouchableOpacity>
                     <LoginScreenButton 
                         text={'Log In'} 
-                        handlePress={() => handlePress('Log In')}
+                        handlePress={() => handleEmailLogin()}
                     />
                     <View style={styles.padding}></View>
                     <View style={styles.divider}></View>
@@ -104,6 +134,20 @@ const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderColor: colors.grayscale03,
         width: scale_mod(328),
+    },
+    forgotPasswordContainer: {
+        // borderWidth: 2,
+        width: scale_mod(328),
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-end',
+        paddingRight: scale_mod(17),
+        height: scale_mod(27),
+        
+    },
+    forgotPassword: {
+        color: colors.grayscale03,
+        fontSize: scale_V(13),
     },
     skipContainer: {
         paddingTop: scale_mod(8),
