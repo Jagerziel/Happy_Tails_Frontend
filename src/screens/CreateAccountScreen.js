@@ -1,5 +1,5 @@
 // Import React
-import React from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text,  View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -12,6 +12,7 @@ import { styleMaster } from '../constants/stylesMaster.js';
 import LoginScreenButton from '../components/shared/LoginScreenButton.js';
 
 function CreateAccountScreen(props) {
+    const [ textInput, setTextInput ] = useState("")
     const navigation = useNavigation()
     const route = useRoute()
 
@@ -21,6 +22,8 @@ function CreateAccountScreen(props) {
         }
         console.log(`${target} button pressed`)
     }
+
+    
 
     function handleSkip () {
         navigation.navigate("LoginScreen")

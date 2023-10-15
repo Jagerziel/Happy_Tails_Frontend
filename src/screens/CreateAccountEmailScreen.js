@@ -32,7 +32,7 @@ function CreateAccountEmailScreen(props) {
                 <View style={styles.buttonContainer}>
                     <LoginScreenButton 
                         text={'Create an Account'} 
-                        handlePress={() => handlePress('Create an Account')}
+                        handlePress={() => handlePress('Create an account')}
                     />
                     <View style={styles.padding}></View>
                     <View style={styles.skipContainer}>
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'RalewayBold',
-        fontSize: scale_V(52),
+        fontSize: scale_V(32),
         color: colors.black,
         textAlign: 'center',
     },
