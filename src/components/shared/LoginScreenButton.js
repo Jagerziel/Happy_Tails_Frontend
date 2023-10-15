@@ -8,7 +8,10 @@ import { styleMaster } from '../../constants/stylesMaster.js';
 
 function LoginScreenButton( { text, handlePress } ) {
     return (
-        <TouchableOpacity style={styles.button} onPress={handlePress}>
+        <TouchableOpacity 
+            style={styles.button} 
+            onPress={handlePress}
+        >
             <Text style={[styleMaster.defaultFont, styles.buttonText]}>{text}</Text>
         </TouchableOpacity>
     );

@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         // borderColor: "red",
         // borderWidth: 2,
         flexGrow: 0.1,
-        marginTop: scale_mod(24),
+        marginTop: scale_mod(6),
         marginBottom: scale_mod(24),
     },
     contentRight: {

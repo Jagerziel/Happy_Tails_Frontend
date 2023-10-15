@@ -1,6 +1,7 @@
 // Import React
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text,  View } from 'react-native';
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
 import { colors } from '../constants/colorPalette.js';
@@ -11,9 +12,17 @@ import { styleMaster } from '../constants/stylesMaster.js';
 import LoginScreenButton from '../components/shared/LoginScreenButton.js';
 
 function LoginScreen(props) {
+    const navigation = useNavigation()
+    const route = useRoute()
+
     function handlePress ( target ) {
         console.log(`${target} button pressed`)
     }
+
+    function handleSkip () {
+        navigation.navigate("HomeScreen")
+    }
+
     return (
         <View style={[styleMaster.parent, styles.container]}>
             <View style={styles.subContainer}>
@@ -25,6 +34,17 @@ function LoginScreen(props) {
                         text={'Create an Account'} 
                         handlePress={() => handlePress('Create Account')}
                     />
+                    <View style={styles.padding}></View>
+                    <LoginScreenButton 
+                        text={'Log In'} 
+                        handlePress={() => handlePress('Login Button')}
+                    />
+                    <View style={styles.padding}></View>
+                    <View style={styles.skipContainer}>
+                        <TouchableOpacity onPress={() => handleSkip()}>
+                            <Text style={[styleMaster.defaultFont, styles.skipText]}>Later</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
 
@@ -48,7 +68,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     headingContainer: {
-        borderWidth: 2,
+        // borderWidth: 2,
         paddingTop: scale_mod(84),
         paddingBottom: scale_mod(80),
     },
@@ -59,10 +79,20 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     buttonContainer: {
-        borderWidth: 2,
+        // borderWidth: 2,
         width: '100%',
         display: 'flex',
         alignItems: 'center',
+    },
+    padding: {
+        paddingTop: scale_mod(24),
+    },
+    skipContainer: {
+        paddingTop: scale_mod(8),
+        paddingBottom: scale_mod(8),
+    },
+    skipText: {
+
     }
 });
   

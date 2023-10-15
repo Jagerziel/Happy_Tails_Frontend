@@ -10,8 +10,11 @@ import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScali
 function UserProfileHome(props) {
     return (
         <View style={styles.container}>
-            <Text style={[styleMaster.defaultFont, styles.heading]}>Hi, [Username]</Text>
-            <Image source={require('../../assets/temp_profile_pic.jpg')} style={styles.profileImg}/>
+            <View style={styles.subContainer}>
+                <Text style={[styleMaster.defaultFont, styles.heading]}>Hi, [Username]</Text>
+                <Image source={require('../../assets/temp_profile_pic.jpg')} style={styles.profileImg}/>
+
+            </View>
         </View>
     );
 }
@@ -22,7 +25,11 @@ const styles = StyleSheet.create({
     container: {
         // borderWidth: 2,
         width: '100%',
-        aspectRatio: 2.1/1,
+        aspectRatio: 2.68/1,
+        justifyContent: 'flex-end',
+        paddingBottom: scale_mod(32)
+    },
+    subContainer: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
