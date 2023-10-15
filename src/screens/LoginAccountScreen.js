@@ -30,24 +30,27 @@ function LoginAccountScreen(props) {
                     <Text style={styles.heading}>Happy Tails</Text>
                 </View>
                 <View style={styles.buttonContainer}>
-                <LoginScreenButton 
+                    <View style={styles.padding}></View>
+                    <LoginScreenButton 
+                        text={'Log In'} 
+                        handlePress={() => handlePress('Log In')}
+                    />
+                    <View style={styles.padding}></View>
+                    <View style={styles.divider}></View>
+                    <View style={styles.padding}></View>
+                    <LoginScreenButton 
                         text={'Create with Google'} 
-                        handlePress={() => handlePress('Create with Google')}
+                        handlePress={() => handlePress('Continue with Google')}
                     />
                     <View style={styles.padding}></View>
                     <LoginScreenButton 
-                        text={'Create with Facebook'} 
-                        handlePress={() => handlePress('Create with Facebook')}
+                        text={'Continue with Facebook'} 
+                        handlePress={() => handlePress('Continue with Facebook')}
                     />
                     <View style={styles.padding}></View>
                     <LoginScreenButton 
-                        text={'Create with Apple'} 
-                        handlePress={() => handlePress('Create with Apple')}
-                    />
-                    <View style={styles.padding}></View>
-                    <LoginScreenButton 
-                        text={'Create with Email'} 
-                        handlePress={() => handlePress('Create with Email')}
+                        text={'Continue with Apple'} 
+                        handlePress={() => handlePress('Continue with Apple')}
                     />
                     <View style={styles.padding}></View>
                     <View style={styles.skipContainer}>
@@ -96,6 +99,11 @@ const styles = StyleSheet.create({
     },
     padding: {
         paddingTop: scale_mod(24),
+    },
+    divider: {
+        borderWidth: 0.5,
+        borderColor: colors.grayscale03,
+        width: scale_mod(328),
     },
     skipContainer: {
         paddingTop: scale_mod(8),

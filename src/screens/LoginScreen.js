@@ -19,6 +19,9 @@ function LoginScreen(props) {
         if (target === 'Create Account') {
             navigation.navigate("CreateAccountScreen")
         }
+        if (target === 'Login') {
+            navigation.navigate("LoginAccountScreen")
+        }
         console.log(`${target} button pressed`)
     }
 
@@ -40,7 +43,7 @@ function LoginScreen(props) {
                     <View style={styles.padding}></View>
                     <LoginScreenButton 
                         text={'Log In'} 
-                        handlePress={() => handlePress('Login Button')}
+                        handlePress={() => handlePress('Login')}
                     />
                     <View style={styles.padding}></View>
                     <View style={styles.skipContainer}>

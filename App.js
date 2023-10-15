@@ -13,6 +13,7 @@ import CreateAccountEmailScreen from './src/screens/CreateAccountEmailScreen.js'
 import HomeScreen from './src/screens/HomeScreen.js'
 import MyPetsScreen from './src/screens/MyPetsScreen.js';
 import LoginScreen from './src/screens/LoginScreen.js'
+import LoginAccountScreen from './src/screens/LoginAccountScreen.js';
 import UpdatePetScreen from './src/screens/UpdatePetScreen.js'
 import UserProfileScreen from './src/screens/UserProfileScreen.js'
 import SettingsScreen from './src/screens/SettingsScreen.js';
@@ -59,6 +60,7 @@ export default function App() {
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+          <Stack.Screen name="LoginAccountScreen" component={LoginAccountScreen}/>
           <Stack.Screen name="CreateAccountScreen" component={CreateAccountScreen}/>
           <Stack.Screen name="CreateAccountEmailScreen" component={CreateAccountEmailScreen}/>
           <Stack.Screen name="HomeScreen" component={HomeScreen}/>
