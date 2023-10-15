@@ -7,7 +7,6 @@ import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScali
 import { styleMaster } from '../../constants/stylesMaster.js';
 
 function TextInputField( { name, placeholder, handleTextInput } ) {
-    console.log(name)
     return (
         <View style={styles.container}>
             <TextInput 

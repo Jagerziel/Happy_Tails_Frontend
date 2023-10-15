@@ -24,7 +24,8 @@ function CreateAccountEmailScreen(props) {
     const navigation = useNavigation()
     const route = useRoute()
 
-    function handlePress ( target ) {
+    function handleCreateUser ( target ) {
+        navigation.navigate("HomeScreen")
         console.log(`${target} button pressed`)
     }
 
@@ -35,7 +36,6 @@ function CreateAccountEmailScreen(props) {
     function handleSkip () {
         navigation.navigate("CreateAccountScreen")
     }
-    console.log(textInputData)
 
     return (
         <View style={[styleMaster.parent, styles.container]}>
@@ -50,9 +50,27 @@ function CreateAccountEmailScreen(props) {
                         name={"fName"}
                     />
                     <View style={styles.padding}></View>
+                    <TextInputField 
+                        placeholder={'Last Name'}
+                        handleTextInput={handleTextInput}
+                        name={"lName"}
+                    />
+                    <View style={styles.padding}></View>
+                    <TextInputField 
+                        placeholder={'Email'}
+                        handleTextInput={handleTextInput}
+                        name={"email"}
+                    />
+                    <View style={styles.padding}></View>
+                    <TextInputField 
+                        placeholder={'Password'}
+                        handleTextInput={handleTextInput}
+                        name={"password"}
+                    />
+                    <View style={styles.padding}></View>
                     <LoginScreenButton 
                         text={'Create an account'} 
-                        handlePress={() => handlePress('Create an account')}
+                        handlePress={() => handleCreateUser(`${textInputData.fName} ${textInputData.lName} created as a user`)}
                     />
                     <View style={styles.padding}></View>
                     <View style={styles.skipContainer}>
