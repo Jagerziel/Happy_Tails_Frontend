@@ -31,7 +31,7 @@ function VaccinationsHome(props) {
                 </View>
                 <View style={styles.contentRight}>
                     <Text style={[styleMaster.defaultFont, styles.fontStyle]}>Due Date</Text>
-                    <Text style={[styleMaster.defaultFont, styles.fontStyle, {color: 'red'}]}>{vaccinationData[0].expiration_date}</Text>
+                    <Text style={[styleMaster.defaultFont, styles.fontStyle, {color: '#FF2E2E'}]}>{vaccinationData[0].expiration_date}</Text>
                 </View>
             </View>
         </View>
