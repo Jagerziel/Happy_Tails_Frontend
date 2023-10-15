@@ -1,5 +1,5 @@
 // Import React
-import React from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text,  View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -10,8 +10,12 @@ import { styleMaster } from '../constants/stylesMaster.js';
 
 // Components
 import LoginScreenButton from '../components/shared/LoginScreenButton.js';
+import TextInput from '../components/shared/TextInput.js';
 
 function CreateAccountEmailScreen(props) {
+    const [ textInput, setTextInput ] = useState("")
+
+    // Navigation
     const navigation = useNavigation()
     const route = useRoute()
 
@@ -29,9 +33,9 @@ function CreateAccountEmailScreen(props) {
                 <View style={styles.headingContainer}>
                     <Text style={styles.heading}>Create an account</Text>
                 </View>
-                <View style={styles.buttonContainer}>
+                <View style={styles.formContainer}>
                     <LoginScreenButton 
-                        text={'Create an Account'} 
+                        text={'Create an account'} 
                         handlePress={() => handlePress('Create an account')}
                     />
                     <View style={styles.padding}></View>
@@ -73,7 +77,7 @@ const styles = StyleSheet.create({
         color: colors.black,
         textAlign: 'center',
     },
-    buttonContainer: {
+    formContainer: {
         // borderWidth: 2,
         width: '100%',
         display: 'flex',
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
         paddingBottom: scale_mod(8),
     },
     skipText: {
-
+        color: colors.grayscale03
     }
 });
   

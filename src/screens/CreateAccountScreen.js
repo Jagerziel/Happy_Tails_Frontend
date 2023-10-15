@@ -1,5 +1,5 @@
 // Import React
-import React, { useState } from 'react';
+import React from 'react';
 import { TouchableOpacity, StyleSheet, Text,  View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -12,7 +12,6 @@ import { styleMaster } from '../constants/stylesMaster.js';
 import LoginScreenButton from '../components/shared/LoginScreenButton.js';
 
 function CreateAccountScreen(props) {
-    const [ textInput, setTextInput ] = useState("")
     const navigation = useNavigation()
     const route = useRoute()
 
@@ -22,8 +21,6 @@ function CreateAccountScreen(props) {
         }
         console.log(`${target} button pressed`)
     }
-
-    
 
     function handleSkip () {
         navigation.navigate("LoginScreen")
@@ -58,7 +55,7 @@ function CreateAccountScreen(props) {
                     <View style={styles.padding}></View>
                     <View style={styles.skipContainer}>
                         <TouchableOpacity onPress={() => handleSkip()}>
-                            <Text style={[styleMaster.defaultFont, styles.skipText]}>Later</Text>
+                            <Text style={[styleMaster.defaultFont, styles.skipText]}>Return</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -108,7 +105,7 @@ const styles = StyleSheet.create({
         paddingBottom: scale_mod(8),
     },
     skipText: {
-
+        color: colors.grayscale03
     }
 });
   

@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         paddingBottom: scale_mod(8),
     },
     skipText: {
-
+        color: colors.grayscale03
     }
 });
   
