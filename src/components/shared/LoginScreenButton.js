@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         width: scale_mod(328),
         aspectRatio: 6.83/1,
         backgroundColor: colors.primary,
-        borderRadius: 7,
+        borderRadius: 12,
         alignItems: 'center',
         justifyContent: 'center'
     },

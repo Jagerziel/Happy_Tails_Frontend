@@ -10,10 +10,15 @@ import { styleMaster } from '../constants/stylesMaster.js';
 
 // Components
 import LoginScreenButton from '../components/shared/LoginScreenButton.js';
-import TextInput from '../components/shared/TextInput.js';
+import TextInputField from '../components/shared/TextInputField.js';
 
 function CreateAccountEmailScreen(props) {
-    const [ textInput, setTextInput ] = useState("")
+    const [ textInputData, setTextDataInput ] = useState({
+        fName: "",
+        lName: "",
+        email: "",
+        password: ""
+    })
 
     // Navigation
     const navigation = useNavigation()
@@ -23,9 +28,14 @@ function CreateAccountEmailScreen(props) {
         console.log(`${target} button pressed`)
     }
 
+    function handleTextInput (key, text) {
+        setTextDataInput({...textInputData, [key]: text})
+    }
+
     function handleSkip () {
         navigation.navigate("CreateAccountScreen")
     }
+    console.log(textInputData)
 
     return (
         <View style={[styleMaster.parent, styles.container]}>
@@ -34,6 +44,12 @@ function CreateAccountEmailScreen(props) {
                     <Text style={styles.heading}>Create an account</Text>
                 </View>
                 <View style={styles.formContainer}>
+                    <TextInputField 
+                        placeholder={'First Name'}
+                        handleTextInput={handleTextInput}
+                        name={"fName"}
+                    />
+                    <View style={styles.padding}></View>
                     <LoginScreenButton 
                         text={'Create an account'} 
                         handlePress={() => handlePress('Create an account')}
