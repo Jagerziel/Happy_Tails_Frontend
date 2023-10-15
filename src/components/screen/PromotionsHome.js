@@ -41,11 +41,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: scale_V(21),
         fontWeight: "bold",
-        paddingBottom: scale_mod(14),
-    },
-    viewAll: {
-        color: colors.secondary,
-        fontSize: scale_V(17),
+        paddingBottom: scale_mod(16),
     },
     contentContainer: {
         backgroundColor: "white",
