@@ -1,6 +1,6 @@
 // Import React
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 
 // Import Components
 import UserProfileHome from "../components/screen/UserProfileHome.js";
@@ -19,12 +19,12 @@ import { colors } from "../constants/colorPalette.js";
 function HomeScreen(props) {
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
-        <View style={[styleMaster.subParent]}>
+        <ScrollView style={[styleMaster.subParent]}>
             <UserProfileHome />
             <PromotionsHome />
             <AppointmentsHome />
             <VaccinationsHome />
-        </View>
+        </ScrollView>
       <Navigation />
     </SafeAreaView>
   );

@@ -8,6 +8,8 @@ import React, { useState, useCallback } from 'react';
 // Screens
 import AboutUsScreen from './src/screens/AboutUsScreen.js';
 import BookingScreen from './src/screens/BookingScreen.js';
+import CreateAccountScreen from './src/screens/CreateAccountScreen.js';
+import CreateAccountEmailScreen from './src/screens/CreateAccountEmailScreen.js';
 import HomeScreen from './src/screens/HomeScreen.js'
 import MyPetsScreen from './src/screens/MyPetsScreen.js';
 import LoginScreen from './src/screens/LoginScreen.js'
@@ -51,18 +53,19 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* <Text style={{fontFamily: 'RalewayItalic', paddingTop: 30, fontSize: 30}}>Hello</Text> */}
       <NavigationContainer>
         <Stack.Navigator 
           initialRouteName='LoginScreen'
           screenOptions={{ headerShown: false }}
         >
+          <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+          <Stack.Screen name="CreateAccountScreen" component={CreateAccountScreen}/>
+          <Stack.Screen name="CreateAccountEmailScreen" component={CreateAccountEmailScreen}/>
           <Stack.Screen name="HomeScreen" component={HomeScreen}/>
           <Stack.Screen name="MyPetsScreen" component={MyPetsScreen}/>
           <Stack.Screen name="BookingScreen" component={BookingScreen}/>
           <Stack.Screen name="AboutUsScreen" component={AboutUsScreen}/>
           <Stack.Screen name="SettingsScreen" component={SettingsScreen}/>
-          <Stack.Screen name="LoginScreen" component={LoginScreen}/>
           <Stack.Screen name="UpdatePetScreen" component={UpdatePetScreen}/>
           <Stack.Screen name="UserProfileScreen" component={UserProfileScreen}/>
           <Stack.Screen name="VaccinationScreen" component={VaccinationScreen}/>

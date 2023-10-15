@@ -11,36 +11,43 @@ import { styleMaster } from '../constants/stylesMaster.js';
 // Components
 import LoginScreenButton from '../components/shared/LoginScreenButton.js';
 
-function LoginScreen(props) {
+function CreateAccountScreen(props) {
     const navigation = useNavigation()
     const route = useRoute()
 
     function handlePress ( target ) {
-        if (target === 'Create Account') {
-            navigation.navigate("CreateAccountScreen")
-        }
         console.log(`${target} button pressed`)
     }
 
     function handleSkip () {
-        navigation.navigate("HomeScreen")
+        navigation.navigate("LoginScreen")
     }
 
     return (
         <View style={[styleMaster.parent, styles.container]}>
             <View style={styles.subContainer}>
                 <View style={styles.headingContainer}>
-                    <Text style={styles.heading}>Welcome to Happy Tails</Text>
+                    <Text style={styles.heading}>Happy Tails</Text>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <LoginScreenButton 
-                        text={'Create an Account'} 
-                        handlePress={() => handlePress('Create Account')}
+                <LoginScreenButton 
+                        text={'Create with Google'} 
+                        handlePress={() => handlePress('Create with Google')}
                     />
                     <View style={styles.padding}></View>
                     <LoginScreenButton 
-                        text={'Log In'} 
-                        handlePress={() => handlePress('Login Button')}
+                        text={'Create with Facebook'} 
+                        handlePress={() => handlePress('Create with Facebook')}
+                    />
+                    <View style={styles.padding}></View>
+                    <LoginScreenButton 
+                        text={'Create with Apple'} 
+                        handlePress={() => handlePress('Create with Apple')}
+                    />
+                    <View style={styles.padding}></View>
+                    <LoginScreenButton 
+                        text={'Create with Email'} 
+                        handlePress={() => handlePress('Create with Email')}
                     />
                     <View style={styles.padding}></View>
                     <View style={styles.skipContainer}>
@@ -55,7 +62,7 @@ function LoginScreen(props) {
     );
 }
 
-export default LoginScreen;
+export default CreateAccountScreen;
 
 const styles = StyleSheet.create({
     container: {

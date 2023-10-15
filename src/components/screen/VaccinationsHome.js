@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
     headingContainer: {
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'baseline',
         justifyContent: 'space-between'
     },
     title: {

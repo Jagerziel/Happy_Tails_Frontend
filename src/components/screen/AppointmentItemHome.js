@@ -71,12 +71,13 @@ const styles = StyleSheet.create({
     },
     dateTimeText: {
         // borderWidth: 2,
+        alignSelf: 'center'
         // All code previously here is now contained in StyleMaster
         // Retained object item in case further customization is needed
     },
     icon: {
         // borderWidth: 2,
-        top: scale_mod(2),
+        // top: scale_mod(2),
     },
     bottomContainer: {
         display: 'flex',

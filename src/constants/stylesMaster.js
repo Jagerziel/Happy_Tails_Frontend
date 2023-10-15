@@ -4,7 +4,7 @@ import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling"
 
 export const styleMaster = StyleSheet.create({
     parent: {
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight + scale_mod(20): scale_mod(20),
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight + scale_mod(20): 0,
     },
     subParent: {
         flex: 1,
