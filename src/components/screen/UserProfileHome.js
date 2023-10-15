@@ -20,8 +20,9 @@ export default UserProfileHome;
 
 const styles = StyleSheet.create({
     container: {
+        // borderWidth: 2,
         width: '100%',
-        aspectRatio: 2.29/1,
+        aspectRatio: 2.1/1,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',

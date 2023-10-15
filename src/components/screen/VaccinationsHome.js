@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
         borderRadius: 7,
         display: 'flex',
         flexDirection: 'row',
+        alignItems: 'center',
         // flexWrap: 'wrap',
     }, 
     contentLeft: {
