@@ -8,6 +8,8 @@ React Native Expo Icons: https://icons.expo.fyi/Index
 
 Dotenv for React Native: https://www.npmjs.com/package/react-native-dotenv
 
+Babel Configuration Guide: https://babeljs.io/docs/configuration
+
 ##### SHORTCUTS #####
 rsf: creates new react component
 rnss: creates react native stylesheet
