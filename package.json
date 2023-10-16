@@ -13,6 +13,7 @@
     "@expo/webpack-config": "^19.0.0",
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/native-stack": "^6.9.14",
+    "axios": "^1.5.1",
     "expo": "^49.0.0",
     "expo-app-loading": "^2.1.1",
     "expo-font": "~11.4.0",
@@ -44,15 +45,18 @@
   },
   "babel": {
     "plugins": [
-      ["module:react-native-dotenv", {
-      "moduleName": "@env",
-      "path": ".env",
-      "blocklist": null,
-      "allowlist": null,
-      "safe": false,
-      "allowUndefined": true,
-      "verbose": false
-    }]
+      [
+        "module:react-native-dotenv",
+        {
+          "moduleName": "@env",
+          "path": ".env",
+          "blocklist": null,
+          "allowlist": null,
+          "safe": false,
+          "allowUndefined": true,
+          "verbose": false
+        }
+      ]
     ]
   }
 }
