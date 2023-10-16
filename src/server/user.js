@@ -15,6 +15,26 @@ export const getUsers = async () => {
   }
 };
 
+export const createUser = async (input) => {
+  await fetch(URL, {
+    method: "POST",
+    body: JSON.stringify(input),
+  });
+};
+
+export const updateUser = async (input) => {
+  await fetch(URL, {
+    method: "PUT",
+    body: JSON.stringify(input),
+  });
+};
+
+export const deleteUser = async (id) => {
+  await fetch(URL + `/${id}`, {
+    method: "DELETE",
+  });
+};
+
 // export function getUsers(setUserData) {
 //   fetch(URL)
 //     .then((resp) => resp.json())

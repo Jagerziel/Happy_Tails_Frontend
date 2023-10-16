@@ -12,7 +12,7 @@ import {
 } from "../data/functions/normalizeScaling.js";
 import { styleMaster } from "../constants/stylesMaster.js";
 
-import { getUsers, getUser } from "../server/user.js";
+import { getUsers, deleteUser } from "../server/user.js";
 import api from "../server/apiConfig.js";
 import axios from "axios";
 
@@ -28,6 +28,7 @@ function LoginScreen(props) {
 
   useEffect(() => {
     getUsers(setUserData);
+    // deleteUser("652d6e847186ffc8ccb2b125");
   }, []);
   console.log(userData);
 
