@@ -10,13 +10,11 @@ import { styleMaster } from '../constants/stylesMaster.js';
 
 // Components
 import LoginScreenButton from '../components/shared/LoginScreenButton.js';
-// import { BACKEND_DB_ROUTE } from '@env'
 
 function LoginScreen(props) {
     // Navigation
     const navigation = useNavigation()
     const route = useRoute()
-
 
     function handlePress ( target ) {
         if (target === 'Create Account') {
