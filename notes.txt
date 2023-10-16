@@ -6,6 +6,8 @@ React Native Navigation: https://reactnavigation.org/docs/getting-started
 
 React Native Expo Icons: https://icons.expo.fyi/Index
 
+Dotenv for React Native: https://www.npmjs.com/package/react-native-dotenv
+
 ##### SHORTCUTS #####
 rsf: creates new react component
 rnss: creates react native stylesheet
