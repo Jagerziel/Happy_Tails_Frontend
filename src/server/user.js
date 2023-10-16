@@ -1,53 +1,33 @@
-import api from "./apiConfig";
+import api from "./apiConfig.js";
 
-api = api + 'user/';
+const URL = api.USER;
 
-// Exports all users
 export const getUsers = async () => {
-    try {
-      const response = await api.get("/");
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  };
-  
-  // Exports a user
-  export const getUser = async (id) => {
-    try {
-      const response = await api.get(`${id}/`);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  };
-  
-  // Creates user
-  export const createUser = async (UserData) => {
-    try {
-      const response = await api.post("/", UserData);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  };
-  
-  // Updates user
-  export const updateUser = async (id, UserData) => {
-    try {
-      const response = await api.put(`${id}/`, UserData);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  };
-  
-  // Deletes user
-  export const deleteUser = async (id) => {
-    try {
-      const response = await api.delete(`${id}/`);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  };
+  try {
+    const response = await fetch(URL, {
+      method: "GET",
+    });
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log("failed here");
+  }
+};
+
+// export function getUsers(setUserData) {
+//   fetch(URL)
+//     .then((resp) => resp.json())
+//     .then((json) => setUserData(json))
+//     .catch((error) => console.error(error));
+// }
+
+// // Deletes user
+// export const deleteUser = async (id) => {
+//     try {
+//         const response = await api.delete(`user/${id}/`);
+//         return response.data;
+//     } catch (error) {
+//         throw error;
+//     }
+// };
