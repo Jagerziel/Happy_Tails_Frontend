@@ -1,6 +1,6 @@
 // Import React
 import React, { useState } from 'react';
-import { TouchableOpacity, StyleSheet, Text,  View } from 'react-native';
+import { StyleSheet, Text,  View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
@@ -11,6 +11,7 @@ import { styleMaster } from '../constants/stylesMaster.js';
 // Components
 import LoginScreenButton from '../components/shared/LoginScreenButton.js';
 import TextInputField from '../components/shared/TextInputField.js';
+import ReturnArrow from '../components/shared/ReturnArrrow.js';
 
 function CreateAccountEmailScreen(props) {
     const [ textInputData, setTextDataInput ] = useState({
@@ -33,13 +34,16 @@ function CreateAccountEmailScreen(props) {
         setTextDataInput({...textInputData, [key]: text})
     }
 
-    function handleSkip () {
-        navigation.navigate("CreateAccountScreen")
-    }
-
     return (
         <View style={[styleMaster.parent, styles.container]}>
             <View style={styles.subContainer}>
+                <View style={styles.returnContainer}>
+                    <ReturnArrow 
+                        navLink={"CreateAccountScreen"}
+                        height={21}
+                        width={12}
+                    />
+                </View>
                 <View style={styles.headingContainer}>
                     <Text style={styles.heading}>Create an account</Text>
                 </View>
@@ -72,12 +76,6 @@ function CreateAccountEmailScreen(props) {
                         text={'Create an account'} 
                         handlePress={() => handleCreateUser(`${textInputData.fName} ${textInputData.lName} created as a user`)}
                     />
-                    <View style={styles.padding}></View>
-                    <View style={styles.skipContainer}>
-                        <TouchableOpacity onPress={() => handleSkip()}>
-                            <Text style={[styleMaster.defaultFont, styles.skipText]}>Return</Text>
-                        </TouchableOpacity>
-                    </View>
                 </View>
             </View>
 
@@ -100,9 +98,13 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
     },
+    returnContainer: {
+        paddingTop: scale_mod(23),
+        paddingLeft: scale_mod(15),
+    },
     headingContainer: {
         // borderWidth: 2,
-        paddingTop: scale_mod(84),
+        paddingTop: scale_mod(40),
         paddingBottom: scale_mod(80),
     },
     heading: {
@@ -120,12 +122,5 @@ const styles = StyleSheet.create({
     padding: {
         paddingTop: scale_mod(24),
     },
-    skipContainer: {
-        paddingTop: scale_mod(8),
-        paddingBottom: scale_mod(8),
-    },
-    skipText: {
-        color: colors.grayscale03
-    }
 });
   

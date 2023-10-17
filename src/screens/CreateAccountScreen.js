@@ -1,6 +1,6 @@
 // Import React
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Text,  View } from 'react-native';
+import { StyleSheet, Text,  View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
@@ -21,10 +21,6 @@ function CreateAccountScreen(props) {
             navigation.navigate("CreateAccountEmailScreen")
         }
         console.log(`${target} button pressed`)
-    }
-
-    function handleSkip () {
-        navigation.navigate("LoginScreen")
     }
 
     return (
@@ -82,6 +78,10 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
     },
+    returnContainer: {
+        paddingTop: scale_mod(23),
+        paddingLeft: scale_mod(15)
+    },
     headingContainer: {
         // borderWidth: 2,
         paddingTop: scale_mod(40),
@@ -102,9 +102,5 @@ const styles = StyleSheet.create({
     padding: {
         paddingTop: scale_mod(24),
     },
-    returnContainer: {
-        paddingTop: scale_mod(23),
-        paddingLeft: scale_mod(15)
-    }
 });
   

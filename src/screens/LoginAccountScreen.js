@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     },
     returnContainer: {
         paddingTop: scale_mod(23),
-        paddingLeft: scale_mod(15)
+        paddingLeft: scale_mod(15),
     },
     headingContainer: {
         // borderWidth: 2,
