@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 import Navigation from "../components/shared/Navigation";
 
 // Import Constants
@@ -10,11 +10,15 @@ import {
   scale_mod,
 } from "../data/functions/normalizeScaling.js";
 import { styleMaster } from "../constants/stylesMaster.js";
+import { petData } from "../data/testingData/testingData";
 
 // Import Components
 import LoginScreenButton from "../components/shared/LoginScreenButton";
+import PetItemMyPets from "../components/screen/PetItemMyPets.js";
 
 function MyPetsScreen(props) {
+
+  const itemSeparator = () => <View style={{ marginVertical: scale_mod(24) }} />; // Gap for Flatlist
 
   function handleAddPet (target) {
     console.log(`${target} button pressed`);
@@ -22,20 +26,30 @@ function MyPetsScreen(props) {
 
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
-        <ScrollView style={[styleMaster.subParent, styles.subContainer]}>
+        <View style={[styleMaster.subParent, styles.subContainer]}>
           <View style={styles.headingContainer}>
             <Text style={[styleMaster.defaultFont, styles.heading]}>Your Pets</Text>
           </View>
-          <ScrollView style={styles.petsContainer}>
-            <Text>hello</Text>
-          </ScrollView>
+          <View style={styles.petsContainer}>
+            <View>
+              <FlatList
+                keyExtractor={(petData) => petData.uid} // Key
+                ItemSeparatorComponent={itemSeparator} // Gap between items
+                data={petData} // Data
+                renderItem={(data) => <PetItemMyPets data={data}/>} // Component to be rendered
+                showsVerticalScrollIndicator = { false } // Removes Scrollbar
+                scrollEnabled={ true } // Enables Scrolling
+                vertical // Key to making flatlist scrollable
+              />
+            </View>
+          </View>
           <View style={styles.buttonContainer}>
             <LoginScreenButton
               text={"Add a new Pet"}
               handlePress={() => handleAddPet("Add a new Pet")}
             />
           </View>
-        </ScrollView>
+        </View>
       <Navigation />
     </SafeAreaView>
   );

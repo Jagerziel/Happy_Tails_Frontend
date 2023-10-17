@@ -74,6 +74,44 @@ export const petData = [
         primary_vet: "Vet List",
         user_id: "[User]"
     },
+    {
+        uid: 4,
+        name: "Hello Kitty",
+        type: "Cat",
+        dob: "2016/09/13",
+        breed: "Cuteness",
+        image: "",
+        sex: "F",
+        weight: "100 lbs",
+        allergies: "none",
+        medications: "Bacon",
+        laboratory: "n/a",
+        microchip: "321351351352",
+        visit_history: "See appointments",
+        primary_color: "Orange",
+        notes: "She's amazing",
+        primary_vet: "Vet List",
+        user_id: "[User]"
+    },
+    {
+        uid: 5,
+        name: "Clifford the Big Red Dog",
+        type: "Dog",
+        dob: "2016/09/13",
+        breed: "Wolf",
+        image: "",
+        sex: "M",
+        weight: "100 lbs",
+        allergies: "none",
+        medications: "Bacon",
+        laboratory: "n/a",
+        microchip: "321351351352",
+        visit_history: "See appointments",
+        primary_color: "Orange",
+        notes: "She's amazing",
+        primary_vet: "Vet List",
+        user_id: "[User]"
+    },
 ]
 
 export const vaccinationData = [
