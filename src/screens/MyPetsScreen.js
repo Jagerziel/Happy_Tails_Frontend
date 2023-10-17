@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     // borderWidth: 2,
-    // height: '100%',
+    height: '100%',
     width: '100%',
   },
   headingContainer: {
@@ -79,8 +79,9 @@ const styles = StyleSheet.create({
   },
   petsContainer: {
     // borderWidth: 2,
-    height: scale_mod(500),
+    height: scale_mod(474),
     borderRadius: scale_mod(7),
+    marginBottom: scale_mod(24),
   },
   buttonContainer: {
     alignSelf: "center"

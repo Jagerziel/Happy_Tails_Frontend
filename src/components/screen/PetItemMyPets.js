@@ -1,22 +1,30 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import constants and SVGs
 import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 
-
-
 function PetItemMyPets( { data } ) {
+    // Navigation
+    const navigation = useNavigation() 
+    const route = useRoute() 
+
+    function handlePetDetails () {
+        navigation.navigate("MyPetsDetailsScreen", { data: data.item })
+    }
 
     return (
         <View style={styles.container}>
-            {
-                data.item.type === "Dog" ?
-                <Image source={require(`../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
-                <Image source={require(`../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/>
-            }
+            <TouchableOpacity onPress={() => handlePetDetails()}>
+                {
+                    data.item.type === "Dog" ?
+                    <Image source={require(`../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
+                    <Image source={require(`../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/>
+                }
+            </TouchableOpacity>
             <View style={styles.textContainer}>
                 <Text style={[styleMaster.defaultFont, styles.text]}>{data.item.name}</Text>
             </View>
@@ -46,6 +54,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: scale_V(26),
+        fontFamily: 'RalewayBold'
     }
 
 })
