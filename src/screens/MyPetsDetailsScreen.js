@@ -11,6 +11,9 @@ import {
   scale_mod,
 } from "../data/functions/normalizeScaling.js";
 
+// Import Components
+import StaticInputField from "../components/shared/StaticInputField.js";
+
 function MyPetsDetailsScreen( { route, navigation } ) {
   const { data } = route.params
   console.log(data)
@@ -30,7 +33,7 @@ function MyPetsDetailsScreen( { route, navigation } ) {
                 <Text style={[styleMaster.defaultFont, styles.text]}>{data.name}</Text>
             </View>
         </View>
-        <Text>Pet Details</Text>
+        <StaticInputField name={'TESTING'} />
       </View>
       <Navigation />
     </SafeAreaView>
