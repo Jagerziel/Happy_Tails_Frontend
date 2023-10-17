@@ -39,7 +39,7 @@ function LoginAccountScreen(props) {
     return (
         <View style={[styleMaster.parent, styles.container]}>
             <View style={styles.subContainer}>
-                <View style={styles.skipContainer}>
+                <View style={styles.returnContainer}>
                     <ReturnArrow 
                         navLink={"LoginScreen"}
                         height={21}
@@ -107,6 +107,10 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
     },
+    returnContainer: {
+        paddingTop: scale_mod(23),
+        paddingLeft: scale_mod(15)
+    },
     headingContainer: {
         // borderWidth: 2,
         paddingTop: scale_mod(40),
@@ -146,9 +150,5 @@ const styles = StyleSheet.create({
         color: colors.grayscale03,
         fontSize: scale_V(13),
     },
-    skipContainer: {
-        paddingTop: scale_mod(23),
-        paddingLeft: scale_mod(15)
-    }
 });
   
