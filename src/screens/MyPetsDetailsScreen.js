@@ -14,6 +14,7 @@ import {
 // Import Components
 import StaticInputField from "../components/shared/StaticInputField.js";
 import StaticInputFieldArrow from "../components/shared/StaticInputFieldArrow.js";
+import LoginScreenButton from "../components/shared/LoginScreenButton.js";
 
 function MyPetsDetailsScreen( { route, navigation } ) {
   const { data } = route.params
@@ -25,6 +26,10 @@ function MyPetsDetailsScreen( { route, navigation } ) {
 
   function arrowNext ( path ) {
     console.log(`${path} button pressed`)
+  }
+
+  function deactivate ( command ) {
+    console.log(`${command} button pressed`)
   }
 
   return (
@@ -79,8 +84,17 @@ function MyPetsDetailsScreen( { route, navigation } ) {
         <View style={styles.arrowInputFieldGap}>
             <StaticInputFieldArrow name={"Vaccination"} arrowNext={() => arrowNext('Vaccination')} path={'Vaccination'}/>
         </View>
-        <View>
-            <StaticInputFieldArrow />
+        <View style={styles.arrowInputFieldGap}>
+            <StaticInputFieldArrow name={"Labratory"} arrowNext={() => arrowNext('Labratory')} path={'Labratory'}/>
+        </View>
+        <View style={styles.arrowInputFieldGap}>
+            <StaticInputFieldArrow name={"Invoices"} arrowNext={() => arrowNext('Invoices')} path={'Invoices'}/>
+        </View>
+        <View style={styles.arrowInputFieldGap}>
+            <StaticInputFieldArrow name={"Clinic Visits History"} arrowNext={() => arrowNext('Clinic Visits History')} path={'Clinic Visits History'}/>
+        </View>
+        <View style={styles.deactivateContainer}>
+          <LoginScreenButton text={'Deactivate Profile'} handlePress={() => deactivate('Deactivate')}/>
         </View>
         {/* Override Nav Bar */}
         <View style={{paddingTop: 120}}></View>
@@ -134,5 +148,11 @@ const styles = StyleSheet.create({
   },
   arrowInputFieldGap: {
     paddingBottom: scale_mod(8)
+  },
+  deactivateContainer: {
+    width: '100%',
+    display: "flex",
+    alignItems: 'center',
+    paddingTop: scale_mod(26),
   }
 });
