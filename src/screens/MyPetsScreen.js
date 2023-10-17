@@ -63,13 +63,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee",
   },
   subContainer: {
-    borderWidth: 2,
+    // borderWidth: 2,
     // height: '100%',
     width: '100%',
   },
   headingContainer: {
-    borderWidth: 2,
-    borderColor: 'red',
+    // borderWidth: 2,
+    // borderColor: 'red',
     paddingTop: scale_mod(46),
     paddingBottom: scale_mod(40),
   },
@@ -78,8 +78,9 @@ const styles = StyleSheet.create({
     fontFamily: "RalewayBold",
   },
   petsContainer: {
-    borderWidth: 2,
+    // borderWidth: 2,
     height: scale_mod(500),
+    borderRadius: scale_mod(7),
   },
   buttonContainer: {
     alignSelf: "center"

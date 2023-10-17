@@ -13,7 +13,6 @@ function UserProfileHome(props) {
             <View style={styles.subContainer}>
                 <Text style={[styleMaster.defaultFont, styles.heading]}>Hi, [Username]</Text>
                 <Image source={require('../../assets/temp_profile_pic.jpg')} style={styles.profileImg}/>
-
             </View>
         </View>
     );
