@@ -13,6 +13,7 @@ function TextInputField( { name, placeholder, handleTextInput } ) {
                 type='text'
                 style={[styleMaster.defaultFont, styles.textInput]}
                 placeholder={placeholder}
+                placeholderTextColor={colors.grayscale03}
                 onChangeText={text => handleTextInput(name, text)}
             />
         </View>
@@ -33,9 +34,8 @@ const styles = StyleSheet.create({
         borderRadius: 12,
     },
     textInput: {
-        width: scale_mod(228),
-        textAlign: 'center'
-    }
-    
+        width: scale_mod(296),
+        textAlign: 'left'
+    }  
 });
   
