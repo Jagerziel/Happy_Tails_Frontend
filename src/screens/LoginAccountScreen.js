@@ -11,6 +11,7 @@ import { styleMaster } from '../constants/stylesMaster.js';
 // Components
 import LoginScreenButton from '../components/shared/LoginScreenButton.js';
 import TextInputField from '../components/shared/TextInputField.js';
+import ReturnArrow from '../components/shared/ReturnArrrow.js';
 
 function LoginAccountScreen(props) {
     const [ textInputData, setTextDataInput ] = useState({
@@ -35,14 +36,16 @@ function LoginAccountScreen(props) {
         console.log(`${target} button pressed`)
     }
 
-    function handleSkip () {
-        navigation.navigate("LoginScreen")
-    }
-
-
     return (
         <View style={[styleMaster.parent, styles.container]}>
             <View style={styles.subContainer}>
+                <View style={styles.skipContainer}>
+                    <ReturnArrow 
+                        navLink={"LoginScreen"}
+                        height={21}
+                        width={12}
+                    />
+                </View>
                 <View style={styles.headingContainer}>
                     <Text style={styles.heading}>Log In</Text>
                 </View>
@@ -82,12 +85,6 @@ function LoginAccountScreen(props) {
                         text={'Continue with Apple'} 
                         handlePress={() => handlePress('Continue with Apple')}
                     />
-                    <View style={styles.padding}></View>
-                    <View style={styles.skipContainer}>
-                        <TouchableOpacity onPress={() => handleSkip()}>
-                            <Text style={[styleMaster.defaultFont, styles.skipText]}>Return</Text>
-                        </TouchableOpacity>
-                    </View>
                 </View>
             </View>
 
@@ -117,7 +114,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontFamily: 'RalewayBold',
-        fontSize: scale_V(52),
+        fontSize: scale_V(32),
         color: colors.black,
         textAlign: 'center',
     },
@@ -150,11 +147,7 @@ const styles = StyleSheet.create({
         fontSize: scale_V(13),
     },
     skipContainer: {
-        paddingTop: scale_mod(8),
-        paddingBottom: scale_mod(8),
-    },
-    skipText: {
-        color: colors.grayscale03
+        paddingLeft: scale_mod(15)
     }
 });
   

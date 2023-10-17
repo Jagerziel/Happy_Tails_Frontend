@@ -3,51 +3,46 @@ import api from "./apiConfig.js";
 const URL = api.USER;
 
 export const getUsers = async () => {
-  try {
-    const response = await fetch(URL, {
-      method: "GET",
-    });
-    const data = await response.json();
+    try {
+        const response = await fetch(URL, {
+        method: "GET",
+        });
+        const data = await response.json();
 
-    return data;
-  } catch (error) {
-    console.log("failed here");
-  }
+        return data;
+    } catch (error) {
+        console.log(`Get Users failed: ${error}`)
+    }
 };
 
 export const createUser = async (input) => {
-  await fetch(URL, {
-    method: "POST",
-    body: JSON.stringify(input),
-  });
+    try {
+        await fetch(URL, {
+          method: "POST",
+          body: JSON.stringify(input),
+        });
+    } catch (error) {
+        console.log(`Create User failed: ${error}`)   
+    }
 };
 
-export const updateUser = async (input) => {
-  await fetch(URL, {
-    method: "PUT",
-    body: JSON.stringify(input),
-  });
+export const updateUser = async (input, id) => {
+    try {
+        await fetch(URL + `/${id}`, {
+            method: "PUT",
+            body: JSON.stringify(input),
+        });
+    } catch (error) {
+        console.log(`Update User failed: ${error}`)
+    }
 };
 
 export const deleteUser = async (id) => {
-  await fetch(URL + `/${id}`, {
-    method: "DELETE",
-  });
+    try{
+        await fetch(URL + `/${id}`, {
+          method: "DELETE",
+        });
+    } catch (error) {
+        console.log(`Delete User failed: ${error}`)
+    }
 };
-
-// export function getUsers(setUserData) {
-//   fetch(URL)
-//     .then((resp) => resp.json())
-//     .then((json) => setUserData(json))
-//     .catch((error) => console.error(error));
-// }
-
-// // Deletes user
-// export const deleteUser = async (id) => {
-//     try {
-//         const response = await api.delete(`user/${id}/`);
-//         return response.data;
-//     } catch (error) {
-//         throw error;
-//     }
-// };
