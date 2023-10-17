@@ -13,6 +13,7 @@ import {
 
 // Import Components
 import StaticInputField from "../components/shared/StaticInputField.js";
+import StaticInputFieldCustom from "../components/shared/StaticInputFieldCustom.js";
 import StaticInputFieldArrow from "../components/shared/StaticInputFieldArrow.js";
 import LoginScreenButton from "../components/shared/LoginScreenButton.js";
 
@@ -31,6 +32,8 @@ function MyPetsDetailsScreen( { route, navigation } ) {
   function deactivate ( command ) {
     console.log(`${command} button pressed`)
   }
+
+  const months = {'01': 'January', '02': 'February', '03': 'March', '04': 'April', '05': 'May', '06': 'June', '07': 'July', '08': 'August', '09': 'September', '10': 'October', '11': 'November', '12': 'December'}
 
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
@@ -78,7 +81,9 @@ function MyPetsDetailsScreen( { route, navigation } ) {
         <View>
           <Text style={[styleMaster.defaultFont, styles.subHeader]}>Date of Birth</Text>
           <View style={styles.dateContainer}>
-            <View style={styles.override}><StaticInputField name={data.dob.slice(0)} /></View>
+            <StaticInputFieldCustom name={data.dob.slice(0,4)} width={100} />
+            <StaticInputFieldCustom name={months[data.dob.slice(5,7)]} width={160} />
+            <StaticInputFieldCustom name={data.dob.slice(8,10)} width={100} />
           </View>
         </View>
         <View style={styles.arrowInputFieldGap}>
@@ -143,7 +148,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     aspectRatio: 6.83/1,
   },
   arrowInputFieldGap: {
