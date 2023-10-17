@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     },
     headingContainer: {
         // borderWidth: 2,
-        paddingTop: scale_mod(84),
+        paddingTop: scale_mod(40),
         paddingBottom: scale_mod(80),
     },
     heading: {
@@ -147,6 +147,7 @@ const styles = StyleSheet.create({
         fontSize: scale_V(13),
     },
     skipContainer: {
+        paddingTop: scale_mod(23),
         paddingLeft: scale_mod(15)
     }
 });
