@@ -29,13 +29,51 @@ export const petData = [
         allergies: "none",
         medications: "Dasequin",
         laboratory: "n/a",
-        microchip: "Yes",
+        microchip: "321351351351",
         visit_history: "See appointments",
         primary_color: "Brown",
         notes: "She's amazing",
         primary_vet: "Vet List",
         user_id: "[User]"
-    }
+    },
+    {
+        uid: 2,
+        name: "Winston",
+        type: "Dog",
+        dob: "2016/09/13",
+        breed: "Pug",
+        image: "",
+        sex: "M",
+        weight: "100 lbs",
+        allergies: "none",
+        medications: "Bacon",
+        laboratory: "n/a",
+        microchip: "321351351352",
+        visit_history: "See appointments",
+        primary_color: "Brown",
+        notes: "She's amazing",
+        primary_vet: "Vet List",
+        user_id: "[User]"
+    },
+    {
+        uid: 3,
+        name: "Garfield",
+        type: "Cat",
+        dob: "2016/09/13",
+        breed: "Lasagna",
+        image: "",
+        sex: "M",
+        weight: "100 lbs",
+        allergies: "none",
+        medications: "Bacon",
+        laboratory: "n/a",
+        microchip: "321351351352",
+        visit_history: "See appointments",
+        primary_color: "Orange",
+        notes: "She's amazing",
+        primary_vet: "Vet List",
+        user_id: "[User]"
+    },
 ]
 
 export const vaccinationData = [
