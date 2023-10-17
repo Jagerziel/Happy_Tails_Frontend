@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import Navigation from "../components/shared/Navigation";
 
 // Import Constants
@@ -12,13 +12,24 @@ import {
 } from "../data/functions/normalizeScaling.js";
 
 function MyPetsDetailsScreen( { route, navigation } ) {
-  const { data} = route.params
+  const { data } = route.params
   console.log(data)
-
 
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
       <View style={[styleMaster.subParent]}>
+        <View style={styles.petContainer}>
+        <View>
+                {
+                    data.type === "Dog" ?
+                    <Image source={require(`../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
+                    <Image source={require(`../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/>
+                }
+            </View>
+            <View style={styles.textContainer}>
+                <Text style={[styleMaster.defaultFont, styles.text]}>{data.name}</Text>
+            </View>
+        </View>
         <Text>Pet Details</Text>
       </View>
       <Navigation />
@@ -33,4 +44,26 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#eee",
   },
+  petContainer: {
+    // borderWidth: 2,
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    paddingTop: scale_mod(62),
+    paddingBottom: scale_mod(24),
+  },
+  petImg: {
+    height: scale_mod(100),
+    width: scale_mod(100),
+    resizeMode: 'cover',
+    borderRadius: scale_mod(7),
+  },
+  textContainer: {
+      paddingLeft: scale_mod(16),
+      justifyContent: 'center',
+  },
+  text: {
+      fontSize: scale_V(26),
+      fontFamily: 'RalewayBold'
+  }
 });
