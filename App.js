@@ -49,6 +49,7 @@ export default function App() {
     'RalewayThinItalic': require('./src/assets/fonts/Raleway-ThinItalic.ttf'),
     'RobotoBold': require('./src/assets/fonts/Roboto-Bold.ttf'),
     'RobotoBlack': require('./src/assets/fonts/Roboto-Black.ttf'),
+    'RobotoLight': require('./src/assets/fonts/Roboto-Light.ttf'),
     'RobotoRegular': require('./src/assets/fonts/Roboto-Regular.ttf'),
   });
 

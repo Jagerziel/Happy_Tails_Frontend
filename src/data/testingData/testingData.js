@@ -24,7 +24,7 @@ export const petData = [
         dob: "2016/09/13",
         breed: "Pitbull-mix",
         image: "",
-        sex: "F",
+        sex: "Female",
         weight: "60 lbs",
         allergies: "none",
         medications: "Dasequin",
@@ -34,7 +34,8 @@ export const petData = [
         primary_color: "Brown",
         notes: "She's amazing",
         primary_vet: "Vet List",
-        user_id: "[User]"
+        user_id: "[User]",
+        spayed: "Yes", //NEWLY ADDED FIELD
     },
     {
         uid: 2,
@@ -43,7 +44,7 @@ export const petData = [
         dob: "2016/09/13",
         breed: "Pug",
         image: "",
-        sex: "M",
+        sex: "Male",
         weight: "100 lbs",
         allergies: "none",
         medications: "Bacon",
@@ -53,7 +54,8 @@ export const petData = [
         primary_color: "Brown",
         notes: "She's amazing",
         primary_vet: "Vet List",
-        user_id: "[User]"
+        user_id: "[User]",
+        spayed: "Yes", //NEWLY ADDED FIELD
     },
     {
         uid: 3,
@@ -62,7 +64,7 @@ export const petData = [
         dob: "2016/09/13",
         breed: "Lasagna",
         image: "",
-        sex: "M",
+        sex: "Male",
         weight: "100 lbs",
         allergies: "none",
         medications: "Bacon",
@@ -72,7 +74,8 @@ export const petData = [
         primary_color: "Orange",
         notes: "She's amazing",
         primary_vet: "Vet List",
-        user_id: "[User]"
+        user_id: "[User]",
+        spayed: "Yes", //NEWLY ADDED FIELD
     },
     {
         uid: 4,
@@ -81,7 +84,7 @@ export const petData = [
         dob: "2016/09/13",
         breed: "Cuteness",
         image: "",
-        sex: "F",
+        sex: "Female",
         weight: "100 lbs",
         allergies: "none",
         medications: "Bacon",
@@ -91,7 +94,8 @@ export const petData = [
         primary_color: "Orange",
         notes: "She's amazing",
         primary_vet: "Vet List",
-        user_id: "[User]"
+        user_id: "[User]",
+        spayed: "Yes", //NEWLY ADDED FIELD
     },
     {
         uid: 5,
@@ -100,7 +104,7 @@ export const petData = [
         dob: "2016/09/13",
         breed: "Wolf",
         image: "",
-        sex: "M",
+        sex: "Male",
         weight: "100 lbs",
         allergies: "none",
         medications: "Bacon",
@@ -110,7 +114,8 @@ export const petData = [
         primary_color: "Orange",
         notes: "She's amazing",
         primary_vet: "Vet List",
-        user_id: "[User]"
+        user_id: "[User]", 
+        spayed: "Yes", //NEWLY ADDED FIELD
     },
 ]
 
