@@ -95,7 +95,7 @@ export const petData = [
     },
     {
         uid: 5,
-        name: "Clifford the Big Red Dog",
+        name: "Spike",
         type: "Dog",
         dob: "2016/09/13",
         breed: "Wolf",

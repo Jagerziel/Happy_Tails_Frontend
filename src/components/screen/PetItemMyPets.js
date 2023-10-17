@@ -17,6 +17,9 @@ function PetItemMyPets( { data } ) {
                 <Image source={require(`../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
                 <Image source={require(`../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/>
             }
+            <View style={styles.textContainer}>
+                <Text style={[styleMaster.defaultFont, styles.text]}>{data.item.name}</Text>
+            </View>
         </View>
     );
 }
@@ -25,8 +28,7 @@ export default PetItemMyPets;
 
 const styles = StyleSheet.create({
     container: {
-        // borderColor: "green",
-        borderWidth: 1,
+        // borderWidth: 2,
         width: '100%',
         height: scale_mod(100),
         display: 'flex',
@@ -38,6 +40,12 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
         borderRadius: scale_mod(7),
     },
-
+    textContainer: {
+        paddingLeft: scale_mod(16),
+        justifyContent: 'center',
+    },
+    text: {
+        fontSize: scale_V(26),
+    }
 
 })
