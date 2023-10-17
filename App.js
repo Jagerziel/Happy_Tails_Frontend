@@ -47,6 +47,9 @@ export default function App() {
     'RalewaySemiBoldItalic': require('./src/assets/fonts/Raleway-SemiBoldItalic.ttf'),
     'RalewayThin': require('./src/assets/fonts/Raleway-Thin.ttf'),
     'RalewayThinItalic': require('./src/assets/fonts/Raleway-ThinItalic.ttf'),
+    'RobotoBold': require('./src/assets/fonts/Roboto-Bold.ttf'),
+    'RobotoBlack': require('./src/assets/fonts/Roboto-Black.ttf'),
+    'RobotoRegular': require('./src/assets/fonts/Roboto-Regular.ttf'),
   });
 
   if (!fontsLoaded) {

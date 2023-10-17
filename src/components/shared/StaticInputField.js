@@ -11,7 +11,7 @@ function StaticInputField( { name } ) {
     return (
         <View style={styles.container}
         >
-            <Text style={[styleMaster.defaultFont, styles.textField]} >{name}</Text>
+            <Text style={[styleMaster.defaultFont, styles.textField]}>{name}</Text>
         </View>
     );
 }
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         fontSize: scale_V(15),
         includeFontPadding: false, // Removes default padding for Text 
+        fontFamily: 'RobotoRegular',
     }  
 });
   
