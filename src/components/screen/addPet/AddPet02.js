@@ -41,10 +41,12 @@ function AddPet02( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
     if (type === "Dog") {
       setAddPetData({...addPetData, type: "Dog"})
       setImgSelected({dog: true, cat: false})
+      console.log(`Dog button pressed`)
     }
     if (type === "Cat") {
       setAddPetData({...addPetData, type: "Cat"})
       setImgSelected({dog: false, cat: true})
+      console.log(`Cat button pressed`)
     }
   }
 
@@ -60,8 +62,27 @@ function AddPet02( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
           <Text style={styles.heading}>{`What’s a cute name. Is ${addPetData.name} a cat or a dog?`}</Text>
         </View>
         <View style={styles.petSelectContainer}>
-          <Image source={require('../../../assets/temp_pet_pic_dog.jpg')} style={styles.imgProperties}/>
-          <Image source={require('../../../assets/temp_pet_pic_cat.jpg')} style={styles.imgProperties}/>
+          <TouchableOpacity 
+            onPress={() => handlePetSelect("Dog")}
+          >
+            <Image 
+              source={require('../../../assets/temp_pet_pic_dog.jpg')} 
+              style={[styles.imgProperties, {
+                borderWidth: imgSelected.dog ? scale_mod(5) : 1,
+                borderColor: imgSelected.dog ? colors.primaryFade : colors.grayscale06,
+              }]}/>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            onPress={() => handlePetSelect("Cat")}
+          >
+            <Image 
+              source={require('../../../assets/temp_pet_pic_cat.jpg')} 
+              style={[styles.imgProperties, {
+                borderWidth: imgSelected.cat ? scale_mod(5) : 1,
+                borderColor: imgSelected.cat ? colors.primaryFade : colors.grayscale06,
+              }]}/>
+          </TouchableOpacity>
+          
         </View>
       </View>
       <View style={styles.bottomContainer}>
@@ -109,7 +130,7 @@ const styles = StyleSheet.create({
   },
   petSelectContainer: {
     // borderWidth: 2,
-    width: '90%',
+    width: '70%',
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around"
@@ -129,7 +150,7 @@ const styles = StyleSheet.create({
   imgProperties: {
     height: scale_mod(100),
     width: scale_mod(100),
-    resizeMode: 'cover',
+    resizeMode: 'contain',
     borderRadius: scale_mod(8),
   }
 });
