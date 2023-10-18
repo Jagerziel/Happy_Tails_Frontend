@@ -19,7 +19,7 @@ import LoginScreenButton from "../components/shared/LoginScreenButton.js";
 
 function MyPetsDetailsScreen( { route, navigation } ) {
   const { data } = route.params
-  console.log(data)
+  // console.log(data)
 
   /*
 "allergies": "none", "breed": "Pitbull-mix", "dob": "2016/09/13", "image": "", "laboratory": "n/a", "medications": "Dasequin", "microchip": "321351351351", "name": "Lily", "notes": "She's amazing", "primary_color": "Brown", "primary_vet": "Vet List", "sex": "F", "type": "Dog", "uid": 1, "user_id": "[User]", "visit_history": "See appointments", "weight": "60 lbs"}
