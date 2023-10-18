@@ -16,6 +16,15 @@ import { petData } from "../data/testingData/testingData";
 import Navigation from "../components/shared/Navigation";
 import LoginScreenButton from "../components/shared/LoginScreenButton";
 import PetItemMyPets from "../components/screen/PetItemMyPets.js";
+import AddPet01 from "../components/screen/addPet/AddPet01.js";
+
+
+
+
+
+
+
+
 
 function MyPetsScreen(props) {
   const [ addPetData ,  setAddPetData ] = useState({
@@ -38,6 +47,19 @@ function MyPetsScreen(props) {
     spayed: "", //NEWLY ADDED FIELD
   })
 
+  const [ addPetComponents , setAddPetsComponents ] = useState({
+    MyPetsScreen: true,
+    AddPet01: false,
+    AddPet02: false,
+    AddPet03: false,
+    AddPet04: false,
+    AddPet05: false,
+    AddPet06: false,
+    AddPet07: false,
+    AddPet08: false,
+    AddPet09: false,
+  })
+
   // Navigation
   const navigation = useNavigation()
   const route = useRoute()
@@ -45,16 +67,15 @@ function MyPetsScreen(props) {
   const itemSeparator = () => <View style={{ marginVertical: scale_mod(24) }} />; // Gap for Flatlist
 
   function handleAddPet (target) {
-    // navigation.navigate("AddPet01Screen", { 
-    //   addPetData: addPetData,
-    //   setAddPetData: setAddPetData
-    // })
+    setAddPetsComponents({...addPetComponents, MyPetsScreen: false, AddPet01: true})
     
     console.log(`${target} button pressed`);
   }
 
   return (
-    <SafeAreaView style={[styles.container, styleMaster.parent]}>
+    <>
+      {addPetComponents.MyPetsScreen &&
+      <SafeAreaView style={[styles.container, styleMaster.parent]}>
         <View style={[styleMaster.subParent, styles.subContainer]}>
           <View style={styles.headingContainer}>
             <Text style={[styleMaster.defaultFont, styles.heading]}>Your Pets</Text>
@@ -79,8 +100,15 @@ function MyPetsScreen(props) {
             />
           </View>
         </View>
-      <Navigation />
-    </SafeAreaView>
+        <Navigation />
+      </SafeAreaView>}
+      {addPetComponents.AddPet01 && 
+      <AddPet01 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents}/>}
+
+
+
+
+    </>
   );
 }
 
