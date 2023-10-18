@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
-import Navigation from "../components/shared/Navigation";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
 import { colors } from "../constants/colorPalette.js";
@@ -13,14 +13,39 @@ import { styleMaster } from "../constants/stylesMaster.js";
 import { petData } from "../data/testingData/testingData";
 
 // Import Components
+import Navigation from "../components/shared/Navigation";
 import LoginScreenButton from "../components/shared/LoginScreenButton";
 import PetItemMyPets from "../components/screen/PetItemMyPets.js";
 
 function MyPetsScreen(props) {
+  const [ addPeetData ,  setAddPetData ] = useState({
+    name: "",
+    type: "",
+    dob: "",
+    breed: "",
+    image: "",
+    sex: "",
+    weight: "",
+    allergies: "",
+    medications: "",
+    laboratory: "",
+    microchip: "",
+    visit_history: "",
+    primary_color: "",
+    notes: "",
+    primary_vet: "",
+    user_id: "",
+    spayed: "", //NEWLY ADDED FIELD
+  })
+
+  // Navigation
+  const navigation = useNavigation()
+  const route = useRoute()
 
   const itemSeparator = () => <View style={{ marginVertical: scale_mod(24) }} />; // Gap for Flatlist
 
   function handleAddPet (target) {
+
     console.log(`${target} button pressed`);
   }
 

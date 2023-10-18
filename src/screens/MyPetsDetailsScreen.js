@@ -21,10 +21,6 @@ function MyPetsDetailsScreen( { route, navigation } ) {
   const { data } = route.params
   // console.log(data)
 
-  /*
-"allergies": "none", "breed": "Pitbull-mix", "dob": "2016/09/13", "image": "", "laboratory": "n/a", "medications": "Dasequin", "microchip": "321351351351", "name": "Lily", "notes": "She's amazing", "primary_color": "Brown", "primary_vet": "Vet List", "sex": "F", "type": "Dog", "uid": 1, "user_id": "[User]", "visit_history": "See appointments", "weight": "60 lbs"}
-  */
-
   function arrowNext ( path ) {
     console.log(`${path} button pressed`)
   }
@@ -33,7 +29,10 @@ function MyPetsDetailsScreen( { route, navigation } ) {
     console.log(`${command} button pressed`)
   }
 
-  const months = {'01': 'January', '02': 'February', '03': 'March', '04': 'April', '05': 'May', '06': 'June', '07': 'July', '08': 'August', '09': 'September', '10': 'October', '11': 'November', '12': 'December'}
+  const months = {
+    '01': 'January', '02': 'February', '03': 'March', '04': 'April', '05': 'May', '06': 'June', 
+    '07': 'July', '08': 'August', '09': 'September', '10': 'October', '11': 'November', '12': 'December'
+  }
 
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
