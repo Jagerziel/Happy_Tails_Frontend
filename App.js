@@ -12,7 +12,8 @@ import CreateAccountScreen from './src/screens/CreateAccountScreen.js';
 import CreateAccountEmailScreen from './src/screens/CreateAccountEmailScreen.js';
 import HomeScreen from './src/screens/HomeScreen.js'
 import MyPetsScreen from './src/screens/MyPetsScreen.js';
-import MyPetsDetailsScreen from './src/screens/MyPetsDetailsScreen.js';
+  import MyPetsDetailsScreen from './src/screens/MyPetsDetailsScreen.js';
+  import AddPet01Screen from './src/screens/addPet/addPet01Screen.js';
 import LoginScreen from './src/screens/LoginScreen.js'
 import LoginAccountScreen from './src/screens/LoginAccountScreen.js';
 import UpdatePetScreen from './src/screens/UpdatePetScreen.js'

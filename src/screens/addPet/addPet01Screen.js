@@ -3,18 +3,15 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
-import { styleMaster } from "../constants/stylesMaster.js";
-import { colors } from "../../../constants/colorPalette.js";
-import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeScaling.js";
+import { styleMaster } from "../../constants/stylesMaster.js";
+import { colors } from "../../constants/colorPalette.js";
+import { scale_H, scale_V, scale_mod } from "../../data/functions/normalizeScaling.js";
 
 // Import Components
-import LoginScreenButton from "../../shared/LoginScreenButton.js";
-import TextInputField from '../../shared/TextInputField.js'
+import LoginScreenButton from "../../components/shared/LoginScreenButton.js";
+import TextInputField from "../../components/shared/TextInputField.js";
 
-function AddPet01( { route, navigation } ) {
-  // Navigation
-  const navigation = useNavigation();
-  const route = useRoute();
+function AddPet01Screen( { route, navigation } ) {
   
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
@@ -25,7 +22,7 @@ function AddPet01( { route, navigation } ) {
   );
 }
 
-export default AddPet01;
+export default AddPet01Screen;
 
 const styles = StyleSheet.create({
   container: {
