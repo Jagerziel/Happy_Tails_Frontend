@@ -44,8 +44,9 @@ function AddPet03( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
         <View style={styles.headingContainer}>
           <Text style={styles.heading}>{`What color is ${addPetData.name}?`}</Text>
         </View>
+        <Text style={[styleMaster.defaultFont, styles.subText]}>If your furry friend has a variety of colors in their coat, just take your best guess.</Text>
         <TextInputField 
-          placeholder={'Enter Name'}
+          placeholder={'Enter Color'}
           handleTextInput={handleTextInput}
           name={"primary_color"}
         />
@@ -86,13 +87,19 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
     width: scale_mod(328),
     paddingTop: scale_mod(40),
-    paddingBottom: scale_mod(80),
+    paddingBottom: scale_mod(38),
   },
   heading: {
       fontFamily: 'RalewayBold',
       fontSize: scale_V(26),
       color: colors.black,
       textAlign: 'left',
+  },
+  subText: {
+    width: scale_mod(328),
+    paddingBottom: scale_mod(44),
+    fontFamily: 'RobotoLight',
+    fontSize: scale_V(15),
   },
   bottomContainer: {
     // borderWidth: 2,
