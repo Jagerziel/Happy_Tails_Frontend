@@ -18,15 +18,49 @@ function AddPet01( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
     setAddPetsComponents({...addPetComponents, MyPetsScreen: true, AddPet01: false})
   }
 
+  function handleNext () {
+    setAddPetsComponents({...addPetComponents, AddPet01: false, AddPet02: true})
+  }
+
+  function handleSkip (key) {
+    setAddPetData({...addPetData, [key]: ""})
+    console.log(addPetData)
+    setAddPetsComponents({...addPetComponents, AddPet01: false, AddPet02: true})
+  }
+
+  function handleTextInput ( key, text ) {
+    setAddPetData({...addPetData, [key]: text})
+    console.log(addPetData)
+  }
+
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
-      <View style={[styleMaster.subParent]}>
-        <View>
+      <View style={[styleMaster.subParent, styles.subContainer]}>
+        <View style={styles.returnContainer}>
           <TouchableOpacity onPress={() => handleReturnToPrev()}>
             <ReturnArrowSVG />
           </TouchableOpacity>
         </View>
-        <Text>AddPet 01</Text>
+        <View style={styles.headingContainer}>
+          <Text style={styles.heading}>What's Your Pet's Name?</Text>
+        </View>
+        <TextInputField 
+          placeholder={'Enter Name'}
+          handleTextInput={handleTextInput}
+          name={"name"}
+        />
+      </View>
+      <View style={styles.bottomContainer}>
+        <LoginScreenButton 
+          text={'Next'}
+          handlePress={() => handleNext()}
+        />
+        <TouchableOpacity 
+          style={styles.skipContainer} 
+          onPress={() => handleSkip('name')}
+        >
+          <Text style={[styleMaster.defaultFont, styles.skipText]}>Skip</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -39,7 +73,36 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#eee",
   },
-  returnToPrevContainer: {
-
+  subContainer: {
+    display: "flex",
+    alignItems: "center"
+  },
+  returnContainer: {
+    alignSelf: 'flex-start',
+    paddingTop: scale_mod(23),
+    paddingLeft: scale_mod(15),
+  },
+  headingContainer: {
+    // borderWidth: 2,
+    paddingTop: scale_mod(40),
+    paddingBottom: scale_mod(80),
+  },
+  heading: {
+      fontFamily: 'RalewayBold',
+      fontSize: scale_V(26),
+      color: colors.black,
+      textAlign: 'left',
+  },
+  bottomContainer: {
+    // borderWidth: 2,
+    display: "flex",
+    alignItems: "center",
+    paddingBottom: scale_mod(32),
+  },
+  skipContainer: {
+    paddingTop: scale_mod(24),
+  },
+  skipText: {
+    color: colors.secondaryFade
   }
 });

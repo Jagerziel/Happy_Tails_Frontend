@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
     },
     textInput: {
         width: scale_mod(296),
-        textAlign: 'left'
+        textAlign: 'left',
+        includeFontPadding: false, // Removes default padding for Text
     }  
 });
   
