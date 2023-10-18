@@ -33,7 +33,6 @@ function AddPet02( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
 
   function handleSkip (key) {
     setAddPetData({...addPetData, [key]: ""})
-    console.log(addPetData)
     setAddPetsComponents({...addPetComponents, AddPet02: false, AddPet03: true})
   }
 
@@ -59,7 +58,7 @@ function AddPet02( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
           </TouchableOpacity>
         </View>
         <View style={styles.headingContainer}>
-          <Text style={styles.heading}>{`What’s a cute name. Is ${addPetData.name} a cat or a dog?`}</Text>
+          <Text style={styles.heading}>{`What a cute name. Is ${addPetData.name} a cat or a dog?`}</Text>
         </View>
         <View style={styles.petSelectContainer}>
           <TouchableOpacity 
@@ -92,7 +91,7 @@ function AddPet02( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
         />
         <TouchableOpacity 
           style={styles.skipContainer} 
-          onPress={() => handleSkip('name')}
+          onPress={() => handleSkip('type')}
         >
           <Text style={[styleMaster.defaultFont, styles.skipText]}>Skip</Text>
         </TouchableOpacity>
@@ -119,6 +118,7 @@ const styles = StyleSheet.create({
   },
   headingContainer: {
     // borderWidth: 2,
+    width: scale_mod(328),
     paddingTop: scale_mod(40),
     paddingBottom: scale_mod(80),
   },

@@ -24,7 +24,6 @@ function AddPet01( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
 
   function handleSkip (key) {
     setAddPetData({...addPetData, [key]: ""})
-    console.log(addPetData)
     setAddPetsComponents({...addPetComponents, AddPet01: false, AddPet02: true})
   }
 
@@ -84,6 +83,7 @@ const styles = StyleSheet.create({
   },
   headingContainer: {
     // borderWidth: 2,
+    width: scale_mod(328),
     paddingTop: scale_mod(40),
     paddingBottom: scale_mod(80),
   },
