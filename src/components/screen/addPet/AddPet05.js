@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 // Import Constants
@@ -15,21 +15,48 @@ import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 function AddPet05( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
   console.log(addPetData)
 
+  useEffect(()=> {
+    setAddPetData({...addPetData, sex: "Female"})
+  },[])
+
+  const [ toggle, setToggle ] = useState({
+    Female: true,
+    Male: false
+  })
+
   function handleReturnToPrev () {
-    setAddPetsComponents({...addPetComponents, MyPetsScreen: true, AddPet01: false})
+    setAddPetsComponents({...addPetComponents, AddPet04: true, AddPet05: false})
   }
 
   function handleNext () {
-    setAddPetsComponents({...addPetComponents, AddPet01: false, AddPet02: true})
+    setAddPetsComponents({...addPetComponents, AddPet05: false, AddPet06: true})
   }
 
   function handleSkip (key) {
     setAddPetData({...addPetData, [key]: ""})
-    setAddPetsComponents({...addPetComponents, AddPet01: false, AddPet02: true})
+    setAddPetsComponents({...addPetComponents, AddPet05: false, AddPet06: true})
   }
 
   function handleTextInput ( key, text ) {
     setAddPetData({...addPetData, [key]: text})
+    console.log(addPetData)
+  }
+
+  function handleToggle ( key ) {
+    if (key === "Female") {
+      setToggle({
+        Female: true,
+        Male: false
+      })
+      setAddPetData({...addPetData, sex: "Female"})
+    }
+    if (key === "Male") {
+      setToggle({
+        Female: false,
+        Male: true
+      })
+      setAddPetData({...addPetData, sex: "Male"})
+    }
     console.log(addPetData)
   }
 
@@ -45,7 +72,9 @@ function AddPet05( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
           <Text style={styles.heading}>{`Great. Now tell us ${addPetData.name}’s gender.`}</Text>
         </View>
         <View>
-          <CheckboxButton name={"Female"} active={true}/>
+          <CheckboxButton name={"Female"} active={toggle.Female} action={() => handleToggle("Female")}/>
+          <View style={styles.padding}></View>
+          <CheckboxButton name={"Male"} active={toggle.Male} action={() => handleToggle("Male")}/>
         </View>
       </View>
       <View style={styles.bottomContainer}>
@@ -55,7 +84,7 @@ function AddPet05( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
         />
         <TouchableOpacity 
           style={styles.skipContainer} 
-          onPress={() => handleSkip('name')}
+          onPress={() => handleSkip('sex')}
         >
           <Text style={[styleMaster.defaultFont, styles.skipText]}>Skip</Text>
         </TouchableOpacity>
@@ -91,6 +120,9 @@ const styles = StyleSheet.create({
       fontSize: scale_V(26),
       color: colors.black,
       textAlign: 'left',
+  },
+  padding: {
+    paddingTop: scale_mod(16),
   },
   bottomContainer: {
     // borderWidth: 2,

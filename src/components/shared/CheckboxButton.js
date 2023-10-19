@@ -8,7 +8,7 @@ import { styleMaster } from '../../constants/stylesMaster.js';
 import GreyDot from '../../assets/grey_dot.svg'
 import OrangeDot from '../../assets/orange_dot.svg'
 
-function CheckboxButton( { name, active } ) {
+function CheckboxButton( { name, active, action } ) {
     const conditionalBorder = active ? 
         {
             borderWidth: 2,
@@ -16,10 +16,12 @@ function CheckboxButton( { name, active } ) {
         } : {}
 
     return (
-        <TouchableOpacity style={[
-            styles.container,
-            conditionalBorder
+        <TouchableOpacity 
+            style={[
+                styles.container,
+                conditionalBorder
             ]}
+            onPress={action}
         >
             <Text style={[styleMaster.defaultFont, styles.textField]}>{name}</Text>
             {
