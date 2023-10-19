@@ -20,7 +20,7 @@ function AddPet02( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
   })
   
   useEffect(() => { 
-    setAddPetData({...addPetData, type: "Dog"})
+    setAddPetData({...addPetData, type: "Dog"}) 
   }, [])
   
   function handleReturnToPrev () {

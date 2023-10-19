@@ -22,7 +22,7 @@ import AddPet03 from "../components/screen/addPet/AddPet03.js";
 import AddPet04 from "../components/screen/addPet/AddPet04.js";
 import AddPet05 from "../components/screen/addPet/AddPet05.js";
 import AddPet06 from "../components/screen/addPet/AddPet06.js";
-
+import AddPet07 from "../components/screen/addPet/AddPet07.js";
 
 
 
@@ -115,6 +115,8 @@ function MyPetsScreen(props) {
       <AddPet05 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents}/>}
       {addPetComponents.AddPet06 && 
       <AddPet06 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents}/>}
+      {addPetComponents.AddPet07 && 
+      <AddPet07 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents}/>}
       
 
 
