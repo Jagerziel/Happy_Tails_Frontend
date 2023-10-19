@@ -9,7 +9,6 @@ import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeSc
 // Import Components
 import CheckboxButton from "../../shared/CheckboxButton.js";
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
-import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
 function AddPet05( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
@@ -35,11 +34,6 @@ function AddPet05( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
   function handleSkip (key) {
     setAddPetData({...addPetData, [key]: ""})
     setAddPetsComponents({...addPetComponents, AddPet05: false, AddPet06: true})
-  }
-
-  function handleTextInput ( key, text ) {
-    setAddPetData({...addPetData, [key]: text})
-    console.log(addPetData)
   }
 
   function handleToggle ( key ) {

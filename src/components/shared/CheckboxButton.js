@@ -56,5 +56,4 @@ const styles = StyleSheet.create({
         includeFontPadding: false, // Removes default padding for Text 
         fontFamily: 'RobotoLight',
     },
-    
 });
