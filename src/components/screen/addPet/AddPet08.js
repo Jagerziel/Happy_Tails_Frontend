@@ -10,6 +10,7 @@ import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeSc
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
+import DateTimePicker from "../../shared/DateTimePicker.js";
 
 function AddPet08( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
   console.log(addPetData)
@@ -28,11 +29,6 @@ function AddPet08( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
     setAddPetsComponents({...addPetComponents, AddPet08: false, AddPet09: true})
   }
 
-  function handleTextInput ( key, text ) {
-    setAddPetData({...addPetData, [key]: text})
-    console.log(addPetData)
-  }
-
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
       <View style={[styleMaster.subParent, styles.subContainer]}>
@@ -45,11 +41,7 @@ function AddPet08( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
           <Text style={styles.heading}>{`When was ${addPetData.sex === "Female" ? "she" : "he" } born?`}</Text>
         </View>
         <Text style={[styleMaster.defaultFont, styles.subText]}>It’s ok if you don’t know the exact date. A lot of pet parents don’t. Give us your best guess to help us learn their age.</Text>
-        <TextInputField 
-          placeholder={'Enter Weight'}
-          handleTextInput={handleTextInput}
-          name={"weight"}
-        />
+        <DateTimePicker name={"Select Date"}/>
       </View>
       <View style={styles.bottomContainer}>
         <LoginScreenButton 
