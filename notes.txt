@@ -11,7 +11,7 @@ Dotenv for React Native: https://www.npmjs.com/package/react-native-dotenv
 
 Babel Configuration Guide: https://babeljs.io/docs/configuration
 
-
+DateTime Picker: https://www.npmjs.com/package/react-native-modal-datetime-picker
 
 ##### SHORTCUTS #####
 rsf: creates new react component
