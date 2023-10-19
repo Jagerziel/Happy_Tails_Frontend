@@ -10,6 +10,7 @@ import {
   scale_V,
   scale_mod,
 } from "../data/functions/normalizeScaling.js";
+import { months } from "../data/data/data.js";
 
 // Import Components
 import StaticInputField from "../components/shared/StaticInputField.js";
@@ -27,11 +28,6 @@ function MyPetsDetailsScreen( { route, navigation } ) {
 
   function deactivate ( command ) {
     console.log(`${command} button pressed`)
-  }
-
-  const months = {
-    '01': 'January', '02': 'February', '03': 'March', '04': 'April', '05': 'May', '06': 'June', 
-    '07': 'July', '08': 'August', '09': 'September', '10': 'October', '11': 'November', '12': 'December'
   }
 
   return (

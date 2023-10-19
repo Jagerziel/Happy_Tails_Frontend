@@ -7,9 +7,12 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { styleMaster } from "../../constants/stylesMaster";
 import { scale_H, scale_V, scale_mod } from "../../data/functions/normalizeScaling";
 import { colors } from "../../constants/colorPalette";
+import { months } from "../../data/data/data.js";
 
-const DateTimePicker = ( {name} ) => {
+const DateTimePicker = ( { name } ) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [text , setText] = useState(name)
+
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
@@ -20,6 +23,10 @@ const DateTimePicker = ( {name} ) => {
   };
 
   const handleConfirm = (date) => {
+    const numericDate = date.toISOString().replace('-', '/').split('T')[0].replace('-', '/')
+    const textReplace = `${months[numericDate.slice(5,7)]} ${numericDate.slice(8, 10)}, ${numericDate.slice(0,4)}`
+    setText(textReplace)
+
     console.warn("A date has been picked: ", date);
     hideDatePicker();
   };
@@ -30,7 +37,7 @@ const DateTimePicker = ( {name} ) => {
         style={styles.container}
         onPress={showDatePicker}
       >
-        <Text style={[styleMaster.defaultFont, styles.textField]}>{name}</Text>
+        <Text style={[styleMaster.defaultFont, styles.textField]}>{text}</Text>
       </TouchableOpacity>
       <DateTimePickerModal
         isVisible={isDatePickerVisible}

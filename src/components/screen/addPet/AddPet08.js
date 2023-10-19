@@ -5,10 +5,10 @@ import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-na
 import { styleMaster } from "../../../constants/stylesMaster.js";
 import { colors } from "../../../constants/colorPalette.js";
 import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeScaling.js";
+import { months } from "../../../data/data/data.js"
 
 // Import Components
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
-import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 import DateTimePicker from "../../shared/DateTimePicker.js";
 
@@ -41,7 +41,10 @@ function AddPet08( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
           <Text style={styles.heading}>{`When was ${addPetData.sex === "Female" ? "she" : "he" } born?`}</Text>
         </View>
         <Text style={[styleMaster.defaultFont, styles.subText]}>It’s ok if you don’t know the exact date. A lot of pet parents don’t. Give us your best guess to help us learn their age.</Text>
-        <DateTimePicker name={"Select Date"}/>
+        <DateTimePicker 
+          name={"Select Date"}
+          
+        />
       </View>
       <View style={styles.bottomContainer}>
         <LoginScreenButton 
