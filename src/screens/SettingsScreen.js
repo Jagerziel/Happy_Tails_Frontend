@@ -1,12 +1,12 @@
 // Import React
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Components
 import Navigation from "../components/shared/Navigation";
 import StaticInputFieldArrow from "../components/shared/StaticInputFieldArrow.js";
-
+import StaticInputFieldToggle from "../components/shared/StaticInputFieldToggle.js";
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
@@ -14,6 +14,8 @@ import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling.
 import { colors } from "../constants/colorPalette.js";
 
 function SettingsScreen(props) {
+  const [ toggle , setToggle ] = useState(false)
+
   // Navigation
   const navigation = useNavigation();
   const route = useRoute();
@@ -32,6 +34,10 @@ function SettingsScreen(props) {
     console.log(`${path} button pressed`)
   }
 
+  function toggleFunc () {
+    setToggle(prev => !prev)
+    console.log(`Toggle switched to ${!toggle}`)
+  }
 
   return (
     <SafeAreaView style={[styleMaster.parent, styles.container]}>
@@ -43,6 +49,9 @@ function SettingsScreen(props) {
           </TouchableOpacity>
         </View>
         <Text style={[styleMaster.defaultFont, styles.title]}>General</Text>
+        <View style={styles.staticInputContainer}>
+          <StaticInputFieldToggle name={"Face ID"} toggleFunc={() => toggleFunc()}/>
+        </View>
         <View style={styles.staticInputContainer}>
           <StaticInputFieldArrow name={"PIN"} arrowNext={() => arrowNext('PIN')} path={'PIN'}/>
         </View>

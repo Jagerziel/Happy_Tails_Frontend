@@ -15,8 +15,11 @@ function Navigation() {
   const route = useRoute();
 
   // Dynamically render color of icon on nav bar
-  function iconColor(name) {
-    if (route.name === name) return colors.primary;
+  function iconColor(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      if (route.name === arr[i]) return colors.primary;
+
+    }
     return colors.grayscale03;
   }
 
@@ -26,8 +29,8 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("HomeScreen")}
       >
-        <AntDesign name="home" size={scale_mod(24)} color={iconColor("HomeScreen")} />
-        <Text style={[styles.buttonText, { color: iconColor("HomeScreen") }]}>
+        <AntDesign name="home" size={scale_mod(24)} color={iconColor(["HomeScreen"])} />
+        <Text style={[styles.buttonText, { color: iconColor(["HomeScreen"]) }]}>
           Home
         </Text>
       </TouchableOpacity>
@@ -38,9 +41,9 @@ function Navigation() {
         <MaterialIcons
           name="pets"
           size={scale_mod(24)}
-          color={iconColor("MyPetsScreen")}
+          color={iconColor(["MyPetsScreen", "MyPetsDetailsScreen"])}
         />
-        <Text style={[styles.buttonText, { color: iconColor("MyPetsScreen") }]}>
+        <Text style={[styles.buttonText, { color: iconColor(["MyPetsScreen", "MyPetsDetailsScreen"]) }]}>
           My Pets
         </Text>
       </TouchableOpacity>
@@ -51,10 +54,10 @@ function Navigation() {
         <AntDesign
           name="calendar"
           size={scale_mod(26)}
-          color={iconColor("BookingScreen")}
+          color={iconColor(["BookingScreen"])}
         />
         <Text
-          style={[styles.buttonText, { color: iconColor("BookingScreen") }]}
+          style={[styles.buttonText, { color: iconColor(["BookingScreen"]) }]}
         >
           Book
         </Text>
@@ -63,9 +66,9 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("AboutUsScreen")}
       >
-        <Entypo name="star" size={scale_mod(27)} color={iconColor("AboutUsScreen")} />
+        <Entypo name="star" size={scale_mod(27)} color={iconColor(["AboutUsScreen"])} />
         <Text
-          style={[styles.buttonText, { color: iconColor("AboutUsScreen") }]}
+          style={[styles.buttonText, { color: iconColor(["AboutUsScreen"]) }]}
         >
           About Us
         </Text>
@@ -77,10 +80,10 @@ function Navigation() {
         <Feather
           name="settings"
           size={scale_mod(24)}
-          color={iconColor("SettingsScreen")}
+          color={iconColor(["SettingsScreen"])}
         />
         <Text
-          style={[styles.buttonText, { color: iconColor("SettingsScreen") }]}
+          style={[styles.buttonText, { color: iconColor(["SettingsScreen"]) }]}
         >
           Settings
         </Text>

@@ -27,6 +27,11 @@ function MyPetsDetailsScreen( { route, navigation } ) {
   }
 
   function deactivate ( command ) {
+    /* 
+    **************************************************
+    ERASE STORED DATA FOR PET
+    **************************************************
+    */
     console.log(`${command} button pressed`)
   }
 
