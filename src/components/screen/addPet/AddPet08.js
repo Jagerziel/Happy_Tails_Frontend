@@ -5,7 +5,6 @@ import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-na
 import { styleMaster } from "../../../constants/stylesMaster.js";
 import { colors } from "../../../constants/colorPalette.js";
 import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeScaling.js";
-import { months } from "../../../data/data/data.js"
 
 // Import Components
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
@@ -17,6 +16,10 @@ function AddPet08( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
 
   function handleReturnToPrev () {
     setAddPetsComponents({...addPetComponents, AddPet07: true, AddPet08: false})
+  }
+
+  function handleDate(date) {
+    setAddPetData({...addPetData, dob: date})
   }
 
   function handleNext () {
@@ -43,7 +46,7 @@ function AddPet08( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
         <Text style={[styleMaster.defaultFont, styles.subText]}>It’s ok if you don’t know the exact date. A lot of pet parents don’t. Give us your best guess to help us learn their age.</Text>
         <DateTimePicker 
           name={"Select Date"}
-          
+          handleDate={date => handleDate(date)}
         />
       </View>
       <View style={styles.bottomContainer}>

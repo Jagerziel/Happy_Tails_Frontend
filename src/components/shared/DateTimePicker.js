@@ -9,7 +9,7 @@ import { scale_H, scale_V, scale_mod } from "../../data/functions/normalizeScali
 import { colors } from "../../constants/colorPalette";
 import { months } from "../../data/data/data.js";
 
-const DateTimePicker = ( { name } ) => {
+const DateTimePicker = ( { name, handleDate } ) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [text , setText] = useState(name)
 
@@ -25,10 +25,11 @@ const DateTimePicker = ( { name } ) => {
   const handleConfirm = (date) => {
     const numericDate = date.toISOString().replace('-', '/').split('T')[0].replace('-', '/')
     const textReplace = `${months[numericDate.slice(5,7)]} ${numericDate.slice(8, 10)}, ${numericDate.slice(0,4)}`
-    setText(textReplace)
+    
+    setText(textReplace) // Sets text on screen
+    handleDate(numericDate) // Sends date back to parent
 
-    console.warn("A date has been picked: ", date);
-    hideDatePicker();
+    hideDatePicker(); // Hides Date Picker
   };
 
   return (
