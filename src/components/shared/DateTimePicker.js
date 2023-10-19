@@ -43,6 +43,7 @@ const DateTimePicker = ( { name, handleDate } ) => {
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
         mode="date"
+        maximumDate={new Date()}
         onConfirm={handleConfirm}
         onCancel={hideDatePicker}
       />

@@ -47,11 +47,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 12,
+        backgroundColor: colors.white,
     },
     textInput: {
         width: scale_mod(296),
         textAlign: 'left',
         includeFontPadding: false, // Removes default padding for Text
+        
     }  
 });
   
