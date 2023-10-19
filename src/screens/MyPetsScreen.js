@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
-import { CommonActions, useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
 import { colors } from "../constants/colorPalette.js";
@@ -25,7 +24,7 @@ import AddPet06 from "../components/screen/addPet/AddPet06.js";
 import AddPet07 from "../components/screen/addPet/AddPet07.js";
 import AddPet08 from "../components/screen/addPet/AddPet08.js";
 import AddPet09 from "../components/screen/addPet/AddPet09.js";
-
+import AddPet10 from "../components/screen/addPet/AddPet10.js";
 
 function MyPetsScreen(props) {
   const [ addPetData ,  setAddPetData ] = useState({
@@ -59,11 +58,8 @@ function MyPetsScreen(props) {
     AddPet07: false,
     AddPet08: false,
     AddPet09: false,
+    AddPet10: false,
   })
-
-  // Navigation
-  const navigation = useNavigation()
-  const route = useRoute()
 
   const itemSeparator = () => <View style={{ marginVertical: scale_mod(24) }} />; // Gap for Flatlist
 
@@ -121,6 +117,8 @@ function MyPetsScreen(props) {
       <AddPet08 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents}/>}
       {addPetComponents.AddPet09 && 
       <AddPet09 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents}/>}
+      {addPetComponents.AddPet10 && 
+      <AddPet10 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents}/>}
       
 
       
