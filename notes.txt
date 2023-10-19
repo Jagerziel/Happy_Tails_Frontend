@@ -13,6 +13,8 @@ Babel Configuration Guide: https://babeljs.io/docs/configuration
 
 DateTime Picker: https://www.npmjs.com/package/react-native-modal-datetime-picker
 
+Expo Switch Button: https://reactnative.dev/docs/switch
+
 ##### SHORTCUTS #####
 rsf: creates new react component
 rnss: creates react native stylesheet
