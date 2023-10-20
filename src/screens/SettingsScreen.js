@@ -31,6 +31,9 @@ function SettingsScreen(props) {
   }
 
   function arrowNext ( path ) {
+    if ( path === "PIN" ) {
+      navigation.navigate("SettingsChangePINScreen")
+    }
     console.log(`${path} button pressed`)
   }
 

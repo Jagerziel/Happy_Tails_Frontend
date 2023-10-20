@@ -33,17 +33,13 @@ function SettingsChangePINScreen(props) {
     <SafeAreaView style={[styleMaster.parent, styles.container]}>
       <ScrollView style={[styleMaster.subParent]}>
         <View style={styles.headerContainer}>
-          <Text style={[styleMaster.defaultFont, styles.headerText]}>Settings</Text>
-          <TouchableOpacity onPress={() => handleLogout()}>
-            <Text style={[styleMaster.defaultFont, styles.logoutText]}>Log Out</Text>
-          </TouchableOpacity>
-        </View>
-        <Text style={[styleMaster.defaultFont, styles.title]}>General</Text>
-        <View style={styles.staticInputContainer}>
-          <StaticInputFieldToggle name={"Face ID"} toggleFunc={() => toggleFunc()}/>
+          <Text style={[styleMaster.defaultFont, styles.headerText]}>PIN</Text>
         </View>
         <View style={styles.staticInputContainer}>
-          <StaticInputFieldArrow name={"PIN"} arrowNext={() => arrowNext('PIN')} path={'PIN'}/>
+          <StaticInputFieldToggle name={"PIN"} toggleFunc={() => toggleFunc()}/>
+        </View>
+        <View style={styles.staticInputContainer}>
+          <StaticInputFieldArrow name={"Change PIN"} arrowNext={() => arrowNext('Change PIN')} path={'Change PIN'}/>
         </View>
 
       </ScrollView>
@@ -71,17 +67,6 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: scale_V(32),
     fontFamily: "RalewayBold",
-  },
-  logoutText: {
-    fontFamily: "RobotoLight",
-    color: colors.black,
-    paddingRight: scale_mod(7),
-  },
-  title: {
-    fontSize: scale_V(21),
-    fontFamily: "RalewayBold",
-    paddingTop: scale_mod(28),
-    paddingBottom: scale_mod(8),
   },
   staticInputContainer: {
     paddingTop: scale_mod(8),
