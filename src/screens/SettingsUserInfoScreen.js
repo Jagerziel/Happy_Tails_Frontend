@@ -7,6 +7,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import Navigation from "../components/shared/Navigation";
 import LoginScreenButton from "../components/shared/LoginScreenButton.js";
 import TextInputField from "../components/shared/TextInputField.js"
+import { checkOneField } from "../data/functions/conditionalButton.js";
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
@@ -34,16 +35,7 @@ function SettingsUserInfoScreen(props) {
     let textInputArr = Object.values(textInputData)
 
     useEffect(() => {
-        let ct = 0
-        while (ct < textInputArr.length) {
-            if (textInputArr[ct] !== "") break
-            ct++
-        }
-        if (ct === textInputArr.length) {
-            setDisabled(true)
-        } else {
-            setDisabled(false)
-        }
+        setDisabled(checkOneField(textInputArr))
     }, [textInputData])
 
     // Navigation

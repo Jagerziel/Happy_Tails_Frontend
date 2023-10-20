@@ -6,9 +6,17 @@ export function checkAllFields ( array ) {
         if (array[ct] === "") blank++
         ct++
     }
-    if (blank > 0) {
-        return true
-    } else {
-        return false
+    if (blank > 0) return true
+    return false
+}
+
+// If all fields are missing, the function returns true
+export function checkOneField ( array ) {
+    let ct = 0
+    while (ct < array.length) {
+        if (array[ct] !== "") break
+        ct++
     }
+    if (ct === array.length) return true
+    return false
 }
