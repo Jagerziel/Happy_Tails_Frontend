@@ -13,28 +13,20 @@ import { styleMaster } from "../constants/stylesMaster.js";
 import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling.js";
 import { colors } from "../constants/colorPalette.js";
 
-function SettingsScreen(props) {
+function SettingsUserInfoScreen(props) {
   const [ toggle , setToggle ] = useState(false)
 
   // Navigation
   const navigation = useNavigation();
   const route = useRoute();
 
-  function handleLogout () {
+  function handleSaveUser () {
     /* 
     **************************************************
       ERASE STORED DATA
     **************************************************
     */
-    navigation.navigate("LoginScreen")
-    console.log('logged out')
-  }
-
-  function arrowNext ( path ) {
-    if ( path === "PIN" ) {
-      navigation.navigate("SettingsChangePINScreen")
-    }   
-    console.log(`${path} button pressed`)
+    console.log('User Information Saved')
   }
 
   function toggleFunc () {
@@ -47,31 +39,12 @@ function SettingsScreen(props) {
       <ScrollView style={[styleMaster.subParent]}>
         <View style={styles.headerContainer}>
           <Text style={[styleMaster.defaultFont, styles.headerText]}>Settings</Text>
-          <TouchableOpacity onPress={() => handleLogout()}>
-            <Text style={[styleMaster.defaultFont, styles.logoutText]}>Log Out</Text>
-          </TouchableOpacity>
         </View>
         <Text style={[styleMaster.defaultFont, styles.title]}>General</Text>
         <View style={styles.staticInputContainer}>
           <StaticInputFieldToggle name={"Face ID"} toggleFunc={() => toggleFunc()}/>
         </View>
-        <View style={styles.staticInputContainer}>
-          <StaticInputFieldArrow name={"PIN"} arrowNext={() => arrowNext('PIN')} path={'PIN'}/>
-        </View>
-
-        <Text style={[styleMaster.defaultFont, styles.title]}>User Details</Text>
-        <View style={styles.staticInputContainer}>
-          <StaticInputFieldArrow name={"User info"} arrowNext={() => arrowNext('User Info')} path={'User Info'}/>
-        </View>
-        <View style={styles.staticInputContainer}>
-          <StaticInputFieldArrow name={"Invoices"} arrowNext={() => arrowNext('Invoices')} path={'Invoices'}/>
-        </View>
-        <View style={styles.staticInputContainer}>
-          <StaticInputFieldArrow name={"Payment methods"} arrowNext={() => arrowNext('Payment methods')} path={'Payment methods'}/>
-        </View>
-        <View style={styles.staticInputContainer}>
-          <StaticInputFieldArrow name={"Emergency Contact"} arrowNext={() => arrowNext('Emergency Contact')} path={'Emergency Contact'}/>
-        </View>
+       
 
 
       </ScrollView>
@@ -80,7 +53,7 @@ function SettingsScreen(props) {
   );
 }
 
-export default SettingsScreen;
+export default SettingsUserInfoScreen;
 
 const styles = StyleSheet.create({
   container: {

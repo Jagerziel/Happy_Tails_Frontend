@@ -5,6 +5,7 @@ import {
   View, 
 } from 'react-native';
 import React, { useState, useCallback } from 'react';
+
 // Screens
 import AboutUsScreen from './src/screens/AboutUsScreen.js';
 import BookingScreen from './src/screens/BookingScreen.js';
@@ -19,6 +20,7 @@ import UpdatePetScreen from './src/screens/UpdatePetScreen.js'
 import UserProfileScreen from './src/screens/UserProfileScreen.js'
 import SettingsScreen from './src/screens/SettingsScreen.js';
 import SettingsChangePINScreen from './src/screens/SettingsChangePINScreen.js';
+import SettingsUserInfoScreen from './src/screens/SettingsUserInfoScreen.js';
 import VaccinationScreen from './src/screens/VaccinationScreen.js'
 
 // Navigation
@@ -27,6 +29,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Fonts
 import { useFonts } from 'expo-font';
+
+// Use Stack Navigation
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -76,6 +80,7 @@ export default function App() {
           <Stack.Screen name="AboutUsScreen" component={AboutUsScreen}/>
           <Stack.Screen name="SettingsScreen" component={SettingsScreen}/>
           <Stack.Screen name="SettingsChangePINScreen" component={SettingsChangePINScreen}/>
+          <Stack.Screen name="SettingsUserInfoScreen" component={SettingsUserInfoScreen}/>
           <Stack.Screen name="UpdatePetScreen" component={UpdatePetScreen}/>
           <Stack.Screen name="UserProfileScreen" component={UserProfileScreen}/>
           <Stack.Screen name="VaccinationScreen" component={VaccinationScreen}/>

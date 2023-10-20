@@ -15,6 +15,8 @@ DateTime Picker: https://www.npmjs.com/package/react-native-modal-datetime-picke
 
 Expo Switch Button: https://reactnative.dev/docs/switch
 
+Custom Scaling: https://medium.com/soluto-engineering/size-matters-5aeeb462900a
+
 ##### SHORTCUTS #####
 rsf: creates new react component
 rnss: creates react native stylesheet
