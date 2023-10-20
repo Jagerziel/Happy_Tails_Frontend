@@ -55,6 +55,7 @@ function AddPet04( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
         <LoginScreenButton 
           text={'Next'}
           handlePress={() => handleNext()}
+          disabled={addPetData.breed === "" ? true : false}
         />
         <TouchableOpacity 
           style={styles.skipContainer} 

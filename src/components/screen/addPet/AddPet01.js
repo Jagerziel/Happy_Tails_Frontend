@@ -16,6 +16,25 @@ function AddPet01( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
 
   function handleReturnToPrev () {
     setAddPetsComponents({...addPetComponents, MyPetsScreen: true, AddPet01: false})
+    setAddPetData({
+      name: "",
+      type: "",
+      dob: "",
+      breed: "",
+      image: "",
+      sex: "",
+      weight: "",
+      allergies: "",
+      medications: "",
+      laboratory: "",
+      microchip: "",
+      visit_history: "",
+      primary_color: "",
+      notes: "",
+      primary_vet: "",
+      user_id: "",
+      spayed: "", //NEWLY ADDED FIELD
+    })
   }
 
   function handleNext () {
@@ -53,6 +72,7 @@ function AddPet01( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
         <LoginScreenButton 
           text={'Next'}
           handlePress={() => handleNext()}
+          disabled={addPetData.name === "" ? true : false}
         />
         <TouchableOpacity 
           style={styles.skipContainer} 

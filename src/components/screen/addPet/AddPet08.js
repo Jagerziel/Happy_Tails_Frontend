@@ -53,10 +53,11 @@ function AddPet08( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
         <LoginScreenButton 
           text={'Next'}
           handlePress={() => handleNext()}
+          disabled={addPetData.dob === "" ? true : false}
         />
         <TouchableOpacity 
           style={styles.skipContainer} 
-          onPress={() => handleSkip('weight')}
+          onPress={() => handleSkip('dob')}
         >
           <Text style={[styleMaster.defaultFont, styles.skipText]}>Skip</Text>
         </TouchableOpacity>
