@@ -58,7 +58,7 @@ function SettingsUserInfoScreen(props) {
         setTextDataInput({...textInputData, [key]: text})
     }
 
-    console.log(textInputData)
+    console.log(`Input Data ${textInputData}`)
 
     function handleSaveUser () {
         /* 

@@ -14,16 +14,16 @@ import TextInputField from '../components/shared/TextInputField.js';
 import ReturnArrow from '../components/shared/ReturnArrrow.js';
 
 function CreateAccountEmailScreen(props) {
+    // Navigation
+    const navigation = useNavigation()
+    const route = useRoute()
+
     const [ textInputData, setTextDataInput ] = useState({
         fName: "",
         lName: "",
         email: "",
         password: ""
     })
-
-    // Navigation
-    const navigation = useNavigation()
-    const route = useRoute()
 
     function handleCreateUser ( target ) {
         navigation.navigate("HomeScreen")

@@ -7,7 +7,6 @@ import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScali
 import { styleMaster } from '../../constants/stylesMaster.js';
 
 function LoginScreenButton( { text, handlePress, disabled } ) {
-    console.log(disabled)
     return (
         <TouchableOpacity 
             style={[styles.button, { backgroundColor: disabled ? colors.primaryFade : colors.primary }]} 
