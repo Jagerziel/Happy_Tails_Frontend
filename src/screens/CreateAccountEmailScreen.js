@@ -1,5 +1,5 @@
 // Import React
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text,  View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -24,6 +24,24 @@ function CreateAccountEmailScreen(props) {
         email: "",
         password: ""
     })
+
+
+    const [ disabled, setDisabled ] = useState(true)
+    let textInputArr = Object.values(textInputData)
+
+    useEffect(() => {
+        let ct = 0
+        let blank = 0
+        while (ct < textInputArr.length) {
+            if (textInputArr[ct] === "") blank++
+            ct++
+        }
+        if (blank > 0) {
+            setDisabled(true)
+        } else {
+            setDisabled(false)
+        }
+    }, [textInputData])
 
     function handleCreateUser ( target ) {
         navigation.navigate("HomeScreen")
@@ -75,6 +93,7 @@ function CreateAccountEmailScreen(props) {
                     <LoginScreenButton 
                         text={'Create an account'} 
                         handlePress={() => handleCreateUser(`${textInputData.fName} ${textInputData.lName} created as a user`)}
+                        disabled={disabled}
                     />
                 </View>
             </View>
