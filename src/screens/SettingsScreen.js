@@ -34,6 +34,9 @@ function SettingsScreen(props) {
     if ( path === "PIN" ) {
       navigation.navigate("SettingsChangePINScreen")
     }   
+    if ( path === "User Info" ) {
+      navigation.navigate("SettingsUserInfoScreen")
+    }   
     console.log(`${path} button pressed`)
   }
 
