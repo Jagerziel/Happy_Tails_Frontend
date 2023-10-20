@@ -5,13 +5,14 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Components
 import Navigation from "../components/shared/Navigation";
+import LoginScreenButton from "../components/shared/LoginScreenButton.js";
 import TextInputField from "../components/shared/TextInputField.js"
-import StaticInputFieldToggle from "../components/shared/StaticInputFieldToggle.js";
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
 import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling.js";
 import { colors } from "../constants/colorPalette.js";
+import ReturnArrowSVG from "../assets/return_arrow_blue.svg"
 
 function SettingsUserInfoScreen(props) {
     const [ textInputData, setTextDataInput ] = useState({
@@ -34,6 +35,11 @@ function SettingsUserInfoScreen(props) {
     const navigation = useNavigation();
     const route = useRoute();
 
+    function handleReturnToPrev () {
+        navigation.navigate("SettingsScreen")
+    }
+    
+
     function handleTextInput ( key, text ) {
         setTextDataInput({...textInputData, [key]: text})
     }
@@ -46,14 +52,20 @@ function SettingsUserInfoScreen(props) {
         **************************************************
         */
         console.log('User Information Saved')
+        navigation.navigate("SettingsScreen")
     }
 
 
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
         <ScrollView style={[styleMaster.subParent]}>
+            <View style={styles.returnContainer}>
+                <TouchableOpacity onPress={() => handleReturnToPrev()}>
+                    <ReturnArrowSVG />
+                </TouchableOpacity>
+            </View>
             <View style={styles.headerContainer}>
-            <Text style={[styleMaster.defaultFont, styles.headerText]}>User Info</Text>
+                <Text style={[styleMaster.defaultFont, styles.headerText]}>User Info</Text>
             </View>
             <View style={styles.inputContainer}>
                 <TextInputField 
@@ -111,7 +123,12 @@ function SettingsUserInfoScreen(props) {
                     handleTextInput={handleTextInput}
                 />
             </View>
-
+            <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
+                <LoginScreenButton 
+                    text={'Save'} 
+                    handlePress={() => handleSaveUser()}
+                />
+            </View>
         
         </ScrollView>
         <Navigation />
@@ -127,6 +144,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#eee",
         alignItems: "center",
         // justifyContent: "center",
+    },
+    returnContainer: {
+        alignSelf: 'flex-start',
+        paddingBottom: scale_mod(12),
     },
     headerContainer: {
         display: 'flex',
