@@ -1,5 +1,5 @@
 // Import React
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, StyleSheet, Text,  View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -18,6 +18,24 @@ function LoginAccountScreen(props) {
         email: "",
         password: ""
     })
+
+    // Conditional Button Disabling Awaiting Completion of All Inputs
+    const [ disabled, setDisabled ] = useState(true)
+    let textInputArr = Object.values(textInputData)
+
+    useEffect(() => {
+        let ct = 0
+        let blank = 0
+        while (ct < textInputArr.length) {
+            if (textInputArr[ct] === "") blank++
+            ct++
+        }
+        if (blank > 0) {
+            setDisabled(true)
+        } else {
+            setDisabled(false)
+        }
+    }, [textInputData])
 
     // Navigation
     const navigation = useNavigation() 
@@ -67,6 +85,7 @@ function LoginAccountScreen(props) {
                     <LoginScreenButton 
                         text={'Log In'} 
                         handlePress={() => handleEmailLogin()}
+                        disabled={disabled}
                     />
                     <View style={styles.padding}></View>
                     <View style={styles.divider}></View>
