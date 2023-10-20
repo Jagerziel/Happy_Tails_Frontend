@@ -23,8 +23,7 @@ function TextInputField( { name, placeholder, handleTextInput } ) {
                 type='text'
                 style={[
                     styleMaster.defaultFont, 
-                    styles.textInput,
-                    
+                    styles.textInput,     
                 ]}
                 placeholder={placeholder}
                 placeholderTextColor={colors.grayscale03}

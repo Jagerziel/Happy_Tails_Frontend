@@ -1,5 +1,5 @@
 // Import React
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -30,6 +30,21 @@ function SettingsUserInfoScreen(props) {
         image: "",
     })
 
+    const [ disabled, setDisabled ] = useState(true)
+    let textInputArr = Object.values(textInputData)
+
+    useEffect(() => {
+        let ct = 0
+        while (ct < textInputArr.length) {
+            if (textInputArr[ct] !== "") break
+            ct++
+        }
+        if (ct === textInputArr.length) {
+            setDisabled(true)
+        } else {
+            setDisabled(false)
+        }
+    }, [textInputData])
 
     // Navigation
     const navigation = useNavigation();
@@ -38,11 +53,11 @@ function SettingsUserInfoScreen(props) {
     function handleReturnToPrev () {
         navigation.navigate("SettingsScreen")
     }
-    
 
     function handleTextInput ( key, text ) {
         setTextDataInput({...textInputData, [key]: text})
     }
+
     console.log(textInputData)
 
     function handleSaveUser () {
@@ -58,7 +73,10 @@ function SettingsUserInfoScreen(props) {
 
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
-        <ScrollView style={[styleMaster.subParent]}>
+        <ScrollView 
+            style={[styleMaster.subParent]}
+            keyboardShouldPersistTaps={"handled"}
+        >
             <View style={styles.returnContainer}>
                 <TouchableOpacity onPress={() => handleReturnToPrev()}>
                     <ReturnArrowSVG />
@@ -126,7 +144,10 @@ function SettingsUserInfoScreen(props) {
             <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
                 <LoginScreenButton 
                     text={'Save'} 
-                    handlePress={() => handleSaveUser()}
+                    handlePress={() => {
+                        handleSaveUser()
+                    }}
+                    disabled={disabled}
                 />
             </View>
         

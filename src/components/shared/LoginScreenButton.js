@@ -6,11 +6,13 @@ import { colors } from '../../constants/colorPalette.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 
-function LoginScreenButton( { text, handlePress } ) {
+function LoginScreenButton( { text, handlePress, disabled } ) {
+    console.log(disabled)
     return (
         <TouchableOpacity 
-            style={styles.button} 
+            style={[styles.button, { backgroundColor: disabled ? colors.primaryFade : colors.primary }]} 
             onPress={handlePress}
+            disabled={disabled}
         >
             <Text style={[styleMaster.defaultFont, styles.buttonText]}>{text}</Text>
         </TouchableOpacity>
@@ -29,7 +31,6 @@ const styles = StyleSheet.create({
     button: {
         width: scale_mod(328),
         aspectRatio: 6.83/1,
-        backgroundColor: colors.primary,
         borderRadius: 12,
         alignItems: 'center',
         justifyContent: 'center'
