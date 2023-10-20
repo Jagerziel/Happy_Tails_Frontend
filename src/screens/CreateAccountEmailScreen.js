@@ -7,6 +7,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { colors } from '../constants/colorPalette.js';
 import { scale_H, scale_V, scale_mod } from '../data/functions/normalizeScaling.js';
 import { styleMaster } from '../constants/stylesMaster.js';
+import { checkAllFields } from '../data/functions/conditionalButton.js';
 
 // Components
 import LoginScreenButton from '../components/shared/LoginScreenButton.js';
@@ -30,17 +31,7 @@ function CreateAccountEmailScreen(props) {
     let textInputArr = Object.values(textInputData)
 
     useEffect(() => {
-        let ct = 0
-        let blank = 0
-        while (ct < textInputArr.length) {
-            if (textInputArr[ct] === "") blank++
-            ct++
-        }
-        if (blank > 0) {
-            setDisabled(true)
-        } else {
-            setDisabled(false)
-        }
+        setDisabled(checkAllFields(textInputArr))
     }, [textInputData])
 
     function handleCreateUser ( target ) {
