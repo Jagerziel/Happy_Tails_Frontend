@@ -105,11 +105,55 @@ In order to align with the Figma design, custom scaling was used to keep the exp
 
 For ease of aligning structure between developers, the following was used as a high level guide for structuring our folders: https://techjugaar.com/best-react-native-folder-structure-expo-2023/
 
+## Dependencies
 
+ - @expo/webpack-config
+ - @react-native-community/datetimepicker
+ - @react-navigation/native
+ - @react-navigation/native-stack
+ - axios
+ - expo
+ - expo-app-loading
+ - expo-font
+ - expo-splash-screen
+ - expo-status-bar
+ - react
+ - react-dom
+ - react-native
+ - react-native-dotenv
+ - react-native-link
+ - react-native-modal-datetime-picker
+ - react-native-safe-area-context
+ - react-native-screens
+ - react-native-svg
+ - react-native-svg-transformer
+ - react-native-web
+ - webpack-dev-server
 
+# Development Team
 
+### Ryan Ehrlich - Software Developer
 
+**LinkedIn:** https://www.linkedin.com/in/ryanehrlich/
 
+**Portfolio:** https://ryanehrlich.me/
 
+**GitHub:** https://github.com/Jagerziel
+
+### Anna Druzhinina
+
+**LinkedIn**: https://www.linkedin.com/in/anna-druzhinina/
+
+**Portfolio:** https://anna.rcbd.org/
+
+**GitHub**: https://github.com/annadruzhinina
+
+# Design Team
+
+### Ksenia Hardy - UX/UI Designer
+
+**LinkedIn:** https://www.linkedin.com/in/kseniahardy
+
+**Portfolio:** https://www.kseniahardy.com/
 
 
