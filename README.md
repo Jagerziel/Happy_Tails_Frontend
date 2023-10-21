@@ -36,4 +36,80 @@ Happy Tails is a mobile application built to put all your pet's medical informat
 
 <!-- ![Home](./src/images/LogoutHomeScreenshot.png) -->
 
+## The Approach to Building Happy Tails
+
+### Design
+
+Working closely with a UX/UI designer, we meticulously constructed Happy Tails to be responsive on both IOS and Android, utilizing react-native expo.  For a full walkthrough of the design process, please visit: `LINK COMING SOON`
+
+### Colloaboration
+
+Weekly meetings, KPI's, and close communication allowed for staging clear and obtainable goals, prioritization of features, and workload management.  
+
+## Technical Notes
+
+The Happy Tails application was constructed using react-native expo.  The following were key in our approach:
+
+### Reusable Components
+
+Components were structured to be reusable where possible.  This was done in various ways.  On a base level, an input may only require a name - such as a static input field.  Varying versions allow for the intake of a function to be handled as well.  Here is an example:
+
+```
+function StaticInputFieldArrow( { name, arrowNext } ) {
+    return (
+        <View style={styles.container}
+        >
+            <Text style={[styleMaster.defaultFont, styles.textField]}>{name}</Text>
+            <TouchableOpacity onPress={arrowNext}>
+                <NextArrow /> 
+            </TouchableOpacity>
+        </View>
+    );
+}
+```
+
+Other versions include the reuse of a button named `LoginScreenButton` which takes the text to be shown on the button, the function to be executed when the button is pressed, and an optional disable feature.  Here's a brief explaination of each use case:
+
+ - text: the text shown on the button
+ - handlePress: the function to be executed upon clicking the button.  This could be anything and is set from the parent component.  An example could be to update the database and navigate from the current screen to a new one.
+  - disabled: this takes a boolean any by default is false (i.e. the button is enabled if no parameter is passed).  The feature was added to allow the button to be disabled if, for instance, a user did not complete all required fields.
+
+Here is an example of the component:
+
+```
+function LoginScreenButton( { text, handlePress, disabled } ) {
+    return (
+        <TouchableOpacity 
+            style={[styles.button, { backgroundColor: disabled ? colors.primaryFade : colors.primary }]} 
+            onPress={handlePress}
+            disabled={disabled}
+        >
+            <Text style={[styleMaster.defaultFont, styles.buttonText]}>{text}</Text>
+        </TouchableOpacity>
+    );
+}
+```
+
+### Customized Library Components
+
+To ensure seemless integration of features across IOS and Android platforms, library components were used to enhance Happy Tails.  These were customized in our application to allow easy interaction with the libraries.  Here are a few:
+
+ - DateTime Picker: https://www.npmjs.com/package/react-native-modal-datetime-picker
+ - Expo Switch Button: https://reactnative.dev/docs/switch
+
+### Customized Scaling
+
+In order to align with the Figma design, custom scaling was used to keep the experience as similar as possible across platforms.  A great article was used as guidance for this: https://medium.com/soluto-engineering/size-matters-5aeeb462900a
+
+### Folder Structure
+
+For ease of aligning structure between developers, the following was used as a high level guide for structuring our folders: https://techjugaar.com/best-react-native-folder-structure-expo-2023/
+
+
+
+
+
+
+
+
 

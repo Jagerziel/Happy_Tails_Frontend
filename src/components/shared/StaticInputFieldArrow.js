@@ -7,7 +7,7 @@ import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScali
 import { styleMaster } from '../../constants/stylesMaster.js';
 import NextArrow from '../../assets/next_arrow.svg'
 
-function StaticInputFieldArrow( { name, arrowNext, path } ) {
+function StaticInputFieldArrow( { name, arrowNext } ) {
     return (
         <View style={styles.container}
         >
