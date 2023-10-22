@@ -2,10 +2,11 @@ import api from "./apiConfig.js";
 
 const URL = api.USER;
 
+// Get All Users
 export const getUsers = async () => {
     try {
         const response = await fetch(URL, {
-        method: "GET",
+            method: "GET",
         });
         const data = await response.json();
 
@@ -15,6 +16,35 @@ export const getUsers = async () => {
     }
 };
 
+// Get a Single User by ID
+export const getUser = async ( id ) => {
+    try {
+        const response = await fetch(URL + `/${id}`, {
+            method: "GET",
+        });
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.log(`Get User failed: ${error}`)
+    }
+};
+
+// Get a Single User by Email
+export const getUserByEmail = async ( email ) => {
+    try {
+        const response = await fetch(URL + `/email/${email}`, {
+            method: "GET",
+        });
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.log(`Get User by Email failed: ${error}`)
+    }
+};
+
+// Create a New User
 export const createUser = async (input) => {
     try {
         await fetch(URL, {
@@ -26,6 +56,7 @@ export const createUser = async (input) => {
     }
 };
 
+// Update an Existing User
 export const updateUser = async (input, id) => {
     try {
         await fetch(URL + `/${id}`, {
@@ -37,6 +68,7 @@ export const updateUser = async (input, id) => {
     }
 };
 
+// Delete a User
 export const deleteUser = async (id) => {
     try{
         await fetch(URL + `/${id}`, {

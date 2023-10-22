@@ -17,6 +17,9 @@ Expo Switch Button: https://reactnative.dev/docs/switch
 
 Custom Scaling: https://medium.com/soluto-engineering/size-matters-5aeeb462900a
 
+Include SVGs: https://blog.logrocket.com/how-to-use-svgs-react-native-tutorial-with-examples/
+
+
 ##### SHORTCUTS #####
 rsf: creates new react component
 rnss: creates react native stylesheet
