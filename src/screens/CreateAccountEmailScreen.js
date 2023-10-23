@@ -14,6 +14,10 @@ import LoginScreenButton from '../components/shared/LoginScreenButton.js';
 import TextInputField from '../components/shared/TextInputField.js';
 import ReturnArrow from '../components/shared/ReturnArrrow.js';
 
+// Import API
+import { getUserByEmail } from '../server/user.js';
+
+
 function CreateAccountEmailScreen(props) {
     // Navigation
     const navigation = useNavigation()
@@ -26,6 +30,10 @@ function CreateAccountEmailScreen(props) {
         password: ""
     })
 
+    const [ emailExistsError , setEmailExistsError ] = useState({
+        email: "",
+    })
+
     // Conditional Button Disabling Awaiting Completion of All Inputs
     const [ disabled, setDisabled ] = useState(true)
     let textInputArr = Object.values(textInputData)
@@ -34,8 +42,25 @@ function CreateAccountEmailScreen(props) {
         setDisabled(checkAllFields(textInputArr))
     }, [textInputData])
 
-    function handleCreateUser ( target ) {
-        navigation.navigate("HomeScreen")
+    async function handleCreateUser ( target ) {
+        const emailData = await getUserByEmail(textInputData.email)
+        if (emailData[0].exists === true) {
+            setEmailExistsError({
+                email: "Email already exists", 
+            })
+            setDisabled(true)
+        } else {
+            /* 
+            **************************************************
+            CREATE USER
+            **************************************************
+            */
+            console.log('account created successfully!')
+            // navigation.navigate("HomeScreen")
+        }
+
+
+
         console.log(`${target} button pressed`)
     }
 
@@ -74,11 +99,16 @@ function CreateAccountEmailScreen(props) {
                         handleTextInput={handleTextInput}
                         name={"email"}
                     />
-                    <View style={styles.padding}></View>
+                    <View style={styles.paddingWithError}>
+                        <Text style={[styleMaster.errorText]}>
+                            {emailExistsError.email}
+                        </Text>
+                    </View>
                     <TextInputField 
                         placeholder={'Password'}
                         handleTextInput={handleTextInput}
                         name={"password"}
+                        passwordField={true}
                     />
                     <View style={styles.padding}></View>
                     <LoginScreenButton 
@@ -131,6 +161,12 @@ const styles = StyleSheet.create({
     },
     padding: {
         paddingTop: scale_mod(24),
+    },
+    paddingWithError: {
+        // borderWidth: 2,
+        width: scale_mod(328),
+        paddingBottom: scale_mod(8),
+        textAlign: 'left',
     },
 });
   

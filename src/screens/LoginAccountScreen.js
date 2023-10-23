@@ -61,7 +61,12 @@ function LoginAccountScreen(props) {
                 )
                 setDisabled(true)
             } else {
-                navigation.navigate("HomeScreen")
+                /* 
+                **************************************************
+                LOAD ALL USER DATA
+                **************************************************
+                */
+               navigation.navigate("HomeScreen")
             }
         }
     }
