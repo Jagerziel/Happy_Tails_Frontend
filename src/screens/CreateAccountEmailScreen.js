@@ -43,6 +43,13 @@ function CreateAccountEmailScreen(props) {
     }, [textInputData])
 
     async function handleCreateUser ( target ) {
+        if(!textInputData.email.includes('@')) {
+            setEmailExistsError({
+                email: "Invalid email", 
+            })
+            setDisabled(true)
+            return 
+        }
         const emailData = await getUserByEmail(textInputData.email)
         if (emailData[0].exists === true) {
             setEmailExistsError({
@@ -55,12 +62,9 @@ function CreateAccountEmailScreen(props) {
             CREATE USER
             **************************************************
             */
-            console.log('account created successfully!')
-            // navigation.navigate("HomeScreen")
+           console.log('account created successfully!')
+           navigation.navigate("HomeScreen")
         }
-
-
-
         console.log(`${target} button pressed`)
     }
 
