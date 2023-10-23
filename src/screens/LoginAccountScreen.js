@@ -24,7 +24,8 @@ function LoginAccountScreen(props) {
     })
 
     const [ emailExistsError , setEmailExistsError ] = useState({
-        default: true,
+        email: "",
+        password: "",
     })
 
     // Conditional Button Disabling Awaiting Completion of All Inputs
@@ -46,7 +47,11 @@ function LoginAccountScreen(props) {
     async function handleEmailLogin () {
         const emailData = await getUserByEmail(textInputData.email)
         if (emailData[0].exists === false) {
-            console.log('You Shall Not Pass!')
+            setEmailExistsError({
+                email: "Email does not exist", 
+                password: ""}
+            )
+            setDisabled(true)
         } 
         if (emailData[0].exists === true) {
             console.log('hit')
@@ -80,8 +85,10 @@ function LoginAccountScreen(props) {
                         handleTextInput={handleTextInput}
                         name={"email"}
                     />
-                    <View style={styles.padding}>
-                        <Text style={[styleMaster.errorText]}>Email Incorrect</Text>
+                    <View style={styles.paddingWithError}>
+                        <Text style={[styleMaster.errorText]}>
+                            {emailExistsError.email}
+                        </Text>
                     </View>
                     <TextInputField 
                         placeholder={'Password'}
@@ -157,7 +164,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     padding: {
+        // borderWidth: 2,
         paddingBottom: scale_mod(24),
+    },
+    paddingWithError: {
+        // borderWidth: 2,
+        width: scale_mod(328),
+        paddingBottom: scale_mod(8),
         textAlign: 'left',
     },
     divider: {

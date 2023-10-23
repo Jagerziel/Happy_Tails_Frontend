@@ -19,8 +19,11 @@ export const styleMaster = StyleSheet.create({
         color: colors.darkBlue,
     },
     errorText: {
+        // borderWidth: 2,
         fontSize: scale_V(13),
         fontFamily: "RalewayMedium",
         color: colors.error,
+        height: scale_V(16),
+        includeFontPadding: false,
     }
 })
