@@ -50,7 +50,11 @@ export const createUser = async (input) => {
         await fetch(URL, {
           method: "POST",
           body: JSON.stringify(input),
+          headers: {
+            "Content-Type": "application/json",
+          },
         });
+        console.log(input)
     } catch (error) {
         console.log(`Create User failed: ${error}`)   
     }

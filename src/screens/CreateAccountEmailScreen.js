@@ -15,7 +15,7 @@ import TextInputField from '../components/shared/TextInputField.js';
 import ReturnArrow from '../components/shared/ReturnArrrow.js';
 
 // Import API
-import { getUserByEmail } from '../server/user.js';
+import { getUserByEmail, createUser } from '../server/user.js';
 
 
 function CreateAccountEmailScreen(props) {
@@ -59,10 +59,30 @@ function CreateAccountEmailScreen(props) {
         } else {
             /* 
             **************************************************
-            CREATE USER
+            CREATE NEW USER
             **************************************************
             */
-           console.log('account created successfully!')
+            createUser({
+                "first_name": textInputData.fName, 
+                "last_name": textInputData.lName, 
+                "email": textInputData.email, 
+                "phone": "", 
+                "password": textInputData.password, 
+                "address": "", 
+                "state": "", 
+                "city": "", 
+                "zip": "",
+                "ec_name": "", 
+                "ec_phone": "", 
+                "ec_relationship": "", 
+                "ec_notes": "", 
+                "image": "" 
+            })
+            /* 
+            **************************************************
+            SET LOADED USER INFORMATION
+            **************************************************
+            */
            navigation.navigate("HomeScreen")
         }
         console.log(`${target} button pressed`)
