@@ -6,7 +6,7 @@ import { colors } from '../../constants/colorPalette.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 
-function TextInputField( { name, placeholder, handleTextInput } ) {
+function TextInputField( { name, placeholder, handleTextInput, passwordField } ) {
     const [ focused, setFocused ] = useState(false)
     
     function handleFocus() {
@@ -30,6 +30,7 @@ function TextInputField( { name, placeholder, handleTextInput } ) {
                 onChangeText={text => handleTextInput(name, text)}
                 onFocus={() => handleFocus()}
                 onBlur={() => handleFocus()}
+                secureTextEntry={passwordField}
             />
         </View>
     );

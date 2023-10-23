@@ -54,12 +54,16 @@ function LoginAccountScreen(props) {
             setDisabled(true)
         } 
         if (emailData[0].exists === true) {
-            console.log('hit')
+            if (emailData[1].password !== textInputData.password) {
+                setEmailExistsError({
+                    email: "", 
+                    password: "Password Incorrect"}
+                )
+                setDisabled(true)
+            } else {
+                navigation.navigate("HomeScreen")
+            }
         }
-
-        // navigation.navigate("HomeScreen")
-        console.log(emailData)
-        // console.log(textInputData)
     }
 
     function handlePress ( target ) {
@@ -94,10 +98,18 @@ function LoginAccountScreen(props) {
                         placeholder={'Password'}
                         handleTextInput={handleTextInput}
                         name={"password"}
+                        passwordField={true}
                     />
-                    <TouchableOpacity style={styles.forgotPasswordContainer} onPress={() => handlePress('Forgot Password')}>
-                        <Text style={[styleMaster.defaultFont, styles.forgotPassword]}>Forgot your Password?</Text>
-                    </TouchableOpacity>
+                    <View style={styles.passwordContainer}>
+                        <View style={[styles.paddingWithError, { width: scale_mod(130)}]}>
+                            <Text style={[styleMaster.errorText]}>
+                                {emailExistsError.password}
+                            </Text>
+                        </View>
+                        <TouchableOpacity style={styles.forgotPasswordContainer} onPress={() => handlePress('Forgot Password')}>
+                            <Text style={[styleMaster.defaultFont, styles.forgotPassword]}>Forgot your Password?</Text>
+                        </TouchableOpacity>
+                    </View>
                     <LoginScreenButton 
                         text={'Log In'} 
                         handlePress={() => handleEmailLogin()}
@@ -178,19 +190,26 @@ const styles = StyleSheet.create({
         borderColor: colors.grayscale03,
         width: scale_mod(328),
     },
-    forgotPasswordContainer: {
+    passwordContainer: {
         // borderWidth: 2,
         width: scale_mod(328),
         display: 'flex',
-        justifyContent: 'flex-start',
-        alignItems: 'flex-end',
-        paddingRight: scale_mod(17),
+        flexDirection: 'row',
+        justifyContent: "space-between",
+        alignContent: "space-between"
+    },
+    forgotPasswordContainer: {
+        // borderWidth: 2,
+        display: 'flex',
+        // paddingRight: scale_mod(17),
         height: scale_mod(27),
         
     },
     forgotPassword: {
+        // borderWidth: 2,
         color: colors.grayscale03,
         fontSize: scale_V(13),
+        includeFontPadding: false,
     },
 });
   
