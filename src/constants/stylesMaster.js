@@ -17,5 +17,10 @@ export const styleMaster = StyleSheet.create({
         fontSize: scale_V(16),
         fontFamily: 'RalewayMedium',
         color: colors.darkBlue,
+    },
+    errorText: {
+        fontSize: scale_V(13),
+        fontFamily: "RalewayMedium",
+        color: colors.error,
     }
 })

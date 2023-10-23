@@ -14,10 +14,17 @@ import LoginScreenButton from '../components/shared/LoginScreenButton.js';
 import TextInputField from '../components/shared/TextInputField.js';
 import ReturnArrow from '../components/shared/ReturnArrrow.js';
 
+// Import API
+import { getUserByEmail } from '../server/user.js';
+
 function LoginAccountScreen(props) {
     const [ textInputData, setTextDataInput ] = useState({
         email: "",
         password: ""
+    })
+
+    const [ emailExistsError , setEmailExistsError ] = useState({
+        default: true,
     })
 
     // Conditional Button Disabling Awaiting Completion of All Inputs
@@ -36,9 +43,18 @@ function LoginAccountScreen(props) {
         setTextDataInput({...textInputData, [key]: text})
     }
 
-    function handleEmailLogin () {
-        navigation.navigate("HomeScreen")
-        console.log(textInputData)
+    async function handleEmailLogin () {
+        const emailData = await getUserByEmail(textInputData.email)
+        if (emailData[0].exists === false) {
+            console.log('You Shall Not Pass!')
+        } 
+        if (emailData[0].exists === true) {
+            console.log('hit')
+        }
+
+        // navigation.navigate("HomeScreen")
+        console.log(emailData)
+        // console.log(textInputData)
     }
 
     function handlePress ( target ) {
@@ -64,7 +80,9 @@ function LoginAccountScreen(props) {
                         handleTextInput={handleTextInput}
                         name={"email"}
                     />
-                    <View style={styles.padding}></View>
+                    <View style={styles.padding}>
+                        <Text style={[styleMaster.errorText]}>Email Incorrect</Text>
+                    </View>
                     <TextInputField 
                         placeholder={'Password'}
                         handleTextInput={handleTextInput}
@@ -139,7 +157,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     padding: {
-        paddingTop: scale_mod(24),
+        paddingBottom: scale_mod(24),
+        textAlign: 'left',
     },
     divider: {
         borderWidth: 0.5,

@@ -4,6 +4,7 @@ export const colors = {
     primaryFade:'#9598D9',
     secondary: '#F0900C',
     secondaryFade: '#F5CB91',
+    error: '#D44747',
     darkBlue: '#2E3150',
     black: '#000000',
     grayscale01: '#2E3150',
