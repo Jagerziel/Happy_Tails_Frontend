@@ -1,23 +1,29 @@
 ##### REFERENCE LINKS #####
 
-Folder Structure: https://techjugaar.com/best-react-native-folder-structure-expo-2023/
+### General ###
+    Folder Structure: https://techjugaar.com/best-react-native-folder-structure-expo-2023/
 
-React Native Navigation: https://reactnavigation.org/docs/getting-started
-    Passing Params: https://reactnavigation.org/docs/params/
+### React-Native ###
+    React Native Navigation: https://reactnavigation.org/docs/getting-started
+        Passing Params: https://reactnavigation.org/docs/params/
 
-React Native Expo Icons: https://icons.expo.fyi/Index
+    React Native Expo Icons: https://icons.expo.fyi/Index
 
-Dotenv for React Native: https://www.npmjs.com/package/react-native-dotenv
+    Dotenv for React Native: https://www.npmjs.com/package/react-native-dotenv
 
-Babel Configuration Guide: https://babeljs.io/docs/configuration
+    Babel Configuration Guide: https://babeljs.io/docs/configuration
 
-DateTime Picker: https://www.npmjs.com/package/react-native-modal-datetime-picker
+    DateTime Picker: https://www.npmjs.com/package/react-native-modal-datetime-picker
 
-Expo Switch Button: https://reactnative.dev/docs/switch
+    Expo Switch Button: https://reactnative.dev/docs/switch
 
-Custom Scaling: https://medium.com/soluto-engineering/size-matters-5aeeb462900a
+    Custom Scaling: https://medium.com/soluto-engineering/size-matters-5aeeb462900a
 
-Include SVGs: https://blog.logrocket.com/how-to-use-svgs-react-native-tutorial-with-examples/
+    Include SVGs: https://blog.logrocket.com/how-to-use-svgs-react-native-tutorial-with-examples/
+
+### React State Management ### 
+    Redux Toolkit Tutorial: https://redux-toolkit.js.org/tutorials/quick-start
+
 
 
 ##### SHORTCUTS #####
