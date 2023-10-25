@@ -16,5 +16,18 @@ export const getPets = async () => {
     }
 };
 
+// Get a Single User by ID
+export const getPetsByUser = async ( user_id ) => {
+    try {
+        const response = await fetch(URL + `user/${user_id}`, {
+            method: "GET",
+        });
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.log(`Get Pet Data By User failed: ${error}`)
+    }
+};
 
 
