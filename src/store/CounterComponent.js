@@ -3,7 +3,7 @@ import { Button, Text, View } from "react-native";
 // State Management
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, incrementByAmount } from "./reducers/counter";
-import { currentData, updateData } from "./reducers/userData";
+import { updateData } from "./reducers/userData";
 
 
 export function Counter() {
@@ -14,6 +14,7 @@ export function Counter() {
     let data = {
         user: "Ryan"
     }
+    console.log(userData)
     return (
         <View>
         <View>
@@ -41,7 +42,7 @@ export function Counter() {
                 title="Update User"
                 onPress={() => {
                     dispatch(updateData(data)),
-                    console.log(dispatch(currentData()))
+                    console.log(userData)
                 }}
             />
         </View>
