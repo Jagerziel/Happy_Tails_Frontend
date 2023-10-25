@@ -13,6 +13,10 @@ import { styleMaster } from "../constants/stylesMaster.js";
 import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling.js";
 import { colors } from "../constants/colorPalette.js";
 
+// State Management
+import { useDispatch } from "react-redux";
+import { resetData } from "../store/reducers/userData";
+
 function SettingsScreen(props) {
   const [ toggle , setToggle ] = useState(false)
 
@@ -20,16 +24,21 @@ function SettingsScreen(props) {
   const navigation = useNavigation();
   const route = useRoute();
 
+  // State Management
+  const dispatch = useDispatch()
+
   function handleLogout () {
     /* 
     **************************************************
       ERASE STORED DATA
     **************************************************
     */
+    dispatch(resetData())
+
     navigation.navigate("LoginScreen")
     console.log('logged out')
   }
-
+  
   function arrowNext ( path ) {
     if ( path === "PIN" ) {
       navigation.navigate("SettingsChangePINScreen")

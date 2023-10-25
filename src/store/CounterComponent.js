@@ -1,4 +1,6 @@
 import { Button, Text, View } from "react-native";
+
+// State Management
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, incrementByAmount } from "./reducers/counter";
 import { currentData, updateData } from "./reducers/userData";
