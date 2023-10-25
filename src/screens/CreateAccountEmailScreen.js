@@ -1,6 +1,6 @@
 // Import React
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text,  View } from 'react-native';
+import { Alert, StyleSheet, Text,  View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
@@ -43,49 +43,54 @@ function CreateAccountEmailScreen(props) {
     }, [textInputData])
 
     async function handleCreateUser ( target ) {
-        if(!textInputData.email.includes('@')) {
-            setEmailExistsError({
-                email: "Invalid email", 
-            })
-            setDisabled(true)
-            return 
+         try {    
+            if(!textInputData.email.includes('@')) {
+                setEmailExistsError({
+                    email: "Invalid email", 
+                })
+                setDisabled(true)
+                return 
+            }
+            const emailData = await getUserByEmail(textInputData.email)
+            if (emailData[0].exists === true) {
+                setEmailExistsError({
+                    email: "Email already exists", 
+                })
+                setDisabled(true)
+            } else {
+                /* 
+                **************************************************
+                CREATE NEW USER
+                **************************************************
+                */
+                createUser({
+                    "first_name": textInputData.fName, 
+                    "last_name": textInputData.lName, 
+                    "email": textInputData.email, 
+                    "phone": "", 
+                    "password": textInputData.password, 
+                    "address": "", 
+                    "state": "", 
+                    "city": "", 
+                    "zip": "",
+                    "ec_name": "", 
+                    "ec_phone": "", 
+                    "ec_relationship": "", 
+                    "ec_notes": "", 
+                    "image": "" 
+                })
+                /* 
+                **************************************************
+                SET LOADED USER INFORMATION
+                **************************************************
+                */
+            navigation.navigate("HomeScreen")
+            }
+            console.log(`${target} button pressed`)
+        } catch (error) {
+            Alert.alert(`Error!`,`An error has occurred.  Please try again later.`)
+            console.log(error)
         }
-        const emailData = await getUserByEmail(textInputData.email)
-        if (emailData[0].exists === true) {
-            setEmailExistsError({
-                email: "Email already exists", 
-            })
-            setDisabled(true)
-        } else {
-            /* 
-            **************************************************
-            CREATE NEW USER
-            **************************************************
-            */
-            createUser({
-                "first_name": textInputData.fName, 
-                "last_name": textInputData.lName, 
-                "email": textInputData.email, 
-                "phone": "", 
-                "password": textInputData.password, 
-                "address": "", 
-                "state": "", 
-                "city": "", 
-                "zip": "",
-                "ec_name": "", 
-                "ec_phone": "", 
-                "ec_relationship": "", 
-                "ec_notes": "", 
-                "image": "" 
-            })
-            /* 
-            **************************************************
-            SET LOADED USER INFORMATION
-            **************************************************
-            */
-           navigation.navigate("HomeScreen")
-        }
-        console.log(`${target} button pressed`)
     }
 
     function handleTextInput (key, text) {
