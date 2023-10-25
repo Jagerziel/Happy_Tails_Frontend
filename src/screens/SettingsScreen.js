@@ -1,6 +1,13 @@
 // Import React
 import React, { useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Components
@@ -10,82 +17,113 @@ import StaticInputFieldToggle from "../components/shared/StaticInputFieldToggle.
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
-import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling.js";
+import {
+  scale_H,
+  scale_V,
+  scale_mod,
+} from "../data/functions/normalizeScaling.js";
 import { colors } from "../constants/colorPalette.js";
 
 // State Management
 import { useDispatch } from "react-redux";
-import { resetData } from "../store/reducers/userData";
+import { resetData } from "../store/reducers/userDataReducer";
 
 function SettingsScreen(props) {
-  const [ toggle , setToggle ] = useState(false)
+  const [toggle, setToggle] = useState(false);
 
   // Navigation
   const navigation = useNavigation();
   const route = useRoute();
 
   // State Management
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  function handleLogout () {
+  function handleLogout() {
     /* 
     **************************************************
       ERASE STORED DATA
     **************************************************
     */
-    dispatch(resetData())
+    dispatch(resetData());
 
-    navigation.navigate("LoginScreen")
-    console.log('logged out')
-  }
-  
-  function arrowNext ( path ) {
-    if ( path === "PIN" ) {
-      navigation.navigate("SettingsChangePINScreen")
-    }   
-    if ( path === "User Info" ) {
-      navigation.navigate("SettingsUserInfoScreen")
-    }   
-    console.log(`${path} button pressed`)
+    navigation.navigate("LoginScreen");
+    console.log("logged out");
   }
 
-  function toggleFunc () {
-    setToggle(prev => !prev)
-    console.log(`Toggle switched to ${!toggle}`)
+  function arrowNext(path) {
+    if (path === "PIN") {
+      navigation.navigate("SettingsChangePINScreen");
+    }
+    if (path === "User Info") {
+      navigation.navigate("SettingsUserInfoScreen");
+    }
+    console.log(`${path} button pressed`);
+  }
+
+  function toggleFunc() {
+    setToggle((prev) => !prev);
+    console.log(`Toggle switched to ${!toggle}`);
   }
 
   return (
     <SafeAreaView style={[styleMaster.parent, styles.container]}>
       <ScrollView style={[styleMaster.subParent]}>
         <View style={styles.headerContainer}>
-          <Text style={[styleMaster.defaultFont, styles.headerText]}>Settings</Text>
+          <Text style={[styleMaster.defaultFont, styles.headerText]}>
+            Settings
+          </Text>
           <TouchableOpacity onPress={() => handleLogout()}>
-            <Text style={[styleMaster.defaultFont, styles.logoutText]}>Log Out</Text>
+            <Text style={[styleMaster.defaultFont, styles.logoutText]}>
+              Log Out
+            </Text>
           </TouchableOpacity>
         </View>
         <Text style={[styleMaster.defaultFont, styles.title]}>General</Text>
         <View style={styles.staticInputContainer}>
-          <StaticInputFieldToggle name={"Face ID"} toggleFunc={() => toggleFunc()}/>
+          <StaticInputFieldToggle
+            name={"Face ID"}
+            toggleFunc={() => toggleFunc()}
+          />
         </View>
         <View style={styles.staticInputContainer}>
-          <StaticInputFieldArrow name={"PIN"} arrowNext={() => arrowNext('PIN')} path={'PIN'}/>
+          <StaticInputFieldArrow
+            name={"PIN"}
+            arrowNext={() => arrowNext("PIN")}
+            path={"PIN"}
+          />
         </View>
 
-        <Text style={[styleMaster.defaultFont, styles.title]}>User Details</Text>
+        <Text style={[styleMaster.defaultFont, styles.title]}>
+          User Details
+        </Text>
         <View style={styles.staticInputContainer}>
-          <StaticInputFieldArrow name={"User info"} arrowNext={() => arrowNext('User Info')} path={'User Info'}/>
+          <StaticInputFieldArrow
+            name={"User info"}
+            arrowNext={() => arrowNext("User Info")}
+            path={"User Info"}
+          />
         </View>
         <View style={styles.staticInputContainer}>
-          <StaticInputFieldArrow name={"Invoices"} arrowNext={() => arrowNext('Invoices')} path={'Invoices'}/>
+          <StaticInputFieldArrow
+            name={"Invoices"}
+            arrowNext={() => arrowNext("Invoices")}
+            path={"Invoices"}
+          />
         </View>
         <View style={styles.staticInputContainer}>
-          <StaticInputFieldArrow name={"Payment methods"} arrowNext={() => arrowNext('Payment methods')} path={'Payment methods'}/>
+          <StaticInputFieldArrow
+            name={"Payment methods"}
+            arrowNext={() => arrowNext("Payment methods")}
+            path={"Payment methods"}
+          />
         </View>
         <View style={styles.staticInputContainer}>
-          <StaticInputFieldArrow name={"Emergency Contact"} arrowNext={() => arrowNext('Emergency Contact')} path={'Emergency Contact'}/>
+          <StaticInputFieldArrow
+            name={"Emergency Contact"}
+            arrowNext={() => arrowNext("Emergency Contact")}
+            path={"Emergency Contact"}
+          />
         </View>
-
-
       </ScrollView>
       <Navigation />
     </SafeAreaView>
@@ -102,9 +140,9 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
   },
   headerContainer: {
-    display: 'flex',
+    display: "flex",
     flexDirection: "row",
-    alignItems: 'center',
+    alignItems: "center",
     justifyContent: "space-between",
     paddingBottom: scale_mod(4),
   },
@@ -125,5 +163,5 @@ const styles = StyleSheet.create({
   },
   staticInputContainer: {
     paddingTop: scale_mod(8),
-  }
+  },
 });
