@@ -1,27 +1,48 @@
-import { Button, Text, View } from "react-native"
-import { useSelector, useDispatch } from "react-redux"
-import { increment, decrement } from "./counter"
+import { Button, Text, View } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement, incrementByAmount } from "./reducers/counter";
+import { currentData, updateData } from "./reducers/userData";
+
 
 export function Counter() {
     // const count = useSelector((state) => state.counter.value) //Shorthand
-    const count = useSelector((state) => state.counter.count) //Other Method to target specific value
-    const dispatch = useDispatch()
-  
+    const count = useSelector((state) => state.counter.count); //Other Method to target specific value
+    const userData = useSelector((state) => state.userData.data)
+    const dispatch = useDispatch();
+    let data = {
+        user: "Ryan"
+    }
     return (
-      <View>
         <View>
-          <Button
+        <View>
+            <Text>{count}</Text>
+            <Button
             // aria-label="Increment value"
             title="Increment"
             onPress={() => dispatch(increment())}
-          />
-          <Text>{count}</Text>
-          <Button
+            />
+            <Button
             // aria-label="Decrement value"
             title="Decrement"
             onPress={() => dispatch(decrement())}
-          />
+            />
+            <Button
+            // aria-label="Decrement value"
+            title="Increment by 5"
+            onPress={() => dispatch(incrementByAmount(5))}
+            />
         </View>
-      </View>
-    )
-  }
+        <View>
+            <Text>Testing User Data Reducer</Text>
+            <Text>{userData.user}</Text>
+            <Button 
+                title="Update User"
+                onPress={() => {
+                    dispatch(updateData(data)),
+                    console.log(dispatch(currentData()))
+                }}
+            />
+        </View>
+        </View>
+    );
+}
