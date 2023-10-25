@@ -16,7 +16,7 @@ function TextInputField( { name, placeholder, handleTextInput, passwordField } )
     return (
         <View style={[
             styles.container,
-            { borderColor: focused ? colors.primaryFade : colors.grayscale03 } // Conditionally style border
+            { borderColor: focused ? colors.primaryFade : colors.grayscale06 } // Conditionally style border
             ]}
         >
             <TextInput 

@@ -114,7 +114,7 @@ export default MyPetsDetailsScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eee",
+    backgroundColor: colors.grayscale06,
   },
   petContainer: {
     // borderWidth: 2,

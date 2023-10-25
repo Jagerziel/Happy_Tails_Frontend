@@ -131,7 +131,7 @@ export default MyPetsScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eee",
+    backgroundColor: colors.grayscale06,
   },
   subContainer: {
     // borderWidth: 2,

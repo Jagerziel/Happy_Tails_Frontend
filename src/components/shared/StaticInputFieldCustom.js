@@ -20,7 +20,7 @@ export default StaticInputFieldCustom;
 const styles = StyleSheet.create({
     container: {
         borderWidth: scale_mod(2),
-        borderColor: colors.grayscale03,
+        borderColor: colors.grayscale06,
         minWidth: 100,
         height: scale_mod(44),
         display: 'flex',

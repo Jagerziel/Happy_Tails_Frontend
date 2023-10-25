@@ -90,6 +90,11 @@ function LoginScreenButton( { text, handlePress, disabled } ) {
 }
 ```
 
+### State Management (React Redux and Redux-Toolkit)
+```
+INFORMATION TO BE INCLUDED HERE SHORTLY
+```
+
 ### Customized Library Components
 
 To ensure seemless integration of features across IOS and Android platforms, library components were used to enhance Happy Tails.  These were customized in our application to allow easy interaction with the libraries.  Here are a few:
@@ -111,6 +116,7 @@ For ease of aligning structure between developers, the following was used as a h
  - @react-native-community/datetimepicker
  - @react-navigation/native
  - @react-navigation/native-stack
+ - @reduxjs/toolkit
  - axios
  - expo
  - expo-app-loading
@@ -128,6 +134,8 @@ For ease of aligning structure between developers, the following was used as a h
  - react-native-svg
  - react-native-svg-transformer
  - react-native-web
+ - react-redux
+ - redux
  - webpack-dev-server
 
 # Development Team

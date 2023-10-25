@@ -24,7 +24,7 @@ export default StaticInputFieldArrow;
 const styles = StyleSheet.create({
     container: {
         borderWidth: scale_mod(2),
-        borderColor: colors.grayscale03,
+        borderColor: colors.grayscale06,
         width: '100%',
         aspectRatio: 7.795/1,
         display: 'flex',

@@ -71,7 +71,7 @@ export default AddPet08;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eee",
+    backgroundColor: colors.grayscale06,
   },
   subContainer: {
     display: "flex",

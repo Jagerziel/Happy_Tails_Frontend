@@ -67,7 +67,7 @@ function LoginAccountScreen(props) {
                     LOAD ALL USER DATA
                     **************************************************
                     */
-                navigation.navigate("HomeScreen")
+                    navigation.navigate("HomeScreen")
                 }
             }
         } catch (error) {
