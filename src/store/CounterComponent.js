@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, incrementByAmount } from "./reducers/counter";
 import { updateData } from "./reducers/userDataReducer";
 
+import { getPets } from "../server/pet.js";
+
 export function Counter() {
   // const count = useSelector((state) => state.counter.value) //Shorthand
   const count = useSelector((state) => state.counter.count); //Other Method to target specific value
@@ -13,7 +15,15 @@ export function Counter() {
   let data = {
     user: "Ryan",
   };
-  console.log(userData);
+  // console.log(userData);
+
+  async function getData () {
+    const data = await getPets()
+    console.log(data)
+  }
+
+
+
   return (
     <View>
       <View>
@@ -42,6 +52,10 @@ export function Counter() {
           onPress={() => {
             dispatch(updateData(data)), console.log(userData);
           }}
+        />
+        <Button
+          title="Get Data"
+          onPress={() => getData()}
         />
       </View>
     </View>
