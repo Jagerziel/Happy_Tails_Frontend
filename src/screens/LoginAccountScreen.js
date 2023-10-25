@@ -1,6 +1,6 @@
 // Import React
 import React, { useEffect, useState } from 'react';
-import { TouchableOpacity, StyleSheet, Text,  View } from 'react-native';
+import { Alert, TouchableOpacity, StyleSheet, Text,  View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
@@ -45,29 +45,34 @@ function LoginAccountScreen(props) {
     }
 
     async function handleEmailLogin () {
-        const emailData = await getUserByEmail(textInputData.email)
-        if (emailData[0].exists === false) {
-            setEmailExistsError({
-                email: "Email does not exist", 
-                password: ""}
-            )
-            setDisabled(true)
-        } 
-        if (emailData[0].exists === true) {
-            if (emailData[1].password !== textInputData.password) {
+        try {
+            const emailData = await getUserByEmail(textInputData.email)
+            if (emailData[0].exists === false) {
                 setEmailExistsError({
-                    email: "", 
-                    password: "Password Incorrect"}
+                    email: "Email does not exist", 
+                    password: ""}
                 )
                 setDisabled(true)
-            } else {
-                /* 
-                **************************************************
-                LOAD ALL USER DATA
-                **************************************************
-                */
-               navigation.navigate("HomeScreen")
+            } 
+            if (emailData[0].exists === true) {
+                if (emailData[1].password !== textInputData.password) {
+                    setEmailExistsError({
+                        email: "", 
+                        password: "Password Incorrect"}
+                    )
+                    setDisabled(true)
+                } else {
+                    /* 
+                    **************************************************
+                    LOAD ALL USER DATA
+                    **************************************************
+                    */
+                navigation.navigate("HomeScreen")
+                }
             }
+        } catch (error) {
+            Alert.alert(`Error!`,`An error has occurred.  Please try again later.`)
+            console.log(error)
         }
     }
 
