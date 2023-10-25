@@ -16,7 +16,7 @@ export const getPets = async () => {
     }
 };
 
-// Get a Single User by ID
+// Get a Single Pet by User ID
 export const getPetsByUser = async ( user_id ) => {
     try {
         const response = await fetch(URL + `user/${user_id}`, {
@@ -30,4 +30,19 @@ export const getPetsByUser = async ( user_id ) => {
     }
 };
 
+// Create a New Pet
+export const createPet = async (input) => {
+    try {
+        await fetch(URL, {
+          method: "POST",
+          body: JSON.stringify(input),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        console.log(input)
+    } catch (error) {
+        console.log(`Create Pet failed: ${error}`)   
+    }
+};
 
