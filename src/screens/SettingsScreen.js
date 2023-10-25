@@ -135,7 +135,7 @@ export default SettingsScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eee",
+    backgroundColor: colors.grayscale06,
     // alignItems: "center",
     // justifyContent: "center",
   },

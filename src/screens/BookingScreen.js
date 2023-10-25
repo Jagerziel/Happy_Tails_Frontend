@@ -4,7 +4,7 @@ import Navigation from "../components/shared/Navigation";
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
-
+import { colors } from "../constants/colorPalette.js";
 import { Counter } from "../store/CounterComponent";
 
 function BookingScreen(props) {
@@ -24,6 +24,6 @@ export default BookingScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#eee",
+    backgroundColor: colors.grayscale06,
   },
 });
