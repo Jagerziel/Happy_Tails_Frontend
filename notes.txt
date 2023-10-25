@@ -23,7 +23,8 @@
 
 ### React State Management ### 
     Redux Toolkit Tutorial: https://redux-toolkit.js.org/tutorials/quick-start
-
+    Redux Expo Tutorial: https://negativeepsilon.com/en/posts/expo-react-redux/
+    
 
 
 ##### SHORTCUTS #####

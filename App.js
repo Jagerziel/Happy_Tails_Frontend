@@ -30,6 +30,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Fonts
 import { useFonts } from 'expo-font';
 
+// State Management
+import { Provider } from 'react-redux'
+import { store } from './src/store/store'
+
 // Use Stack Navigation
 const Stack = createNativeStackNavigator();
 
@@ -63,30 +67,32 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <NavigationContainer>
-        <Stack.Navigator 
-          initialRouteName='LoginScreen'
-          screenOptions={{ headerShown: false }}
-        >
-          <Stack.Screen name="LoginScreen" component={LoginScreen}/>
-          <Stack.Screen name="LoginAccountScreen" component={LoginAccountScreen}/>
-          <Stack.Screen name="CreateAccountScreen" component={CreateAccountScreen}/>
-          <Stack.Screen name="CreateAccountEmailScreen" component={CreateAccountEmailScreen}/>
-          <Stack.Screen name="HomeScreen" component={HomeScreen}/>
-          <Stack.Screen name="MyPetsScreen" component={MyPetsScreen}/>
-          <Stack.Screen name="MyPetsDetailsScreen" component={MyPetsDetailsScreen}/>
-          <Stack.Screen name="BookingScreen" component={BookingScreen}/>
-          <Stack.Screen name="AboutUsScreen" component={AboutUsScreen}/>
-          <Stack.Screen name="SettingsScreen" component={SettingsScreen}/>
-          <Stack.Screen name="SettingsChangePINScreen" component={SettingsChangePINScreen}/>
-          <Stack.Screen name="SettingsUserInfoScreen" component={SettingsUserInfoScreen}/>
-          <Stack.Screen name="UpdatePetScreen" component={UpdatePetScreen}/>
-          <Stack.Screen name="UserProfileScreen" component={UserProfileScreen}/>
-          <Stack.Screen name="VaccinationScreen" component={VaccinationScreen}/>
-        </Stack.Navigator>
-      </NavigationContainer>
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <NavigationContainer>
+          <Stack.Navigator 
+            initialRouteName='LoginScreen'
+            screenOptions={{ headerShown: false }}
+          >
+            <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+            <Stack.Screen name="LoginAccountScreen" component={LoginAccountScreen}/>
+            <Stack.Screen name="CreateAccountScreen" component={CreateAccountScreen}/>
+            <Stack.Screen name="CreateAccountEmailScreen" component={CreateAccountEmailScreen}/>
+            <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+            <Stack.Screen name="MyPetsScreen" component={MyPetsScreen}/>
+            <Stack.Screen name="MyPetsDetailsScreen" component={MyPetsDetailsScreen}/>
+            <Stack.Screen name="BookingScreen" component={BookingScreen}/>
+            <Stack.Screen name="AboutUsScreen" component={AboutUsScreen}/>
+            <Stack.Screen name="SettingsScreen" component={SettingsScreen}/>
+            <Stack.Screen name="SettingsChangePINScreen" component={SettingsChangePINScreen}/>
+            <Stack.Screen name="SettingsUserInfoScreen" component={SettingsUserInfoScreen}/>
+            <Stack.Screen name="UpdatePetScreen" component={UpdatePetScreen}/>
+            <Stack.Screen name="UserProfileScreen" component={UserProfileScreen}/>
+            <Stack.Screen name="VaccinationScreen" component={VaccinationScreen}/>
+          </Stack.Navigator>
+        </NavigationContainer>
+      </View>
+    </Provider>
   );
 }
 
