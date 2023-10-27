@@ -30,3 +30,20 @@ export const getVaccinationsByUser = async ( user_id ) => {
     }
 };
 
+// Get Vaccinations by Pet ID
+export const getVaccinationsByPet = async ( pet_id ) => {
+    try {
+        const response = await fetch(URL + `pet/${pet_id}`, {
+            method: "GET",
+        });
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.log(`Get Vaccinations Data By Pet failed: ${error}`)
+    }
+};
+
+
+
+
