@@ -29,3 +29,17 @@ export const getAppointmentsByUser = async ( user_id ) => {
         console.log(`Get Apppontments Data By User failed: ${error}`)
     }
 };
+
+// Get Apppontments by Pet ID
+export const getAppointmentsByPet = async ( pet_id ) => {
+    try {
+        const response = await fetch(URL + `pet/${pet_id}`, {
+            method: "GET",
+        });
+        const data = await response.json();
+
+        return data;
+    } catch (error) {
+        console.log(`Get Apppontments Data By Pet failed: ${error}`)
+    }
+};
