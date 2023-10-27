@@ -24,15 +24,22 @@ import LoginScreenButton from "../components/shared/LoginScreenButton.js";
 import { useSelector, useDispatch } from "react-redux";
 import { updatePetData } from "../store/reducers/petDataReducer.js";
 
+// Import API
+import { deletePet } from "../server/pet.js";
+
 function MyPetsDetailsScreen( { route, navigation } ) {
   const { data } = route.params
   // console.log(data)
-
+  // Redux 
+  const dispatch = useDispatch();
+  
   function arrowNext ( path ) {
     console.log(`${path} button pressed`)
   }
-
-  function deactivate ( command ) {
+  
+  const petData = useSelector((state) => state.petData.data);
+  
+  async function deactivate ( command ) {
     /* 
     **************************************************
     ERASE STORED DATA FOR PET
@@ -41,8 +48,10 @@ function MyPetsDetailsScreen( { route, navigation } ) {
     console.log(`${command} button pressed`)
     const petIDToBeDeactivated = data["_id"]
     console.log( petIDToBeDeactivated )
+    const updatedPetData = await petData.filter((data) => data["_id"] !== petIDToBeDeactivated)
 
-
+    dispatch(updatePetData(updatedPetData))
+    await deletePet(petIDToBeDeactivated)
 
     // Navigate back to MyPetsScreen
     navigation.navigate("MyPetsScreen")
