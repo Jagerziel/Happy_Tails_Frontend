@@ -33,14 +33,15 @@ export const getPetsByUser = async ( user_id ) => {
 // Create a New Pet
 export const createPet = async (input) => {
     try {
-        await fetch(URL, {
+        const response = await fetch(URL, {
           method: "POST",
           body: JSON.stringify(input),
           headers: {
             "Content-Type": "application/json",
           },
         });
-        console.log(input)
+        const data = await response.json()
+        return data
     } catch (error) {
         console.log(`Create Pet failed: ${error}`)   
     }
@@ -49,13 +50,15 @@ export const createPet = async (input) => {
 // Update an Existing Pet
 export const updatePet = async (input, id) => {
     try {
-        await fetch(URL + `${id}`, {
+        const response = await fetch(URL + `${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(input),
-        });
+        })
+        const data = await response.json()
+        return data
     } catch (error) {
         console.log(`Update Pet failed: ${error}`)
     }
@@ -66,7 +69,8 @@ export const deletePet = async (id) => {
     try{
         await fetch(URL + `${id}`, {
           method: "DELETE",
-        });
+        })
+        return `Pet id ${id} deleted`
     } catch (error) {
         console.log(`Delete Pet failed: ${error}`)
     }
