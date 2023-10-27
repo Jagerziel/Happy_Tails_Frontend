@@ -17,6 +17,15 @@ import ReturnArrow from '../components/shared/ReturnArrrow.js';
 // Import API
 import { getUserByEmail, createUser } from '../server/user.js';
 
+// Load User Data
+import { loadUser } from '../server/loadUser.js';
+
+// State Management
+import { useSelector, useDispatch } from "react-redux";
+import { updateUserData } from '../store/reducers/userDataReducer.js';
+import { updatePetData } from '../store/reducers/petDataReducer.js';
+import { updateAppointmentData } from '../store/reducers/appointmentDataReducer.js';
+import { updateVaccinationsData } from '../store/reducers/vaccinationsDataReducer.js';
 
 function CreateAccountEmailScreen(props) {
     // Navigation
@@ -37,6 +46,9 @@ function CreateAccountEmailScreen(props) {
     // Conditional Button Disabling Awaiting Completion of All Inputs
     const [ disabled, setDisabled ] = useState(true)
     let textInputArr = Object.values(textInputData)
+
+    // React Redux
+    const dispatch = useDispatch()
 
     useEffect(() => {
         setDisabled(checkAllFields(textInputArr))
@@ -63,7 +75,7 @@ function CreateAccountEmailScreen(props) {
                 CREATE NEW USER
                 **************************************************
                 */
-                createUser({
+                const createdUser = await createUser({
                     "first_name": textInputData.fName, 
                     "last_name": textInputData.lName, 
                     "email": textInputData.email, 
@@ -79,12 +91,20 @@ function CreateAccountEmailScreen(props) {
                     "ec_notes": "", 
                     "image": "" 
                 })
+
+                const userData = await loadUser(createdUser["_id"])
                 /* 
                 **************************************************
                 SET LOADED USER INFORMATION
                 **************************************************
                 */
-            navigation.navigate("HomeScreen")
+                // Store Data - Redux
+                dispatch(updateUserData(userData.user))
+                dispatch(updatePetData(userData.pet))
+                dispatch(updateVaccinationsData(userData.vaccinations))
+                dispatch(updateAppointmentData(userData.appointment))
+
+                navigation.navigate("HomeScreen")
             }
             console.log(`${target} button pressed`)
         } catch (error) {
