@@ -16,7 +16,7 @@ export const getAppointment = async () => {
     }
 };
 
-// Get Apppontments by User ID
+// Get Appointments by User ID
 export const getAppointmentsByUser = async ( user_id ) => {
     try {
         const response = await fetch(URL + `user/${user_id}`, {
@@ -26,11 +26,11 @@ export const getAppointmentsByUser = async ( user_id ) => {
 
         return data;
     } catch (error) {
-        console.log(`Get Apppontments Data By User failed: ${error}`)
+        console.log(`Get Appointments Data By User failed: ${error}`)
     }
 };
 
-// Get Apppontments by Pet ID
+// Get Appointments by Pet ID
 export const getAppointmentsByPet = async ( pet_id ) => {
     try {
         const response = await fetch(URL + `pet/${pet_id}`, {
@@ -40,7 +40,7 @@ export const getAppointmentsByPet = async ( pet_id ) => {
 
         return data;
     } catch (error) {
-        console.log(`Get Apppontments Data By Pet failed: ${error}`)
+        console.log(`Get Appointments Data By Pet failed: ${error}`)
     }
 };
 

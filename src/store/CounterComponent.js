@@ -7,7 +7,7 @@ import { updateData } from "./reducers/userDataReducer";
 
 import { getPets, getPetsByUser, createPet, updatePet, deletePet } from "../server/pet.js";
 import { getAppointment, getAppointmentsByUser, getAppointmentsByPet, createAppointment, updateAppointment, deleteAppointment } from "../server/appointment.js";
-import { getVaccinations } from "../server/vaccinations.js";
+import { getVaccinations, getVaccinationsByUser } from "../server/vaccinations.js";
 
 
 export function Counter() {
@@ -90,7 +90,7 @@ export function Counter() {
         
         
     /* TESTING */
-    const data = await getVaccinations()
+    const data = await getVaccinationsByUser("6539503228bb6c8cbc5e42d4")
 
 
     // Output
