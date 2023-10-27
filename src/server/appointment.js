@@ -75,4 +75,15 @@ export const updateAppointment = async (input, id) => {
     }
 };
 
+// Delete a Appointment
+export const deleteAppointment = async (id) => {
+    try{
+        await fetch(URL + `${id}`, {
+          method: "DELETE",
+        });
+    } catch (error) {
+        console.log(`Delete Appointment failed: ${error}`)
+    }
+};
+
 
