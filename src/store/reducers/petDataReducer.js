@@ -6,14 +6,14 @@ export const petDataSlice = createSlice({
         data: {}
     },
     reducers: {
-        updateData: (state, action) => {
+        updatePetData: (state, action) => {
             state.data = action.payload
         },
-        resetData: (state) => {
+        resetPetData: (state) => {
             state.data = {}
         }
     }
 })
 
-export const { updateData, resetData } = petDataSlice.actions
+export const { updatePetData, resetPetData } = petDataSlice.actions
 export default petDataSlice.reducer

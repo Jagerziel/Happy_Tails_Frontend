@@ -3,7 +3,7 @@ import { Button, Text, View } from "react-native";
 // State Management
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, incrementByAmount } from "./reducers/counter";
-import { updateData } from "./reducers/userDataReducer";
+import { updateUserData } from "./reducers/userDataReducer";
 
 import { getPets, getPetsByUser, createPet, updatePet, deletePet } from "../server/pet.js";
 import { getAppointment, getAppointmentsByUser, getAppointmentsByPet, createAppointment, updateAppointment, deleteAppointment } from "../server/appointment.js";
@@ -146,7 +146,7 @@ export function Counter() {
         <Button
           title="Update User"
           onPress={() => {
-            dispatch(updateData(data)), console.log(userData);
+            dispatch(updateUserData(data)), console.log(userData);
           }}
         />
         <Button

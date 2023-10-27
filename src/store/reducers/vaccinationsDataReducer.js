@@ -6,14 +6,14 @@ export const vaccinationsDataSlice = createSlice({
         data: {}
     },
     reducers: {
-        updateData: (state, action) => {
+        updateVaccinationsData: (state, action) => {
             state.data = action.payload
         },
-        resetData: (state) => {
+        resetVaccinationsData: (state) => {
             state.data = {}
         }
     }
 })
 
-export const { updateData, resetData } = vaccinationsDataSlice.actions
+export const { updateVaccinationsData, resetVaccinationsData } = vaccinationsDataSlice.actions
 export default vaccinationsDataSlice.reducer

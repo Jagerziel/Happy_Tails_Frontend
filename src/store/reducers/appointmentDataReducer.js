@@ -6,14 +6,14 @@ export const appointmentDataSlice = createSlice({
         data: {}
     },
     reducers: {
-        updateData: (state, action) => {
+        updateAppointmentData: (state, action) => {
             state.data = action.payload
         },
-        resetData: (state) => {
+        resetAppointmentData: (state) => {
             state.data = {}
         }
     }
 })
 
-export const { updateData, resetData } = appointmentDataSlice.actions
+export const { updateAppointmentData, resetAppointmentData } = appointmentDataSlice.actions
 export default appointmentDataSlice.reducer
