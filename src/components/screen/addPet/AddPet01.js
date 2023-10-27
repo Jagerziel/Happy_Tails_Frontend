@@ -1,5 +1,7 @@
+// Import React
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {Dimensions} from 'react-native';
 
 // Import Constants
 import { styleMaster } from "../../../constants/stylesMaster.js";
@@ -10,6 +12,8 @@ import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeSc
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
+
+const windowHeight = Dimensions.get('window').height;
 
 function AddPet01( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
   console.log(addPetData)
@@ -53,34 +57,34 @@ function AddPet01( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
 
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
-      <View style={[styleMaster.subParent, styles.subContainer]}>
-        <View style={styles.returnContainer}>
-          <TouchableOpacity onPress={() => handleReturnToPrev()}>
-            <ReturnArrowSVG />
+        <View style={[styleMaster.subParent, styles.subContainer]}>
+          <View style={styles.returnContainer}>
+            <TouchableOpacity onPress={() => handleReturnToPrev()}>
+              <ReturnArrowSVG />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.headingContainer}>
+            <Text style={styles.heading}>What's Your Pet's Name?</Text>
+          </View>
+          <TextInputField 
+            placeholder={'Enter Name'}
+            handleTextInput={handleTextInput}
+            name={"name"}
+          />
+        </View>
+        <View style={styles.bottomContainer}>
+          <LoginScreenButton 
+            text={'Next'}
+            handlePress={() => handleNext()}
+            disabled={addPetData.name === "" ? true : false}
+          />
+          <TouchableOpacity 
+            style={styles.skipContainer} 
+            onPress={() => handleSkip('name')}
+          >
+            <Text style={[styleMaster.defaultFont, styles.skipText]}>Skip</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.headingContainer}>
-          <Text style={styles.heading}>What's Your Pet's Name?</Text>
-        </View>
-        <TextInputField 
-          placeholder={'Enter Name'}
-          handleTextInput={handleTextInput}
-          name={"name"}
-        />
-      </View>
-      <View style={styles.bottomContainer}>
-        <LoginScreenButton 
-          text={'Next'}
-          handlePress={() => handleNext()}
-          disabled={addPetData.name === "" ? true : false}
-        />
-        <TouchableOpacity 
-          style={styles.skipContainer} 
-          onPress={() => handleSkip('name')}
-        >
-          <Text style={[styleMaster.defaultFont, styles.skipText]}>Skip</Text>
-        </TouchableOpacity>
-      </View>
     </SafeAreaView>
   );
 }
@@ -93,8 +97,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.grayscale06,
   },
   subContainer: {
+    // borderWidth: 2,
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
+    minHeight: scale_mod(windowHeight * .6)
   },
   returnContainer: {
     alignSelf: 'flex-start',
