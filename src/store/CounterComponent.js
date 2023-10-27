@@ -6,7 +6,7 @@ import { increment, decrement, incrementByAmount } from "./reducers/counter";
 import { updateData } from "./reducers/userDataReducer";
 
 import { getPets, getPetsByUser, createPet, updatePet, deletePet } from "../server/pet.js";
-import { getAppointment } from "../server/appointment.js";
+import { getAppointment, getAppointmentsByUser } from "../server/appointment.js";
 
 
 
@@ -65,10 +65,11 @@ export function Counter() {
     //   }, "65391ff44c0eda94fb0b1150"
     // )
     // const data = await deletePet("6539840428bb6c8cbc5e42ff")
+    // const data = await getAppointment()
         
         
     /* TESTING */
-    const data = await getAppointment()
+    const data = await getAppointmentsByUser("6539503228bb6c8cbc5e42d4")
 
 
     // Output

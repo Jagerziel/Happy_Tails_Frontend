@@ -16,7 +16,7 @@ export const getPets = async () => {
     }
 };
 
-// Get a Single Pet by User ID
+// Get Pets by a User ID
 export const getPetsByUser = async ( user_id ) => {
     try {
         const response = await fetch(URL + `user/${user_id}`, {
