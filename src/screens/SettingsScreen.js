@@ -27,6 +27,9 @@ import { colors } from "../constants/colorPalette.js";
 // State Management
 import { useDispatch } from "react-redux";
 import { resetUserData } from "../store/reducers/userDataReducer";
+import { resetPetData } from "../store/reducers/petDataReducer";
+import { resetAppointmentData } from "../store/reducers/appointmentDataReducer";
+import { resetVaccinationsData } from "../store/reducers/vaccinationsDataReducer";
 
 function SettingsScreen(props) {
   const [toggle, setToggle] = useState(false);
@@ -45,6 +48,9 @@ function SettingsScreen(props) {
     **************************************************
     */
     dispatch(resetUserData());
+    dispatch(resetPetData());
+    dispatch(resetVaccinationsData());
+    dispatch(resetAppointmentData());
 
     navigation.navigate("LoginScreen");
     console.log("logged out");
