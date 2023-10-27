@@ -8,10 +8,11 @@ import { styleMaster } from '../../constants/stylesMaster.js';
 import HourGlass from '../../assets/hourglass.bottomhalf.fill.svg'
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 
-// Import Data
-import { vaccinationData } from '../../data/testingData/testingData.js';
+// // Import Data
+// import { vaccinationData } from '../../data/testingData/testingData.js';
 
-function VaccinationsHome(props) {
+function VaccinationsHome( {petIDs, vaccinationsData }) {
+    console.log(vaccinationsData)
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
@@ -23,7 +24,7 @@ function VaccinationsHome(props) {
             <View style={styles.contentContainer}>
                 <View style={styles.contentLeft}>
                     <Text style={[styleMaster.defaultFont, styles.fontStyle]}>
-                        {vaccinationData[0].vaccine}
+                        {vaccinationsData[0].vaccine}
                     </Text>
                 </View>
                 <View style={styles.contentCenter}>
@@ -31,7 +32,7 @@ function VaccinationsHome(props) {
                 </View>
                 <View style={styles.contentRight}>
                     <Text style={[styleMaster.defaultFont, styles.fontStyle]}>Due Date</Text>
-                    <Text style={[styleMaster.defaultFont, styles.fontStyle, {color: '#FF2E2E'}]}>{vaccinationData[0].expiration_date}</Text>
+                    <Text style={[styleMaster.defaultFont, styles.fontStyle, {color: '#FF2E2E'}]}>{vaccinationsData[0].expiration_date}</Text>
                 </View>
             </View>
         </View>
