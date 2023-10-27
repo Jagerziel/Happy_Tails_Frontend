@@ -60,5 +60,19 @@ export const createAppointment = async (input) => {
     }
 };
 
+// Update an Existing Appointment
+export const updateAppointment = async (input, id) => {
+    try {
+        await fetch(URL + `${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(input),
+        });
+    } catch (error) {
+        console.log(`Update Appointment failed: ${error}`)
+    }
+};
 
 
