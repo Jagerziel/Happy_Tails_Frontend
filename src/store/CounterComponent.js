@@ -107,6 +107,7 @@ export function Counter() {
     //     pet_id: "653973b628bb6c8cbc5e42dc",
     //   }, "653be186fcb14303d50e9020"
     // )
+    // const data = await deleteVaccination("653be144fcb14303d50e901e")
         
         
     /* TESTING */

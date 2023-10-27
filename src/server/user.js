@@ -47,14 +47,15 @@ export const getUserByEmail = async ( email ) => {
 // Create a New User
 export const createUser = async (input) => {
     try {
-        await fetch(URL, {
+        const response = await fetch(URL, {
           method: "POST",
           body: JSON.stringify(input),
           headers: {
             "Content-Type": "application/json",
           },
         });
-        console.log(input)
+        const data = response.json()
+        return data
     } catch (error) {
         console.log(`Create User failed: ${error}`)   
     }
@@ -63,13 +64,15 @@ export const createUser = async (input) => {
 // Update an Existing User
 export const updateUser = async (input, id) => {
     try {
-        await fetch(URL + `${id}`, {
+        const response = await fetch(URL + `${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(input),
-        });
+        })
+        const data = await response.data()
+        return data
     } catch (error) {
         console.log(`Update User failed: ${error}`)
     }
@@ -80,7 +83,8 @@ export const deleteUser = async (id) => {
     try{
         await fetch(URL + `/${id}`, {
           method: "DELETE",
-        });
+        })
+        return `User id ${id} deleted`
     } catch (error) {
         console.log(`Delete User failed: ${error}`)
     }
