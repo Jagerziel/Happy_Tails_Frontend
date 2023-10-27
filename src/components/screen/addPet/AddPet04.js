@@ -1,5 +1,7 @@
+// Import React
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions } from "react-native";
 
 // Import Constants
 import { styleMaster } from "../../../constants/stylesMaster.js";
@@ -10,6 +12,8 @@ import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeSc
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
+
+const windowHeight = Dimensions.get('window').height;
 
 function AddPet04( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
   console.log(addPetData)
@@ -77,7 +81,8 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
+    minHeight: scale_mod(windowHeight * .6),
   },
   returnContainer: {
     alignSelf: 'flex-start',

@@ -1,7 +1,7 @@
 // Import React
 import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import {Dimensions} from 'react-native';
+import { Dimensions } from 'react-native';
 
 // Import Constants
 import { styleMaster } from "../../../constants/stylesMaster.js";
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
     display: "flex",
     alignItems: "center",
-    minHeight: scale_mod(windowHeight * .6)
+    minHeight: scale_mod(windowHeight * .6),
   },
   returnContainer: {
     alignSelf: 'flex-start',

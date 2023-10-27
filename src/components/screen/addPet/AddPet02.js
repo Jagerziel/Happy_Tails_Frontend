@@ -1,3 +1,4 @@
+// Import React
 import React, { useEffect, useState } from "react";
 import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -10,6 +11,7 @@ import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeSc
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
+
 
 function AddPet02( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
   console.log(addPetData)
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
   },
   returnContainer: {
     alignSelf: 'flex-start',
