@@ -8,7 +8,7 @@ import { updateData } from "./reducers/userDataReducer";
 import { getPets, getPetsByUser, createPet, updatePet, deletePet } from "../server/pet.js";
 import { getAppointment, getAppointmentsByUser, getAppointmentsByPet, createAppointment, updateAppointment, deleteAppointment } from "../server/appointment.js";
 import { getVaccinations, getVaccinationsByUser, getVaccinationsByPet, createVaccination, updateVaccination, deleteVaccination } from "../server/vaccinations.js";
-
+import {loadUser} from "../server/loadUser.js";
 
 export function Counter() {
   // const count = useSelector((state) => state.counter.value) //Shorthand
@@ -111,11 +111,11 @@ export function Counter() {
         
         
     /* TESTING */
-    const data = await deleteVaccination("653be144fcb14303d50e901e")
-
-
-    // Output
-    console.log(data)
+    // const data = await deleteVaccination("653be144fcb14303d50e901e")
+    // const data = await getPetsByUser("6539503228bb6c8cbc5e42d4") 
+    const loadedData = await loadUser("6539503228bb6c8cbc5e42d4")
+    // // Output
+    console.log(loadedData)
   }
 
 
