@@ -7,7 +7,7 @@ import { updateData } from "./reducers/userDataReducer";
 
 import { getPets, getPetsByUser, createPet, updatePet, deletePet } from "../server/pet.js";
 import { getAppointment, getAppointmentsByUser, getAppointmentsByPet, createAppointment, updateAppointment, deleteAppointment } from "../server/appointment.js";
-import { getVaccinations, getVaccinationsByUser, getVaccinationsByPet, createVaccination, updateVaccination } from "../server/vaccinations.js";
+import { getVaccinations, getVaccinationsByUser, getVaccinationsByPet, createVaccination, updateVaccination, deleteVaccination } from "../server/vaccinations.js";
 
 
 export function Counter() {
@@ -98,18 +98,19 @@ export function Counter() {
     //     pet_id: "653973b628bb6c8cbc5e42dc",
     //   }
     // )
+    // const data = await updateVaccination(
+    //   {
+    //     vaccine: "Super Zombie Vaccination",
+    //     last_vaccine_date: "2020/03/16",
+    //     expiration_date: "2025/03/16",
+    //     user_id: "6539503228bb6c8cbc5e42d4",
+    //     pet_id: "653973b628bb6c8cbc5e42dc",
+    //   }, "653be186fcb14303d50e9020"
+    // )
         
         
     /* TESTING */
-    const data = await updateVaccination(
-      {
-        vaccine: "Super Zombie Vaccination",
-        last_vaccine_date: "2020/03/16",
-        expiration_date: "2025/03/16",
-        user_id: "6539503228bb6c8cbc5e42d4",
-        pet_id: "653973b628bb6c8cbc5e42dc",
-      }, "653be186fcb14303d50e9020"
-    )
+    const data = await deleteVaccination("653be144fcb14303d50e901e")
 
 
     // Output

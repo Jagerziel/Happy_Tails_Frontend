@@ -77,3 +77,16 @@ export const updateVaccination = async (input, id) => {
         console.log(`Update Vaccination failed: ${error}`)
     }
 };
+
+
+// Delete a Vaccination
+export const deleteVaccination = async (id) => {
+    try{
+        await fetch(URL + `${id}`, {
+          method: "DELETE",
+        });
+        return `Vaccination id ${id} deleted`
+    } catch (error) {
+        console.log(`Delete Vaccination failed: ${error}`)
+    }
+};
