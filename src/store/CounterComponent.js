@@ -144,13 +144,13 @@ export function Counter() {
         <Text>Testing User Data Reducer</Text>
         <Text>{userData.user}</Text>
         <Button
-          title="Update User"
+          title="Test Redux Console Log"
           onPress={() => {
-            console.log(petData);
+            console.log(vaccinationsData);
           }}
         />
         <Button
-          title="Get Data"
+          title="Get Data - MongoDB Test"
           onPress={() => vaccinationsData()}
         />
       </View>

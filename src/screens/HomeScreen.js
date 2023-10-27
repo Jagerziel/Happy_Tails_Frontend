@@ -34,8 +34,14 @@ function HomeScreen(props) {
         <ScrollView style={[styleMaster.subParent]}>
             <UserProfileHome userData={userData} />
             <PromotionsHome />
-            <AppointmentsHome petIDs={petIDs} appointmentData={appointmentData} />
-            <VaccinationsHome petIDs={petIDs} vaccinationsData={vaccinationsData} />
+            <AppointmentsHome 
+              petIDs={petIDs} 
+              appointmentData={appointmentData} 
+            />
+            <VaccinationsHome 
+              petIDs={petIDs} 
+              vaccinationsData={vaccinationsData} 
+            />
         </ScrollView>
       <Navigation />
     </SafeAreaView>

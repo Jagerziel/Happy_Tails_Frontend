@@ -7,11 +7,11 @@ import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 
-function UserProfileHome(props) {
+function UserProfileHome( { userData }) {
     return (
         <View style={styles.container}>
             <View style={styles.subContainer}>
-                <Text style={[styleMaster.defaultFont, styles.heading]}>Hi, [Username]</Text>
+                <Text style={[styleMaster.defaultFont, styles.heading]}>{`Hi, ${userData.first_name}`}</Text>
                 <Image source={require('../../assets/temp_profile_pic.jpg')} style={styles.profileImg}/>
             </View>
         </View>
