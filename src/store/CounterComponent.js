@@ -6,7 +6,7 @@ import { increment, decrement, incrementByAmount } from "./reducers/counter";
 import { updateData } from "./reducers/userDataReducer";
 
 import { getPets, getPetsByUser, createPet, updatePet, deletePet } from "../server/pet.js";
-import { getAppointment, getAppointmentsByUser, getAppointmentsByPet } from "../server/appointment.js";
+import { getAppointment, getAppointmentsByUser, getAppointmentsByPet, createAppointment } from "../server/appointment.js";
 
 
 
@@ -67,10 +67,19 @@ export function Counter() {
     // const data = await deletePet("6539840428bb6c8cbc5e42ff")
     // const data = await getAppointment()
     // const data = await getAppointmentsByUser("6539503228bb6c8cbc5e42d4")
+    // const data = await getAppointmentsByPet("653973b628bb6c8cbc5e42dc")
         
         
     /* TESTING */
-    const data = await getAppointmentsByPet("653973b628bb6c8cbc5e42dc")
+    const data = await createAppointment({
+      type: "2025 Annual Checkup",
+      date: "2025/01/01",
+      time: "11:00 PM",
+      status: "Confirmed",
+      notes: "None",
+      user_id: "6539503228bb6c8cbc5e42d4",
+      pet_id: "653973b628bb6c8cbc5e42dc"
+    })
 
 
     // Output

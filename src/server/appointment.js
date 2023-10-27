@@ -43,3 +43,22 @@ export const getAppointmentsByPet = async ( pet_id ) => {
         console.log(`Get Apppontments Data By Pet failed: ${error}`)
     }
 };
+
+// Create a New Appointment
+export const createAppointment = async (input) => {
+    try {
+        await fetch(URL, {
+          method: "POST",
+          body: JSON.stringify(input),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        console.log(input)
+    } catch (error) {
+        console.log(`Create Appointment failed: ${error}`)   
+    }
+};
+
+
+
