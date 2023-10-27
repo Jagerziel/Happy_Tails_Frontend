@@ -17,16 +17,29 @@ import ReturnArrow from '../components/shared/ReturnArrrow.js';
 // Import API
 import { getUserByEmail } from '../server/user.js';
 
+// Load User Data
+import { loadUser } from '../server/loadUser.js';
+
+// State Management
+import { useSelector, useDispatch } from "react-redux";
+import { updateUserData } from '../store/reducers/userDataReducer.js';
+import { updatePetData } from '../store/reducers/petDataReducer.js';
+import { updateAppointmentData } from '../store/reducers/appointmentDataReducer.js';
+import { updateVaccinationsData } from '../store/reducers/vaccinationsDataReducer.js';
+
+
 function LoginAccountScreen(props) {
     const [ textInputData, setTextDataInput ] = useState({
         email: "",
         password: ""
     })
-
+    
     const [ emailExistsError , setEmailExistsError ] = useState({
         email: "",
         password: "",
     })
+    // React Redux
+    const dispatch = useDispatch()
 
     // Conditional Button Disabling Awaiting Completion of All Inputs
     const [ disabled, setDisabled ] = useState(true)
@@ -67,6 +80,16 @@ function LoginAccountScreen(props) {
                     LOAD ALL USER DATA
                     **************************************************
                     */
+                    // console.log(emailData[1]["_id"])
+                    // Load User Data
+                    const userData = await loadUser(emailData[1]["_id"])
+                    // console.log(userData)
+
+                    // Store Data - Redux
+                    dispatch(updateUserData(userData.user))
+                    dispatch(updatePetData(userData.pet))
+                    dispatch(updateVaccinationsData(userData.vaccinations))
+                    dispatch(updateAppointmentData(userData.appointment))
                     navigation.navigate("HomeScreen")
                 }
             }

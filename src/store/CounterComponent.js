@@ -8,16 +8,16 @@ import { updateUserData } from "./reducers/userDataReducer";
 import { getPets, getPetsByUser, createPet, updatePet, deletePet } from "../server/pet.js";
 import { getAppointment, getAppointmentsByUser, getAppointmentsByPet, createAppointment, updateAppointment, deleteAppointment } from "../server/appointment.js";
 import { getVaccinations, getVaccinationsByUser, getVaccinationsByPet, createVaccination, updateVaccination, deleteVaccination } from "../server/vaccinations.js";
-import {loadUser} from "../server/loadUser.js";
+import { loadUser } from "../server/loadUser.js";
 
 export function Counter() {
   // const count = useSelector((state) => state.counter.value) //Shorthand
   const count = useSelector((state) => state.counter.count); //Other Method to target specific value
   const userData = useSelector((state) => state.userData.data);
+  const petData = useSelector((state) => state.petData.data);
+  const vaccinationsData = useSelector((state) => state.vaccinationsData.data);
+  const appointmentData = useSelector((state) => state.appointmentData.data);
   const dispatch = useDispatch();
-  let data = {
-    user: "Ryan",
-  };
   // console.log(userData);
 
   async function getData () {
@@ -113,7 +113,7 @@ export function Counter() {
     /* TESTING */
     // const data = await deleteVaccination("653be144fcb14303d50e901e")
     // const data = await getPetsByUser("6539503228bb6c8cbc5e42d4") 
-    const loadedData = await loadUser("6539503228bb6c8cbc5e42d4")
+    const loadedData = await loadUser("653921264c0eda94fb0b1155")
     // // Output
     console.log(loadedData)
   }
@@ -146,12 +146,12 @@ export function Counter() {
         <Button
           title="Update User"
           onPress={() => {
-            dispatch(updateUserData(data)), console.log(userData);
+            console.log(vaccinationsData);
           }}
         />
         <Button
           title="Get Data"
-          onPress={() => getData()}
+          onPress={() => vaccinationsData()}
         />
       </View>
     </View>

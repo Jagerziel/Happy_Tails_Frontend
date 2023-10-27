@@ -26,7 +26,7 @@ import { colors } from "../constants/colorPalette.js";
 
 // State Management
 import { useDispatch } from "react-redux";
-import { resetData } from "../store/reducers/userDataReducer";
+import { resetUserData } from "../store/reducers/userDataReducer";
 
 function SettingsScreen(props) {
   const [toggle, setToggle] = useState(false);
@@ -44,7 +44,7 @@ function SettingsScreen(props) {
       ERASE STORED DATA
     **************************************************
     */
-    dispatch(resetData());
+    dispatch(resetUserData());
 
     navigation.navigate("LoginScreen");
     console.log("logged out");
