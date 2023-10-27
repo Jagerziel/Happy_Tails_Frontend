@@ -61,3 +61,14 @@ export const updatePet = async (input, id) => {
     }
 };
 
+// Delete a Pet
+export const deletePet = async (id) => {
+    try{
+        await fetch(URL + `${id}`, {
+          method: "DELETE",
+        });
+    } catch (error) {
+        console.log(`Delete Pet failed: ${error}`)
+    }
+};
+
