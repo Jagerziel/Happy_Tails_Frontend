@@ -10,7 +10,7 @@ import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
-function AddPet10( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
+function AddPet10( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents, updatePetData } ) {
   console.log(addPetData)
 
   function handleReturnToPrev () {

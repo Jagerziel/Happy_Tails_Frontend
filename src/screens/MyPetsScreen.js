@@ -26,6 +26,10 @@ import AddPet08 from "../components/screen/addPet/AddPet08.js";
 import AddPet09 from "../components/screen/addPet/AddPet09.js";
 import AddPet10 from "../components/screen/addPet/AddPet10.js";
 
+// State Management
+import { useSelector, useDispatch } from "react-redux";
+import { updatePetData } from "../store/reducers/petDataReducer.js";
+
 function MyPetsScreen(props) {
   const [ addPetData ,  setAddPetData ] = useState({
     name: "",
@@ -61,12 +65,14 @@ function MyPetsScreen(props) {
     AddPet10: false,
   })
 
+  // React Redux
+  const dispatch = useDispatch()
+  const petData = useSelector((state) => state.petData.data);
+
   const itemSeparator = () => <View style={{ marginVertical: scale_mod(24) }} />; // Gap for Flatlist
 
   function handleAddPet (target) {
     setAddPetsComponents({...addPetComponents, MyPetsScreen: false, AddPet01: true})
-    
-    console.log(`${target} button pressed`);
   }
 
   return (
@@ -80,7 +86,7 @@ function MyPetsScreen(props) {
           <View style={styles.petsContainer}>
             <View>
               <FlatList
-                keyExtractor={(petData) => petData.uid} // Key
+                keyExtractor={(petData) => petData["_id"]} // Key
                 ItemSeparatorComponent={itemSeparator} // Gap between items
                 data={petData} // Data
                 renderItem={(data) => <PetItemMyPets data={data}/>} // Component to be rendered
@@ -118,10 +124,7 @@ function MyPetsScreen(props) {
       {addPetComponents.AddPet09 && 
       <AddPet09 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents}/>}
       {addPetComponents.AddPet10 && 
-      <AddPet10 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents}/>}
-      
-
-      
+      <AddPet10 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents} updatePetData={updatePetData}/>}   
     </>
   );
 }

@@ -10,9 +10,6 @@ import Clock from '../../assets/clock.svg'
 import GreenDot from '../../assets/green_dot.svg'
 
 function AppointmentItemHome( { data, petIDs } ) {
-    console.log(petIDs)
-    console.log(data.item.pet_id)
-    console.log(petIDs[data.item.pet_id])
     return (
         <View style={styles.container}>
             <View style={styles.dateTimeContainer}>
