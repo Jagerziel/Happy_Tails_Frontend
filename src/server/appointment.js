@@ -53,8 +53,9 @@ export const createAppointment = async (input) => {
           headers: {
             "Content-Type": "application/json",
           },
-        });
-        console.log(input)
+        })
+        const data = await response.json()
+        return data
     } catch (error) {
         console.log(`Create Appointment failed: ${error}`)   
     }
@@ -63,13 +64,15 @@ export const createAppointment = async (input) => {
 // Update an Existing Appointment
 export const updateAppointment = async (input, id) => {
     try {
-        await fetch(URL + `${id}`, {
+        const response = await fetch(URL + `${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(input),
-        });
+        })
+        const data = await response.json()
+        return data
     } catch (error) {
         console.log(`Update Appointment failed: ${error}`)
     }
@@ -81,6 +84,7 @@ export const deleteAppointment = async (id) => {
         await fetch(URL + `${id}`, {
           method: "DELETE",
         });
+        return `Appointment id ${id} deleted`
     } catch (error) {
         console.log(`Delete Appointment failed: ${error}`)
     }
