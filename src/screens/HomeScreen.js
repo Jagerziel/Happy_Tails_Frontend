@@ -13,17 +13,29 @@ import Navigation from "../components/shared/Navigation";
 import { styleMaster } from "../constants/stylesMaster.js";
 import { colors } from "../constants/colorPalette.js";
 
-// Other Hooks
-
+// State Management
+import { useSelector, useDispatch } from "react-redux";
 
 function HomeScreen(props) {
+  // Redux - Get All Loaded Data
+  const userData = useSelector((state) => state.userData.data);
+  const petData = useSelector((state) => state.petData.data);
+  const vaccinationsData = useSelector((state) => state.vaccinationsData.data);
+  const appointmentData = useSelector((state) => state.appointmentData.data);
+
+  // Shortened Information to pass as props to get Pet Names tied to Appointments and Vaccinations
+  const petIDs = []
+  for (let i = 0; i < petData.length; i++) {
+    petIDs.push({ [petData[i]["_id"]] : [petData[i]["name"]] })
+  }
+
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
         <ScrollView style={[styleMaster.subParent]}>
-            <UserProfileHome />
+            <UserProfileHome userData={userData} />
             <PromotionsHome />
-            <AppointmentsHome />
-            <VaccinationsHome />
+            <AppointmentsHome petIDs={petIDs} appointmentData={appointmentData} />
+            <VaccinationsHome petIDs={petIDs} vaccinationsData={vaccinationsData} />
         </ScrollView>
       <Navigation />
     </SafeAreaView>

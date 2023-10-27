@@ -146,7 +146,7 @@ export function Counter() {
         <Button
           title="Update User"
           onPress={() => {
-            console.log(userData);
+            console.log(petData);
           }}
         />
         <Button
