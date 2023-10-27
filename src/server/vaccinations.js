@@ -61,4 +61,19 @@ export const createVaccination = async (input) => {
     }
 };
 
-
+// Update an Existing Vaccination
+export const updateVaccination = async (input, id) => {
+    try {
+        const response = await fetch(URL + `${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(input),
+        });
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.log(`Update Vaccination failed: ${error}`)
+    }
+};
