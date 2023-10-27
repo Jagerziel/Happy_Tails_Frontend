@@ -44,6 +44,21 @@ export const getVaccinationsByPet = async ( pet_id ) => {
     }
 };
 
-
+// Create a New Vaccination
+export const createVaccination = async (input) => {
+    try {
+        const response = await fetch(URL, {
+          method: "POST",
+          body: JSON.stringify(input),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        const data = await response.json()    
+        return data
+    } catch (error) {
+        console.log(`Create Vaccination failed: ${error}`)   
+    }
+};
 
 
