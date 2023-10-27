@@ -24,9 +24,9 @@ function HomeScreen(props) {
   const appointmentData = useSelector((state) => state.appointmentData.data);
 
   // Shortened Information to pass as props to get Pet Names tied to Appointments and Vaccinations
-  const petIDs = []
+  const petIDs = {}
   for (let i = 0; i < petData.length; i++) {
-    petIDs.push({ [petData[i]["_id"]] : [petData[i]["name"]] })
+    petIDs[petData[i]["_id"]] = [petData[i]["name"]] 
   }
 
   return (

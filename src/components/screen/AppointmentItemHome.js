@@ -9,7 +9,10 @@ import Calendar from '../../assets/calendar.svg'
 import Clock from '../../assets/clock.svg'
 import GreenDot from '../../assets/green_dot.svg'
 
-function AppointmentItemHome( { data } ) {
+function AppointmentItemHome( { data, petIDs } ) {
+    console.log(petIDs)
+    console.log(data.item.pet_id)
+    console.log(petIDs[data.item.pet_id])
     return (
         <View style={styles.container}>
             <View style={styles.dateTimeContainer}>
@@ -28,7 +31,7 @@ function AppointmentItemHome( { data } ) {
             </View>
             <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.type}</Text>
             <View style={styles.bottomContainer}>
-                <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{`Who: ${data.item.pet_id}`}</Text>
+                <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{`Who: ${petIDs[data.item.pet_id]}`}</Text>
                 <View style={styles.bottomSubContainer}>
                     <View style={styles.icon}>
                         <GreenDot height={scale_mod(8)} width={scale_mod(8)}/>

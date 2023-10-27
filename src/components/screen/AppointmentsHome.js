@@ -9,10 +9,13 @@ import AppointmentItemHome from './AppointmentItemHome.js';
 import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
-import { appointmentData } from '../../data/testingData/testingData.js';
+// import { appointmentData } from '../../data/testingData/testingData.js';
 
-function AppointmentsHome(props) {
+function AppointmentsHome( { petIDs, appointmentData }) {
     const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(5) }} />; // Gap for Flatlist
+
+    
+
 
     return (
         <View style={styles.container}>
@@ -24,10 +27,10 @@ function AppointmentsHome(props) {
             </View>
             <View style={styles.contentContainer}>
                 <FlatList 
-                    keyExtractor={(appointment) => appointment.uid} // Key
+                    keyExtractor={(appointment) => appointment["_id"]} // Key
                     ItemSeparatorComponent={itemSeparator} // Gap between items
                     data={appointmentData} // Data
-                    renderItem={(data) => <AppointmentItemHome data={data}/>} // Component to be rendered
+                    renderItem={(data) => <AppointmentItemHome data={data} petIDs={petIDs}/>} // Component to be rendered
                     showsHorizontalScrollIndicator = { false } // Removes Scrollbar
                     scrollEnabled={ true } // Enables Scrolling
                     horizontal // Key to making flatlist scrollable
