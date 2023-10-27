@@ -46,3 +46,18 @@ export const createPet = async (input) => {
     }
 };
 
+// Update an Existing Pet
+export const updatePet = async (input, id) => {
+    try {
+        await fetch(URL + `${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(input),
+        });
+    } catch (error) {
+        console.log(`Update Pet failed: ${error}`)
+    }
+};
+

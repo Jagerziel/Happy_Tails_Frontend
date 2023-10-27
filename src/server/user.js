@@ -63,8 +63,11 @@ export const createUser = async (input) => {
 // Update an Existing User
 export const updateUser = async (input, id) => {
     try {
-        await fetch(URL + `/${id}`, {
+        await fetch(URL + `${id}`, {
             method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify(input),
         });
     } catch (error) {

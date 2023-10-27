@@ -5,7 +5,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, incrementByAmount } from "./reducers/counter";
 import { updateData } from "./reducers/userDataReducer";
 
-import { getPets, getPetsByUser, createPet } from "../server/pet.js";
+import { getPets, getPetsByUser, createPet, updatePet } from "../server/pet.js";
+
+
+
 
 export function Counter() {
   // const count = useSelector((state) => state.counter.value) //Shorthand
@@ -44,7 +47,26 @@ export function Counter() {
         
         
     /* TESTING */
-    const data = await getPetsByUser("6539503228bb6c8cbc5e42d4")
+    const data = await updatePet(
+      {
+        name: "Fluffy Doggy",
+        type: "Dog",
+        dob: "2020/09/13",
+        breed: "Pug",
+        image: "",
+        sex: "Male",
+        weight: "20 lbs",
+        allergies: "Dogs",
+        medications: "",
+        laboratory: "",
+        microchip: "123456789",
+        visit_history: "",
+        primary_color: "Black",
+        notes: "Always wanted one",
+        primary_vet: "",
+        user_id: "6539503228bb6c8cbc5e42d4"
+      }, "65391ff44c0eda94fb0b1150"
+    )
 
 
 
