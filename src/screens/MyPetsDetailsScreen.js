@@ -1,6 +1,7 @@
+// Import React
 import React from "react";
 import { Image, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
-import Navigation from "../components/shared/Navigation";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
@@ -13,10 +14,15 @@ import {
 import { months } from "../data/data/data.js";
 
 // Import Components
+import Navigation from "../components/shared/Navigation";
 import StaticInputField from "../components/shared/StaticInputField.js";
 import StaticInputFieldCustom from "../components/shared/StaticInputFieldCustom.js";
 import StaticInputFieldArrow from "../components/shared/StaticInputFieldArrow.js";
 import LoginScreenButton from "../components/shared/LoginScreenButton.js";
+
+// State Management
+import { useSelector, useDispatch } from "react-redux";
+import { updatePetData } from "../store/reducers/petDataReducer.js";
 
 function MyPetsDetailsScreen( { route, navigation } ) {
   const { data } = route.params
@@ -33,6 +39,13 @@ function MyPetsDetailsScreen( { route, navigation } ) {
     **************************************************
     */
     console.log(`${command} button pressed`)
+    const petIDToBeDeactivated = data["_id"]
+    console.log( petIDToBeDeactivated )
+
+
+
+    // Navigate back to MyPetsScreen
+    navigation.navigate("MyPetsScreen")
   }
 
   return (
@@ -74,10 +87,10 @@ function MyPetsDetailsScreen( { route, navigation } ) {
           <Text style={[styleMaster.defaultFont, styles.subHeader]}>Weight</Text>
           <StaticInputField name={data.weight} />
         </View>
-        <View>
+        {/* <View>
           <Text style={[styleMaster.defaultFont, styles.subHeader]}>Microchip</Text>
           <StaticInputField name={data.microchip} />
-        </View>
+        </View> */}
         <View>
           <Text style={[styleMaster.defaultFont, styles.subHeader]}>Date of Birth</Text>
           <View style={styles.dateContainer}>

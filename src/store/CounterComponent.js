@@ -146,7 +146,7 @@ export function Counter() {
         <Button
           title="Test Redux Console Log"
           onPress={() => {
-            console.log(vaccinationsData);
+            console.log(petData);
           }}
         />
         <Button

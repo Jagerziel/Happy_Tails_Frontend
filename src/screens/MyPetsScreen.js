@@ -9,7 +9,6 @@ import {
   scale_mod,
 } from "../data/functions/normalizeScaling.js";
 import { styleMaster } from "../constants/stylesMaster.js";
-import { petData } from "../data/testingData/testingData";
 
 // Import Components
 import Navigation from "../components/shared/Navigation";
