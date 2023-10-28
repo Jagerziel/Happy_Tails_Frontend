@@ -90,10 +90,13 @@ function LoginScreenButton( { text, handlePress, disabled } ) {
 }
 ```
 
-### State Management (React Redux and Redux-Toolkit)
-```
-INFORMATION TO BE INCLUDED HERE SHORTLY
-```
+### API Calls and State Management
+
+The backend utilizes `MongoDB` and the state management primarily used is `React Redux` along with `React-Toolkit`.  Both work in conjunction for a smooth experience.  Here's how it works:
+
+1) When a user logs in or creates an account, two things occur.  The first is an API call is made to the database to collect all the relevent information from **that specific user**.  That information is then saved via **Redux** so it is accessible throughout the application.
+2) Whenever data is needed, the API is not called - the data is instead pulled from **Redux**. 
+3) If any changes (creation, updates, or deletes) are required, the action is **first done through the API**, then **Redux is updated**.  The goal of this is to reduce the number of api calls required, and only under two occasions is the full data for a user affected: a) when the user first logs in or is created as mentioned above, and b) when a user deletes their account.
 
 ### Customized Library Components
 

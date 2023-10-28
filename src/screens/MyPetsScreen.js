@@ -66,8 +66,9 @@ function MyPetsScreen(props) {
 
   // React Redux
   const dispatch = useDispatch()
+  const userData = useSelector((state) => state.userData.data)
   const petData = useSelector((state) => state.petData.data);
-
+  console.log(petData)
   const itemSeparator = () => <View style={{ marginVertical: scale_mod(24) }} />; // Gap for Flatlist
 
   function handleAddPet (target) {
@@ -123,7 +124,15 @@ function MyPetsScreen(props) {
       {addPetComponents.AddPet09 && 
       <AddPet09 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents}/>}
       {addPetComponents.AddPet10 && 
-      <AddPet10 addPetData={addPetData} setAddPetData={setAddPetData} addPetComponents={addPetComponents} setAddPetsComponents={setAddPetsComponents} updatePetData={updatePetData}/>}   
+      <AddPet10 
+        addPetData={addPetData} 
+        setAddPetData={setAddPetData} 
+        addPetComponents={addPetComponents} 
+        setAddPetsComponents={setAddPetsComponents} 
+        userData={userData} 
+        petData={petData}
+        updatePetData={updatePetData}  
+      />}   
     </>
   );
 }

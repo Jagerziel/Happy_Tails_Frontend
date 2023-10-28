@@ -49,9 +49,9 @@ function MyPetsDetailsScreen( { route, navigation } ) {
     const petIDToBeDeactivated = data["_id"]
     console.log( petIDToBeDeactivated )
     const updatedPetData = await petData.filter((data) => data["_id"] !== petIDToBeDeactivated)
-
-    dispatch(updatePetData(updatedPetData))
-    await deletePet(petIDToBeDeactivated)
+    
+    await deletePet(petIDToBeDeactivated) // Erase from database
+    dispatch(updatePetData(updatedPetData)) // Erase from Redux
 
     // Navigate back to MyPetsScreen
     navigation.navigate("MyPetsScreen")

@@ -10,8 +10,18 @@ import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
-function AddPet10( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents, updatePetData } ) {
+// Import API Call
+import { createPet } from "../../../server/pet.js";
+
+// State Management
+import { useSelector, useDispatch } from "react-redux";
+
+
+function AddPet10( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents, userData, petData, updatePetData } ) {
   console.log(addPetData)
+
+  // React Redux
+  const dispatch = useDispatch()
 
   function handleReturnToPrev () {
     setAddPetsComponents({...addPetComponents, AddPet09: true, AddPet10: false})
@@ -47,14 +57,22 @@ function AddPet10( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
     // Add Navigation
   }
 
-  function handleAddAnotherPet () {
+  async function handleAddAnotherPet () {
     /* 
     **************************************************
       POST new pet information to the database
     **************************************************
     */
-    setAddPetsComponents({...addPetComponents, AddPet10: false, AddPet01: true})
-    setAddPetData({
+    // console.log({...addPetData, user_id: userData["_id"]})
+    const createMyPet = await createPet({...addPetData, user_id: userData["_id"]}) 
+    console.log(createMyPet)
+    console.log(petData)
+    // let newPetData = await petData.push(createMyPet)
+    // console.log(newPetData)
+    // await dispatch(updatePetData(newPetData))
+
+    await setAddPetsComponents({...addPetComponents, AddPet10: false, AddPet01: true})
+    await setAddPetData({
       name: "",
       type: "",
       dob: "",
