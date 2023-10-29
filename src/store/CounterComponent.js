@@ -146,12 +146,14 @@ export function Counter() {
         <Button
           title="Test Redux Console Log"
           onPress={() => {
-            console.log(petData);
+            let a = [...petData, {test: "hello"}]
+            // a.push({test: "hello"})
+            console.log(a);
           }}
         />
         <Button
           title="Get Data - MongoDB Test"
-          onPress={() => vaccinationsData()}
+          onPress={() => getData()}
         />
       </View>
     </View>

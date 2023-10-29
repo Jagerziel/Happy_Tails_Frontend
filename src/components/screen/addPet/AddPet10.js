@@ -63,13 +63,12 @@ function AddPet10( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
       POST new pet information to the database
     **************************************************
     */
-    // console.log({...addPetData, user_id: userData["_id"]})
+    // Add new pet to database
     const createMyPet = await createPet({...addPetData, user_id: userData["_id"]}) 
-    console.log(createMyPet)
-    console.log(petData)
-    // let newPetData = await petData.push(createMyPet)
-    // console.log(newPetData)
-    // await dispatch(updatePetData(newPetData))
+    // Create shallow copy of current petData with newly created pet
+    let newPetData = [...petData, createMyPet]
+    // Store new pet data in redux
+    await dispatch(updatePetData(newPetData))
 
     await setAddPetsComponents({...addPetComponents, AddPet10: false, AddPet01: true})
     await setAddPetData({
@@ -89,7 +88,7 @@ function AddPet10( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
       notes: "",
       primary_vet: "",
       user_id: "",
-      spayed: "", //NEWLY ADDED FIELD
+      spayed: ""
     })
   }
 
