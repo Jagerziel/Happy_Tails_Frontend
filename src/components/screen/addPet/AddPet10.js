@@ -27,14 +27,21 @@ function AddPet10( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
     setAddPetsComponents({...addPetComponents, AddPet09: true, AddPet10: false})
   }
 
-  function handleAddPet () {
+  async function handleAddPet () {
     /* 
     **************************************************
       POST new pet information to the database
     **************************************************
     */
-    setAddPetsComponents({...addPetComponents, AddPet10: false, MyPetsScreen: true})
-    setAddPetData({
+    // Add new pet to database
+    const createMyPet = await createPet({...addPetData, user_id: userData["_id"]}) 
+    // Create shallow copy of current petData with newly created pet
+    let newPetData = [...petData, createMyPet]
+    // Store new pet data in redux
+    await dispatch(updatePetData(newPetData))
+
+    await setAddPetsComponents({...addPetComponents, AddPet10: false, MyPetsScreen: true})
+    await setAddPetData({
       name: "",
       type: "",
       dob: "",
