@@ -90,4 +90,28 @@ export const deleteAppointment = async (id) => {
     }
 };
 
+// Delete Appointments By User
+export const deleteAppointmentsByUser = async (id) => {
+    try{
+        await fetch(URL + `user/${id}`, {
+          method: "DELETE",
+        });
+        return `Appointments deleted for user id ${id}`
+    } catch (error) {
+        console.log(`Delete Appointment failed: ${error}`)
+    }
+};
+
+
+// Delete Appointments By Pet
+export const deleteAppointmentsByPet = async (id) => {
+    try{
+        await fetch(URL + `pet/${id}`, {
+          method: "DELETE",
+        });
+        return `Appointments deleted for pet id ${id}`
+    } catch (error) {
+        console.log(`Delete Appointment failed: ${error}`)
+    }
+};
 

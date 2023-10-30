@@ -90,3 +90,29 @@ export const deleteVaccination = async (id) => {
         console.log(`Delete Vaccination failed: ${error}`)
     }
 };
+
+// Delete Vaccinations By User
+export const deleteVaccinationsByUser = async (id) => {
+    try{
+        await fetch(URL + `user/${id}`, {
+          method: "DELETE",
+        });
+        return `Vaccinations deleted for user id ${id}`
+    } catch (error) {
+        console.log(`Delete Appointment failed: ${error}`)
+    }
+};
+
+// Delete Vaccinations By Pet
+export const deleteVaccinationsByPet = async (id) => {
+    try{
+        await fetch(URL + `pet/${id}`, {
+          method: "DELETE",
+        });
+        return `Vaccinations deleted for pet id ${id}`
+    } catch (error) {
+        console.log(`Delete Appointment failed: ${error}`)
+    }
+};
+
+

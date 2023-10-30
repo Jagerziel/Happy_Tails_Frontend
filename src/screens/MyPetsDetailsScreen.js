@@ -26,6 +26,9 @@ import { updatePetData } from "../store/reducers/petDataReducer.js";
 
 // Import API
 import { deletePet } from "../server/pet.js";
+import { deleteAppointment } from "../server/appointment.js";
+import { deleteVaccination } from "../server/vaccinations.js";
+
 
 function MyPetsDetailsScreen( { route, navigation } ) {
   const { data } = route.params
@@ -42,7 +45,7 @@ function MyPetsDetailsScreen( { route, navigation } ) {
   async function deactivate ( command ) {
     /* 
     **************************************************
-    ERASE STORED DATA FOR PET
+    ERASE STORED DATA FOR PET, ASSOCIATED VACCINATIONS AND APPOINTMENTS
     **************************************************
     */
     console.log(`${command} button pressed`)
@@ -54,7 +57,7 @@ function MyPetsDetailsScreen( { route, navigation } ) {
     dispatch(updatePetData(updatedPetData)) // Erase from Redux
 
     // Navigate back to MyPetsScreen
-    navigation.navigate("MyPetsScreen")
+    // navigation.navigate("MyPetsScreen")
   }
 
   return (

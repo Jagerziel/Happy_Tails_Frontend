@@ -146,9 +146,9 @@ export function Counter() {
         <Button
           title="Test Redux Console Log"
           onPress={() => {
-            let a = [...petData, {test: "hello"}]
+            let a = [...petData]
             // a.push({test: "hello"})
-            console.log(a);
+            console.log(a.length);
           }}
         />
         <Button
