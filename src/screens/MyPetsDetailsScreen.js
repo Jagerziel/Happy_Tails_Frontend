@@ -125,10 +125,16 @@ function MyPetsDetailsScreen( { route, navigation } ) {
           </View>
         </View>
         <View style={styles.arrowInputFieldGap}>
-            <StaticInputFieldArrow name={"Vaccination"} arrowNext={() => arrowNext('Vaccination')} path={'Vaccination'}/>
+            <StaticInputFieldArrow name={"Medications"} arrowNext={() => arrowNext('Medications')} path={'Medications'}/>
         </View>
         <View style={styles.arrowInputFieldGap}>
             <StaticInputFieldArrow name={"Labratory"} arrowNext={() => arrowNext('Labratory')} path={'Labratory'}/>
+        </View>
+        <View style={styles.arrowInputFieldGap}>
+            <StaticInputFieldArrow name={"Vaccination"} arrowNext={() => arrowNext('Vaccination')} path={'Vaccination'}/>
+        </View>
+        <View style={styles.arrowInputFieldGap}>
+            <StaticInputFieldArrow name={"Allergies"} arrowNext={() => arrowNext('Allergies')} path={'Allergies'}/>
         </View>
         <View style={styles.arrowInputFieldGap}>
             <StaticInputFieldArrow name={"Invoices"} arrowNext={() => arrowNext('Invoices')} path={'Invoices'}/>
