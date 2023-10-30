@@ -12,7 +12,7 @@ import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 import DateTimePicker from "../../shared/DateTimePicker.js";
 
 function AddPet08( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
-  console.log(addPetData)
+  // console.log(addPetData)
 
   function handleReturnToPrev () {
     setAddPetsComponents({...addPetComponents, AddPet07: true, AddPet08: false})
@@ -28,7 +28,7 @@ function AddPet08( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
 
   function handleSkip (key) {
     setAddPetData({...addPetData, [key]: ""})
-    console.log(addPetData)
+    // console.log(addPetData)
     setAddPetsComponents({...addPetComponents, AddPet08: false, AddPet09: true})
   }
 

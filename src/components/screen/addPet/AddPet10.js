@@ -18,7 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 function AddPet10( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents, userData, petData, updatePetData } ) {
-  console.log(addPetData)
+  // console.log(addPetData)
 
   // React Redux
   const dispatch = useDispatch()

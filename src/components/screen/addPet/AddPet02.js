@@ -14,7 +14,7 @@ import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
 
 function AddPet02( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
-  console.log(addPetData)
+  // console.log(addPetData)
 
   const [ imgSelected, setImgSelected ] = useState({
     dog: true,
@@ -42,12 +42,12 @@ function AddPet02( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
     if (type === "Dog") {
       setAddPetData({...addPetData, type: "Dog"})
       setImgSelected({dog: true, cat: false})
-      console.log(`Dog button pressed`)
+      // console.log(`Dog button pressed`)
     }
     if (type === "Cat") {
       setAddPetData({...addPetData, type: "Cat"})
       setImgSelected({dog: false, cat: true})
-      console.log(`Cat button pressed`)
+      // console.log(`Cat button pressed`)
     }
   }
 

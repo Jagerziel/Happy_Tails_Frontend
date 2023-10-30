@@ -68,7 +68,7 @@ function MyPetsScreen(props) {
   const dispatch = useDispatch()
   const userData = useSelector((state) => state.userData.data)
   const petData = useSelector((state) => state.petData.data);
-  console.log(petData)
+  // console.log(petData)
   const itemSeparator = () => <View style={{ marginVertical: scale_mod(24) }} />; // Gap for Flatlist
 
   function handleAddPet (target) {

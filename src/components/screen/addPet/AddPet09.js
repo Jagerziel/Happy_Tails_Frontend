@@ -12,7 +12,7 @@ import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
 function AddPet09( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
-  console.log(addPetData)
+  // console.log(addPetData)
 
   function handleReturnToPrev () {
     setAddPetsComponents({...addPetComponents, AddPet08: true, AddPet09: false})

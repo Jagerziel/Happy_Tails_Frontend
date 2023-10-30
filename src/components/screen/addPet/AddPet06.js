@@ -12,7 +12,7 @@ import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
 function AddPet06( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
-  console.log(addPetData)
+  // console.log(addPetData)
 
   useEffect(()=> {
     setAddPetData({...addPetData, spayed: "Yes"})
@@ -51,7 +51,7 @@ function AddPet06( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
       })
       setAddPetData({...addPetData, spayed: "No"})
     }
-    console.log(addPetData)
+    // console.log(addPetData)
   }
 
   return (

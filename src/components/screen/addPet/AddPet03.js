@@ -16,7 +16,7 @@ import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 const windowHeight = Dimensions.get('window').height;
 
 function AddPet03( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
-  console.log(addPetData)
+  // console.log(addPetData)
 
   function handleReturnToPrev () {
     setAddPetsComponents({...addPetComponents, AddPet02: true, AddPet03: false})
@@ -28,13 +28,13 @@ function AddPet03( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
 
   function handleSkip (key) {
     setAddPetData({...addPetData, [key]: ""})
-    console.log(addPetData)
+    // console.log(addPetData)
     setAddPetsComponents({...addPetComponents, AddPet03: false, AddPet04: true})
   }
 
   function handleTextInput ( key, text ) {
     setAddPetData({...addPetData, [key]: text})
-    console.log(addPetData)
+    // console.log(addPetData)
   }
 
   return (

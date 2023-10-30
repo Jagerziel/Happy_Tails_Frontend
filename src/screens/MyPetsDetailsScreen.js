@@ -23,25 +23,27 @@ import LoginScreenButton from "../components/shared/LoginScreenButton.js";
 // State Management
 import { useSelector, useDispatch } from "react-redux";
 import { updatePetData } from "../store/reducers/petDataReducer.js";
+import { updateAppointmentData } from "../store/reducers/appointmentDataReducer.js";
+import { updateVaccinationsData, updatedVaccinationsData } from "../store/reducers/vaccinationsDataReducer.js"
 
 // Import API
 import { deletePet } from "../server/pet.js";
-import { deleteAppointment } from "../server/appointment.js";
-import { deleteVaccination } from "../server/vaccinations.js";
+import { deleteAppointmentsByPet } from "../server/appointment.js";
+import { deleteVaccinationsByPet } from "../server/vaccinations.js";
 
 
 function MyPetsDetailsScreen( { route, navigation } ) {
   const { data } = route.params
   // console.log(data)
   // Redux 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // useDispatch
+  const petData = useSelector((state) => state.petData.data); // Retrieve Pet Data
+  const vaccinationsData = useSelector((state) => state.vaccinationsData.data); // Retrieve Vaccinations data
+  const appointmentData = useSelector((state) => state.appointmentData.data); // Retrieve Appointment data
   
   function arrowNext ( path ) {
     console.log(`${path} button pressed`)
   }
-  
-  const petData = useSelector((state) => state.petData.data);
-  
   async function deactivate ( command ) {
     /* 
     **************************************************
@@ -50,14 +52,25 @@ function MyPetsDetailsScreen( { route, navigation } ) {
     */
     console.log(`${command} button pressed`)
     const petIDToBeDeactivated = data["_id"]
-    console.log( petIDToBeDeactivated )
-    const updatedPetData = await petData.filter((data) => data["_id"] !== petIDToBeDeactivated)
-    
+
+
+    // // Handle Deletion of Pet Data
+    const updatedPetData = await petData.filter((data) => data["_id"] !== petIDToBeDeactivated) // Filter data to be replaced in Redux
     await deletePet(petIDToBeDeactivated) // Erase from database
     dispatch(updatePetData(updatedPetData)) // Erase from Redux
 
+    // // Handle Deletion of All Associated Appointments
+    const updatedAppointmentData = await appointmentData.filter((data) => data["pet_id"] !== petIDToBeDeactivated) // Filter data to be replaced in Redux
+    await deleteAppointmentsByPet(petIDToBeDeactivated) // Erase from database
+    dispatch(updateAppointmentData(updatedAppointmentData)) // Erase from Redux
+
+    // Handle Deletion of All Associated Vaccinations
+    const updatedVaccinationsData = await vaccinationsData.filter((data) => data["pet_id"] !== petIDToBeDeactivated) // Filter data to be replaced in Redux
+    await deleteVaccinationsByPet(petIDToBeDeactivated) // Erase from database
+    dispatch(updateVaccinationsData(updatedVaccinationsData)) // Erase from redux
+
     // Navigate back to MyPetsScreen
-    // navigation.navigate("MyPetsScreen")
+    navigation.navigate("MyPetsScreen")
   }
 
   return (

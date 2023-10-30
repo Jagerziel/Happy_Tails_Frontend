@@ -12,7 +12,7 @@ import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
 function AddPet05( { addPetData, setAddPetData, addPetComponents, setAddPetsComponents } ) {
-  console.log(addPetData)
+  // console.log(addPetData)
 
   useEffect(()=> {
     setAddPetData({...addPetData, sex: "Female"})
@@ -51,7 +51,7 @@ function AddPet05( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
       })
       setAddPetData({...addPetData, sex: "Male"})
     }
-    console.log(addPetData)
+    // console.log(addPetData)
   }
 
   return (
