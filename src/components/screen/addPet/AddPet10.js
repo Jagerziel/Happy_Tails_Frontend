@@ -8,7 +8,10 @@ import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeSc
 // Import Components
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
+
+// Import Assets
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
+import MissingImgIcon from '../../../assets/missing_img_icon.svg'
 
 // Import API Call
 import { createPet } from "../../../server/pet.js";
@@ -111,7 +114,11 @@ function AddPet10( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
           <Text style={styles.heading}>{`${addPetData.name} is all set up. Do you have any other pets?`}</Text>
         </View>
         <View >
-          <View style={styles.photoPlaceholder}></View>
+          <View style={styles.photoPlaceholder}>
+            <View style={styles.missingImgIcon}>
+              <MissingImgIcon />
+            </View> 
+          </View>
         </View>
       </View>
       <View style={styles.bottomContainer}>
@@ -160,10 +167,18 @@ const styles = StyleSheet.create({
   },
   photoPlaceholder: {
     // borderWidth: 2,
-    height: scale_mod(168),
-    width: scale_mod(168),
-    backgroundColor: colors.grayscale03,
+    height: scale_mod(138),
+    width: scale_mod(138),
+    backgroundColor: colors.grayscale07,
     borderRadius: scale_mod(84),
+    display: "flex",
+    justifyContent: "center",
+    alignItems: 'center',
+  },
+  missingImgIcon: {
+    // borderWidth: 2,
+    top: scale_mod(-5),
+    left: scale_mod(5),
   },
   bottomContainer: {
     // borderWidth: 2,

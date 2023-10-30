@@ -12,7 +12,7 @@ import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScali
 // import { vaccinationData } from '../../data/testingData/testingData.js';
 
 function VaccinationsHome( {petIDs, vaccinationsData }) {
-    console.log(vaccinationsData)
+    // console.log(vaccinationsData)
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
