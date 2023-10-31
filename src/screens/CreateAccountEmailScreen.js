@@ -63,7 +63,7 @@ function CreateAccountEmailScreen(props) {
                 setDisabled(true)
                 return 
             }
-            const emailData = await getUserByEmail(textInputData.email)
+            const emailData = await getUserByEmail(textInputData.email.toLowerCase())
             if (emailData[0].exists === true) {
                 setEmailExistsError({
                     email: "Email already exists", 
@@ -78,7 +78,7 @@ function CreateAccountEmailScreen(props) {
                 const createdUser = await createUser({
                     "first_name": textInputData.fName, 
                     "last_name": textInputData.lName, 
-                    "email": textInputData.email, 
+                    "email": textInputData.email.toLowerCase(), 
                     "phone": "", 
                     "password": textInputData.password, 
                     "address": "", 

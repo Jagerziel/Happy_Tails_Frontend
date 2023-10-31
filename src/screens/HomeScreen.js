@@ -12,6 +12,8 @@ import Navigation from "../components/shared/Navigation";
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
 import { colors } from "../constants/colorPalette.js";
+import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling.js";
+import { Dimensions } from 'react-native'
 
 // State Management
 import { useSelector, useDispatch } from "react-redux";
@@ -30,8 +32,8 @@ function HomeScreen(props) {
   }
 
   return (
-    <SafeAreaView style={[styles.container, styleMaster.parent]}>
-        <ScrollView style={[styleMaster.subParent]}>
+    <SafeAreaView style={[styleMaster.parent, styles.container]}>
+        <ScrollView style={[ styles.subContainer ]}>
             <UserProfileHome userData={userData} />
             <PromotionsHome />
             <AppointmentsHome 
@@ -42,6 +44,8 @@ function HomeScreen(props) {
               petIDs={petIDs} 
               vaccinationsData={vaccinationsData} 
             />
+            <View style={styles.navPaddingShadow}>
+            </View>
         </ScrollView>
       <Navigation />
     </SafeAreaView>
@@ -55,4 +59,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.grayscale06,
   },
+  subContainer: {
+
+    maxHeight: Dimensions.get('window').height,
+    padding: scale_mod(13),
+    display: "flex",
+    flexDirection: "column",
+  },
+  navPaddingShadow: {
+    // borderWidth: 2,
+    // borderColor: '#CCCCCC',
+    height: 200,
+    zIndex: -1,
+  }
 });
