@@ -10,7 +10,7 @@ import { getAppointment, getAppointmentsByUser, getAppointmentsByPet, createAppo
 import { getVaccinations, getVaccinationsByUser, getVaccinationsByPet, createVaccination, updateVaccination, deleteVaccination } from "../server/vaccinations.js";
 import { loadUser } from "../server/loadUser.js";
 
-export function Counter() {
+export function TESTComponent() {
   // const count = useSelector((state) => state.counter.value) //Shorthand
   const count = useSelector((state) => state.counter.count); //Other Method to target specific value
   const userData = useSelector((state) => state.userData.data);

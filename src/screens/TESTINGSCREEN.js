@@ -5,20 +5,21 @@ import Navigation from "../components/shared/Navigation";
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
 import { colors } from "../constants/colorPalette.js";
+import { TESTComponent } from "../store/TESTComponent";
 
-function BookingScreen(props) {
+function TESTINGSCREEN(props) {
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
       <View style={[styleMaster.subParent]}>
         <Text>This is the Booking Screen</Text>
-
+        <TESTComponent />
       </View>
       <Navigation />
     </SafeAreaView>
   );
 }
 
-export default BookingScreen;
+export default TESTINGSCREEN;
 
 const styles = StyleSheet.create({
   container: {

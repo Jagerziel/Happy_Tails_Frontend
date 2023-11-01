@@ -40,7 +40,7 @@ function AppointmentsHome( { petIDs, appointmentData }) {
                 </View> :
                 <View style={styles.contentContainerInactive}>
                 <View style={styles.viewPartition}>
-                    <Text style={[styles.defaultFont, styles.incativeText]}>Look like you don't have any vaccinations that are due soon.</Text>
+                    <Text style={[styles.defaultFont, styles.incativeText]}>Looks like you don’t have any upcoming appointments.</Text>
                 </View>
                 <View style={[styles.viewPartition, {width: scale_mod(160)}]}>
                     <Image
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     headingContainer: {
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     title: {
         fontSize: scale_V(21),

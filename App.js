@@ -21,6 +21,7 @@ import UserProfileScreen from './src/screens/UserProfileScreen.js'
 import SettingsScreen from './src/screens/SettingsScreen.js';
 import SettingsChangePINScreen from './src/screens/SettingsChangePINScreen.js';
 import SettingsUserInfoScreen from './src/screens/SettingsUserInfoScreen.js';
+import TESTINGSCREEN from './src/screens/TESTINGSCREEN.js';
 import VaccinationScreen from './src/screens/VaccinationScreen.js'
 
 // Navigation
@@ -89,6 +90,7 @@ export default function App() {
             <Stack.Screen name="UpdatePetScreen" component={UpdatePetScreen}/>
             <Stack.Screen name="UserProfileScreen" component={UserProfileScreen}/>
             <Stack.Screen name="VaccinationScreen" component={VaccinationScreen}/>
+            <Stack.Screen name="TESTINGSCREEN" component={TESTINGSCREEN}/>
           </Stack.Navigator>
         </NavigationContainer>
       </View>

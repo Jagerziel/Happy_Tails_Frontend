@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         // borderWidth: 2,
         width: '100%',
         aspectRatio: 1.82/1,
-        // marginTop: 20,
+        marginTop: scale_mod(20),
     }, 
     headingContainer: {
         display: 'flex',

@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   navPaddingShadow: {
     // borderWidth: 2,
     // borderColor: '#CCCCCC',
-    height: 200,
+    height: scale_mod(80),
     zIndex: -1,
   }
 });
