@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -7,18 +7,11 @@ import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 
-function PetItemBooking( { data } ) {
-    // Navigation
-    const navigation = useNavigation() 
-    const route = useRoute() 
-
-    function handlePetDetails () {
-        navigation.navigate("MyPetsDetailsScreen", { data: data.item })
-    }
-
+function PetItemBooking( { data , handleBooking, petSelected } ) {
+    console.log(petSelected)
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => handlePetDetails()}>
+            <TouchableOpacity onPress={() => handleBooking( data.item["_id"])}>
                 {
                     data.item.type === "Dog" ?
                     <Image source={require(`../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :

@@ -1,6 +1,6 @@
 // Import React
-import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useState, useEffect } from "react";
+import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
@@ -10,6 +10,8 @@ import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling"
 
 // Components
 import Navigation from "../components/shared/Navigation";
+import PetItemBooking from "../components/screen/PetItemBooking.js";
+import LoginScreenButton from "../components/shared/LoginScreenButton.js";
 
 // Import Assets
 import ReturnArrowSVG from "../assets/return_arrow_blue.svg"
@@ -24,45 +26,105 @@ const symptoms = [
 ]
 
 function BookingScreen(props) {
+  
   const [ bookComponent, setBookComponent ] = useState({
-
+    BookingMain: true,
+    Booking01: false,
+    Booking02: false,
+    Booking03: false,
   })
-  // Navigation
-  const navigation = useNavigation() 
-  const route = useRoute() 
 
+  const [ bookingData, setBookingData ] = useState({
+    type: "",
+    date: "",
+    time: "",
+    status: "",
+    notes: "",
+    user_id: "",
+    pet_id: "",
+  })
+
+  const [ petSelected, setPetSelected ] = useState({})
+
+  
+  
   // React Redux
   const dispatch = useDispatch()
   const userData = useSelector((state) => state.userData.data)
   const petData = useSelector((state) => state.petData.data);
-  // console.log(petData)
+  // console.log(userData["_id"])
+  
+  // Navigation
+  const navigation = useNavigation() 
+  const route = useRoute() 
+  
+  useEffect(() => {
+    for (let i = 0; i < petData.length; i++) {
+      setPetSelected((prev) => {
+        return (
+          {...prev, [petData[i]["_id"]]: false}
+        )
+      })
+    }
+  }, [])
+
   const itemSeparator = () => <View style={{ marginVertical: scale_mod(24) }} />; // Gap for Flatlist
 
   function handleReturnToPrev () {
+    navigation.navigate("HomeScreen")
     console.log('Return to Home Button Pressed')
+  }
+
+  function handleBooking ( target ) {
+    console.log(`handleBooking Pressed target ${target}`)
   }
 
 
   return (
-    <SafeAreaView style={[styles.container, styleMaster.parent]}>
-      <View style={[styleMaster.subParent]}>
-        <View style={styles.headerContainer}>
-          <TouchableOpacity  
-            style={styles.returnContainer} 
-            onPress={() => handleReturnToPrev()}
-          >
-            <ReturnArrowSVG />
-          </TouchableOpacity>
-          <Text style={[styleMaster.defaultFont, styles.headerText]}>
-            Booking Appointment
-          </Text>
-        </View>
-        <Text>This is the Booking Screen</Text>
+    <>
+      { bookComponent.BookingMain &&
+      <SafeAreaView style={[styles.container, styleMaster.parent]}>
+        <View style={[styleMaster.subParent]}>
+          <View style={styles.headerContainer}>
+            <TouchableOpacity  
+              style={styles.returnContainer} 
+              onPress={() => handleReturnToPrev()}
+            >
+              <ReturnArrowSVG />
+            </TouchableOpacity>
+            <Text style={[styleMaster.defaultFont, styles.headerText]}>
+              Booking Appointment
+            </Text>
+          </View>
+          <View style={styles.petsContainer}>
+            <View>
+              <FlatList
+                keyExtractor={(petData) => petData["_id"]} // Key
+                ItemSeparatorComponent={itemSeparator} // Gap between items
+                data={petData} // Data
+                renderItem={(data) => <PetItemBooking data={data} handleBooking={handleBooking} petSelected={petSelected}/>} // Component to be rendered
+                showsVerticalScrollIndicator = { false } // Removes Scrollbar
+                scrollEnabled={ true } // Enables Scrolling
+                vertical // Key to making flatlist scrollable
+              />
+            </View>
+          </View>
+          <View style={styles.buttonContainer}>
+            <LoginScreenButton
+              text={"Next"}
+              handlePress={() => handleAddPet("Next")}
+            />
+          </View>
 
-      </View>
-      <Navigation />
-    </SafeAreaView>
-  );
+
+
+
+
+        </View>
+        <Navigation />
+      </SafeAreaView>}
+    </>
+  )
 }
 
 export default BookingScreen;
@@ -93,5 +155,13 @@ const styles = StyleSheet.create({
     fontFamily: "RalewayBold",
     fontSize: scale_V(17),
   },
-
+  petsContainer: {
+    // borderWidth: 2,
+    height: scale_mod(474),
+    borderRadius: scale_mod(7),
+    marginBottom: scale_mod(24),
+  },
+  buttonContainer: {
+    alignSelf: "center"
+  }
 });
