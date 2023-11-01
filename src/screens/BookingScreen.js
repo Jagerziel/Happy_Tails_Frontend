@@ -1,5 +1,5 @@
 // Import React
-import React from "react";
+import React, { useState } from "react";
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -19,15 +19,24 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 const symptoms = [
-  "Vaccination", "Vomiting", "Heartworm/Flea/Tick", "Diarrhea", "Limping", "Eye", "Ear", "Skin", "Itching", "Other"
+  "Vaccination", "Vomiting", "Heartworm/Flea/Tick", "Diarrhea", "Limping", 
+  "Eye", "Ear", "Skin", "Itching", "Other"
 ]
 
 function BookingScreen(props) {
+  const [ bookComponent, setBookComponent ] = useState({
 
+  })
   // Navigation
   const navigation = useNavigation() 
   const route = useRoute() 
 
+  // React Redux
+  const dispatch = useDispatch()
+  const userData = useSelector((state) => state.userData.data)
+  const petData = useSelector((state) => state.petData.data);
+  // console.log(petData)
+  const itemSeparator = () => <View style={{ marginVertical: scale_mod(24) }} />; // Gap for Flatlist
 
   function handleReturnToPrev () {
     console.log('Return to Home Button Pressed')
