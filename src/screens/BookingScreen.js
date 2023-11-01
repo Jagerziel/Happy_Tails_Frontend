@@ -45,7 +45,7 @@ function BookingScreen(props) {
   })
 
   const [ petSelected, setPetSelected ] = useState({})
-
+  const [ disableNext, setDisableNext ] = useState(true)
   
   
   // React Redux
@@ -75,8 +75,16 @@ function BookingScreen(props) {
     console.log('Return to Home Button Pressed')
   }
 
-  function handleBooking ( target ) {
-    console.log(`handleBooking Pressed target ${target}`)
+
+  function petSelection ( target ) {
+    let updatedValues = Object.keys(petSelected)
+    let updatedValuesObj = {}
+    for (let i = 0; i < updatedValues.length; i++) {
+      if (target === updatedValues[i]) updatedValuesObj[updatedValues[i]] = true
+      else updatedValuesObj[updatedValues[i]] = false
+    }
+    setPetSelected(updatedValuesObj)
+    setDisableNext(false)
   }
 
 
@@ -102,7 +110,7 @@ function BookingScreen(props) {
                 keyExtractor={(petData) => petData["_id"]} // Key
                 ItemSeparatorComponent={itemSeparator} // Gap between items
                 data={petData} // Data
-                renderItem={(data) => <PetItemBooking data={data} handleBooking={handleBooking} petSelected={petSelected}/>} // Component to be rendered
+                renderItem={(data) => <PetItemBooking data={data} petSelection={petSelection} petSelected={petSelected}/>} // Component to be rendered
                 showsVerticalScrollIndicator = { false } // Removes Scrollbar
                 scrollEnabled={ true } // Enables Scrolling
                 vertical // Key to making flatlist scrollable
@@ -113,13 +121,9 @@ function BookingScreen(props) {
             <LoginScreenButton
               text={"Next"}
               handlePress={() => handleAddPet("Next")}
+              disabled={disableNext}
             />
           </View>
-
-
-
-
-
         </View>
         <Navigation />
       </SafeAreaView>}
