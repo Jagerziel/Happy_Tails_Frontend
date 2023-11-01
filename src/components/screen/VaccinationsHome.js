@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         // Retained object item in the event further custom styling is needed
     },
     contentContainerInactive: {
-        borderWidth: 2,
+        // borderWidth: 2,
         width: `100%`,
         aspectRatio: 2.66/1,
         paddingTop: scale_mod(34),

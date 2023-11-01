@@ -1,6 +1,6 @@
 // Import React
 import React from 'react';
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 // Import Components
 import AppointmentItemHome from './AppointmentItemHome.js';
@@ -25,17 +25,32 @@ function AppointmentsHome( { petIDs, appointmentData }) {
                     <Text style={[styleMaster.defaultFont, styles.viewAll]}>View All</Text>
                 </TouchableOpacity>
             </View>
-            <View style={styles.contentContainer}>
-                <FlatList 
-                    keyExtractor={(appointment) => appointment["_id"]} // Key
-                    ItemSeparatorComponent={itemSeparator} // Gap between items
-                    data={appointmentData} // Data
-                    renderItem={(data) => <AppointmentItemHome data={data} petIDs={petIDs}/>} // Component to be rendered
-                    showsHorizontalScrollIndicator = { false } // Removes Scrollbar
-                    scrollEnabled={ true } // Enables Scrolling
-                    horizontal // Key to making flatlist scrollable
-                />
+            {
+                appointmentData.length > 0 ?
+                <View style={styles.contentContainerActive}>
+                    <FlatList 
+                        keyExtractor={(appointment) => appointment["_id"]} // Key
+                        ItemSeparatorComponent={itemSeparator} // Gap between items
+                        data={appointmentData} // Data
+                        renderItem={(data) => <AppointmentItemHome data={data} petIDs={petIDs}/>} // Component to be rendered
+                        showsHorizontalScrollIndicator = { false } // Removes Scrollbar
+                        scrollEnabled={ true } // Enables Scrolling
+                        horizontal // Key to making flatlist scrollable
+                    />
+                </View> :
+                <View style={styles.contentContainerInactive}>
+                <View style={styles.viewPartition}>
+                    <Text style={[styles.defaultFont, styles.incativeText]}>Look like you don't have any vaccinations that are due soon.</Text>
+                </View>
+                <View style={[styles.viewPartition, {width: scale_mod(160)}]}>
+                    <Image
+                        style={styles.inactiveImg}
+                        source={require('../../assets/sleepy_cat_01.png')}
+                    />
+                </View>
             </View>
+
+            }
         </View>
     );
 }
@@ -64,9 +79,37 @@ const styles = StyleSheet.create({
         color: colors.secondary,
         fontSize: scale_V(17),
     },
-    contentContainer: {
+    contentContainerActive: {
         // borderColor: "red",
         // borderWidth: 2,
         overflow: 'hidden',
     }, 
+    contentContainerInactive: {
+        // borderWidth: 2,
+        width: `100%`,
+        aspectRatio: 2.66/1,
+        paddingTop: scale_mod(34),
+        paddingBottom: scale_mod(37),
+        paddingRight: scale_mod(24),
+        paddingLeft: scale_mod(24),
+        display: 'flex',
+        flexDirection: 'row',
+        borderRadius: 7,
+        backgroundColor: colors.white,
+    },
+    viewPartition: {
+        // borderWidth: 2,
+        flexShrink: 1,
+        justifyContent: 'center'
+    },
+    incativeText: {
+        fontSize: scale_V(18),
+        fontFamily: "RobotoRegular",
+        lineHeight: scale_V(18),
+    },  
+    inactiveImg: {
+        width: scale_mod(104),
+        aspectRatio: 1.44/1,
+        alignSelf: 'flex-end'
+    },
 })
