@@ -7,11 +7,11 @@ import { Dimensions } from 'react-native';
 import { styleMaster } from "../../../constants/stylesMaster.js";
 import { colors } from "../../../constants/colorPalette.js";
 import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeScaling.js";
+import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
 // Import Components
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
-import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
 const windowHeight = Dimensions.get('window').height;
 
