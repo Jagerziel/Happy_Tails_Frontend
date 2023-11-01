@@ -1,17 +1,33 @@
+// Import React
 import React from "react";
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Navigation from "../components/shared/Navigation";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
 import { colors } from "../constants/colorPalette.js";
 import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling";
 
+// Components
+import Navigation from "../components/shared/Navigation";
+
 // Import Assets
 import ReturnArrowSVG from "../assets/return_arrow_blue.svg"
 
+// State Management
+import { useSelector, useDispatch } from "react-redux";
+
+
+const symptoms = [
+  "Vaccination", "Vomiting", "Heartworm/Flea/Tick", "Diarrhea", "Limping", "Eye", "Ear", "Skin", "Itching", "Other"
+]
 
 function BookingScreen(props) {
+
+  // Navigation
+  const navigation = useNavigation() 
+  const route = useRoute() 
+
 
   function handleReturnToPrev () {
     console.log('Return to Home Button Pressed')
