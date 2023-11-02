@@ -6,9 +6,10 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
+import CheckMarkSVG from '../../assets/check_mark.svg'
 
 function PetItemBooking( { data , petSelection, petSelected } ) {
-    console.log(petSelected[data.item["_id"]])
+    // console.log(petSelected[data.item["_id"]])
     return (
         <View style={[styles.container, {borderWidth: petSelected[data.item["_id"]] ? 2 : 0}]}>
             <View style={styles.subContainer}>
@@ -24,7 +25,7 @@ function PetItemBooking( { data , petSelection, petSelected } ) {
                 </View>
             </View>
             {petSelected[data.item["_id"]] && <View style={styles.checkMarkContainer}>
-                <Image source={require('../../assets/check_mark_img.png')}/>
+                <CheckMarkSVG />
             </View>}
         </View>
     );
@@ -35,7 +36,7 @@ export default PetItemBooking;
 const styles = StyleSheet.create({
     container: {
 
-        borderColor: colors.primary,
+        borderColor: colors.primaryFade,
         borderRadius: 9,
         width: '100%',
         height: scale_mod(104),

@@ -87,6 +87,10 @@ function BookingScreen(props) {
     setDisableNext(false)
   }
 
+  function handleNext ( currentComponent, nextComponent ) {
+    setBookComponent({...bookComponent, [currentComponent]: false, [nextComponent]: true})
+  }
+
 
   return (
     <>
@@ -120,7 +124,7 @@ function BookingScreen(props) {
           <View style={styles.buttonContainer}>
             <LoginScreenButton
               text={"Next"}
-              handlePress={() => handleAddPet("Next")}
+              handlePress={() => handleNext("BookingMain", "Booking01")}
               disabled={disableNext}
             />
           </View>
@@ -135,11 +139,11 @@ export default BookingScreen;
 
 const styles = StyleSheet.create({
   container: {
+    // borderWidth: 2,
     flex: 1,
     backgroundColor: colors.grayscale06,
   },
   headerContainer: {
-    // borderWidth: 2,
     // flex: 1,
     display: "flex",
     flexDirection: "row",
