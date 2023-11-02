@@ -14,7 +14,7 @@ import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
 function Booking02( { bookComponent, setBookComponent, bookingData, setBookingData } ) {
 
-    const [ disableNext, setDisableNext ] = useState(true)
+    const [ disableNext, setDisableNext ] = useState(false)
 
     function handleReturnToPrev () {
         setBookComponent({...bookComponent, "Booking01": true, "Booking02": false}) // navigate
@@ -40,7 +40,7 @@ function Booking02( { bookComponent, setBookComponent, bookingData, setBookingDa
                         </Text>
                     </View>
                     <View style={styles.titleContainer}>
-                        <Text style={[styleMaster.defaultFont, styles.titleText]}>How can we help?</Text>
+                        <Text style={[styleMaster.defaultFont, styles.titleText]}>What day works for you?</Text>
                     </View>
                     <View style={styles.petsContainer}>
                         <View>

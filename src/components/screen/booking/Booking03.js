@@ -14,16 +14,17 @@ import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
 function Booking03( { bookComponent, setBookComponent, bookingData, setBookingData } ) {
 
-    const [ disableNext, setDisableNext ] = useState(true)
+    const [ disableNext, setDisableNext ] = useState(false)
 
     function handleReturnToPrev () {
-        setBookComponent({...bookComponent, "Booking01": true, "Booking02": false}) // navigate
+        setBookComponent({...bookComponent, "Booking02": true, "Booking03": false}) // navigate
     }
 
     function handleNext () {
-        setBookComponent({...bookComponent, "Booking02": false, "Booking03": true}) // navigate
+        // setBookComponent({...bookComponent, "Booking02": false, "Booking03": true}) // navigate
+        console.log('handling navigation')
     }
-
+    console.log(disableNext)
     return (
         <SafeAreaView style={[styles.container, styleMaster.parent]}>
             <View style={[styleMaster.subParent, styles.subContainer]}>

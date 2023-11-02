@@ -14,7 +14,7 @@ import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
 function Booking01( { bookComponent, setBookComponent, bookingData, setBookingData, symptoms, setSymptoms } ) {
 
-    const [ disableNext, setDisableNext ] = useState(true)
+    const [ disableNext, setDisableNext ] = useState(false)
 
     function handleReturnToPrev () {
         setBookComponent({...bookComponent, "BookingMain": true, "Booking01": false}) // navigate
