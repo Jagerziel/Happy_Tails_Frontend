@@ -22,20 +22,6 @@ import ReturnArrowSVG from "../assets/return_arrow_blue.svg"
 // State Management
 import { useSelector, useDispatch } from "react-redux";
 
-
-const symptoms = [
-  { name: "Vaccination", status: false },
-  { name: "Vomiting", status: false },
-  { name: "Heartworm/Flea/Tick", status: false },
-  { name: "Diarrhea", status: false },
-  { name: "Limping", status: false },
-  { name: "Eye", status: false },
-  { name: "Ear", status: false },
-  { name: "Skin", status: false },
-  { name: "Itching", status: false },
-  { name: "Other", status: false }
-]
-
 function BookingScreen(props) {
   
   const [ bookComponent, setBookComponent ] = useState({
@@ -57,16 +43,16 @@ function BookingScreen(props) {
 
   const [ symptoms , setSymptoms ] = useState(
     [
-      { name: "Vaccination", status: false },
-      { name: "Vomiting", status: false },
-      { name: "Heartworm/Flea/Tick", status: false },
-      { name: "Diarrhea", status: false },
-      { name: "Limping", status: false },
-      { name: "Eye", status: false },
-      { name: "Ear", status: false },
-      { name: "Skin", status: false },
-      { name: "Itching", status: false },
-      { name: "Other", status: false }
+      { idx: 0, name: "Vaccination", status: false },
+      { idx: 1, name: "Skin", status: false },
+      { idx: 2, name: "Vomiting", status: false },
+      { idx: 3, name: "Heartworm/Flea/Tick", status: false },
+      { idx: 4, name: "Eye", status: false },
+      { idx: 5, name: "Ear", status: false },
+      { idx: 6, name: "Limping", status: false },
+      { idx: 7, name: "Diarrhea", status: false },
+      { idx: 8, name: "Itching", status: false },
+      { idx: 9, name: "Other", status: false }
     ]
   )
 

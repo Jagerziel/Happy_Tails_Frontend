@@ -1,6 +1,8 @@
 // Import React
 import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions } from "react-native";
+
 
 // Import Constants
 import { styleMaster } from "../../../constants/stylesMaster.js";
@@ -11,10 +13,13 @@ import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeSc
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
+import SymptomsItem from "./SymptomsItem.js";
 
 function Booking01( { bookComponent, setBookComponent, bookingData, setBookingData, symptoms, setSymptoms } ) {
 
     const [ disableNext, setDisableNext ] = useState(false)
+
+    console.log(symptoms)
 
     function handleReturnToPrev () {
         setBookComponent({...bookComponent, "BookingMain": true, "Booking01": false}) // navigate
@@ -42,10 +47,14 @@ function Booking01( { bookComponent, setBookComponent, bookingData, setBookingDa
                     <View style={styles.titleContainer}>
                         <Text style={[styleMaster.defaultFont, styles.titleText]}>How can we help?</Text>
                     </View>
-                    <View style={styles.petsContainer}>
-                        <View>
-                            <Text>Placeholder</Text>
-                        </View>
+                    <View style={styles.symptomsParentContainer}>
+                        <FlatList
+                            keyExtractor={(symptoms) => symptoms.idx} // Key
+                            data={symptoms} // Data
+                            renderItem={(data) => <SymptomsItem data={data} symptoms={symptoms} setSymptoms={setSymptoms}/>} // Component to be rendered
+                            contentContainerStyle={styles.symptomsContainer}
+                            numColumns={3}
+                        />
                     </View>
                 </View>
                 <View style={styles.buttonContainer}>
@@ -100,9 +109,14 @@ const styles = StyleSheet.create({
         fontSize: scale_V(26),
         fontFamily: "RalewayBold"
       },
-      petsContainer: {
-        // borderWidth: 2,
-
+      symptomsParentContainer: {
+        width: '100%',
+        display: "flex",
+      },
+      symptomsContainer: {
+        borderWidth: 2,
+        flexDirection: 'column', 
+        
       },
       buttonContainer: {
         alignSelf: "center",
