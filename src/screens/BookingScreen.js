@@ -186,8 +186,6 @@ function BookingScreen(props) {
           setBookComponent={ setBookComponent }
           bookingData={ bookingData }
           setBookingData={ setBookingData }
-          symptoms={ symptoms }
-          setSymptoms={ setSymptoms }
         />
       }
       {
@@ -197,8 +195,6 @@ function BookingScreen(props) {
           setBookComponent={ setBookComponent }
           bookingData={ bookingData }
           setBookingData={ setBookingData }
-          symptoms={ symptoms }
-          setSymptoms={ setSymptoms }
         />
       }
     </>
