@@ -14,6 +14,7 @@ import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 import SymptomsItem from "./SymptomsItem.js";
+import TextInputFieldCustom from "../../shared/TextInputFieldCustom.js";
 
 function Booking01( { bookComponent, setBookComponent, bookingData, setBookingData, symptoms, setSymptoms } ) {
 
@@ -39,6 +40,11 @@ function Booking01( { bookComponent, setBookComponent, bookingData, setBookingDa
         }
         setDisableNext(disabled)
     }, [symptoms])
+
+    function handleTextInput ( key, text ) {
+        // setAddPetData({...addPetData, [key]: text})
+        console.log(text)
+      }
 
     return (
         <SafeAreaView style={[styles.container, styleMaster.parent]}>
@@ -66,6 +72,16 @@ function Booking01( { bookComponent, setBookComponent, bookingData, setBookingDa
                             contentContainerStyle={styles.symptomsContainer}
                             numColumns={3}
                         />
+                    </View>
+                    <View style={styles.textInput}>
+                        <TextInputFieldCustom 
+                            handleTextInput={handleTextInput} 
+                            placeholder={"Please provide any details for us to understand it better."} 
+                            name={"hello"}
+                            width={343} 
+                            height={143}
+                        />
+
                     </View>
                 </View>
                 <View style={styles.buttonContainer}>
@@ -127,8 +143,12 @@ const styles = StyleSheet.create({
       symptomsContainer: {
         // borderWidth: 2,
         flexDirection: 'column', 
+        alignSelf: "center"
         
       },
+      textInput: {
+        alignSelf: "center"
+      },    
       buttonContainer: {
         alignSelf: "center",
         paddingBottom: scale_mod(34),
