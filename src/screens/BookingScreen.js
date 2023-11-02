@@ -12,6 +12,7 @@ import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling"
 import Navigation from "../components/shared/Navigation";
 import PetItemBooking from "../components/screen/PetItemBooking.js";
 import LoginScreenButton from "../components/shared/LoginScreenButton.js";
+import Booking01 from "../components/screen/booking/Booking01.js";
 
 // Import Assets
 import ReturnArrowSVG from "../assets/return_arrow_blue.svg"
@@ -94,7 +95,7 @@ function BookingScreen(props) {
   }
 
   function handleNext () {
-    // setBookComponent({...bookComponent, "BookingMain": false, "Booking01": true})
+    setBookComponent({...bookComponent, "BookingMain": false, "Booking01": true})
     setBookingData({...bookingData, user_id: userDataID, pet_id: currPetSelectionID})
     console.log(currPetSelectionID)
   }
@@ -145,6 +146,15 @@ function BookingScreen(props) {
         </View>
         <Navigation />
       </SafeAreaView>}
+      {
+        bookComponent.Booking01 && 
+        <Booking01 
+          bookComponent={ bookComponent }
+          setBookComponent={ setBookComponent }
+          bookingData={ bookingData }
+          setBookingData={ setBookingData }
+        />
+      }
     </>
   )
 }

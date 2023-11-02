@@ -12,14 +12,14 @@ import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
-function Booking01( { } ) {
+function Booking01( { bookComponent, setBookComponent, bookingData, setBookingData } ) {
 
     function handleReturnToPrev () {
 
     }
 
     function handleNext () {
-        
+
     }
 
     return (
