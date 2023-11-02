@@ -45,14 +45,15 @@ function BookingScreen(props) {
   })
 
   const [ petSelected, setPetSelected ] = useState({})
+  const [ currPetSelectionID, setCurrPetSelectionID ] = useState("")
   const [ disableNext, setDisableNext ] = useState(true)
   
   
   // React Redux
   const dispatch = useDispatch()
-  const userData = useSelector((state) => state.userData.data)
+  const userDataID = useSelector((state) => state.userData.data["_id"])
   const petData = useSelector((state) => state.petData.data);
-  // console.log(userData["_id"])
+  // console.log(userDataID)
   
   // Navigation
   const navigation = useNavigation() 
@@ -68,7 +69,7 @@ function BookingScreen(props) {
     }
   }, [])
 
-  const itemSeparator = () => <View style={{ marginVertical: scale_mod(24) }} />; // Gap for Flatlist
+  const itemSeparator = () => <View style={{ marginVertical: scale_mod(12) }} />; // Gap for Flatlist
 
   function handleReturnToPrev () {
     navigation.navigate("HomeScreen")
@@ -80,51 +81,64 @@ function BookingScreen(props) {
     let updatedValues = Object.keys(petSelected)
     let updatedValuesObj = {}
     for (let i = 0; i < updatedValues.length; i++) {
-      if (target === updatedValues[i]) updatedValuesObj[updatedValues[i]] = true
-      else updatedValuesObj[updatedValues[i]] = false
+      if (target === updatedValues[i]) {
+        updatedValuesObj[updatedValues[i]] = true
+        setCurrPetSelectionID(updatedValues[i])
+      }
+      else {
+        updatedValuesObj[updatedValues[i]] = false
+      }
     }
     setPetSelected(updatedValuesObj)
     setDisableNext(false)
   }
 
-  function handleNext ( currentComponent, nextComponent ) {
-    setBookComponent({...bookComponent, [currentComponent]: false, [nextComponent]: true})
+  function handleNext () {
+    // setBookComponent({...bookComponent, "BookingMain": false, "Booking01": true})
+    setBookingData({...bookingData, user_id: userDataID, pet_id: currPetSelectionID})
+    console.log(currPetSelectionID)
   }
 
+  console.log(bookingData)
 
   return (
     <>
       { bookComponent.BookingMain &&
       <SafeAreaView style={[styles.container, styleMaster.parent]}>
-        <View style={[styleMaster.subParent]}>
-          <View style={styles.headerContainer}>
-            <TouchableOpacity  
-              style={styles.returnContainer} 
-              onPress={() => handleReturnToPrev()}
-            >
-              <ReturnArrowSVG />
-            </TouchableOpacity>
-            <Text style={[styleMaster.defaultFont, styles.headerText]}>
-              Booking Appointment
-            </Text>
-          </View>
-          <View style={styles.petsContainer}>
-            <View>
-              <FlatList
-                keyExtractor={(petData) => petData["_id"]} // Key
-                ItemSeparatorComponent={itemSeparator} // Gap between items
-                data={petData} // Data
-                renderItem={(data) => <PetItemBooking data={data} petSelection={petSelection} petSelected={petSelected}/>} // Component to be rendered
-                showsVerticalScrollIndicator = { false } // Removes Scrollbar
-                scrollEnabled={ true } // Enables Scrolling
-                vertical // Key to making flatlist scrollable
-              />
+        <View style={[styleMaster.subParent, styles.subContainer]}>
+          <View>
+            <View style={styles.headerContainer}>
+              <TouchableOpacity  
+                style={styles.returnContainer} 
+                onPress={() => handleReturnToPrev()}
+              >
+                <ReturnArrowSVG />
+              </TouchableOpacity>
+              <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                Booking Appointment
+              </Text>
+            </View>
+            <View style={styles.titleContainer}>
+              <Text style={[styleMaster.defaultFont, styles.titleText]}>Choose a pet for appointment:</Text>
+            </View>
+            <View style={styles.petsContainer}>
+              <View>
+                <FlatList
+                  keyExtractor={(petData) => petData["_id"]} // Key
+                  ItemSeparatorComponent={itemSeparator} // Gap between items
+                  data={petData} // Data
+                  renderItem={(data) => <PetItemBooking data={data} petSelection={petSelection} petSelected={petSelected}/>} // Component to be rendered
+                  showsVerticalScrollIndicator = { false } // Removes Scrollbar
+                  scrollEnabled={ true } // Enables Scrolling
+                  vertical // Key to making flatlist scrollable
+                />
+              </View>
             </View>
           </View>
           <View style={styles.buttonContainer}>
             <LoginScreenButton
               text={"Next"}
-              handlePress={() => handleNext("BookingMain", "Booking01")}
+              handlePress={() => handleNext()}
               disabled={disableNext}
             />
           </View>
@@ -142,6 +156,13 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
     flex: 1,
     backgroundColor: colors.grayscale06,
+  },
+  subContainer: {
+    // borderWidth: 2,
+    borderColor: 'red',
+    marginBottom: scale_mod(70),
+    display: "flex",
+    justifyContent: 'space-between'
   },
   headerContainer: {
     // flex: 1,
@@ -163,13 +184,21 @@ const styles = StyleSheet.create({
     fontFamily: "RalewayBold",
     fontSize: scale_V(17),
   },
+  titleContainer: {
+    paddingBottom: scale_mod(40),
+  },
+  titleText: {
+    fontSize: scale_V(26),
+    fontFamily: "RalewayBold"
+  },
   petsContainer: {
     // borderWidth: 2,
-    height: scale_mod(474),
+    height: scale_mod(400),
     borderRadius: scale_mod(7),
     marginBottom: scale_mod(24),
   },
   buttonContainer: {
-    alignSelf: "center"
+    alignSelf: "center",
+    paddingBottom: scale_mod(34),
   }
 });
