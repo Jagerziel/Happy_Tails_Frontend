@@ -1,5 +1,5 @@
 // Import React
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Dimensions } from "react-native";
 
@@ -17,7 +17,7 @@ import SymptomsItem from "./SymptomsItem.js";
 
 function Booking01( { bookComponent, setBookComponent, bookingData, setBookingData, symptoms, setSymptoms } ) {
 
-    const [ disableNext, setDisableNext ] = useState(false)
+    const [ disableNext, setDisableNext ] = useState(true)
 
     console.log(symptoms)
 
@@ -28,6 +28,17 @@ function Booking01( { bookComponent, setBookComponent, bookingData, setBookingDa
     function handleNext () {
         setBookComponent({...bookComponent, "Booking01": false, "Booking02": true}) // navigate
     }
+
+    useEffect(() => {
+        let disabled = true
+        for (let i = 0; i < symptoms.length; i++) {
+            if (symptoms[i].status === true) {
+                disabled = false
+                break
+            }
+        }
+        setDisableNext(disabled)
+    }, [symptoms])
 
     return (
         <SafeAreaView style={[styles.container, styleMaster.parent]}>
@@ -114,7 +125,7 @@ const styles = StyleSheet.create({
         display: "flex",
       },
       symptomsContainer: {
-        borderWidth: 2,
+        // borderWidth: 2,
         flexDirection: 'column', 
         
       },
