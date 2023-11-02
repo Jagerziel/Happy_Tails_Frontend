@@ -9,6 +9,7 @@ import { styleMaster } from '../../constants/stylesMaster.js';
 function TextInputFieldCustom( { name, placeholder, handleTextInput, width, height } ) {
     const [ focused, setFocused ] = useState(false)
     
+    
     function handleFocus() {
         setFocused(focus => !focus)
     }

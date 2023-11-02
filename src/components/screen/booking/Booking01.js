@@ -19,32 +19,37 @@ import TextInputFieldCustom from "../../shared/TextInputFieldCustom.js";
 function Booking01( { bookComponent, setBookComponent, bookingData, setBookingData, symptoms, setSymptoms } ) {
 
     const [ disableNext, setDisableNext ] = useState(true)
+    const [ notes, setNotes ] = useState("")
 
-    console.log(symptoms)
+    
 
     function handleReturnToPrev () {
         setBookComponent({...bookComponent, "BookingMain": true, "Booking01": false}) // navigate
     }
 
     function handleNext () {
-        setBookComponent({...bookComponent, "Booking01": false, "Booking02": true}) // navigate
+        // setBookComponent({...bookComponent, "Booking01": false, "Booking02": true}) // navigate
+        setBookingData({...bookingData, notes: notes})
     }
 
     useEffect(() => {
         let disabled = true
-        for (let i = 0; i < symptoms.length; i++) {
-            if (symptoms[i].status === true) {
-                disabled = false
-                break
+        if (notes.length !== 0) {
+            disabled = false
+        } else {
+            for (let i = 0; i < symptoms.length; i++) {
+                if (symptoms[i].status === true) {
+                    disabled = false
+                    break
+                }
             }
         }
         setDisableNext(disabled)
-    }, [symptoms])
+    }, [symptoms, notes])
 
     function handleTextInput ( key, text ) {
-        // setAddPetData({...addPetData, [key]: text})
-        console.log(text)
-      }
+        setNotes(text)
+    }
 
     return (
         <SafeAreaView style={[styles.container, styleMaster.parent]}>
@@ -147,7 +152,8 @@ const styles = StyleSheet.create({
         
       },
       textInput: {
-        alignSelf: "center"
+        alignSelf: "center",
+        paddingTop: scale_mod(14),
       },    
       buttonContainer: {
         alignSelf: "center",
