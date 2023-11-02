@@ -22,8 +22,16 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 const symptoms = [
-  "Vaccination", "Vomiting", "Heartworm/Flea/Tick", "Diarrhea", "Limping", 
-  "Eye", "Ear", "Skin", "Itching", "Other"
+  { name: "Vaccination", status: false },
+  { name: "Vomiting", status: false },
+  { name: "Heartworm/Flea/Tick", status: false },
+  { name: "Diarrhea", status: false },
+  { name: "Limping", status: false },
+  { name: "Eye", status: false },
+  { name: "Ear", status: false },
+  { name: "Skin", status: false },
+  { name: "Itching", status: false },
+  { name: "Other", status: false }
 ]
 
 function BookingScreen(props) {
@@ -44,6 +52,21 @@ function BookingScreen(props) {
     user_id: "",
     pet_id: "",
   })
+
+  const [ symptoms , setSymptoms ] = useState(
+    [
+      { name: "Vaccination", status: false },
+      { name: "Vomiting", status: false },
+      { name: "Heartworm/Flea/Tick", status: false },
+      { name: "Diarrhea", status: false },
+      { name: "Limping", status: false },
+      { name: "Eye", status: false },
+      { name: "Ear", status: false },
+      { name: "Skin", status: false },
+      { name: "Itching", status: false },
+      { name: "Other", status: false }
+    ]
+  )
 
   const [ petSelected, setPetSelected ] = useState({})
   const [ currPetSelectionID, setCurrPetSelectionID ] = useState("")
@@ -95,12 +118,10 @@ function BookingScreen(props) {
   }
 
   function handleNext () {
-    setBookComponent({...bookComponent, "BookingMain": false, "Booking01": true})
-    setBookingData({...bookingData, user_id: userDataID, pet_id: currPetSelectionID})
+    setBookComponent({...bookComponent, "BookingMain": false, "Booking01": true}) // navigate
+    setBookingData({...bookingData, user_id: userDataID, pet_id: currPetSelectionID}) // set ids for user and pet
     console.log(currPetSelectionID)
   }
-
-  console.log(bookingData)
 
   return (
     <>
@@ -153,6 +174,8 @@ function BookingScreen(props) {
           setBookComponent={ setBookComponent }
           bookingData={ bookingData }
           setBookingData={ setBookingData }
+          symptoms={ symptoms }
+          setSymptoms={ setSymptoms }
         />
       }
     </>
@@ -169,7 +192,7 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     // borderWidth: 2,
-    borderColor: 'red',
+    // borderColor: 'red',
     marginBottom: scale_mod(70),
     display: "flex",
     justifyContent: 'space-between'
