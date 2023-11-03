@@ -1,6 +1,6 @@
 // Import React
 import React, { useEffect, useState } from "react";
-import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 // Import Constants
 import { styleMaster } from "../../../constants/stylesMaster.js";
@@ -13,9 +13,9 @@ import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import LoginScreenButtonWhite from "../../shared/LoginScreenButtonWhite.js"
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
-function Booking03( { bookComponent, setBookComponent, bookingData, setBookingData } ) {
+function Booking03( { bookComponent, setBookComponent, bookingData, setBookingData, currPetSelectionNameType } ) {
     function handleReturnToPrev () {
-        setBookComponent({...bookComponent, "Booking02": true, "Booking03": false}) // navigate
+      setBookComponent({...bookComponent, "Booking02": true, "Booking03": false}) // navigate
     }
 
     function handleConfirmAppt () {
@@ -43,9 +43,14 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
               </Text>
             </View>
             <View style={styles.confirmationContainer}>
-              <View>
-                <Text> TESTING</Text>
+              <View style={styles.titleContainer}>
+                {
+                  currPetSelectionNameType.type === "Dog" ?
+                  <Image source={require(`../../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
 
+                  <Image source={require(`../../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/>
+                }                
+                <Text>{currPetSelectionNameType.name}</Text>
               </View>
               <View style={styles.buttonContainer}>
                 <LoginScreenButton
@@ -114,6 +119,23 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         paddingTop: scale_mod(24),
         paddingBottom: scale_mod(34),
+      },
+      titleContainer: {
+        borderWidth: 2,
+        marginLeft: scale_mod(16),
+        marginRight: scale_mod(16),
+        display: "flex",
+        flexDirection: "row",
+
+      },
+      petImg: {
+        height: scale_mod(100),
+        width: scale_mod(100),
+        resizeMode: 'cover',
+        borderRadius: scale_mod(7),
+      },
+      titleText: {
+        fontSize: scale_V(26),
       },
       buttonContainer: {
         alignSelf: "center",

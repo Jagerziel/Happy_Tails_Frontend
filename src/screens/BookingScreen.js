@@ -58,6 +58,7 @@ function BookingScreen(props) {
 
   const [ petSelected, setPetSelected ] = useState({})
   const [ currPetSelectionID, setCurrPetSelectionID ] = useState("")
+  const [ currPetSelectionNameType, setCurrPetSelectionNameType ] = useState({})
   const [ disableNext, setDisableNext ] = useState(true)
   
   
@@ -96,6 +97,7 @@ function BookingScreen(props) {
       if (target === updatedValues[i]) {
         updatedValuesObj[updatedValues[i]] = true
         setCurrPetSelectionID(updatedValues[i])
+        setCurrPetSelectionNameType({name: petData[i].name, type: petData[i].type})
       }
       else {
         updatedValuesObj[updatedValues[i]] = false
@@ -104,7 +106,7 @@ function BookingScreen(props) {
     setPetSelected(updatedValuesObj)
     setDisableNext(false)
   }
-
+  console.log(currPetSelectionNameType)
   function handleNext () {
     setBookComponent({...bookComponent, "BookingMain": false, "Booking01": true}) // navigate
     setBookingData({...bookingData, user_id: userDataID, pet_id: currPetSelectionID}) // set ids for user and pet
@@ -181,6 +183,7 @@ function BookingScreen(props) {
           setBookComponent={ setBookComponent }
           bookingData={ bookingData }
           setBookingData={ setBookingData }
+          currPetSelectionNameType={ currPetSelectionNameType }
         />
       }
     </>

@@ -10,7 +10,6 @@ import { timeSelectionAM, timeSelectionPM } from "../../../data/data/data.js";
 
 // Import Components
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
-import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 import DateTimePicker from "../../shared/DateTimePicker.js";
 import ToggleButtonCustom from "../../shared/ToggleButtonCustom.js";
