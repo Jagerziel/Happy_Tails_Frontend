@@ -17,6 +17,8 @@
 
     Expo Switch Button: https://reactnative.dev/docs/switch
 
+    Native Customizable Toggle Button: https://www.techup.co.in/custom-toggle-switch-in-react-native/
+
     Custom Scaling: https://medium.com/soluto-engineering/size-matters-5aeeb462900a
 
     Include SVGs: https://blog.logrocket.com/how-to-use-svgs-react-native-tutorial-with-examples/

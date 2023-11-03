@@ -31,47 +31,55 @@ function Booking02( { bookComponent, setBookComponent, bookingData, setBookingDa
     console.log(bookingData)
 
     return (
-        <SafeAreaView style={[styles.container, styleMaster.parent]}>
-            <View style={[styleMaster.subParent, styles.subContainer]}>
-                <View style={styles.contentContainer}>
-                    <View style={styles.headerContainer}>
-                        <TouchableOpacity  
-                            style={styles.returnContainer} 
-                            onPress={() => handleReturnToPrev()}
-                        >
-                            <ReturnArrowSVG />
-                        </TouchableOpacity>
-                        <Text style={[styleMaster.defaultFont, styles.headerText]}>
-                            Booking Appointment
-                        </Text>
-                    </View>
-                    <View style={styles.titleContainer}>
-                        <Text style={[styleMaster.defaultFont, styles.titleText]}>What day works for you?</Text>
-                    </View>
-                    <View style={styles.datePickerContainer}>
-                      <DateTimePicker 
-                        name={"Select a day"}
-                        handleDate={date => handleDate(date)}
-                        maxDateToday={null}
-                        minDateToday={new Date()}
-                      />
-                      </View>
-                    <View style={styles.timePickerContainer}>
-
-                    </View>
-                </View>
-                <View style={styles.buttonContainer}>
-                    <LoginScreenButton
-                    text={"Next"}
-                    handlePress={() => handleNext()}
-                    disabled={disableNext}
+      <SafeAreaView style={[styles.container, styleMaster.parent]}>
+          <View style={[styleMaster.subParent, styles.subContainer]}>
+              <View style={styles.contentContainer}>
+                  <View style={styles.headerContainer}>
+                      <TouchableOpacity  
+                          style={styles.returnContainer} 
+                          onPress={() => handleReturnToPrev()}
+                      >
+                          <ReturnArrowSVG />
+                      </TouchableOpacity>
+                      <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                          Booking Appointment
+                      </Text>
+                  </View>
+                  <View style={styles.titleContainer}>
+                      <Text style={[styleMaster.defaultFont, styles.titleText]}>What day works for you?</Text>
+                  </View>
+                  <View style={styles.datePickerContainer}>
+                    <DateTimePicker 
+                      name={"Select a day"}
+                      handleDate={date => handleDate(date)}
+                      maxDateToday={null}
+                      minDateToday={new Date()}
                     />
-                </View>
-            </View>
-        </SafeAreaView>
-    )
+                    </View>
+                  <View style={styles.timePickerContainer}>
+                    <View style={styles.timePickerHeaderContainer}>
+                      <View>
+                        <Text style={[styleMaster.defaultFont, styles.timePickerHeader]}>Time</Text>
+                      </View>
+                      <View>
 
-    
+                      </View>
+                    </View>
+                    <View>
+
+                    </View>
+                  </View>
+              </View>
+              <View style={styles.buttonContainer}>
+                  <LoginScreenButton
+                  text={"Next"}
+                  handlePress={() => handleNext()}
+                  disabled={disableNext}
+                  />
+              </View>
+          </View>
+      </SafeAreaView>
+    )
 }
 
 export default Booking02
@@ -133,6 +141,18 @@ const styles = StyleSheet.create({
         width: scale_mod(343),
         aspectRatio: 1.11/1,
         backgroundColor: colors.white,
+        borderRadius: 13,
+      },
+      timePickerHeaderContainer: {
+        borderWidth: 2,
+        width: `100%`,
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+      },
+      timePickerHeader: {
+        fontFamily: "RobotoBold",
+        fontSize: scale_mod(20),
       },
       buttonContainer: {
         alignSelf: "center",

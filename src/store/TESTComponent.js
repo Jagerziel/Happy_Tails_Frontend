@@ -9,6 +9,7 @@ import { getPets, getPetsByUser, createPet, updatePet, deletePet } from "../serv
 import { getAppointment, getAppointmentsByUser, getAppointmentsByPet, createAppointment, updateAppointment, deleteAppointment } from "../server/appointment.js";
 import { getVaccinations, getVaccinationsByUser, getVaccinationsByPet, createVaccination, updateVaccination, deleteVaccination } from "../server/vaccinations.js";
 import { loadUser } from "../server/loadUser.js";
+import ToggleButtonCustom from "../components/shared/ToggleButtonCustom.js";
 
 export function TESTComponent() {
   // const count = useSelector((state) => state.counter.value) //Shorthand
@@ -116,9 +117,11 @@ export function TESTComponent() {
     const loadedData = await loadUser("653921264c0eda94fb0b1155")
     // // Output
     console.log(loadedData)
+
+
   }
 
-
+  const onSelectSwitch = () => console.log('toggled');
 
   return (
     <View>
@@ -154,6 +157,13 @@ export function TESTComponent() {
         <Button
           title="Get Data - MongoDB Test"
           onPress={() => getData()}
+        />
+      </View>
+      <View>
+        <ToggleButtonCustom 
+          option1={'AM'}
+          option2={'PM'}
+          onSelectSwitch={onSelectSwitch}
         />
       </View>
     </View>

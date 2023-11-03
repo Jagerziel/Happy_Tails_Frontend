@@ -6,7 +6,7 @@ import { colors } from '../../constants/colorPalette.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 // Import Components
-import ToggleButton from './toggleButton.js';
+import ToggleButton from './ToggleButton.js';
 
 
 function StaticInputFieldToggle( { name, toggleFunc, path } ) {
