@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
       },
       titleContainer: {
         paddingBottom: scale_mod(40),
+        alignSelf: "flex-start"
       },
       titleText: {
         fontSize: scale_V(26),
