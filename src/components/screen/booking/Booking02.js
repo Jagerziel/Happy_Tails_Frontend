@@ -1,11 +1,12 @@
 // Import React
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 // Import Constants
 import { styleMaster } from "../../../constants/stylesMaster.js";
 import { colors } from "../../../constants/colorPalette.js";
 import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeScaling.js";
+import { timeSelectionAM, timeSelectionPM } from "../../../data/data/data.js";
 
 // Import Components
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
@@ -13,11 +14,12 @@ import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 import DateTimePicker from "../../shared/DateTimePicker.js";
 import ToggleButtonCustom from "../../shared/ToggleButtonCustom.js";
+import TimeSlotItem from "./TimeSlotItem.js";
 
 function Booking02( { bookComponent, setBookComponent, bookingData, setBookingData } ) {
-    const [ disableNext, setDisableNext ] = useState(false)
-    const [ AMPM, setAMPM ] = useState("AM")
+    const [ disableNext, setDisableNext ] = useState(true)
 
+    const [ timeArray, setTimeArray ] = useState(timeSelectionAM)
 
     function handleReturnToPrev () {
         setBookComponent({...bookComponent, "Booking01": true, "Booking02": false}) // navigate
@@ -32,10 +34,23 @@ function Booking02( { bookComponent, setBookComponent, bookingData, setBookingDa
     }
 
     function onSelectSwitch ( value ) {
-      if (value === 1) setAMPM("AM")
-      if (value === 2) setAMPM("PM")
+      if (value === 1) {
+        setTimeArray(timeSelectionAM)
+      }
+      if (value === 2) {
+        setTimeArray(timeSelectionPM)
+      }
     }
-    console.log(AMPM)
+
+    useEffect(() => {
+      if (bookingData.date.length !== 0  && bookingData.time.length !== 0) setDisableNext(false)
+      else setDisableNext(true)
+    }, [bookingData])
+
+    function handleSelectTime ( time ) {
+      setBookingData({...bookingData, time: time})
+    }
+    console.log(bookingData)
 
     return (
       <SafeAreaView style={[styles.container, styleMaster.parent]}>
@@ -77,7 +92,22 @@ function Booking02( { bookComponent, setBookComponent, bookingData, setBookingDa
                       </View>
                     </View>
                     <View>
-
+                      <FlatList
+                        keyExtractor={(timeArray, idx) => idx} // Key
+                        data={timeArray} // Data
+                        ItemSeparatorComponent={() => <View style={{height: 8}} />}
+                        renderItem={(data) => (
+                          <TimeSlotItem 
+                            data={data}
+                            selected={bookingData.time === data.item ? true : false}  
+                            handleSelectTime={handleSelectTime}
+                          />
+                        
+                        )} // Component to be rendered
+                        columnWrapperStyle={{ justifyContent: 'space-between' }}
+                        // contentContainerStyle={styles.symptomsContainer}
+                        numColumns={4}
+                      />
                     </View>
                   </View>
               </View>
@@ -143,14 +173,14 @@ const styles = StyleSheet.create({
         // borderWidth: 2,
       },
       timePickerContainer: {
-        borderWidth: 2,
+        // borderWidth: 2,
         marginTop: scale_mod(36),
         paddingTop: scale_mod(16),
         paddingBottom: scale_mod(36),
         paddingLeft: scale_mod(16),
         paddingRight: scale_mod(16),
         width: scale_mod(343),
-        aspectRatio: 1.11/1,
+        aspectRatio: 1.41/1,
         backgroundColor: colors.white,
         borderRadius: 13,
       },
@@ -161,6 +191,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
+        paddingBottom: scale_mod(24),
       },
       timePickerHeader: {
         fontFamily: "RobotoBold",
