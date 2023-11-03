@@ -121,7 +121,7 @@ export function TESTComponent() {
 
   }
 
-  const onSelectSwitch = () => console.log('toggled');
+  const onSelectSwitch = (value) => console.log(`value: ${value}`);
 
   return (
     <View>

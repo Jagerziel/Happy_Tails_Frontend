@@ -9,65 +9,69 @@ const ToggleButtonCustom = ({
   option2,
   onSelectSwitch,
 }) => {
-  const [getSelectionMode, setSelectionMode] = useState(1);
+    const [getSelectionMode, setSelectionMode] = useState(1);
 
-  const updatedSwitchData = val => {
-    setSelectionMode(val);
-    onSelectSwitch(val);
-  };
+    function updatedSwitchData (value) {
+        setSelectionMode(value);
+        onSelectSwitch(value);
+    }
 
-  return (
-    <View>
-      <View
-        style={{
-          height: scale_mod(36),
-          width: scale_mod(101),
-          backgroundColor: colors.grayscale04,
-          borderRadius: 9,
-          borderWidth: 0.5,
-          borderColor: colors.grayscale04,
-          flexDirection: 'row',
-          justifyContent: 'center',
-          padding: 2,
-        }}>
-        <TouchableOpacity
-          activeOpacity={1}
-          onPress={() => updatedSwitchData(1)}
-          style={{
-            flex: 1,
-            backgroundColor: getSelectionMode == 1 ? colors.white : colors.grayscale04,
-            borderRadius: 9,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text
+    return (
+        <View>
+        <View
             style={{
-              color: colors.black,
-            }}>
-            {option1}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          TouchableOpacity
-          activeOpacity={1}
-          onPress={() => updatedSwitchData(2)}
-          style={{
-            flex: 1,
-            backgroundColor: getSelectionMode == 2 ? colors.white : colors.grayscale04,
+            height: scale_mod(36),
+            width: scale_mod(101),
+            backgroundColor: colors.grayscale04,
             borderRadius: 9,
+            borderWidth: 0.5,
+            borderColor: colors.grayscale04,
+            flexDirection: 'row',
             justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text
-            style={{
-              color: colors.black,
+            padding: 2,
             }}>
-            {option2}
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
+            <TouchableOpacity
+            activeOpacity={1}
+            onPress={() => updatedSwitchData(1)}
+            style={{
+                flex: 1,
+                backgroundColor: getSelectionMode == 1 ? colors.white : colors.grayscale04,
+                borderRadius: 9,
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
+            <Text
+                style={{
+                color: colors.black,
+                fontSize: scale_V(15),
+                fontFamily: "RobotoBold",
+                }}>
+                {option1}
+            </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+            TouchableOpacity
+            activeOpacity={1}
+            onPress={() => updatedSwitchData(2)}
+            style={{
+                flex: 1,
+                backgroundColor: getSelectionMode == 2 ? colors.white : colors.grayscale04,
+                borderRadius: 9,
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}>
+            <Text
+                style={{
+                color: colors.black,
+                fontSize: scale_V(15),
+                fontFamily: "RobotoBold",
+                }}>
+                {option2}
+            </Text>
+            </TouchableOpacity>
+        </View>
+        </View>
+    );
 };
 export default ToggleButtonCustom;
 

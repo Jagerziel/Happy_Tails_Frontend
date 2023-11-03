@@ -12,10 +12,13 @@ import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 import DateTimePicker from "../../shared/DateTimePicker.js";
+import ToggleButtonCustom from "../../shared/ToggleButtonCustom.js";
 
 function Booking02( { bookComponent, setBookComponent, bookingData, setBookingData } ) {
 
     const [ disableNext, setDisableNext ] = useState(false)
+    const [ AMPM, setAMPM ] = useState("AM")
+
 
     function handleReturnToPrev () {
         setBookComponent({...bookComponent, "Booking01": true, "Booking02": false}) // navigate
@@ -25,10 +28,15 @@ function Booking02( { bookComponent, setBookComponent, bookingData, setBookingDa
         setBookComponent({...bookComponent, "Booking02": false, "Booking03": true}) // navigate
     }
 
-    function handleDate(date) {
+    function handleDate( date ) {
       setBookingData({...bookingData, date: date})
     }
-    console.log(bookingData)
+
+    function onSelectSwitch ( value ) {
+      if (value === 1) setAMPM("AM")
+      if (value === 2) setAMPM("PM")
+    }
+    console.log(AMPM)
 
     return (
       <SafeAreaView style={[styles.container, styleMaster.parent]}>
@@ -62,7 +70,11 @@ function Booking02( { bookComponent, setBookComponent, bookingData, setBookingDa
                         <Text style={[styleMaster.defaultFont, styles.timePickerHeader]}>Time</Text>
                       </View>
                       <View>
-
+                        <ToggleButtonCustom 
+                          option1={'AM'}
+                          option2={'PM'}
+                          onSelectSwitch={onSelectSwitch}
+                        />
                       </View>
                     </View>
                     <View>
@@ -144,11 +156,12 @@ const styles = StyleSheet.create({
         borderRadius: 13,
       },
       timePickerHeaderContainer: {
-        borderWidth: 2,
+        // borderWidth: 2,
         width: `100%`,
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
+        alignItems: "center",
       },
       timePickerHeader: {
         fontFamily: "RobotoBold",
