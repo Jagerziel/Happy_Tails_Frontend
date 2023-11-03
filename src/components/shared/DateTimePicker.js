@@ -9,7 +9,7 @@ import { scale_H, scale_V, scale_mod } from "../../data/functions/normalizeScali
 import { colors } from "../../constants/colorPalette";
 import { months } from "../../data/data/data.js";
 
-const DateTimePicker = ( { name, handleDate } ) => {
+const DateTimePicker = ( { name, handleDate, maxDateToday, minDateToday } ) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [text , setText] = useState(name)
 
@@ -43,7 +43,8 @@ const DateTimePicker = ( { name, handleDate } ) => {
       <DateTimePickerModal
         isVisible={isDatePickerVisible}
         mode="date"
-        maximumDate={new Date()}
+        maximumDate={maxDateToday}
+        minimumDate={minDateToday}
         onConfirm={handleConfirm}
         onCancel={hideDatePicker}
       />

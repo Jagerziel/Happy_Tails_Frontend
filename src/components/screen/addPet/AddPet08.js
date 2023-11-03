@@ -47,6 +47,8 @@ function AddPet08( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
         <DateTimePicker 
           name={"Select Date"}
           handleDate={date => handleDate(date)}
+          maxDateToday={new Date()}
+          minDateToday={null}
         />
       </View>
       <View style={styles.bottomContainer}>

@@ -11,6 +11,7 @@ import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeSc
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import TextInputField from "../../shared/TextInputField.js";
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
+import DateTimePicker from "../../shared/DateTimePicker.js";
 
 function Booking02( { bookComponent, setBookComponent, bookingData, setBookingData } ) {
 
@@ -24,10 +25,15 @@ function Booking02( { bookComponent, setBookComponent, bookingData, setBookingDa
         setBookComponent({...bookComponent, "Booking02": false, "Booking03": true}) // navigate
     }
 
+    function handleDate(date) {
+      setBookingData({...bookingData, date: date})
+    }
+    console.log(bookingData)
+
     return (
         <SafeAreaView style={[styles.container, styleMaster.parent]}>
             <View style={[styleMaster.subParent, styles.subContainer]}>
-                <View>
+                <View style={styles.contentContainer}>
                     <View style={styles.headerContainer}>
                         <TouchableOpacity  
                             style={styles.returnContainer} 
@@ -42,10 +48,16 @@ function Booking02( { bookComponent, setBookComponent, bookingData, setBookingDa
                     <View style={styles.titleContainer}>
                         <Text style={[styleMaster.defaultFont, styles.titleText]}>What day works for you?</Text>
                     </View>
-                    <View style={styles.petsContainer}>
-                        <View>
-                            <Text>Placeholder</Text>
-                        </View>
+                    <View style={styles.datePickerContainer}>
+                      <DateTimePicker 
+                        name={"Select a day"}
+                        handleDate={date => handleDate(date)}
+                        maxDateToday={null}
+                        minDateToday={new Date()}
+                      />
+                      </View>
+                    <View style={styles.timePickerContainer}>
+
                     </View>
                 </View>
                 <View style={styles.buttonContainer}>
@@ -71,14 +83,22 @@ const styles = StyleSheet.create({
         backgroundColor: colors.grayscale06,
       },
       subContainer: {
+        // borderWidth: 2,
         display: "flex",
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignContent: "center",
+      },
+      contentContainer: {
+        // borderWidth: 2,
+        display: "flex",
+        alignItems: "center",
       },
       headerContainer: {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         paddingBottom: scale_mod(65),
+        width: '100%',
       },
       returnContainer: {
         // borderWidth: 2,
@@ -100,9 +120,19 @@ const styles = StyleSheet.create({
         fontSize: scale_V(26),
         fontFamily: "RalewayBold"
       },
-      petsContainer: {
+      datePickerContainer: {
         // borderWidth: 2,
-
+      },
+      timePickerContainer: {
+        borderWidth: 2,
+        marginTop: scale_mod(36),
+        paddingTop: scale_mod(16),
+        paddingBottom: scale_mod(36),
+        paddingLeft: scale_mod(16),
+        paddingRight: scale_mod(16),
+        width: scale_mod(343),
+        aspectRatio: 1.11/1,
+        backgroundColor: colors.white,
       },
       buttonContainer: {
         alignSelf: "center",
