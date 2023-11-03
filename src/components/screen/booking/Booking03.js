@@ -20,9 +20,16 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
 
     function handleConfirmAppt () {
       console.log("Appointment Confirmed")
+      /*  
+      ADD DATA TO DB AND TO REDUX.  RESET USESTATE.  NAVIGATE HOME.
+      */
     }
     function handleCancelAppt () {
       console.log("Appointment Cancelled")
+      /*
+      RESET USESTATE.  NAVIGATE HOME.
+      */
+
     }
 
     console.log(bookingData)
@@ -43,14 +50,17 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
               </Text>
             </View>
             <View style={styles.confirmationContainer}>
-              <View style={styles.titleContainer}>
-                {
-                  currPetSelectionNameType.type === "Dog" ?
-                  <Image source={require(`../../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
+              <View>
+                <View style={styles.titleContainer}>
+                  {
+                    currPetSelectionNameType.type === "Dog" ?
+                    <Image source={require(`../../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
 
-                  <Image source={require(`../../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/>
-                }                
-                <Text>{currPetSelectionNameType.name}</Text>
+                    <Image source={require(`../../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/>
+                  }                
+                  <Text style={[styleMaster.defaultFont, styles.titleText]}>{currPetSelectionNameType.name}</Text>
+                </View>
+                <View style={styles.lineBreak}></View>
               </View>
               <View style={styles.buttonContainer}>
                 <LoginScreenButton
@@ -121,11 +131,12 @@ const styles = StyleSheet.create({
         paddingBottom: scale_mod(34),
       },
       titleContainer: {
-        borderWidth: 2,
+        // borderWidth: 2,
         marginLeft: scale_mod(16),
         marginRight: scale_mod(16),
         display: "flex",
         flexDirection: "row",
+        alignItems: "center",
 
       },
       petImg: {
@@ -136,6 +147,17 @@ const styles = StyleSheet.create({
       },
       titleText: {
         fontSize: scale_V(26),
+        fontFamily: "RobotoBold",
+        paddingLeft: scale_mod(16),
+      },
+      lineBreak: {
+        marginTop: scale_mod(16),
+        marginBottom: scale_mod(18),
+        marginLeft: scale_mod(16),
+        marginRight: scale_mod(16),
+        borderWidth: 0.5,
+
+        // borderColor: "#E4E4E4"
       },
       buttonContainer: {
         alignSelf: "center",
