@@ -19,29 +19,48 @@ import PaperClipSVG from "../../../assets/paperclip.svg"
 
 function Booking01( { bookComponent, setBookComponent, bookingData, setBookingData, symptoms, setSymptoms } ) {
     const [ disableNext, setDisableNext ] = useState(true)
+    const [ type, setType ] = useState("")
     const [ notes, setNotes ] = useState("")
+
 
     function handleReturnToPrev () {
         setBookComponent({...bookComponent, "BookingMain": true, "Booking01": false}) // navigate
     }
 
-    function handleNext () {
-        setBookComponent({...bookComponent, "Booking01": false, "Booking02": true}) // navigate
-        setBookingData({...bookingData, notes: notes})
+    async function handleNext () {
+        await setBookComponent({...bookComponent, "Booking01": false, "Booking02": true}) // navigate
+
+        /*
+        Store the title in typeEntry.  Loop through the symptoms and pull all selected symptoms to be included in the title.
+        */
+        let typeEntry = "" 
+        
+        for (let i = 0; i < symptoms.length; i++) {
+            if (symptoms[i].status === true) {
+                typeEntry += `${symptoms[i].name}, `
+            }
+        }
+        
+        typeEntry = typeEntry.slice(0, typeEntry.length - 2)
+
+        await setBookingData({...bookingData, type: typeEntry, notes: notes})
+
+        /*
+[{"idx": 0, "name": "Vaccination", "status": false}, {"idx": 1, "name": "Skin", "status": false}, {"idx": 2, "name": "Vomiting", "status": false}, {"idx": 3, "name": "Heartworm/Flea/Tick", "status": true}, {"idx": 4, "name": "Eye", "status": true}, {"idx": 5, "name": "Ear", "status": false}, {"idx": 6, "name": "Limping", "status": true}, {"idx": 7, "name": "Diarrhea", "status": false}, {"idx": 8, "name": "Itching", "status": false}, {"idx": 9, "name": "Other", "status": false}]
+        */
     }
+
 
     useEffect(() => {
         let disabled = true
-        if (notes.trim().length !== 0) {
-            disabled = false
-        } else {
-            for (let i = 0; i < symptoms.length; i++) {
-                if (symptoms[i].status === true) {
-                    disabled = false
-                    break
-                }
+
+        for (let i = 0; i < symptoms.length; i++) {
+            if (symptoms[i].status === true) {
+                disabled = false
+                break
             }
         }
+
         setDisableNext(disabled)
     }, [symptoms, notes])
 
@@ -52,6 +71,7 @@ function Booking01( { bookComponent, setBookComponent, bookingData, setBookingDa
     function handleAttach () {
         Alert.alert(`Under Construction`,`Add an attachment feature coming soon!`)
     }
+    console.log(bookingData)
 
     return (
         <SafeAreaView style={[styles.container, styleMaster.parent]}>
