@@ -6,22 +6,25 @@ import { colors } from '../../constants/colorPalette.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 
-function LoginScreenButtonCustom( { text, handlePress, disabled, width } ) {
+function LoginScreenButtonWhiteCustom( { text, handlePress, width } ) {
     return (
         <TouchableOpacity 
-            style={[styles.button, { backgroundColor: disabled ? colors.primaryFade : colors.primary, width: scale_mod(width) }]} 
+            style={[styles.button, { backgroundColor: colors.white, width: scale_mod(width)  } ]} 
             onPress={handlePress}
-            disabled={disabled}
+            disabled={false}
         >
             <Text style={[styleMaster.defaultFont, styles.buttonText]}>{text}</Text>
         </TouchableOpacity>
     );
 }
 
-export default LoginScreenButtonCustom;
+export default LoginScreenButtonWhiteCustom;
 
 const styles = StyleSheet.create({
     button: {
+        borderWidth: 2,
+        borderColor: colors.primary,
+        width: scale_mod(328),
         aspectRatio: 6.46/1,
         borderRadius: 12,
         alignItems: 'center',
@@ -29,7 +32,5 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: scale_V(18),
-        color: colors.white,
-        fontFamily: "RobotoLight",
     },
 });

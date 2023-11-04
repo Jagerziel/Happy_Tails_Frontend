@@ -9,9 +9,9 @@ import { colors } from "../../../constants/colorPalette";
 import WarningSVG from '../../../assets/warning.svg'
 
 // Import Components
-import LoginScreenButton from "../../shared/LoginScreenButton";
-import LoginScreenButtonCustom from "../../shared/LoginScreenButtonCustom";
-import LoginScreenButtonWhite from "../../shared/LoginScreenButtonWhite";
+import LoginScreenButtonCustom from "../../shared/LoginScreenButtonCustom.js";
+import LoginScreenButtonWhiteCustom from "../../shared/LoginScreenButtonWhiteCustom.js";
+
 
 function CancelApptModal( { modalController, setModalController, modalName } ) {
 
@@ -46,9 +46,10 @@ function CancelApptModal( { modalController, setModalController, modalName } ) {
                             width={297}
                         />
                         <View style={styles.buttonSpacer}></View>
-                        <LoginScreenButtonWhite
+                        <LoginScreenButtonWhiteCustom
                             text={"Cancel"}
                             handlePress={() => handleReturn()}
+                            width={297}
                         />
                     </View>
                 </View>
