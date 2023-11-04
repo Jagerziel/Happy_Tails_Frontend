@@ -7,6 +7,8 @@ import { styleMaster } from "../../../constants/stylesMaster.js";
 import { colors } from "../../../constants/colorPalette.js";
 import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeScaling.js";
 import { timeSelectionAM, timeSelectionPM } from "../../../data/data/data.js";
+import Calendar from '../../../assets/calendar.svg'
+import Clock from '../../../assets/clock.svg'
 
 // Import Components
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
@@ -61,6 +63,18 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
                   <Text style={[styleMaster.defaultFont, styles.titleText]}>{currPetSelectionNameType.name}</Text>
                 </View>
                 <View style={styles.lineBreak}></View>
+                <View style={styles.dateTimeContainer}>
+                  <View style={styles.dateTime}>
+                    <Calendar height={scale_mod(27)} width={scale_mod(29)}/>
+                    <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>
+                      {`${bookingData.date.slice(5,7)}/${bookingData.date.slice(8,10)}/${bookingData.date.slice(0,4)}`}
+                    </Text>
+                  </View>
+                  <View style={styles.dateTime}>
+                    <Clock height={scale_mod(24)} width={scale_mod(24)}/>
+                    <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{bookingData.time}</Text>
+                  </View>
+                </View>
               </View>
               <View style={styles.buttonContainer}>
                 <LoginScreenButton
@@ -156,8 +170,28 @@ const styles = StyleSheet.create({
         marginLeft: scale_mod(16),
         marginRight: scale_mod(16),
         borderWidth: 0.5,
+        borderColor: "#E4E4E4"
+      },
+      dateTimeContainer: {
+        borderWidth: 2,
+        marginLeft: scale_mod(16),
+        marginRight: scale_mod(16),
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+      },
+      dateTime: {
+        borderWidth: 2,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
 
-        // borderColor: "#E4E4E4"
+      },
+      dateTimeText: {
+        fontFamily: "RalewayRegular",
+        fontSize: scale_V(15),
+        includeFontPadding: false,
+        alignSelf: "center",
       },
       buttonContainer: {
         alignSelf: "center",
