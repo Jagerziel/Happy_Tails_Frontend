@@ -20,7 +20,7 @@ function CancelApptModal( { modalController, setModalController, modalName } ) {
     }
 
     function handleReturn () {
-        console.log('Return button pressed')
+        setModalController({...modalController, cancelModalOpen: false})
     }
 
     return (

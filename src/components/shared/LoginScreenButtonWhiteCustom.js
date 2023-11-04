@@ -9,7 +9,7 @@ import { styleMaster } from '../../constants/stylesMaster.js';
 function LoginScreenButtonWhiteCustom( { text, handlePress, width } ) {
     return (
         <TouchableOpacity 
-            style={[styles.button, { backgroundColor: colors.white, width: scale_mod(width)  } ]} 
+            style={[styles.button, { backgroundColor: colors.white, width: scale_mod(width) } ]} 
             onPress={handlePress}
             disabled={false}
         >

@@ -36,6 +36,7 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
   }
   function handleCancelAppt () {
     console.log("Appointment Cancelled")
+    setModalController({...modalController, cancelModalOpen: true})
     /*
     RESET USESTATE.  NAVIGATE HOME.
     */
