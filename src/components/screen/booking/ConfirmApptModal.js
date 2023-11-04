@@ -1,17 +1,17 @@
 import React from "react";
-import { Modal, StyleSheet, View } from "react-native";
+import { Modal, StyleSheet, Text, View } from "react-native";
 
-function ConfirmApptModal( { modalController, setModalController, modalName } ) {
+function ConfirmApptModal( { modalController, setModalController, modalName, currPetSelectionType, bookingData, setBookingData } ) {
     return (
         <View style={styles.modalPositioning}>
             <Modal
                 animationType="fade"
                 transparent={true}
-                visible={modalVisible}
+                visible={modalController[modalName]}
                 onRequestClose={() => 
                     setModalController({...modalController, [modalName] : false})}
             >
-                
+                <Text>Hello</Text>
             </Modal>
         </View>
     );

@@ -14,7 +14,7 @@ import Clock from '../../../assets/clock.svg'
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import LoginScreenButtonWhite from "../../shared/LoginScreenButtonWhite.js"
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
-import ConfirmApptModal from "./CancelApptModal.js";
+import ConfirmApptModal from "./ConfirmApptModal.js";
 import CancelApptModal from "./CancelApptModal.js";
 
 function Booking03( { bookComponent, setBookComponent, bookingData, setBookingData, currPetSelectionNameType } ) {
@@ -30,6 +30,7 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
 
   function handleConfirmAppt () {
     console.log("Appointment Confirmed")
+    setModalController({...modalController, confirmModalOpen: true})
     /*  
     ADD DATA TO DB AND TO REDUX.  RESET USESTATE.  NAVIGATE HOME.
     */
@@ -132,6 +133,14 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
           </View>
         </View>
       </View>
+      <ConfirmApptModal
+        modalController={modalController}
+        setModalController={setModalController}
+        modalName={"confirmModalOpen"}
+        currPetSelectionNameType={currPetSelectionNameType}
+        bookingData={bookingData}
+        setBookingData={setBookingData}
+      />
       <CancelApptModal
         modalController={modalController}
         setModalController={setModalController}
