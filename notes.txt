@@ -37,5 +37,5 @@
 rsf: creates new react component
 rnss: creates react native stylesheet
 
-##### CLI COMMANDS #####
+##### LINUX CLI COMMANDS #####
 hostname -I: get private hostname

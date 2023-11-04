@@ -16,115 +16,121 @@ import LoginScreenButtonWhite from "../../shared/LoginScreenButtonWhite.js"
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 
 function Booking03( { bookComponent, setBookComponent, bookingData, setBookingData, currPetSelectionNameType } ) {
-    function handleReturnToPrev () {
-      setBookComponent({...bookComponent, "Booking02": true, "Booking03": false}) // navigate
-    }
 
-    function handleConfirmAppt () {
-      console.log("Appointment Confirmed")
-      /*  
-      ADD DATA TO DB AND TO REDUX.  RESET USESTATE.  NAVIGATE HOME.
-      */
-    }
-    function handleCancelAppt () {
-      console.log("Appointment Cancelled")
-      /*
-      RESET USESTATE.  NAVIGATE HOME.
-      */
+  [ modalController, setModalController ] = useState({
+    confirmModalOpen: false,
+    cancelModalOpen: false,
+  })
 
-    }
+  function handleReturnToPrev () {
+    setBookComponent({...bookComponent, "Booking02": true, "Booking03": false}) // navigate
+  }
 
-    console.log(bookingData)
+  function handleConfirmAppt () {
+    console.log("Appointment Confirmed")
+    /*  
+    ADD DATA TO DB AND TO REDUX.  RESET USESTATE.  NAVIGATE HOME.
+    */
+  }
+  function handleCancelAppt () {
+    console.log("Appointment Cancelled")
+    /*
+    RESET USESTATE.  NAVIGATE HOME.
+    */
 
-    return (
-      <SafeAreaView style={[styles.container, styleMaster.parent]}>
-        <View style={[styleMaster.subParent, styles.subContainer]}>
-          <View style={styles.contentContainer}>
-            <View style={styles.headerContainer}>
-              <TouchableOpacity  
-                style={styles.returnContainer} 
-                onPress={() => handleReturnToPrev()}
-              >
-                <ReturnArrowSVG />
-              </TouchableOpacity>
-              <Text style={[styleMaster.defaultFont, styles.headerText]}>
-                Booking Appointment
-              </Text>
+  }
+
+  console.log(bookingData)
+
+  return (
+    <SafeAreaView style={[styles.container, styleMaster.parent]}>
+      <View style={[styleMaster.subParent, styles.subContainer]}>
+        <View style={styles.contentContainer}>
+          <View style={styles.headerContainer}>
+            <TouchableOpacity  
+              style={styles.returnContainer} 
+              onPress={() => handleReturnToPrev()}
+            >
+              <ReturnArrowSVG />
+            </TouchableOpacity>
+            <Text style={[styleMaster.defaultFont, styles.headerText]}>
+              Booking Appointment
+            </Text>
+          </View>
+          <View style={styles.confirmationContainer}>
+            <View>
+              <View style={styles.titleContainer}>
+                {
+                  currPetSelectionNameType.type === "Dog" ?
+                  <Image source={require(`../../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
+
+                  <Image source={require(`../../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/>
+                }                
+                <Text style={[styleMaster.defaultFont, styles.titleText]}>{currPetSelectionNameType.name}</Text>
+              </View>
+              <View style={styles.lineBreak}></View>
+              <View style={styles.dateTimeContainer}>
+                <View style={styles.dateTime}>
+                  <Calendar height={scale_mod(27)} width={scale_mod(29)}/>
+                  <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>
+                    {`${bookingData.date.slice(5,7)}/${bookingData.date.slice(8,10)}/${bookingData.date.slice(0,4)}`}
+                  </Text>
+                </View>
+                <View style={styles.dateTime}>
+                  <Clock height={scale_mod(24)} width={scale_mod(24)}/>
+                  <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{bookingData.time}</Text>
+                </View>
+              </View>
+              <View style={[styles.detailsContainer]}>
+                <Text 
+                  style={[styleMaster.defaultFont, styles.detailsTitle]}
+                  numberOfLines={1}
+                >
+                  Type of visit:
+                </Text>
+                <View style={styles.detailsContentContainer}>
+                  <Text 
+                    style={[styleMaster.defaultFont, styles.detailsContent]}
+                    numberOfLines={1}
+                  >
+                    {bookingData.type}
+                  </Text>
+                </View>
+              </View>
+              <View style={[styles.detailsContainer]}>
+                <Text 
+                  style={[styleMaster.defaultFont, styles.detailsTitle]}
+                  numberOfLines={1}
+                >
+                  Notes:
+                </Text>
+                <View style={styles.detailsContentContainer}>
+                  <Text 
+                    style={[styleMaster.defaultFont, styles.detailsContent]}
+                    numberOfLines={3}
+                  >
+                    {bookingData.notes} 
+                  </Text>
+                </View>
+              </View>
             </View>
-            <View style={styles.confirmationContainer}>
-              <View>
-                <View style={styles.titleContainer}>
-                  {
-                    currPetSelectionNameType.type === "Dog" ?
-                    <Image source={require(`../../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
-
-                    <Image source={require(`../../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/>
-                  }                
-                  <Text style={[styleMaster.defaultFont, styles.titleText]}>{currPetSelectionNameType.name}</Text>
-                </View>
-                <View style={styles.lineBreak}></View>
-                <View style={styles.dateTimeContainer}>
-                  <View style={styles.dateTime}>
-                    <Calendar height={scale_mod(27)} width={scale_mod(29)}/>
-                    <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>
-                      {`${bookingData.date.slice(5,7)}/${bookingData.date.slice(8,10)}/${bookingData.date.slice(0,4)}`}
-                    </Text>
-                  </View>
-                  <View style={styles.dateTime}>
-                    <Clock height={scale_mod(24)} width={scale_mod(24)}/>
-                    <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{bookingData.time}</Text>
-                  </View>
-                </View>
-                <View style={[styles.detailsContainer]}>
-                  <Text 
-                    style={[styleMaster.defaultFont, styles.detailsTitle]}
-                    numberOfLines={1}
-                  >
-                    Type of visit:
-                  </Text>
-                  <View style={styles.detailsContentContainer}>
-                    <Text 
-                      style={[styleMaster.defaultFont, styles.detailsContent]}
-                      numberOfLines={1}
-                    >
-                      {bookingData.type}
-                    </Text>
-                  </View>
-                </View>
-                <View style={[styles.detailsContainer]}>
-                  <Text 
-                    style={[styleMaster.defaultFont, styles.detailsTitle]}
-                    numberOfLines={1}
-                  >
-                    Notes:
-                  </Text>
-                  <View style={styles.detailsContentContainer}>
-                    <Text 
-                      style={[styleMaster.defaultFont, styles.detailsContent]}
-                      numberOfLines={3}
-                    >
-                      {bookingData.notes} 
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              <View style={styles.buttonContainer}>
-                <LoginScreenButton
-                  text={"Confirm Appointment"}
-                  handlePress={() => handleConfirmAppt()}
-                  disabled={false}
-                />
-                <View style={styles.buttonSpacer}></View>
-                <LoginScreenButtonWhite
-                  text={"Cancel"}
-                  handlePress={() => handleCancelAppt()}
-                />
-              </View>
+            <View style={styles.buttonContainer}>
+              <LoginScreenButton
+                text={"Confirm Appointment"}
+                handlePress={() => handleConfirmAppt()}
+                disabled={false}
+              />
+              <View style={styles.buttonSpacer}></View>
+              <LoginScreenButtonWhite
+                text={"Cancel"}
+                handlePress={() => handleCancelAppt()}
+              />
             </View>
           </View>
         </View>
-      </SafeAreaView>
-    )
+      </View>
+    </SafeAreaView>
+  )
 }
 
 export default Booking03

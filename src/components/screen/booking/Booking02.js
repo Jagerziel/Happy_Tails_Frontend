@@ -49,7 +49,7 @@ function Booking02( { bookComponent, setBookComponent, bookingData, setBookingDa
     function handleSelectTime ( time ) {
       setBookingData({...bookingData, time: time})
     }
-    console.log(bookingData)
+    // console.log(bookingData)
 
     return (
       <SafeAreaView style={[styles.container, styleMaster.parent]}>
