@@ -75,6 +75,35 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
                     <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{bookingData.time}</Text>
                   </View>
                 </View>
+                <View style={[styles.detailsContainer]}>
+                  <Text 
+                    style={[styleMaster.defaultFont, styles.detailsTitle]}
+                    numberOfLines={1}
+                  >
+                    Type of visit:
+                  </Text>
+                  <Text 
+                    style={[styleMaster.defaultFont, styles.detailsContent]}
+                  >
+                    Hello
+                  </Text>
+                </View>
+                <View style={[styles.detailsContainer]}>
+                  <Text 
+                    style={[styleMaster.defaultFont, styles.detailsTitle]}
+                    numberOfLines={1}
+                  >
+                    Notes:
+                  </Text>
+                  <View style={styles.detailsContentContainer}>
+                    <Text 
+                      style={[styleMaster.defaultFont, styles.detailsContent]}
+                      numberOfLines={3}
+                    >
+                      Hello this is a reallly asdlkjasdlfkjasdflkjadsfkjl asdflkj aasdflk aslkjsjkl;sadf sadfkl;j afsd a adslkj afsd jwff 
+                    </Text>
+                  </View>
+                </View>
               </View>
               <View style={styles.buttonContainer}>
                 <LoginScreenButton
@@ -134,7 +163,7 @@ const styles = StyleSheet.create({
         fontSize: scale_V(17),
       },
       confirmationContainer: {
-        borderWidth: 2,
+        // borderWidth: 2,
         display: "flex",
         justifyContent: "space-between",
         width: scale_mod(344),
@@ -173,7 +202,7 @@ const styles = StyleSheet.create({
         borderColor: "#E4E4E4"
       },
       dateTimeContainer: {
-        borderWidth: 2,
+        // borderWidth: 2,
         marginLeft: scale_mod(16),
         marginRight: scale_mod(16),
         display: "flex",
@@ -181,7 +210,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
       },
       dateTime: {
-        borderWidth: 2,
+        // borderWidth: 2,
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
@@ -192,6 +221,31 @@ const styles = StyleSheet.create({
         fontSize: scale_V(15),
         includeFontPadding: false,
         alignSelf: "center",
+        paddingLeft: scale_mod(8),
+      },
+      detailsContainer: {
+        // borderWidth: 2,
+        marginLeft: scale_mod(16),
+        marginRight: scale_mod(16),
+        display: "flex",
+        flexDirection: "row",
+        marginTop: scale_mod(24),
+      },
+      detailsTitle: {
+        paddingRight: scale_mod(8),
+        fontFamily: "RalewayBold",
+        fontSize: scale_V(14),
+        color: colors.grayscale02,
+      },
+      detailsContentContainer: {
+        // borderWidth: 2,
+        flex: 1,
+        maxHeight: scale_mod(60),
+      },
+      detailsContent: {
+        color: colors.grayscale02,
+        fontFamily: "RobotoLight",
+        fontSize: scale_mod(15),
       },
       buttonContainer: {
         alignSelf: "center",
