@@ -32,5 +32,6 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: scale_V(18),
+        fontFamily: "RobotoLight",
     },
 });

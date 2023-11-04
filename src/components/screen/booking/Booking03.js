@@ -43,7 +43,7 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
 
   }
 
-  console.log(bookingData)
+  // console.log(currPetSelectionNameType)
 
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
@@ -136,7 +136,8 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
         modalController={modalController}
         setModalController={setModalController}
         modalName={"cancelModalOpen"}
-
+        currPetSelectionNameType={currPetSelectionNameType}
+        bookingData={bookingData}
       />
     </SafeAreaView>
   )

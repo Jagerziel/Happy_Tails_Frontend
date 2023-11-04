@@ -1,22 +1,34 @@
 // Import React
 import React from "react";
 import { Modal, StyleSheet, Text, View } from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
 import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeScaling";
 import { styleMaster } from "../../../constants/stylesMaster";
 import { colors } from "../../../constants/colorPalette";
 import WarningSVG from '../../../assets/warning.svg'
-
+import { weekday } from "../../../data/data/data";
 // Import Components
 import LoginScreenButtonCustom from "../../shared/LoginScreenButtonCustom.js";
 import LoginScreenButtonWhiteCustom from "../../shared/LoginScreenButtonWhiteCustom.js";
 
 
-function CancelApptModal( { modalController, setModalController, modalName } ) {
+function CancelApptModal( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData } ) {
+    const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
+    const dateForParse = bookingData.date.replaceAll("/","-")
+    const convertDate = new Date(Date.parse(`${dateForParse}T00:00:00`))
+    const dayOfWeek = weekday[convertDate.getDay()]
 
+    const navigation = useNavigation()
+    const route = useRoute()
+    
     function handleCancel () {
         console.log('Cancel button pressed')
+
+
+
+        // navigation.navigate("HomeScreen")
     }
 
     function handleReturn () {
@@ -35,19 +47,29 @@ function CancelApptModal( { modalController, setModalController, modalName } ) {
                 <View style={styles.modal}>
                     <View style={styles.contentContainer}>
                         <WarningSVG />
-                        <Text>Hello</Text>
-
+                        <View style={styles.textHolder}>
+                            <Text style={[styleMaster.defaultFont, styles.title]}>
+                                {`Are you sure you want to cancel ${currPetSelectionNameType.name}'${currPetSelectionNameType.name[currPetSelectionNameType.name.length - 1] === 's' ? "" : 's'} appointment?`}
+                            </Text>
+                        </View>
+                        <View style={styles.textHolder}>
+                            <Text style={[styleMaster.defaultFont, styles.content]}>
+                                {
+                                    `on ${dayOfWeek}, ${reformatDate} at ${bookingData.time}`
+                                }
+                            </Text>
+                        </View>
                     </View>
                     <View style={styles.buttonContainer}>
                         <LoginScreenButtonCustom
-                            text={"Confirm Appointment"}
+                            text={"Cancel Appointment"}
                             handlePress={() => handleCancel()}
                             disabled={false}
                             width={297}
                         />
                         <View style={styles.buttonSpacer}></View>
                         <LoginScreenButtonWhiteCustom
-                            text={"Cancel"}
+                            text={"Go Back"}
                             handlePress={() => handleReturn()}
                             width={297}
                         />
@@ -83,8 +105,27 @@ const styles = StyleSheet.create({
         justifyContent: "space-between"
     },
     contentContainer: {
+        // borderWidth: 2,
+        flex: 1,
+        width: '100%',
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
+    },
+    textHolder: {
+        // borderWidth: 2,
+        width: '100%',
+        paddingTop: scale_mod(24)
+    },
+    title: {
+        // borderWidth: 2,
+        fontFamily: 'RalewayBold',
+        fontSize: scale_V(21),
+    },
+    content: {
+        // borderWidth: 2,
+        fontFamily: 'RobotoLight',
+        fontSize: scale_V(17),
     },
     buttonContainer: {
         display: "flex",
