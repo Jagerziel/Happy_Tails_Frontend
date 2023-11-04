@@ -14,12 +14,14 @@ import Clock from '../../../assets/clock.svg'
 import LoginScreenButton from "../../shared/LoginScreenButton.js";
 import LoginScreenButtonWhite from "../../shared/LoginScreenButtonWhite.js"
 import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
+import ConfirmApptModal from "./CancelApptModal.js";
+import CancelApptModal from "./CancelApptModal.js";
 
 function Booking03( { bookComponent, setBookComponent, bookingData, setBookingData, currPetSelectionNameType } ) {
 
   [ modalController, setModalController ] = useState({
     confirmModalOpen: false,
-    cancelModalOpen: false,
+    cancelModalOpen: true,
   })
 
   function handleReturnToPrev () {
@@ -129,6 +131,12 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
           </View>
         </View>
       </View>
+      <CancelApptModal
+        modalController={modalController}
+        setModalController={setModalController}
+        modalName={"cancelModalOpen"}
+
+      />
     </SafeAreaView>
   )
 }
