@@ -82,11 +82,14 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
                   >
                     Type of visit:
                   </Text>
-                  <Text 
-                    style={[styleMaster.defaultFont, styles.detailsContent]}
-                  >
-                    Hello
-                  </Text>
+                  <View style={styles.detailsContentContainer}>
+                    <Text 
+                      style={[styleMaster.defaultFont, styles.detailsContent]}
+                      numberOfLines={1}
+                    >
+                      {bookingData.type}
+                    </Text>
+                  </View>
                 </View>
                 <View style={[styles.detailsContainer]}>
                   <Text 
@@ -100,7 +103,7 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
                       style={[styleMaster.defaultFont, styles.detailsContent]}
                       numberOfLines={3}
                     >
-                      Hello this is a reallly asdlkjasdlfkjasdflkjadsfkjl asdflkj aasdflk aslkjsjkl;sadf sadfkl;j afsd a adslkj afsd jwff 
+                      {bookingData.notes} 
                     </Text>
                   </View>
                 </View>
