@@ -21,7 +21,7 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
 
   [ modalController, setModalController ] = useState({
     confirmModalOpen: false,
-    cancelModalOpen: true,
+    cancelModalOpen: false,
   })
 
   function handleReturnToPrev () {
@@ -138,6 +138,7 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
         modalName={"cancelModalOpen"}
         currPetSelectionNameType={currPetSelectionNameType}
         bookingData={bookingData}
+        setBookingData={setBookingData}
       />
     </SafeAreaView>
   )

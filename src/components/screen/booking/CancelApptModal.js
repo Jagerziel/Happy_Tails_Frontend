@@ -14,7 +14,7 @@ import LoginScreenButtonCustom from "../../shared/LoginScreenButtonCustom.js";
 import LoginScreenButtonWhiteCustom from "../../shared/LoginScreenButtonWhiteCustom.js";
 
 
-function CancelApptModal( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData } ) {
+function CancelApptModal( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData, setBookingData } ) {
     const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
     const dateForParse = bookingData.date.replaceAll("/","-")
     const convertDate = new Date(Date.parse(`${dateForParse}T00:00:00`))
@@ -25,10 +25,16 @@ function CancelApptModal( { modalController, setModalController, modalName, curr
     
     function handleCancel () {
         console.log('Cancel button pressed')
-
-
-
-        // navigation.navigate("HomeScreen")
+        setBookingData({
+            type: "",
+            date: "",
+            time: "",
+            status: "",
+            notes: "",
+            user_id: "",
+            pet_id: "",
+        })
+        navigation.navigate("HomeScreen")
     }
 
     function handleReturn () {
