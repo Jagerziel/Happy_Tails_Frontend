@@ -13,6 +13,13 @@ import { weekday } from "../../../data/data/data.js";
 import LoginScreenButtonCustom from "../../shared/LoginScreenButtonCustom.js";
 import LoginScreenButtonWhiteCustom from "../../shared/LoginScreenButtonWhiteCustom.js";
 
+// API Call
+import { createAppointment } from "../../../server/appointment.js";
+
+// State Management
+import { useSelector, useDispatch } from "react-redux";
+import { updateAppointmentData } from "../../../store/reducers/appointmentDataReducer.js";
+
 function ConfirmApptModal( { 
     modalController, 
     setModalController, 
@@ -33,17 +40,23 @@ function ConfirmApptModal( {
     const navigation = useNavigation()
     const route = useRoute()
 
+    // React Redux
+    const dispatch = useDispatch()
+    const appointmentData = useSelector((state) => state.appointmentData.data)
+    
     async function handleBooking ( key ) {
         const appointmentConfirmed = {...bookingData, status: "Confirmed"}
-        console.log(appointmentConfirmed)
         /*
         UPDATE DATABASE
         UPDATE REDUX
         */
 
-        
-
-
+        // Add new appointment to database
+        const createNewAppointment = await createAppointment(appointmentConfirmed)
+        // Create shallow copy of current Appointment Data with newly created appointment
+        let updatedAppointmentData = [...appointmentData, createNewAppointment]
+        // Store data in redux
+        await dispatch(updateAppointmentData(updatedAppointmentData))
 
         // Navigate
         if (key === "Home") {
@@ -53,16 +66,16 @@ function ConfirmApptModal( {
         
         if (key === "Book Another") {
             console.log('Book Another Appt button clicked')
-            // setBookingData({
-            //     type: "",
-            //     date: "",
-            //     time: "",
-            //     status: "",
-            //     notes: "",
-            //     user_id: "",
-            //     pet_id: "",
-            // })
-            // setBookComponent({...bookComponent, BookingMain: true, Booking03: false})
+            await setBookingData({
+                type: "",
+                date: "",
+                time: "",
+                status: "",
+                notes: "",
+                user_id: "",
+                pet_id: "",
+            })
+            await setBookComponent({...bookComponent, BookingMain: true, Booking03: false})
         }
     }
 

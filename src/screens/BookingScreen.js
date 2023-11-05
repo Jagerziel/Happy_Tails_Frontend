@@ -67,7 +67,7 @@ function BookingScreen(props) {
   const userDataID = useSelector((state) => state.userData.data["_id"])
   const petData = useSelector((state) => state.petData.data);
   const appointmentData = useSelector((state) => state.appointmentData.data);
-  console.log(appointmentData)
+  // console.log(appointmentData)
   
   // Navigation
   const navigation = useNavigation() 

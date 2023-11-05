@@ -71,7 +71,7 @@ function Booking01( { bookComponent, setBookComponent, bookingData, setBookingDa
     function handleAttach () {
         Alert.alert(`Under Construction`,`Add an attachment feature coming soon!`)
     }
-    console.log(bookingData)
+    // console.log(bookingData)
 
     return (
         <SafeAreaView style={[styles.container, styleMaster.parent]}>
