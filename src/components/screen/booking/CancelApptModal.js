@@ -4,11 +4,11 @@ import { Modal, StyleSheet, Text, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
-import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeScaling";
-import { styleMaster } from "../../../constants/stylesMaster";
-import { colors } from "../../../constants/colorPalette";
+import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeScaling.js";
+import { styleMaster } from "../../../constants/stylesMaster.js";
+import { colors } from "../../../constants/colorPalette.js";
 import WarningSVG from '../../../assets/warning.svg'
-import { weekday } from "../../../data/data/data";
+import { weekday } from "../../../data/data/data.js";
 // Import Components
 import LoginScreenButtonCustom from "../../shared/LoginScreenButtonCustom.js";
 import LoginScreenButtonWhiteCustom from "../../shared/LoginScreenButtonWhiteCustom.js";
@@ -139,5 +139,5 @@ const styles = StyleSheet.create({
     },
     buttonSpacer: {
         paddingTop: scale_mod(16),
-      },
+    },
 })
