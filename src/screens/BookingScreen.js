@@ -66,7 +66,8 @@ function BookingScreen(props) {
   const dispatch = useDispatch()
   const userDataID = useSelector((state) => state.userData.data["_id"])
   const petData = useSelector((state) => state.petData.data);
-  // console.log(userDataID)
+  const appointmentData = useSelector((state) => state.appointmentData.data);
+  console.log(appointmentData)
   
   // Navigation
   const navigation = useNavigation() 
@@ -106,7 +107,7 @@ function BookingScreen(props) {
     setPetSelected(updatedValuesObj)
     setDisableNext(false)
   }
-  console.log(currPetSelectionNameType)
+  
   function handleNext () {
     setBookComponent({...bookComponent, "BookingMain": false, "Booking01": true}) // navigate
     setBookingData({...bookingData, user_id: userDataID, pet_id: currPetSelectionID}) // set ids for user and pet

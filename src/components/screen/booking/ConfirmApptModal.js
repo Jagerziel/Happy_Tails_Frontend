@@ -13,7 +13,16 @@ import { weekday } from "../../../data/data/data.js";
 import LoginScreenButtonCustom from "../../shared/LoginScreenButtonCustom.js";
 import LoginScreenButtonWhiteCustom from "../../shared/LoginScreenButtonWhiteCustom.js";
 
-function ConfirmApptModal( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData, setBookingData } ) {
+function ConfirmApptModal( { 
+    modalController, 
+    setModalController, 
+    modalName, 
+    currPetSelectionNameType, 
+    bookingData, 
+    setBookingData,
+    bookComponent,
+    setBookComponent 
+}){
     // Handle Date Objects
     const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
     const dateForParse = bookingData.date.replaceAll("/","-")
@@ -25,12 +34,35 @@ function ConfirmApptModal( { modalController, setModalController, modalName, cur
     const route = useRoute()
 
     async function handleBooking ( key ) {
+        const appointmentConfirmed = {...bookingData, status: "Confirmed"}
+        console.log(appointmentConfirmed)
+        /*
+        UPDATE DATABASE
+        UPDATE REDUX
+        */
+
+        
+
+
+
+        // Navigate
         if (key === "Home") {
             console.log('Home button clicked')
+            // navigation.navigate("HomeScreen")
         }
         
         if (key === "Book Another") {
             console.log('Book Another Appt button clicked')
+            // setBookingData({
+            //     type: "",
+            //     date: "",
+            //     time: "",
+            //     status: "",
+            //     notes: "",
+            //     user_id: "",
+            //     pet_id: "",
+            // })
+            // setBookComponent({...bookComponent, BookingMain: true, Booking03: false})
         }
     }
 

@@ -140,6 +140,8 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
         currPetSelectionNameType={currPetSelectionNameType}
         bookingData={bookingData}
         setBookingData={setBookingData}
+        bookComponent={bookComponent}
+        setBookComponent={setBookComponent}
       />
       <CancelApptModal
         modalController={modalController}
