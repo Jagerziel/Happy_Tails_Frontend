@@ -17,7 +17,7 @@ import ReturnArrowSVG from "../../../assets/return_arrow_blue.svg";
 import ConfirmApptModal from "./ConfirmApptModal.js";
 import CancelApptModal from "./CancelApptModal.js";
 
-function Booking03( { bookComponent, setBookComponent, bookingData, setBookingData, currPetSelectionNameType } ) {
+function Booking03( { bookComponent, setBookComponent, bookingData, setBookingData, currPetSelectionNameType, resetSymptoms } ) {
 
   [ modalController, setModalController ] = useState({
     confirmModalOpen: false,
@@ -142,6 +142,7 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
         setBookingData={setBookingData}
         bookComponent={bookComponent}
         setBookComponent={setBookComponent}
+        resetSymptoms={resetSymptoms}
       />
       <CancelApptModal
         modalController={modalController}

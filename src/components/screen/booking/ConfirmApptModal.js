@@ -28,7 +28,8 @@ function ConfirmApptModal( {
     bookingData, 
     setBookingData,
     bookComponent,
-    setBookComponent 
+    setBookComponent,
+    resetSymptoms
 }){
     // Handle Date Objects
     const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
@@ -42,10 +43,10 @@ function ConfirmApptModal( {
 
     // React Redux
     const dispatch = useDispatch()
-    const appointmentData = useSelector((state) => state.appointmentData.data)
+    const prevAppointmentData = useSelector((state) => state.appointmentData.data)
     
     async function handleBooking ( key ) {
-        const appointmentConfirmed = {...bookingData, status: "Confirmed"}
+        const appointmentConfirmed = await {...bookingData, status: "Confirmed"}
         /*
         UPDATE DATABASE
         UPDATE REDUX
@@ -53,31 +54,38 @@ function ConfirmApptModal( {
 
         // Add new appointment to database
         const createNewAppointment = await createAppointment(appointmentConfirmed)
+        
+        // console.log(createNewAppointment)
         // Create shallow copy of current Appointment Data with newly created appointment
-        let updatedAppointmentData = [...appointmentData, createNewAppointment]
+        let updatedAppointmentData = [...prevAppointmentData, createNewAppointment]
         // Store data in redux
         await dispatch(updateAppointmentData(updatedAppointmentData))
 
+        // Resets Symptom selection so previous selections do not appear when booking another appointment
+        resetSymptoms()
+
+        // Reset Booking component useState data
+        await setBookingData({
+            type: "",
+            date: "",
+            time: "",
+            status: "",
+            notes: "",
+            user_id: "",
+            pet_id: "",
+        })
         // Navigate
         if (key === "Home") {
             console.log('Home button clicked')
-            // navigation.navigate("HomeScreen")
+            navigation.navigate("HomeScreen")
         }
         
         if (key === "Book Another") {
             console.log('Book Another Appt button clicked')
-            await setBookingData({
-                type: "",
-                date: "",
-                time: "",
-                status: "",
-                notes: "",
-                user_id: "",
-                pet_id: "",
-            })
             await setBookComponent({...bookComponent, BookingMain: true, Booking03: false})
         }
     }
+
 
     return (
         <Modal

@@ -19,7 +19,6 @@ import PaperClipSVG from "../../../assets/paperclip.svg"
 
 function Booking01( { bookComponent, setBookComponent, bookingData, setBookingData, symptoms, setSymptoms } ) {
     const [ disableNext, setDisableNext ] = useState(true)
-    const [ type, setType ] = useState("")
     const [ notes, setNotes ] = useState("")
 
 
@@ -42,12 +41,7 @@ function Booking01( { bookComponent, setBookComponent, bookingData, setBookingDa
         }
         
         typeEntry = typeEntry.slice(0, typeEntry.length - 2)
-
         await setBookingData({...bookingData, type: typeEntry, notes: notes})
-
-        /*
-[{"idx": 0, "name": "Vaccination", "status": false}, {"idx": 1, "name": "Skin", "status": false}, {"idx": 2, "name": "Vomiting", "status": false}, {"idx": 3, "name": "Heartworm/Flea/Tick", "status": true}, {"idx": 4, "name": "Eye", "status": true}, {"idx": 5, "name": "Ear", "status": false}, {"idx": 6, "name": "Limping", "status": true}, {"idx": 7, "name": "Diarrhea", "status": false}, {"idx": 8, "name": "Itching", "status": false}, {"idx": 9, "name": "Other", "status": false}]
-        */
     }
 
 

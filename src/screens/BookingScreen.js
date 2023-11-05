@@ -90,6 +90,23 @@ function BookingScreen(props) {
     console.log('Return to Home Button Pressed')
   }
 
+  function resetSymptoms () {
+    setSymptoms(
+      [
+        { idx: 0, name: "Vaccination", status: false },
+        { idx: 1, name: "Skin", status: false },
+        { idx: 2, name: "Vomiting", status: false },
+        { idx: 3, name: "Heartworm/Flea/Tick", status: false },
+        { idx: 4, name: "Eye", status: false },
+        { idx: 5, name: "Ear", status: false },
+        { idx: 6, name: "Limping", status: false },
+        { idx: 7, name: "Diarrhea", status: false },
+        { idx: 8, name: "Itching", status: false },
+        { idx: 9, name: "Other", status: false }
+      ]
+    )
+  }
+
 
   function petSelection ( target ) {
     let updatedValues = Object.keys(petSelected)
@@ -185,6 +202,7 @@ function BookingScreen(props) {
           bookingData={ bookingData }
           setBookingData={ setBookingData }
           currPetSelectionNameType={ currPetSelectionNameType }
+          resetSymptoms={ resetSymptoms }
         />
       }
     </>

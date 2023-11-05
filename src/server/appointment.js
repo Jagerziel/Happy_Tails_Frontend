@@ -47,7 +47,7 @@ export const getAppointmentsByPet = async ( pet_id ) => {
 // Create a New Appointment
 export const createAppointment = async (input) => {
     try {
-        await fetch(URL, {
+        const response = await fetch(URL, {
           method: "POST",
           body: JSON.stringify(input),
           headers: {
