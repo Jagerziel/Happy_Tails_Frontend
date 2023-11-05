@@ -14,17 +14,24 @@ import LoginScreenButtonCustom from "../../shared/LoginScreenButtonCustom.js";
 import LoginScreenButtonWhiteCustom from "../../shared/LoginScreenButtonWhiteCustom.js";
 
 function ConfirmApptModal( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData, setBookingData } ) {
+    // Handle Date Objects
     const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
     const dateForParse = bookingData.date.replaceAll("/","-")
     const convertDate = new Date(Date.parse(`${dateForParse}T00:00:00`))
     const dayOfWeek = weekday[convertDate.getDay()]
 
-    function handleHome () {
-        console.log('Home button clicked')
-    }
-    
-    function handleBookAnotherAppt () {
-        console.log('Book Another Appt button clicked')
+    // Navigation
+    const navigation = useNavigation()
+    const route = useRoute()
+
+    async function handleBooking ( key ) {
+        if (key === "Home") {
+            console.log('Home button clicked')
+        }
+        
+        if (key === "Book Another") {
+            console.log('Book Another Appt button clicked')
+        }
     }
 
     return (
@@ -40,28 +47,33 @@ function ConfirmApptModal( { modalController, setModalController, modalName, cur
                     <View style={styles.contentContainer}>
                         <View style={styles.textHolder}>
                             <Text style={[styleMaster.defaultFont, styles.title]}>
-                                {`Are you sure you want to cancel ${currPetSelectionNameType.name}'${currPetSelectionNameType.name[currPetSelectionNameType.name.length - 1] === 's' ? "" : 's'} appointment?`}
+                                {`Appointment for ${currPetSelectionNameType.name} successfully booked! `}
                             </Text>
                         </View>
                         <View style={styles.textHolder}>
-                            <Text style={[styleMaster.defaultFont, styles.content]}>
-                                {
-                                    `on ${dayOfWeek}, ${reformatDate} at ${bookingData.time}`
-                                }
+                            <Text style={[styleMaster.defaultFont, styles.contentLeft]}>See You:</Text>
+                            <Text style={[styleMaster.defaultFont, styles.contentRight, { fontFamily: "RobotoRegular"}]}>
+                                {`${dayOfWeek}, ${reformatDate} \nat ${bookingData.time}`}
+                            </Text>
+                        </View>
+                        <View style={styles.textHolder}>
+                            <Text style={[styleMaster.defaultFont, styles.contentLeft]}>Address:</Text>
+                            <Text style={[styleMaster.defaultFont, styles.contentRight]}>
+                                {`4140 Parker Rd. Allentown, \nNew Mexico 31134`}
                             </Text>
                         </View>
                     </View>
                     <View style={styles.buttonContainer}>
                         <LoginScreenButtonCustom
                             text={"Home"}
-                            handlePress={() => handleHome()}
+                            handlePress={() => handleBooking("Home")}
                             disabled={false}
                             width={297}
                         />
                         <View style={styles.buttonSpacer}></View>
                         <LoginScreenButtonWhiteCustom
                             text={"Book Another Appointment"}
-                            handlePress={() => handleBookAnotherAppt()}
+                            handlePress={() => handleBooking("Book Another")}
                             width={297}
                         />
                     </View>
@@ -85,7 +97,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         width: scale_mod(328),
         aspectRatio: 0.816/1,
-        paddingTop: scale_mod(34),
+        paddingTop: scale_mod(16),
         paddingBottom: scale_mod(34),
         paddingLeft: scale_mod(16),
         paddingRight: scale_mod(16),
@@ -105,17 +117,31 @@ const styles = StyleSheet.create({
     textHolder: {
         // borderWidth: 2,
         width: '100%',
-        paddingTop: scale_mod(24)
+        display: "flex",
+        flexDirection: "row",
+        paddingTop: scale_mod(16),
     },
     title: {
         // borderWidth: 2,
         fontFamily: 'RalewayBold',
         fontSize: scale_V(21),
+        paddingBottom: scale_mod(8)
     },
-    content: {
+    contentLeft: {
         // borderWidth: 2,
         fontFamily: 'RobotoLight',
-        fontSize: scale_V(17),
+        fontSize: scale_V(15),
+        width: scale_mod(70),
+        fontFamily: "RobotoLight",
+    },
+    contentRight: {
+        // borderWidth: 2,
+        fontFamily: 'RobotoLight',
+        fontSize: scale_V(15),
+        flex: 1, 
+        flexWrap: 'wrap',
+        fontFamily: "RobotoLight",
+        height: scale_mod(36),
     },
     buttonContainer: {
         display: "flex",

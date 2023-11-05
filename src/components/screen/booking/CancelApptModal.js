@@ -15,11 +15,13 @@ import LoginScreenButtonWhiteCustom from "../../shared/LoginScreenButtonWhiteCus
 
 
 function CancelApptModal( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData, setBookingData } ) {
+    // Handle Date Objects
     const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
     const dateForParse = bookingData.date.replaceAll("/","-")
     const convertDate = new Date(Date.parse(`${dateForParse}T00:00:00`))
     const dayOfWeek = weekday[convertDate.getDay()]
 
+    // Navigation
     const navigation = useNavigation()
     const route = useRoute()
     
