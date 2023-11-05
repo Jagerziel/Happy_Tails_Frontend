@@ -55,17 +55,21 @@ function CancelApptModal( { modalController, setModalController, modalName, curr
                 <View style={styles.modal}>
                     <View style={styles.contentContainer}>
                         <WarningSVG />
-                        <View style={styles.textHolder}>
-                            <Text style={[styleMaster.defaultFont, styles.title]}>
-                                {`Are you sure you want to cancel ${currPetSelectionNameType.name}'${currPetSelectionNameType.name[currPetSelectionNameType.name.length - 1] === 's' ? "" : 's'} appointment?`}
-                            </Text>
-                        </View>
-                        <View style={styles.textHolder}>
-                            <Text style={[styleMaster.defaultFont, styles.content]}>
-                                {
-                                    `on ${dayOfWeek}, ${reformatDate} at ${bookingData.time}`
-                                }
-                            </Text>
+                        <View style={styles.textHolderContainer}>
+                            <View style={[styles.textHolder]}>
+                                <Text style={[styleMaster.defaultFont, styles.title]}>
+                                    {`Are you sure you want to cancel ${currPetSelectionNameType.name}'${currPetSelectionNameType.name[currPetSelectionNameType.name.length - 1] === 's' ? "" : 's'} appointment?`}
+                                </Text>
+                            </View>
+                            <View style={styles.textHolderSubcontainer}>
+                                <View style={[styles.textHolder]}>
+                                    <Text style={[styleMaster.defaultFont, styles.content]}>
+                                        {
+                                            `on ${dayOfWeek}, ${reformatDate} at ${bookingData.time}`
+                                        }
+                                    </Text>
+                                </View>
+                            </View>
                         </View>
                     </View>
                     <View style={styles.buttonContainer}>
@@ -120,10 +124,19 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
     },
-    textHolder: {
+    textHolderContainer: {
         // borderWidth: 2,
         width: '100%',
-        paddingTop: scale_mod(24)
+        flex: 1,
+        marginTop: scale_mod(24),
+    },
+    textHolderSubcontainer: {
+        flex: 1,
+        display: "flex",
+        justifyContent: "center",
+    },
+    textHolder: {
+        width: '100%',
     },
     title: {
         // borderWidth: 2,
