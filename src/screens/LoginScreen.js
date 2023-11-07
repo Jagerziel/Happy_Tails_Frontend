@@ -26,12 +26,6 @@ function LoginScreen(props) {
 
   const [userData, setUserData] = useState(null);
 
-//   useEffect(() => {
-//     getUsers(setUserData);
-//     // deleteUser("652d6e847186ffc8ccb2b125");
-//   }, []);
-//   console.log(userData);
-
   function handlePress(target) {
     if (target === "Create Account") {
       navigation.navigate("CreateAccountScreen");

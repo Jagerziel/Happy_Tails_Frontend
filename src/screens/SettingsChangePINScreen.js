@@ -37,20 +37,20 @@ function SettingsChangePINScreen(props) {
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
         <ScrollView style={[styleMaster.subParent]}>
-        <View style={styles.returnContainer}>
-          <TouchableOpacity onPress={() => handleReturnToPrev()}>
-            <ReturnArrowSVG />
-          </TouchableOpacity>
-        </View>
-            <View style={styles.headerContainer}>
-                <Text style={[styleMaster.defaultFont, styles.headerText]}>PIN</Text>
-            </View>
-            <View style={styles.staticInputContainer}>
-                <StaticInputFieldToggle name={"PIN"} toggleFunc={() => toggleFunc()}/>
-            </View>
-            <View style={styles.staticInputContainer}>
-                <StaticInputFieldArrow name={"Change PIN"} arrowNext={() => arrowNext('Change PIN')} path={'Change PIN'}/>
-            </View>
+          <View style={styles.returnContainer}>
+            <TouchableOpacity onPress={() => handleReturnToPrev()}>
+              <ReturnArrowSVG />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.headerContainer}>
+              <Text style={[styleMaster.defaultFont, styles.headerText]}>PIN</Text>
+          </View>
+          <View style={styles.staticInputContainer}>
+              <StaticInputFieldToggle name={"PIN"} toggleFunc={() => toggleFunc()}/>
+          </View>
+          <View style={styles.staticInputContainer}>
+              <StaticInputFieldArrow name={"Change PIN"} arrowNext={() => arrowNext('Change PIN')} path={'Change PIN'}/>
+          </View>
         </ScrollView>
         <Navigation />
         </SafeAreaView>

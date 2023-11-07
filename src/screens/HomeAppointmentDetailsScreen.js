@@ -23,10 +23,15 @@ function HomeAppointmentDetailsScreen(props) {
     
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
-            <ScrollView style={[styleMaster.subParent]}>
+            <View style={[styleMaster.subParent]}>
+            <View style={styles.returnContainer}>
+                <TouchableOpacity onPress={() => handleReturnToPrev()}>
+                    <ReturnArrowSVG />
+                </TouchableOpacity>
+            </View>
                 <Text>Home Appointment Details Screen</Text>
             
-            </ScrollView>
+            </View>
             <Navigation />
         </SafeAreaView>
     );
@@ -40,6 +45,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.grayscale06,
     // alignItems: "center",
     // justifyContent: "center",
+  },
+  returnContainer: {
+    alignSelf: 'flex-start',
+    paddingBottom: scale_mod(12),
   },
 
 });
