@@ -9,9 +9,11 @@ import { styleMaster } from "../../../constants/stylesMaster.js";
 import { colors } from "../../../constants/colorPalette.js";
 import WarningSVG from '../../../assets/warning.svg'
 import { weekday } from "../../../data/data/data.js";
+
 // Import Components
 import LoginScreenButtonCustom from "../../shared/LoginScreenButtonCustom.js";
 import LoginScreenButtonWhiteCustom from "../../shared/LoginScreenButtonWhiteCustom.js";
+
 
 
 function CancelApptModal( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData, setBookingData } ) {

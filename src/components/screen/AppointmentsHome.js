@@ -9,16 +9,13 @@ import AppointmentItemHome from './AppointmentItemHome.js';
 import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
-// import { sortAppointments } from '../../data/functions/sortData.js';
-// import { appointmentData } from '../../data/testingData/testingData.js';
+import { sortByDateAndTime } from '../../data/functions/sortData.js';
 
 function AppointmentsHome( { petIDs, appointmentData }) {
     const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(5) }} />; // Gap for Flatlist
 
-    // const sortedAppointments = sortAppointments(appointmentData)
-
-    // console.log(sortedAppointments)
-
+    const appointmentDataShallowCopy = [...appointmentData]
+    const sortedAppointmentData = sortByDateAndTime(appointmentDataShallowCopy, "after")
 
 
     return (
@@ -30,12 +27,12 @@ function AppointmentsHome( { petIDs, appointmentData }) {
                 </TouchableOpacity>
             </View>
             {
-                appointmentData.length > 0 ?
+                sortedAppointmentData.length > 0 ?
                 <View style={styles.contentContainerActive}>
                     <FlatList 
                         keyExtractor={(appointment) => appointment["_id"]} // Key
                         ItemSeparatorComponent={itemSeparator} // Gap between items
-                        data={appointmentData} // Data
+                        data={sortedAppointmentData} // Data
                         renderItem={(data) => <AppointmentItemHome data={data} petIDs={petIDs}/>} // Component to be rendered
                         showsHorizontalScrollIndicator = { false } // Removes Scrollbar
                         scrollEnabled={ true } // Enables Scrolling

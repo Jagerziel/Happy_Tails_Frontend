@@ -1,6 +1,6 @@
 import { timeSelectionOrder } from "../data/data";
 
-function sortAppointments ( 
+export function sortByDateAndTime ( 
     data, // Insert Data to be sorted by name and time 
     command // Command is to show data before today, today forward, all
 ) {
@@ -27,8 +27,6 @@ function sortAppointments (
         const filtered = sorted.filter(( appt ) => {
             const dateForParse = appt["date"].replaceAll("/","-")
             const convertDate = new Date(Date.parse(`${dateForParse}T00:00:00`))
-            console.log(today)
-            console.log(convertDate)
             if (convertDate.getTime() < today.getTime()) {
                 return true
             } else {
@@ -42,8 +40,6 @@ function sortAppointments (
         const filtered = sorted.filter(( appt ) => {
             const dateForParse = appt["date"].replaceAll("/","-")
             const convertDate = new Date(Date.parse(`${dateForParse}T00:00:00`))
-            console.log(today)
-            console.log(convertDate)
             if (convertDate.getTime() < today.getTime()) {
                 return false
             } else {
