@@ -10,7 +10,8 @@ import Clock from '../../assets/clock.svg'
 import GreenDot from '../../assets/green_dot.svg'
 
 function AppointmentItemHome( { data, petIDs } ) {
-    // console.log(petIDs)
+    const updateDateFormat = `${data.item.date.slice(5,7)}/${data.item.date.slice(8,10)}/${data.item.date.slice(0,4)}`
+
     return (
         <View style={styles.container}>
             <View style={styles.lineAccent}></View>
@@ -20,7 +21,7 @@ function AppointmentItemHome( { data, petIDs } ) {
                         <View style={styles.icon}>
                             <Calendar height={scale_mod(27)} width={scale_mod(29)}/>
                         </View>
-                        <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.date}</Text>
+                        <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{updateDateFormat}</Text>
                     </View>
                     <View style={styles.dateTimeSubContainer}>
                         <View style={styles.icon}>
