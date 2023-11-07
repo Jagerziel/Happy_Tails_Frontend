@@ -38,14 +38,21 @@ function AppointmentItemHome( { data, petIDs } ) {
                 </View>
                 <View style={styles.bottomContainer}>
                     <View style={styles.bottomSubContainerLeft}>
-                        
-                        <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{`Who: ${petIDs[data.item.pet_id][0]}`}</Text>
+                        {
+                            petIDs[data.item.pet_id][1] === "Dog" ?
+                            <Image source={require(`../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
+                            <Image source={require(`../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/> 
+                        }
+                        <Text 
+                            style={[styleMaster.defaultFont]}
+                            numberOfLines={1}    
+                        >{`${petIDs[data.item.pet_id][0]}`}</Text>
                     </View>
                     <View style={styles.bottomSubContainerRight}>
                         <View style={styles.icon}>
                             <GreenDot height={scale_mod(8)} width={scale_mod(8)}/>
                         </View>
-                        <Text style={[styleMaster.defaultFont, styles.dateTimeText, {fontSize: scale_V(14), paddingLeft: scale_mod(8)}]}>{data.item.status}</Text>
+                        <Text style={[styleMaster.defaultFont, {fontSize: scale_V(14), paddingLeft: scale_mod(8)}]}>{data.item.status}</Text>
                     </View>
                 </View>
             </View>
@@ -101,6 +108,7 @@ const styles = StyleSheet.create({
     },
     dateTimeText: {
         // borderWidth: 2,
+        fontFamily: "RobotoRegular"
         // alignSelf: 'center'
         // All code previously here is now contained in StyleMaster
         // Retained object item in case further customization is needed
@@ -128,6 +136,13 @@ const styles = StyleSheet.create({
     icon: {
         // borderWidth: 2,
         // top: scale_mod(2),
+    },
+    petImg: {
+        height: scale_mod(32),
+        width: scale_mod(32),
+        resizeMode: 'cover',
+        borderRadius: scale_mod(8),
+        marginRight: scale_mod(8),
     },
     bottomContainer: {
         display: 'flex',
