@@ -9,12 +9,16 @@ import AppointmentItemHome from './AppointmentItemHome.js';
 import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
+// import { sortAppointments } from '../../data/functions/sortData.js';
 // import { appointmentData } from '../../data/testingData/testingData.js';
 
 function AppointmentsHome( { petIDs, appointmentData }) {
     const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(5) }} />; // Gap for Flatlist
 
-    
+    // const sortedAppointments = sortAppointments(appointmentData)
+
+    // console.log(sortedAppointments)
+
 
 
     return (
