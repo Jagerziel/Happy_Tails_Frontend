@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
     },
     subContainer: {
         height: '100%',
+        flex: 1,
         backgroundColor: colors.white,
         paddingTop: scale_mod(15),
         paddingLeft: scale_mod(18),
@@ -79,6 +80,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        paddingBottom: scale_mod(8),
+        borderBottomWidth: 2,
+        borderBottomColor: colors.greyscale08,
     },
     dateTimeSubContainer: {
         // borderWidth: 2,
