@@ -12,6 +12,7 @@ import BookingScreen from './src/screens/BookingScreen.js';
 import CreateAccountScreen from './src/screens/CreateAccountScreen.js';
 import CreateAccountEmailScreen from './src/screens/CreateAccountEmailScreen.js';
 import HomeScreen from './src/screens/HomeScreen.js'
+import HomeAppointmentDetailsScreen from './src/screens/HomeAppointmentDetailsScreen.js';
 import MyPetsScreen from './src/screens/MyPetsScreen.js';
 import MyPetsDetailsScreen from './src/screens/MyPetsDetailsScreen.js';
 import LoginScreen from './src/screens/LoginScreen.js'
@@ -80,6 +81,7 @@ export default function App() {
             <Stack.Screen name="CreateAccountScreen" component={CreateAccountScreen}/>
             <Stack.Screen name="CreateAccountEmailScreen" component={CreateAccountEmailScreen}/>
             <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+            <Stack.Screen name="HomeAppointmentDetailsScreen" component={HomeAppointmentDetailsScreen}/>
             <Stack.Screen name="MyPetsScreen" component={MyPetsScreen}/>
             <Stack.Screen name="MyPetsDetailsScreen" component={MyPetsDetailsScreen}/>
             <Stack.Screen name="BookingScreen" component={BookingScreen}/>
