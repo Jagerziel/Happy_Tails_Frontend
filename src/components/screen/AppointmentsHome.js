@@ -1,6 +1,7 @@
 // Import React
 import React from 'react';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Components
 import AppointmentItemHome from './AppointmentItemHome.js';
@@ -12,17 +13,25 @@ import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScali
 import { sortByDateAndTime } from '../../data/functions/sortData.js';
 
 function AppointmentsHome( { petIDs, appointmentData }) {
+    // Navigation
+    const navigation = useNavigation();
+    const route = useRoute();
+
     const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(5) }} />; // Gap for Flatlist
 
     const appointmentDataShallowCopy = [...appointmentData]
     const sortedAppointmentData = sortByDateAndTime(appointmentDataShallowCopy, "after")
 
+    function handleViewAll () {
+        console.log('view all pressed (AppointmentsHome.js)')
+        navigation.navigate('HomeAppointmentDetailsScreen')   
+    }
 
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
                 <Text style={[styleMaster.defaultFont, styles.title]}>Appointments</Text>
-                <TouchableOpacity onPress={() => console.log('view all pressed (AppointmentsHome.js)')}>
+                <TouchableOpacity onPress={handleViewAll}>
                     <Text style={[styleMaster.defaultFont, styles.viewAll]}>View All</Text>
                 </TouchableOpacity>
             </View>
