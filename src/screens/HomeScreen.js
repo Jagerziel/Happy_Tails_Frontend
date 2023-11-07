@@ -28,8 +28,9 @@ function HomeScreen(props) {
   // Shortened Information to pass as props to get Pet Names tied to Appointments and Vaccinations
   const petIDs = {}
   for (let i = 0; i < petData.length; i++) {
-    petIDs[petData[i]["_id"]] = [petData[i]["name"]] 
+    petIDs[petData[i]["_id"]] = [petData[i]["name"], petData[i]["type"]] 
   }
+  // console.log(petIDs)
 
   return (
     <SafeAreaView style={[styleMaster.parent, styles.container]}>
