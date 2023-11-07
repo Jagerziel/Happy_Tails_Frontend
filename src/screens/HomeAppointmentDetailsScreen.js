@@ -45,7 +45,7 @@ function HomeAppointmentDetailsScreen(props) {
     }, [appointmentData])
     // console.log(upcommingAppts)
     // console.log(pastAppts)
-    
+
     function handleReturnToPrev () {
         navigation.navigate("HomeScreen")
     }
@@ -104,7 +104,11 @@ function HomeAppointmentDetailsScreen(props) {
                     </View>
                 </View>
                 <ScrollView style={[styles.appointmentsContainer, { maxHeight: apptContainerHeight}]}>
+                    {
+                        
 
+
+                    }
                 </ScrollView>
             </View>
             <Navigation />
