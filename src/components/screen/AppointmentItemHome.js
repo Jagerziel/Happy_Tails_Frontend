@@ -9,12 +9,8 @@ import Calendar from '../../assets/calendar.svg'
 import Clock from '../../assets/clock.svg'
 import GreenDot from '../../assets/green_dot.svg'
 
-
-
 function AppointmentItemHome( { data, petIDs } ) {
     const updateDateFormat = `${data.item.date.slice(5,7)}/${data.item.date.slice(8,10)}/${data.item.date.slice(0,4)}`
-
-
 
     return (
         <View style={styles.container}>

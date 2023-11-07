@@ -1,17 +1,21 @@
 // Import React
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Dimensions } from "react-native";
 
 // Import Components
-import Navigation from "../components/shared/Navigation";
+import Navigation from "../components/shared/Navigation.js";
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
 import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling.js";
 import { colors } from "../constants/colorPalette.js";
 import ReturnArrowSVG from "../assets/return_arrow_blue.svg"
+import { sortByDateAndTime } from "../data/functions/sortData.js";
+
+// State Management
+import { useSelector, useDispatch } from "react-redux";
 
 function HomeAppointmentDetailsScreen(props) {
     const [ showUpcomming, setShowUpcomming ] = useState(true)
@@ -22,14 +26,39 @@ function HomeAppointmentDetailsScreen(props) {
 
     // Dimensions
     const apptContainerHeight = Dimensions.get('window').height - scale_mod(315)
+ 
+    // Redux 
+    const dispatch = useDispatch(); // useDispatch
+    const appointmentData = useSelector((state) => state.appointmentData.data); // Retrieve Appointment data
 
+    // Sort Data - useMemo used to avoid sorting on every render
+    const upcommingAppts = useMemo(() => {
+        return sortByDateAndTime([...appointmentData], "after")
+    }, [appointmentData])
+
+    const pastAppts = useMemo(() => {
+        return sortByDateAndTime([...appointmentData], "before")
+    }, [appointmentData])
+
+    const allAppts = useMemo(() => {
+        return sortByDateAndTime([...appointmentData], "all")
+    }, [appointmentData])
+    // console.log(upcommingAppts)
+    // console.log(pastAppts)
+    
     function handleReturnToPrev () {
         navigation.navigate("HomeScreen")
     }
 
+    function handleCancel () {
+        console.log(`Cancel Appointment Button Pressed`)
+    }
+    
+    function handleReschedule () {
+        console.log(`Reschedule Appointment Button Pressed`)
 
-
-
+    }
+    
     function handleUpcommingToggle ( currVal ) {
         if ( currVal === true ) setShowUpcomming(true)
         if ( currVal === false ) setShowUpcomming(false)
