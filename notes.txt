@@ -30,8 +30,6 @@
     Redux Expo Tutorial: https://negativeepsilon.com/en/posts/expo-react-redux/
     
     Redux State Overwriting Methods: https://chariotsolutions.com/blog/post/replacing-state-in-redux-reducers-a-few-approaches/
-    
-
 
 ##### SHORTCUTS #####
 rsf: creates new react component

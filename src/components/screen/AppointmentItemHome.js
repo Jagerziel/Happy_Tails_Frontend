@@ -12,28 +12,31 @@ import GreenDot from '../../assets/green_dot.svg'
 function AppointmentItemHome( { data, petIDs } ) {
     return (
         <View style={styles.container}>
-            <View style={styles.dateTimeContainer}>
-                <View style={styles.dateTimeSubContainer}>
-                    <View style={styles.icon}>
-                        <Calendar height={scale_mod(27)} width={scale_mod(29)}/>
+            <View style={styles.lineAccent}></View>
+            <View style={styles.subContainer}>
+                <View style={styles.dateTimeContainer}>
+                    <View style={styles.dateTimeSubContainer}>
+                        <View style={styles.icon}>
+                            <Calendar height={scale_mod(27)} width={scale_mod(29)}/>
+                        </View>
+                        <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.date}</Text>
                     </View>
-                    <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.date}</Text>
+                    <View style={styles.dateTimeSubContainer}>
+                        <View style={styles.icon}>
+                            <Clock height={scale_mod(24)} width={scale_mod(24)}/>
+                        </View>
+                        <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.time}</Text>
+                    </View>
                 </View>
-                <View style={styles.dateTimeSubContainer}>
-                    <View style={styles.icon}>
-                        <Clock height={scale_mod(24)} width={scale_mod(24)}/>
+                <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.type}</Text>
+                <View style={styles.bottomContainer}>
+                    <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{`Who: ${petIDs[data.item.pet_id]}`}</Text>
+                    <View style={styles.bottomSubContainer}>
+                        <View style={styles.icon}>
+                            <GreenDot height={scale_mod(8)} width={scale_mod(8)}/>
+                        </View>
+                        <Text style={[styleMaster.defaultFont, styles.dateTimeText, {fontSize: scale_V(14), paddingLeft: scale_mod(8)}]}>{data.item.status}</Text>
                     </View>
-                    <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.time}</Text>
-                </View>
-            </View>
-            <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{data.item.type}</Text>
-            <View style={styles.bottomContainer}>
-                <Text style={[styleMaster.defaultFont, styles.dateTimeText]}>{`Who: ${petIDs[data.item.pet_id]}`}</Text>
-                <View style={styles.bottomSubContainer}>
-                    <View style={styles.icon}>
-                        <GreenDot height={scale_mod(8)} width={scale_mod(8)}/>
-                    </View>
-                    <Text style={[styleMaster.defaultFont, styles.dateTimeText, {fontSize: scale_V(14), paddingLeft: scale_mod(8)}]}>{data.item.status}</Text>
                 </View>
             </View>
         </View>
@@ -45,16 +48,30 @@ export default AppointmentItemHome;
 const styles = StyleSheet.create({
     container: {
         // borderColor: "green",
-        // borderWidth: 2,
+        // borderWidth: 1,
         width: scale_mod(280),
-        height: scale_mod(124),
+        aspectRatio: 2/1,
         borderRadius: 7,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    lineAccent: {
+        borderWidth: 1.5,
+        borderColor: colors.primary,
+        height: scale_mod(116),
+        borderTopRightRadius: scale_mod(6),
+        borderBottomRightRadius: scale_mod(6),
+    },
+    subContainer: {
+        height: '100%',
         backgroundColor: colors.white,
         paddingTop: scale_mod(15),
         paddingLeft: scale_mod(18),
         paddingRight: scale_mod(18),
         paddingBottom: scale_mod(15),
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        borderRadius: 7,
     },
     dateTimeContainer: {
         // borderWidth: 2,
