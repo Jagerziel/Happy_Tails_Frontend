@@ -9,7 +9,7 @@ import Calendar from '../../assets/calendar.svg'
 import Clock from '../../assets/clock.svg'
 import GreenDot from '../../assets/green_dot.svg'
 
-function AppointmentDetailItemHome( {data} ) {
+function AppointmentDetailItemHome( { data, petIDs } ) {
     let id = data.item["_id"]
     const updateDateFormat = `${data.item.date.slice(5,7)}/${data.item.date.slice(8,10)}/${data.item.date.slice(0,4)}`
 
@@ -39,15 +39,15 @@ function AppointmentDetailItemHome( {data} ) {
                 </View>
                 <View style={styles.bottomContainer}>
                     <View style={styles.bottomSubContainerLeft}>
-                        {/* {
+                        {
                             petIDs[data.item.pet_id][1] === "Dog" ?
                             <Image source={require(`../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
                             <Image source={require(`../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/> 
-                        } */}
+                        }
                         <Text 
                             style={[styleMaster.defaultFont]}
                             numberOfLines={1}    
-                        >{`Placeholder`}</Text>
+                        >{`${petIDs[data.item.pet_id][0]}`}</Text>
                     </View>
                     <View style={styles.bottomSubContainerRight}>
                         <View style={styles.icon}>
@@ -157,5 +157,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         marginTop: scale_mod(21),
         height: scale_mod(40),
+        display: 'flex',
+        flexDirection: 'row',
     }
 })

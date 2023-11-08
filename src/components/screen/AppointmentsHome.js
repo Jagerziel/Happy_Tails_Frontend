@@ -23,7 +23,6 @@ function AppointmentsHome( { petIDs, appointmentData }) {
     const sortedAppointmentData = sortByDateAndTime(appointmentDataShallowCopy, "after")
 
     function handleViewAll () {
-        console.log('view all pressed (AppointmentsHome.js)')
         navigation.navigate('HomeAppointmentDetailsScreen')   
     }
 

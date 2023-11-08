@@ -31,8 +31,18 @@ function HomeAppointmentDetailsScreen(props) {
  
     // Redux 
     const dispatch = useDispatch(); // useDispatch
+    const petData = useSelector((state) => state.petData.data);
     const appointmentData = useSelector((state) => state.appointmentData.data); // Retrieve Appointment data
 
+    // Shortened Information to pass as props to get Pet Names tied to Appointments and Vaccinations
+    const petIDs = useMemo(() => {
+        const ids = {}
+        for (let i = 0; i < petData.length; i++) {
+            ids[petData[i]["_id"]] = [petData[i]["name"], petData[i]["type"]] 
+        }
+        return ids
+    }, [petData])
+    // console.log(petIDs)
     // Sort Data - useMemo used to avoid sorting on every render
     const upcommingAppts = useMemo(() => {
         return sortByDateAndTime([...appointmentData], "after")
@@ -114,7 +124,7 @@ function HomeAppointmentDetailsScreen(props) {
                         keyExtractor={(upcommingAppts) => upcommingAppts["_id"]} // Key
                         ItemSeparatorComponent={itemSeparator} // Gap between items
                         data={upcommingAppts} // Data
-                        renderItem={(data) => <AppointmentDetailItemHome data={data}/>} // Component to be rendered
+                        renderItem={(data) => <AppointmentDetailItemHome data={data} petIDs={petIDs}/>} // Component to be rendered
                         showsVerticalScrollIndicator = { false } // Removes Scrollbar
                         scrollEnabled={ true } // Enables Scrolling
                         vertical // Key to making flatlist scrollable
@@ -123,7 +133,7 @@ function HomeAppointmentDetailsScreen(props) {
                         keyExtractor={(pastAppts) => pastAppts["_id"]} // Key
                         ItemSeparatorComponent={itemSeparator} // Gap between items
                         data={pastAppts} // Data
-                        renderItem={(data) => <AppointmentDetailItemHome data={data}/>} // Component to be rendered
+                        renderItem={(data) => <AppointmentDetailItemHome data={data} petIDs={petIDs}/>} // Component to be rendered
                         showsVerticalScrollIndicator = { false } // Removes Scrollbar
                         scrollEnabled={ true } // Enables Scrolling
                         vertical // Key to making flatlist scrollable
