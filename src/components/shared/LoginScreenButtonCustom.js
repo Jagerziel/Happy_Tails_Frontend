@@ -6,10 +6,17 @@ import { colors } from '../../constants/colorPalette.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 
-function LoginScreenButtonCustom( { text, handlePress, disabled, width } ) {
+function LoginScreenButtonCustom( { text, handlePress, disabled, width, height } ) {
+    console.log(height)
+    let aspectRatio = height ? width / height : 6.46/1
     return (
         <TouchableOpacity 
-            style={[styles.button, { backgroundColor: disabled ? colors.primaryFade : colors.primary, width: scale_mod(width) }]} 
+            style={[styles.button, { 
+                backgroundColor: disabled ? colors.primaryFade : colors.primary, 
+                width: scale_mod(width),
+                aspectRatio: aspectRatio
+                }
+            ]} 
             onPress={handlePress}
             disabled={disabled}
         >
@@ -22,7 +29,6 @@ export default LoginScreenButtonCustom;
 
 const styles = StyleSheet.create({
     button: {
-        aspectRatio: 6.46/1,
         borderRadius: 12,
         alignItems: 'center',
         justifyContent: 'center'
