@@ -1,3 +1,4 @@
+// Import React
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
@@ -9,8 +10,15 @@ import Calendar from '../../assets/calendar.svg'
 import Clock from '../../assets/clock.svg'
 import GreenDot from '../../assets/green_dot.svg'
 
-function AppointmentDetailItemHome( { data, petIDs } ) {
-    let id = data.item["_id"]
+// Import Components
+import LoginScreenButtonCustom from '../../components/shared/LoginScreenButtonCustom.js'
+
+function AppointmentDetailItemHome( { 
+    data, 
+    petIDs,
+    handleCancelAppt,
+    handleRescheduleAppt 
+} ) {
     const updateDateFormat = `${data.item.date.slice(5,7)}/${data.item.date.slice(8,10)}/${data.item.date.slice(0,4)}`
 
     return (
@@ -58,7 +66,24 @@ function AppointmentDetailItemHome( { data, petIDs } ) {
                 </View>
             </View>
             <View style={styles.buttonContainer}>
-
+                <LoginScreenButtonCustom 
+                    text={"Cancel"}
+                    handlePress={handleCancelAppt}
+                    disabled={true}
+                    width={148}
+                    height={40}
+                    borderRadius={8}
+                    fontSize={16}
+                />
+                <LoginScreenButtonCustom 
+                    text={"Reschedule"}
+                    handlePress={handleRescheduleAppt}
+                    disabled={false}
+                    width={148}
+                    height={40}
+                    borderRadius={8}
+                    fontSize={16}
+                />
             </View>
 
         </View>
@@ -69,7 +94,7 @@ export default AppointmentDetailItemHome;
 
 const styles = StyleSheet.create({
     container: {
-        borderWidth: 2,
+        // borderWidth: 2,
         width: '100%',
         height: scale_mod(207),
         paddingTop: scale_mod(16),
@@ -82,7 +107,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     subContainer: {
-        borderWidth: 2,
+        // borderWidth: 2,
         flex: 1,
         display: 'flex',
         justifyContent: 'space-between'
@@ -154,10 +179,11 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     buttonContainer: {
-        borderWidth: 2,
+        // borderWidth: 2,
         marginTop: scale_mod(21),
         height: scale_mod(40),
         display: 'flex',
         flexDirection: 'row',
+        justifyContent: 'space-between',
     }
 })

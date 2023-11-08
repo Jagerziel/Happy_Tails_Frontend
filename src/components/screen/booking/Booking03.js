@@ -29,19 +29,12 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
   }
 
   function handleConfirmAppt () {
-    console.log("Appointment Confirmed")
+    console.log("Appointment Confirmed Button Clicked")
     setModalController({...modalController, confirmModalOpen: true})
-    /*  
-    ADD DATA TO DB AND TO REDUX.  RESET USESTATE.  NAVIGATE HOME.
-    */
   }
   function handleCancelAppt () {
-    console.log("Appointment Cancelled")
+    console.log("Appointment Cancelled Button Clicked")
     setModalController({...modalController, cancelModalOpen: true})
-    /*
-    RESET USESTATE.  NAVIGATE HOME.
-    */
-
   }
 
   // console.log(currPetSelectionNameType)

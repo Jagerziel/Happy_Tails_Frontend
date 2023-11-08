@@ -41,7 +41,11 @@ function AppointmentsHome( { petIDs, appointmentData }) {
                         keyExtractor={(appointment) => appointment["_id"]} // Key
                         ItemSeparatorComponent={itemSeparator} // Gap between items
                         data={sortedAppointmentData} // Data
-                        renderItem={(data) => <AppointmentItemHome data={data} petIDs={petIDs}/>} // Component to be rendered
+                        renderItem={(data) => 
+                            <AppointmentItemHome 
+                                data={data} 
+                                petIDs={petIDs}
+                            />} // Component to be rendered
                         showsHorizontalScrollIndicator = { false } // Removes Scrollbar
                         scrollEnabled={ true } // Enables Scrolling
                         horizontal // Key to making flatlist scrollable

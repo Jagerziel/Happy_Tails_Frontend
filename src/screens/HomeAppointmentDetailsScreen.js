@@ -64,14 +64,20 @@ function HomeAppointmentDetailsScreen(props) {
         navigation.navigate("HomeScreen")
     }
 
-    function handleCancel () {
-        console.log(`Cancel Appointment Button Pressed`)
+    function handleCancelAppt () {
+        console.log("Appointment Cancelled Button Pressed")
+        /*  
+        REMOVE DATA FROM DB AND TO REDUX.  RESET USESTATE.  NAVIGATE HOME.
+        */
     }
-    
-    function handleReschedule () {
-        console.log(`Reschedule Appointment Button Pressed`)
-
+  
+    function handleRescheduleAppt () {
+        console.log("Appointment Reschedule Button Pressed")
+        /*  
+        UPDATE DATA IN DB AND REDUX.  RESET USESTATE.  NAVIGATE HOME.
+        */
     }
+  
     
     function handleUpcommingToggle ( currVal ) {
         if ( currVal === true ) setShowUpcomming(true)
@@ -124,7 +130,12 @@ function HomeAppointmentDetailsScreen(props) {
                         keyExtractor={(upcommingAppts) => upcommingAppts["_id"]} // Key
                         ItemSeparatorComponent={itemSeparator} // Gap between items
                         data={upcommingAppts} // Data
-                        renderItem={(data) => <AppointmentDetailItemHome data={data} petIDs={petIDs}/>} // Component to be rendered
+                        renderItem={(data) => <AppointmentDetailItemHome 
+                            data={data} 
+                            petIDs={petIDs}
+                            handleCancelAppt={handleCancelAppt}
+                            handleRescheduleAppt={handleRescheduleAppt}
+                        />} // Component to be rendered
                         showsVerticalScrollIndicator = { false } // Removes Scrollbar
                         scrollEnabled={ true } // Enables Scrolling
                         vertical // Key to making flatlist scrollable
@@ -133,7 +144,12 @@ function HomeAppointmentDetailsScreen(props) {
                         keyExtractor={(pastAppts) => pastAppts["_id"]} // Key
                         ItemSeparatorComponent={itemSeparator} // Gap between items
                         data={pastAppts} // Data
-                        renderItem={(data) => <AppointmentDetailItemHome data={data} petIDs={petIDs}/>} // Component to be rendered
+                        renderItem={(data) => <AppointmentDetailItemHome 
+                            data={data} 
+                            petIDs={petIDs}
+                            handleCancelAppt={handleCancelAppt}
+                            handleRescheduleAppt={handleRescheduleAppt}
+                        />} // Component to be rendered
                         showsVerticalScrollIndicator = { false } // Removes Scrollbar
                         scrollEnabled={ true } // Enables Scrolling
                         vertical // Key to making flatlist scrollable
@@ -194,8 +210,8 @@ const styles = StyleSheet.create({
     fontFamily: "RalewayBold"
   },
   appointmentsContainer: {
-    borderWidth: 2,
-    borderColor: 'green',
+    // borderWidth: 2,
+    // borderColor: 'green',
     width: '100%',
   },
 
