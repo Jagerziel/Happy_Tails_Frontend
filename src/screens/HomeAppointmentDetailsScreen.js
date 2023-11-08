@@ -67,7 +67,7 @@ function HomeAppointmentDetailsScreen(props) {
         if ( currVal === true ) setShowUpcomming(true)
         if ( currVal === false ) setShowUpcomming(false)
     }
-    
+
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
             <View style={[styleMaster.subParent, styles.subContainer]}>
@@ -185,6 +185,7 @@ const styles = StyleSheet.create({
   },
   appointmentsContainer: {
     borderWidth: 2,
+    borderColor: 'green',
     width: '100%',
   },
 
