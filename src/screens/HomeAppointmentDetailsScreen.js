@@ -1,11 +1,13 @@
 // Import React
 import React, { useState, useMemo } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Dimensions } from "react-native";
 
 // Import Components
+import AppointmentDetailItemHome from "../components/screen/AppointmentDetailItemHome.js";
 import Navigation from "../components/shared/Navigation.js";
+
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
@@ -45,6 +47,8 @@ function HomeAppointmentDetailsScreen(props) {
     }, [appointmentData])
     // console.log(upcommingAppts)
     // console.log(pastAppts)
+
+    const itemSeparator = () => <View style={{ marginVertical: scale_mod(16) }} />; // Gap for Flatlist
 
     function handleReturnToPrev () {
         navigation.navigate("HomeScreen")
@@ -103,13 +107,29 @@ function HomeAppointmentDetailsScreen(props) {
                         </TouchableWithoutFeedback>
                     </View>
                 </View>
-                <ScrollView style={[styles.appointmentsContainer, { maxHeight: apptContainerHeight}]}>
-                    {
-                        
-
-
-                    }
-                </ScrollView>
+                <View style={[styles.appointmentsContainer, { maxHeight: apptContainerHeight}]}>
+                {
+                    showUpcomming ?
+                    <FlatList 
+                        keyExtractor={(upcommingAppts) => upcommingAppts["_id"]} // Key
+                        ItemSeparatorComponent={itemSeparator} // Gap between items
+                        data={upcommingAppts} // Data
+                        renderItem={(data) => <AppointmentDetailItemHome data={data}/>} // Component to be rendered
+                        showsVerticalScrollIndicator = { false } // Removes Scrollbar
+                        scrollEnabled={ true } // Enables Scrolling
+                        vertical // Key to making flatlist scrollable
+                    /> :
+                    <FlatList 
+                        keyExtractor={(pastAppts) => pastAppts["_id"]} // Key
+                        ItemSeparatorComponent={itemSeparator} // Gap between items
+                        data={pastAppts} // Data
+                        renderItem={(data) => <AppointmentDetailItemHome data={data}/>} // Component to be rendered
+                        showsVerticalScrollIndicator = { false } // Removes Scrollbar
+                        scrollEnabled={ true } // Enables Scrolling
+                        vertical // Key to making flatlist scrollable
+                    />
+                }
+                </View>
             </View>
             <Navigation />
         </SafeAreaView>

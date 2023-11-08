@@ -9,11 +9,9 @@ import Calendar from '../../assets/calendar.svg'
 import Clock from '../../assets/clock.svg'
 import GreenDot from '../../assets/green_dot.svg'
 
-import React from 'react';
-
 function AppointmentDetailItemHome(props) {
     return (
-        <View>
+        <View style={styles.container}>
             <Text>Testing</Text>
         </View>
     );
@@ -25,6 +23,6 @@ const styles = StyleSheet.create({
     container: {
         borderWidth: 2,
         width: '100%',
-        height: 100,
+        height: scale_mod(207),
     }
 })
