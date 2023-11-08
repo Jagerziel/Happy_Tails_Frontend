@@ -110,9 +110,6 @@ const styles = StyleSheet.create({
     dateTimeText: {
         // borderWidth: 2,
         fontFamily: "RobotoRegular"
-        // alignSelf: 'center'
-        // All code previously here is now contained in StyleMaster
-        // Retained object item in case further customization is needed
     },
     visitTypeContainer: {
         display: 'flex',
