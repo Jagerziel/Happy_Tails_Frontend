@@ -106,7 +106,7 @@ function HomeAppointmentDetailsScreen(props) {
                         >
                                 <Text style={[styleMaster.defaultFont, styles.appointmentToggleItemText, {
                                     color: showUpcomming ? colors.primary : colors.grayscale02
-                                }]}>Upcomming</Text>
+                                }]}>{`Upcomming`}</Text>
                         </TouchableWithoutFeedback>
                     </View>
                     <View style={[styles.appointmentToggleItem, {
@@ -119,7 +119,7 @@ function HomeAppointmentDetailsScreen(props) {
                         >
                                 <Text style={[styleMaster.defaultFont, styles.appointmentToggleItemText, {
                                     color: !showUpcomming ? colors.primary : colors.grayscale02
-                                }]}>Past</Text>
+                                }]}>{`Past`}</Text>
                         </TouchableWithoutFeedback>
                     </View>
                 </View>
@@ -212,7 +212,8 @@ const styles = StyleSheet.create({
   appointmentsContainer: {
     // borderWidth: 2,
     // borderColor: 'green',
-    width: '100%',
+    width: '100%', // Responsive Design
+    // width: scale_mod(344) // As per Figma
   },
 
 });

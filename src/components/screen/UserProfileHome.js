@@ -24,9 +24,10 @@ const styles = StyleSheet.create({
     container: {
         // borderWidth: 2,
         width: '100%',
-        aspectRatio: 2.68/1,
+        // aspectRatio: 2.68/1,
+        height: scale_mod(120),
         justifyContent: 'flex-end',
-        paddingBottom: scale_mod(32)
+        marginBottom: scale_mod(20)
     },
     subContainer: {
         display: 'flex',

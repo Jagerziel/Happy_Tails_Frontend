@@ -63,7 +63,10 @@ const styles = StyleSheet.create({
   subContainer: {
 
     maxHeight: Dimensions.get('window').height,
-    padding: scale_mod(13),
+    paddingTop: scale_mod(13),
+    paddingBottom: scale_mod(13),
+    paddingLeft: scale_mod(13),
+    paddingRight: scale_mod(13),
     display: "flex",
     flexDirection: "column",
   },

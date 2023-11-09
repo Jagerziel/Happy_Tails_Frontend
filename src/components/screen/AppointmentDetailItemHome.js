@@ -45,6 +45,13 @@ function AppointmentDetailItemHome( {
                         numberOfLines={1}
                     >{data.item.type}</Text>
                 </View>
+                <View style={styles.visitTypeContainer}>
+                    <Text style={[styleMaster.defaultFont, styles.visitTypeHeader]}>{"Address: \n"}</Text>
+                    <Text 
+                        style={[styleMaster.defaultFont, styles.visitTypeText]}
+                        numberOfLines={2}
+                    >{`5211 Cypress Creek Pkwy \nSuite Z, Houston, TX 77069`}</Text>
+                </View>
                 <View style={styles.bottomContainer}>
                     <View style={styles.bottomSubContainerLeft}>
                         {
@@ -96,7 +103,7 @@ const styles = StyleSheet.create({
     container: {
         // borderWidth: 2,
         width: '100%',
-        height: scale_mod(207),
+        height: scale_mod(259),
         paddingTop: scale_mod(16),
         paddingBottom: scale_mod(16),
         paddingLeft: scale_mod(16),
@@ -135,7 +142,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         width: '100%',
-        // overflow: 'hidden',
         alignItems: 'center',
     },
     visitTypeHeader: {
