@@ -7,6 +7,7 @@ export const colors = {
     error: '#D44747',
     darkBlue: '#2E3150',
     black: '#000000',
+    red: '#FF2E2E',
     grayscale01: '#2E3150',
     grayscale02: '#727272',
     grayscale03: '#ACACAC',

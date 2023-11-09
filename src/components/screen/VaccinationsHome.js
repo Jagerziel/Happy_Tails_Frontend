@@ -24,7 +24,16 @@ function VaccinationsHome( {petIDs, vaccinationsData }) {
             </View>
             {vaccinationsData.length > 0 ? 
             <View style={styles.contentContainerActive}>
-                
+                <View style={styles.lineAccent}></View>
+                <View style={styles.subContainer}>
+                    <View style={styles.titleContainer}>
+                        <Text style={[styleMaster.defaultFont, styles.titleText]}>Due Vaccination</Text>
+                    </View>
+
+
+
+
+                </View>
             </View> :
             <View style={styles.contentContainerInactive}>
                 <View style={styles.viewPartition}>
@@ -48,7 +57,7 @@ const styles = StyleSheet.create({
         // borderColor: "red",
         // borderWidth: 2,
         width: '100%',
-        aspectRatio: 1.82/1,
+        aspectRatio: 1.82/1,       
         marginTop: scale_mod(20),
         marginBottom: scale_mod(80),
     }, 
@@ -67,7 +76,7 @@ const styles = StyleSheet.create({
         fontSize: scale_V(17),
     },
     contentContainerActive: {
-        borderColor: "red",
+        // borderColor: "red",
         borderWidth: 2,
         backgroundColor: colors.white,
         width: '100%',
@@ -78,8 +87,39 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         // flexWrap: 'wrap',
-
     }, 
+    lineAccent: {
+        borderWidth: 1.5,
+        borderColor: colors.red,
+        height: scale_mod(181),
+        borderTopRightRadius: scale_mod(6),
+        borderBottomRightRadius: scale_mod(6),
+    },
+    subContainer: {
+        height: '100%',
+        flex: 1,
+        backgroundColor: colors.white,
+        paddingTop: scale_mod(14),
+        paddingLeft: scale_mod(15),
+        paddingRight: scale_mod(15),
+        // paddingBottom: scale_mod(15),
+        justifyContent: 'space-between',
+        borderRadius: 7,
+    },
+    titleContainer: {
+        // borderWidth: 2,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingBottom: scale_mod(8),
+        borderBottomWidth: 2,
+        borderBottomColor: colors.greyscale08,
+    },
+    titleText: {
+        fontSize: scale_V(14),
+        fontFamily: "RobotoRegular",
+        color: colors.grayscale02,
+    },
     contentContainerInactive: {
         // borderWidth: 2,
         width: `100%`,
