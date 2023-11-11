@@ -1,6 +1,6 @@
 // Import React
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 // Import Constants
 import { colors } from '../../constants/colorPalette.js';
@@ -14,6 +14,8 @@ import SleepyCat02 from '../../assets/sleepy_cat_02.png'
 
 function VaccinationsHome( {petIDs, vaccinationsData }) {
     // console.log(vaccinationsData)
+    const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(5) }} />; // Gap for Flatlist
+    
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
@@ -30,7 +32,7 @@ function VaccinationsHome( {petIDs, vaccinationsData }) {
                         <Text style={[styleMaster.defaultFont, styles.titleText]}>Due Vaccination</Text>
                     </View>
 
-
+                    <Text>Hello</Text>
 
 
                 </View>
@@ -103,7 +105,7 @@ const styles = StyleSheet.create({
         paddingLeft: scale_mod(15),
         paddingRight: scale_mod(15),
         // paddingBottom: scale_mod(15),
-        justifyContent: 'space-between',
+        // justifyContent: 'space-between',
         borderRadius: 7,
     },
     titleContainer: {
@@ -114,6 +116,7 @@ const styles = StyleSheet.create({
         paddingBottom: scale_mod(8),
         borderBottomWidth: 2,
         borderBottomColor: colors.greyscale08,
+        marginBottom: scale_mod(14),
     },
     titleText: {
         fontSize: scale_V(14),
