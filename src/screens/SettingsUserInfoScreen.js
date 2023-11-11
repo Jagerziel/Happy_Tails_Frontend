@@ -123,7 +123,9 @@ function SettingsUserInfoScreen(props) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.headerContainer}>
-                    <Text style={[styleMaster.defaultFont, styles.headerText]}>User Info</Text>
+                    <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                        First Name
+                    </Text>
                 </View>
                 <View style={styles.inputContainer}>
                     {
@@ -136,6 +138,26 @@ function SettingsUserInfoScreen(props) {
                         <TextInputField 
                             name={"first_name"} 
                             placeholder={"First Name"} 
+                            handleTextInput={handleTextInput}
+                        />
+                    }
+                </View>
+                <View style={styles.headerContainer}>
+                    <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                        Last Name
+                    </Text>
+                </View>
+                <View style={styles.inputContainer}>
+                    {
+                        !editUserData.last_name ?    
+                        <TouchableOpacity onPress={() => handleEditData('last_name')}>
+                            <StaticInputFieldCustom 
+                                name={textInputData['last_name'] === "" ? userData.last_name : textInputData['last_name']}
+                            />
+                        </TouchableOpacity> :
+                        <TextInputField 
+                            name={"last_name"} 
+                            placeholder={"Last Name"} 
                             handleTextInput={handleTextInput}
                         />
                     }
