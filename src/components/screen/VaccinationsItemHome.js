@@ -12,9 +12,7 @@ import HourGlass from '../../assets/hourglass.bottomhalf.fill.svg'
 import Dog from '../../assets/temp_pet_pic_dog.jpg'
 import Cat from '../../assets/temp_pet_pic_cat.jpg'
 
-function VaccinationsItemHome( { data, petIDs} ) {
-    console.log(data.item)
-
+function VaccinationsItemHome( { data, petIDs } ) {
     return (
         <View style={styles.container}>
             <View style={styles.dateContainer}>

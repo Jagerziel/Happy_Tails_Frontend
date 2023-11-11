@@ -7,6 +7,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import Navigation from "../components/shared/Navigation";
 import LoginScreenButton from "../components/shared/LoginScreenButton.js";
 import TextInputField from "../components/shared/TextInputField.js"
+import StaticInputFieldCustom from "../components/shared/StaticInputFieldCustom.js";
 import { checkOneField } from "../data/functions/conditionalButton.js";
 
 // Import Constants
@@ -31,6 +32,23 @@ function SettingsUserInfoScreen(props) {
         image: "",
     })
 
+    const [ editUserData, setEditUserData ] = useState({
+        first_name: false,
+        last_name: false,
+        email: false,
+        phone: false,
+        password: false,
+        address: false,
+        state: false,
+        city: false,
+        zip: false,
+        ec_name: false,
+        ec_phone: false,
+        image: false,
+    })
+
+    const [ lastSelected, setLastSelected ] = useState("")
+
     const [ disabled, setDisabled ] = useState(true)
     let textInputArr = Object.values(textInputData)
 
@@ -44,6 +62,16 @@ function SettingsUserInfoScreen(props) {
 
     function handleReturnToPrev () {
         navigation.navigate("SettingsScreen")
+    }
+
+    function handleEditData( field ) {
+        console.log(editUserData)
+        if (lastSelected !== "") {
+            setEditUserData({...editUserData, [lastSelected]: false, [field]: true})
+        } else {
+            setEditUserData({...editUserData, [field]: true})
+        }
+        setLastSelected(field)
     }
 
     function handleTextInput ( key, text ) {
@@ -60,89 +88,48 @@ function SettingsUserInfoScreen(props) {
         navigation.navigate("SettingsScreen")
     }
 
-
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
-        <ScrollView 
-            style={[styleMaster.subParent]}
-            keyboardShouldPersistTaps={"handled"}
-        >
-            <View style={styles.returnContainer}>
-                <TouchableOpacity onPress={() => handleReturnToPrev()}>
-                    <ReturnArrowSVG />
-                </TouchableOpacity>
-            </View>
-            <View style={styles.headerContainer}>
-                <Text style={[styleMaster.defaultFont, styles.headerText]}>User Info</Text>
-            </View>
-            <View style={styles.inputContainer}>
-                <TextInputField 
-                    name={"first_name"} 
-                    placeholder={"First Name"} 
-                    handleTextInput={handleTextInput}
-                />
-            </View>
-            <View style={styles.inputContainer}>
-                <TextInputField 
-                    name={"last_name"} 
-                    placeholder={"Last Name"} 
-                    handleTextInput={handleTextInput}
-                />
-            </View>
-            <View style={styles.inputContainer}>
-                <TextInputField 
-                    name={"phone"} 
-                    placeholder={"Phone"} 
-                    handleTextInput={handleTextInput}
-                />
-            </View>
-            <View style={styles.inputContainer}>
-                <TextInputField 
-                    name={"email"} 
-                    placeholder={"Email"} 
-                    handleTextInput={handleTextInput}
-                />
-            </View>
-            <View style={styles.inputContainer}>
-                <TextInputField 
-                    name={"address"} 
-                    placeholder={"Address"} 
-                    handleTextInput={handleTextInput}
-                />
-            </View>
-            <View style={styles.inputContainer}>
-                <TextInputField 
-                    name={"city"} 
-                    placeholder={"City"} 
-                    handleTextInput={handleTextInput}
-                />
-            </View>
-            <View style={styles.inputContainer}>
-                <TextInputField 
-                    name={"state"} 
-                    placeholder={"State"} 
-                    handleTextInput={handleTextInput}
-                />
-            </View>
-            <View style={styles.inputContainer}>
-                <TextInputField 
-                    name={"zip"} 
-                    placeholder={"Postal Code"} 
-                    handleTextInput={handleTextInput}
-                />
-            </View>
-            <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
-                <LoginScreenButton 
-                    text={'Save'} 
-                    handlePress={() => {
-                        handleSaveUser()
-                    }}
-                    disabled={disabled}
-                />
-            </View>
-        
-        </ScrollView>
-        <Navigation />
+            <ScrollView 
+                style={[styleMaster.subParent]}
+                keyboardShouldPersistTaps={"handled"}
+            >
+                <View style={styles.returnContainer}>
+                    <TouchableOpacity onPress={() => handleReturnToPrev()}>
+                        <ReturnArrowSVG />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.headerContainer}>
+                    <Text style={[styleMaster.defaultFont, styles.headerText]}>User Info</Text>
+                </View>
+                <View style={styles.inputContainer}>
+                    {
+                        !editUserData.first_name ?    
+                        <TouchableOpacity onPress={() => handleEditData('first_name')}>
+                            <StaticInputFieldCustom 
+                                name={'Testing Static Input Field'}
+                            />
+                        </TouchableOpacity> :
+                        <TextInputField 
+                            name={"first_name"} 
+                            placeholder={"First Name"} 
+                            handleTextInput={handleTextInput}
+                        />
+                    }
+                </View>
+
+                <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
+                    <LoginScreenButton 
+                        text={'Save'} 
+                        handlePress={() => {
+                            handleSaveUser()
+                        }}
+                        disabled={disabled}
+                    />
+                </View>
+            
+            </ScrollView>
+            <Navigation />
         </SafeAreaView>
     );
 }
@@ -168,8 +155,11 @@ const styles = StyleSheet.create({
         paddingBottom: scale_mod(4),
     },
     headerText: {
-        fontSize: scale_V(32),
+        fontSize: scale_V(14),  
+        paddingTop: scale_mod(8),
+        paddingBottom: scale_mod(4),
         fontFamily: "RalewayBold",
+        color: colors.grayscale02,
     },
     logoutText: {
         fontFamily: "RobotoLight",
@@ -183,6 +173,6 @@ const styles = StyleSheet.create({
         paddingBottom: scale_mod(8),
     },
     inputContainer: {
-        paddingTop: scale_mod(8),
+        // paddingTop: scale_mod(8),
     }
 });
