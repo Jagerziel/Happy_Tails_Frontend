@@ -16,6 +16,10 @@ import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling.
 import { colors } from "../constants/colorPalette.js";
 import ReturnArrowSVG from "../assets/return_arrow_blue.svg"
 
+// Import State Management
+import { useSelector, useDispatch } from "react-redux";
+import { updateUserData } from '../store/reducers/userDataReducer.js'
+
 function SettingsUserInfoScreen(props) {
     const [ textInputData, setTextDataInput ] = useState({
         first_name: "",
@@ -50,11 +54,24 @@ function SettingsUserInfoScreen(props) {
     const [ lastSelected, setLastSelected ] = useState("")
 
     const [ disabled, setDisabled ] = useState(true)
+
+    const [ staticPlaceholder , setStaticPlaceholder] = useState("")
+
+    // Redux 
+    const dispatch = useDispatch(); // useDispatch
+    const userData = useSelector((state) => state.userData.data)
+    /*
+        {"__v": 0, "_id": "6539503228bb6c8cbc5e42d4", "address": "123 Street", "city": "Brooklyn", "createdAt": "2023-10-25T17:28:18.302Z", "ec_name": "", "ec_notes": "", "ec_phone": "", "ec_relationship": "", "email": "ryan.ehrlich@ymail.com", "first_name": "Ryan", "image": "", "last_name": "Retesting again", "password": "12345", "phone": "", "state": "NY", "updatedAt": "2023-10-27T14:39:41.743Z", "zip": ""}
+    */
+
     let textInputArr = Object.values(textInputData)
 
     useEffect(() => {
         setDisabled(checkOneField(textInputArr))
     }, [textInputData])
+
+
+
 
     // Navigation
     const navigation = useNavigation();
@@ -64,14 +81,20 @@ function SettingsUserInfoScreen(props) {
         navigation.navigate("SettingsScreen")
     }
 
-    function handleEditData( field ) {
-        console.log(editUserData)
+    function handleEditData( key ) {
         if (lastSelected !== "") {
-            setEditUserData({...editUserData, [lastSelected]: false, [field]: true})
+            setEditUserData({...editUserData, [lastSelected]: false, [key]: true})
         } else {
-            setEditUserData({...editUserData, [field]: true})
+            setEditUserData({...editUserData, [key]: true})
         }
-        setLastSelected(field)
+        setLastSelected(key)
+    }
+
+    function displayInfo ( key, defaultInfo ) {
+        if ( textInputData[key] !== "" ) return textInputData[key]
+        if ( userData[key] !== "") return userData[key]
+        if ( userData[key] === "") return defaultInfo
+        return "First Name"
     }
 
     function handleTextInput ( key, text ) {
@@ -85,7 +108,7 @@ function SettingsUserInfoScreen(props) {
         **************************************************
         */
         console.log('User Information Saved')
-        navigation.navigate("SettingsScreen")
+        // navigation.navigate("SettingsScreen")
     }
 
     return (
@@ -107,7 +130,7 @@ function SettingsUserInfoScreen(props) {
                         !editUserData.first_name ?    
                         <TouchableOpacity onPress={() => handleEditData('first_name')}>
                             <StaticInputFieldCustom 
-                                name={'Testing Static Input Field'}
+                                name={textInputData['first_name'] === "" ? userData.first_name : textInputData['first_name']}
                             />
                         </TouchableOpacity> :
                         <TextInputField 
