@@ -184,8 +184,10 @@ const styles = StyleSheet.create({
   },
   subHeader: {
     fontSize: scale_V(14),  
-    paddingTop: scale_mod(4),
-    paddingBottom: scale_mod(10),
+    paddingTop: scale_mod(8),
+    paddingBottom: scale_mod(4),
+    fontFamily: "RalewayBold",
+    color: colors.grayscale02,
   },
   dateContainer: {
     // borderWidth: 2,
