@@ -12,10 +12,10 @@ import VaccinationsItemHome from './VaccinationsItemHome.js';
 
 function VaccinationsHome( {petIDs, vaccinationsData }) {
     // console.log(vaccinationsData)
-    const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(7.6) }} />; // Gap for Flatlist
+    const itemSeparator = () => <View style={{ marginVertical: scale_mod(8) }} />; // Gap for Flatlist
     // console.log(petIDs)
 
-    
+
 
 
     return (
@@ -38,7 +38,7 @@ function VaccinationsHome( {petIDs, vaccinationsData }) {
                     <FlatList 
                         keyExtractor={(vaccinationsData) => vaccinationsData["_id"]} // Key
                         ItemSeparatorComponent={itemSeparator} // Gap between items
-                        data={vaccinationsData} // Data
+                        data={vaccinationsData.slice(0,3)} // Data
                         renderItem={(data) => <VaccinationsItemHome data={data} petIDs={petIDs}/>} // Component to be rendered
                         showsVerticalScrollIndicator = { false } // Removes Scrollbar
                         scrollEnabled={ false } // Enables Scrolling
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     },
     contentContainerActive: {
         // borderColor: "red",
-        borderWidth: 2,
+        // borderWidth: 2,
         backgroundColor: colors.white,
         width: '100%',
         height: scale_mod(205),
