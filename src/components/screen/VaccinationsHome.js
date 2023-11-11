@@ -7,15 +7,14 @@ import { colors } from '../../constants/colorPalette.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 
-// Import Assets
-import HourGlass from '../../assets/hourglass.bottomhalf.fill.svg'
-import SleepyCat01 from '../../assets/sleepy_cat_01.png'
-import SleepyCat02 from '../../assets/sleepy_cat_02.png'
+// Import Components
+import VaccinationsItemHome from './VaccinationsItemHome.js';
 
 function VaccinationsHome( {petIDs, vaccinationsData }) {
     // console.log(vaccinationsData)
     const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(5) }} />; // Gap for Flatlist
-    
+    console.log(vaccinationsData)
+
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
@@ -24,19 +23,24 @@ function VaccinationsHome( {petIDs, vaccinationsData }) {
                     <Text style={[styleMaster.defaultFont, styles.viewAll]}>View All</Text>
                 </TouchableOpacity>
             </View>
-            {vaccinationsData.length > 0 ? 
+            {vaccinationsData !== undefined ? 
             <View style={styles.contentContainerActive}>
                 <View style={styles.lineAccent}></View>
                 <View style={styles.subContainer}>
                     <View style={styles.titleContainer}>
                         <Text style={[styleMaster.defaultFont, styles.titleText]}>Due Vaccination</Text>
                     </View>
-
-                    <Text>Hello</Text>
-
-
+                    <FlatList 
+                        keyExtractor={(vaccinationsData) => vaccinationsData["_id"]} // Key
+                        ItemSeparatorComponent={itemSeparator} // Gap between items
+                        data={vaccinationsData} // Data
+                        renderItem={(data) => <VaccinationsItemHome data={data}/>} // Component to be rendered
+                        showsVerticalScrollIndicator = { false } // Removes Scrollbar
+                        scrollEnabled={ false } // Enables Scrolling
+                    />
                 </View>
-            </View> :
+            </View> 
+            :
             <View style={styles.contentContainerInactive}>
                 <View style={styles.viewPartition}>
                     <Text style={[styles.defaultFont, styles.incativeText]}>Look like you don't have any vaccinations that are due soon.</Text>
@@ -47,7 +51,8 @@ function VaccinationsHome( {petIDs, vaccinationsData }) {
                         source={require('../../assets/sleepy_cat_02.png')}
                     />
                 </View>
-            </View>}
+            </View>
+            }
         </View>
     );
 }

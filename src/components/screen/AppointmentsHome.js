@@ -19,7 +19,8 @@ function AppointmentsHome( { petIDs, appointmentData }) {
 
     const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(5) }} />; // Gap for Flatlist
 
-    const appointmentDataShallowCopy = [...appointmentData]
+    
+    const appointmentDataShallowCopy = appointmentData ? [] : [...appointmentData] // Fixes error when logging in with no user
     const sortedAppointmentData = sortByDateAndTime(appointmentDataShallowCopy, "after")
 
     function handleViewAll () {
