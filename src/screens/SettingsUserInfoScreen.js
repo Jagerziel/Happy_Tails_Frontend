@@ -1,6 +1,6 @@
 // Import React
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Components
@@ -113,67 +113,190 @@ function SettingsUserInfoScreen(props) {
 
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
-            <ScrollView 
+            <TouchableWithoutFeedback
                 style={[styleMaster.subParent]}
-                keyboardShouldPersistTaps={"handled"}
+                // keyboardShouldPersistTaps={"handled"}
+                onPress={() => setEditUserData({...editUserData, [lastSelected]: false})}
             >
-                <View style={styles.returnContainer}>
-                    <TouchableOpacity onPress={() => handleReturnToPrev()}>
-                        <ReturnArrowSVG />
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.headerContainer}>
-                    <Text style={[styleMaster.defaultFont, styles.headerText]}>
-                        First Name
-                    </Text>
-                </View>
-                <View style={styles.inputContainer}>
-                    {
-                        !editUserData.first_name ?    
-                        <TouchableOpacity onPress={() => handleEditData('first_name')}>
-                            <StaticInputFieldCustom 
-                                name={textInputData['first_name'] === "" ? userData.first_name : textInputData['first_name']}
-                            />
-                        </TouchableOpacity> :
-                        <TextInputField 
-                            name={"first_name"} 
-                            placeholder={"First Name"} 
-                            handleTextInput={handleTextInput}
-                        />
-                    }
-                </View>
-                <View style={styles.headerContainer}>
-                    <Text style={[styleMaster.defaultFont, styles.headerText]}>
-                        Last Name
-                    </Text>
-                </View>
-                <View style={styles.inputContainer}>
-                    {
-                        !editUserData.last_name ?    
-                        <TouchableOpacity onPress={() => handleEditData('last_name')}>
-                            <StaticInputFieldCustom 
-                                name={textInputData['last_name'] === "" ? userData.last_name : textInputData['last_name']}
-                            />
-                        </TouchableOpacity> :
-                        <TextInputField 
-                            name={"last_name"} 
-                            placeholder={"Last Name"} 
-                            handleTextInput={handleTextInput}
-                        />
-                    }
-                </View>
+                <View style={[styleMaster.subParent]}>
 
-                <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
-                    <LoginScreenButton 
-                        text={'Save'} 
-                        handlePress={() => {
-                            handleSaveUser()
-                        }}
-                        disabled={disabled}
-                    />
+                    <View style={styles.returnContainer}>
+                        <TouchableOpacity onPress={() => handleReturnToPrev()}>
+                            <ReturnArrowSVG />
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.headerContainer}>
+                        <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                            First Name
+                        </Text>
+                    </View>
+                    <View style={styles.inputContainer}>
+                        {
+                            !editUserData.first_name ?    
+                            <TouchableOpacity onPress={() => handleEditData('first_name')}>
+                                <StaticInputFieldCustom 
+                                    name={textInputData['first_name'] === "" ? userData.first_name : textInputData['first_name']}
+                                />
+                            </TouchableOpacity> :
+                            <TextInputField 
+                                name={"first_name"} 
+                                placeholder={"First Name"} 
+                                handleTextInput={handleTextInput}
+                            />
+                        }
+                    </View>
+                    <View style={styles.headerContainer}>
+                        <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                            Last Name
+                        </Text>
+                    </View>
+                    <View style={styles.inputContainer}>
+                        {
+                            !editUserData.last_name ?    
+                            <TouchableOpacity onPress={() => handleEditData('last_name')}>
+                                <StaticInputFieldCustom 
+                                    name={textInputData['last_name'] === "" ? userData.last_name : textInputData['last_name']}
+                                />
+                            </TouchableOpacity> :
+                            <TextInputField 
+                                name={"last_name"} 
+                                placeholder={"Last Name"} 
+                                handleTextInput={handleTextInput}
+                            />
+                        }
+                    </View>
+                    <View style={styles.headerContainer}>
+                        <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                            Phone
+                        </Text>
+                    </View>
+                    <View style={styles.inputContainer}>
+                        {
+                            !editUserData.phone ?    
+                            <TouchableOpacity onPress={() => handleEditData('phone')}>
+                                <StaticInputFieldCustom 
+                                    name={textInputData['phone'] === "" ? userData.phone : textInputData['phone']}
+                                />
+                            </TouchableOpacity> :
+                            <TextInputField 
+                                name={"phone"} 
+                                placeholder={"Phone"} 
+                                handleTextInput={handleTextInput}
+                            />
+                        }
+                    </View>
+                    <View style={styles.headerContainer}>
+                        <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                            Email
+                        </Text>
+                    </View>
+                    <View style={styles.inputContainer}>
+                        {
+                            !editUserData.email ?    
+                            <TouchableOpacity onPress={() => handleEditData('email')}>
+                                <StaticInputFieldCustom 
+                                    name={textInputData['email'] === "" ? userData.email : textInputData['email']}
+                                />
+                            </TouchableOpacity> :
+                            <TextInputField 
+                                name={"email"} 
+                                placeholder={"Email"} 
+                                handleTextInput={handleTextInput}
+                            />
+                        }
+                    </View>
+                    <View style={styles.headerContainer}>
+                        <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                            Address
+                        </Text>
+                    </View>
+                    <View style={styles.inputContainer}>
+                        {
+                            !editUserData.address ?    
+                            <TouchableOpacity onPress={() => handleEditData('address')}>
+                                <StaticInputFieldCustom 
+                                    name={textInputData['address'] === "" ? userData.address : textInputData['address']}
+                                />
+                            </TouchableOpacity> :
+                            <TextInputField 
+                                name={"address"} 
+                                placeholder={"Address"} 
+                                handleTextInput={handleTextInput}
+                            />
+                        }
+                    </View>
+                    <View style={styles.headerContainer}>
+                        <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                            City
+                        </Text>
+                    </View>
+                    <View style={styles.inputContainer}>
+                        {
+                            !editUserData.city ?    
+                            <TouchableOpacity onPress={() => handleEditData('city')}>
+                                <StaticInputFieldCustom 
+                                    name={textInputData['city'] === "" ? userData.city : textInputData['city']}
+                                />
+                            </TouchableOpacity> :
+                            <TextInputField 
+                                name={"city"} 
+                                placeholder={"City"} 
+                                handleTextInput={handleTextInput}
+                            />
+                        }
+                    </View>
+                    <View style={styles.headerContainer}>
+                        <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                            State
+                        </Text>
+                    </View>
+                    <View style={styles.inputContainer}>
+                        {
+                            !editUserData.state ?    
+                            <TouchableOpacity onPress={() => handleEditData('state')}>
+                                <StaticInputFieldCustom 
+                                    name={textInputData['state'] === "" ? userData.state : textInputData['state']}
+                                />
+                            </TouchableOpacity> :
+                            <TextInputField 
+                                name={"state"} 
+                                placeholder={"State"} 
+                                handleTextInput={handleTextInput}
+                            />
+                        }
+                    </View>
+                    <View style={styles.headerContainer}>
+                        <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                            Postal Code
+                        </Text>
+                    </View>
+                    <View style={styles.inputContainer}>
+                        {
+                            !editUserData.zip ?    
+                            <TouchableOpacity onPress={() => handleEditData('zip')}>
+                                <StaticInputFieldCustom 
+                                    name={textInputData['zip'] === "" ? userData.zip : textInputData['zip']}
+                                />
+                            </TouchableOpacity> :
+                            <TextInputField 
+                                name={"zip"} 
+                                placeholder={"Postal Code"} 
+                                handleTextInput={handleTextInput}
+                            />
+                        }
+                    </View>
+                    <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
+                        <LoginScreenButton 
+                            text={'Save'} 
+                            handlePress={() => {
+                                handleSaveUser()
+                            }}
+                            disabled={disabled}
+                        />
+                    </View>
                 </View>
-            
-            </ScrollView>
+            </TouchableWithoutFeedback>
             <Navigation />
         </SafeAreaView>
     );
