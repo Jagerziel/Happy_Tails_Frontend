@@ -12,8 +12,11 @@ import VaccinationsItemHome from './VaccinationsItemHome.js';
 
 function VaccinationsHome( {petIDs, vaccinationsData }) {
     // console.log(vaccinationsData)
-    const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(5) }} />; // Gap for Flatlist
-    console.log(vaccinationsData)
+    const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(7.6) }} />; // Gap for Flatlist
+    // console.log(petIDs)
+
+    
+
 
     return (
         <View style={styles.container}>
@@ -23,7 +26,9 @@ function VaccinationsHome( {petIDs, vaccinationsData }) {
                     <Text style={[styleMaster.defaultFont, styles.viewAll]}>View All</Text>
                 </TouchableOpacity>
             </View>
-            {vaccinationsData !== undefined ? 
+            {vaccinationsData.length !== undefined ||
+            vaccinationsData.length > 0 
+            ? 
             <View style={styles.contentContainerActive}>
                 <View style={styles.lineAccent}></View>
                 <View style={styles.subContainer}>
@@ -34,7 +39,7 @@ function VaccinationsHome( {petIDs, vaccinationsData }) {
                         keyExtractor={(vaccinationsData) => vaccinationsData["_id"]} // Key
                         ItemSeparatorComponent={itemSeparator} // Gap between items
                         data={vaccinationsData} // Data
-                        renderItem={(data) => <VaccinationsItemHome data={data}/>} // Component to be rendered
+                        renderItem={(data) => <VaccinationsItemHome data={data} petIDs={petIDs}/>} // Component to be rendered
                         showsVerticalScrollIndicator = { false } // Removes Scrollbar
                         scrollEnabled={ false } // Enables Scrolling
                     />
