@@ -1,6 +1,6 @@
 // Import React
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
+import { Alert, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Components
@@ -19,6 +19,9 @@ import ReturnArrowSVG from "../assets/return_arrow_blue.svg"
 // Import State Management
 import { useSelector, useDispatch } from "react-redux";
 import { updateUserData } from '../store/reducers/userDataReducer.js'
+
+// Import API Call
+import { updateUser } from "../server/user.js";
 
 function SettingsUserInfoScreen(props) {
     const [ textInputData, setTextDataInput ] = useState({
@@ -51,11 +54,12 @@ function SettingsUserInfoScreen(props) {
         image: false,
     })
 
+    // Track last selected field
     const [ lastSelected, setLastSelected ] = useState("")
-
+    // Status of whether update button should be disabled
     const [ disabled, setDisabled ] = useState(true)
-
-    const [ staticPlaceholder , setStaticPlaceholder] = useState("")
+    // Toggle between delete button and update button
+    const [ showDeleteButton, setShowDeleteButton ] = useState(true)
 
     // Redux 
     const dispatch = useDispatch(); // useDispatch
@@ -69,9 +73,6 @@ function SettingsUserInfoScreen(props) {
     useEffect(() => {
         setDisabled(checkOneField(textInputArr))
     }, [textInputData])
-
-
-
 
     // Navigation
     const navigation = useNavigation();
@@ -88,6 +89,7 @@ function SettingsUserInfoScreen(props) {
             setEditUserData({...editUserData, [key]: true})
         }
         setLastSelected(key)
+        if (showDeleteButton === true) setShowDeleteButton(false)
     }
 
     function displayInfo ( key, defaultInfo ) {
@@ -107,6 +109,7 @@ function SettingsUserInfoScreen(props) {
         UPDATE STORED USER DATA
         **************************************************
         */
+        // Update  
         let updatedData = ({
             first_name: textInputData.first_name === "" ? userData.first_name : textInputData.first_name,
             last_name: textInputData.last_name === "" ? userData.last_name : textInputData.last_name,
@@ -123,13 +126,49 @@ function SettingsUserInfoScreen(props) {
             ec_phone: userData.ec_phone, 
             ec_relationship: userData.ec_relationship,
         })
+        const updatedUser = await updateUser(updatedData, userData["_id"])
 
-        console.log(updatedData)
 
+        dispatch(updateUserData(updatedUser))
+
+        setTextDataInput({
+            first_name: "",
+            last_name: "",
+            email: "",
+            phone: "",
+            password: "",
+            address: "",
+            state: "",
+            city: "",
+            zip: "",
+            ec_name: "",
+            ec_phone: "",
+            image: "",
+        })
+
+        setEditUserData({
+            first_name: false,
+            last_name: false,
+            email: false,
+            phone: false,
+            password: false,
+            address: false,
+            state: false,
+            city: false,
+            zip: false,
+            ec_name: false,
+            ec_phone: false,
+            image: false,
+        })
+
+        setShowDeleteButton(true)
 
         console.log('User Information Saved')
+
         // navigation.navigate("SettingsScreen")
     }
+
+    console.log(showDeleteButton)
 
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
@@ -309,13 +348,21 @@ function SettingsUserInfoScreen(props) {
                             }
                         </View>
                         <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
-                            <LoginScreenButton 
-                                text={'Save'} 
-                                handlePress={() => {
-                                    handleSaveUser()
-                                }}
-                                disabled={disabled}
-                            />
+                            { showDeleteButton ?
+                                <TouchableOpacity 
+                                    onPress={() => console.log('delete')}
+
+                                >
+                                    <Text style={[styleMaster.defaultFont, styles.deleteText]}>Delete User</Text>
+                                </TouchableOpacity> :
+                                <LoginScreenButton 
+                                    text={'Save'} 
+                                    handlePress={() => {
+                                        handleSaveUser()
+                                    }}
+                                    disabled={disabled}
+                                />
+                            }
                         </View>
                     </ScrollView>
                 <View style={{paddingBottom: scale_mod(80)}}></View>
@@ -353,18 +400,12 @@ const styles = StyleSheet.create({
         fontFamily: "RalewayBold",
         color: colors.grayscale02,
     },
-    logoutText: {
-        fontFamily: "RobotoLight",
-        color: colors.black,
-        paddingRight: scale_mod(7),
-    },
-    title: {
-        fontSize: scale_V(21),
-        fontFamily: "RalewayBold",
-        paddingTop: scale_mod(28),
-        paddingBottom: scale_mod(8),
-    },
     inputContainer: {
-        // paddingTop: scale_mod(8),
-    }
+        width: scale_mod(343)
+    },
+    deleteText: {
+        fontSize: scale_V(13),
+        color: colors.error,
+        textDecorationLine: 'underline',
+    },
 });

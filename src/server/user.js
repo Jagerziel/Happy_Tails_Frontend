@@ -71,7 +71,7 @@ export const updateUser = async (input, id) => {
             },
             body: JSON.stringify(input),
         })
-        const data = await response.data()
+        const data = await response.json()
         return data
     } catch (error) {
         console.log(`Update User failed: ${error}`)
