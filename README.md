@@ -11,11 +11,13 @@ Happy Tails is a mobile application built to put all your pet's medical informat
 *The landing screen when a user first logs into the application.  This screen provides the user with an overview of their pets' appointments and current vaccination status.*  
 
 ![Home Screen](./src/assets/RM_HomeScreen01.png)
+![Home Appointment Details Screen](./src/assets/RM_HomeScreen02.png)
 
 **My Pets Screen**
 
 *On this screen a user can add a new pet as well as view the full profile of any of their pets.*  
 
+![My Pets Screen](./src/assets/RM_PetsScreen02.png)
 ![My Pets Screen](./src/assets/RM_PetsScreen01.png)
 
 **Book Appointment Screen**
@@ -23,6 +25,7 @@ Happy Tails is a mobile application built to put all your pet's medical informat
 *This screen allows a user to book an appointment with their vet.*  
 
 ![Booking Screen](./src/assets/RM_BookingScreen01.png)
+![Booking Screen](./src/assets/RM_BookingScreen02.png)
 
 **About Us Screen**
 

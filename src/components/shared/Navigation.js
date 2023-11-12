@@ -29,8 +29,8 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("HomeScreen")}
       >
-        <AntDesign name="home" size={scale_mod(24)} color={iconColor(["HomeScreen"])} />
-        <Text style={[styles.buttonText, { color: iconColor(["HomeScreen"]) }]}>
+        <AntDesign name="home" size={scale_mod(24)} color={iconColor(["HomeScreen", "HomeAppointmentDetailsScreen"])} />
+        <Text style={[styles.buttonText, { color: iconColor(["HomeScreen", "HomeAppointmentDetailsScreen"]) }]}>
           Home
         </Text>
       </TouchableOpacity>
@@ -80,10 +80,10 @@ function Navigation() {
         <Feather
           name="settings"
           size={scale_mod(24)}
-          color={iconColor(["SettingsScreen"])}
+          color={iconColor(["SettingsScreen", "SettingsChangePINScreen", "SettingsUserInfoScreen"])}
         />
         <Text
-          style={[styles.buttonText, { color: iconColor(["SettingsScreen"]) }]}
+          style={[styles.buttonText, { color: iconColor(["SettingsScreen", "SettingsChangePINScreen", "SettingsUserInfoScreen"]) }]}
         >
           Settings
         </Text>
