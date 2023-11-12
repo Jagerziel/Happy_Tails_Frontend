@@ -170,6 +170,22 @@ function SettingsUserInfoScreen(props) {
         // navigation.navigate("SettingsScreen")
     }
 
+    function handleDeleteUserAlert () {
+        Alert.alert('Are you sure you want to delete your account?', `Once deleted, you won't be able to log in`,
+            [
+                {
+                    text: 'Cancel',
+                    onPress: () => console.log('Request Cancelled'),
+                    style: 'cancel'
+                },
+                {
+                    text: 'Delete',
+                    onPress: () => handleDeleteUser()
+                }
+            ]
+        )
+    }
+
     async function handleDeleteUser () {
         // Delete from database
         const userIDToRemove = userData["_id"]
@@ -367,7 +383,7 @@ function SettingsUserInfoScreen(props) {
                         <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
                             { showDeleteButton ?
                                 <TouchableOpacity 
-                                    onPress={() => handleDeleteUser()}
+                                    onPress={() => handleDeleteUserAlert()}
 
                                 >
                                     <Text style={[styleMaster.defaultFont, styles.deleteText]}>Delete User</Text>

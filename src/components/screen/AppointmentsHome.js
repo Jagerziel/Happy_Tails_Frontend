@@ -19,11 +19,10 @@ function AppointmentsHome( { petIDs, appointmentData }) {
 
     const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(5) }} />; // Gap for Flatlist
 
-    
-    
+    // Alleviates error when no appointments are available or an appointment is deleted.
     const appointmentDataShallowCopy = () => {
         try {
-            return [...appointmentData] // Fixes error when logging in with no user
+            return [...appointmentData] 
         } catch (error) {
             return []
         }
@@ -33,7 +32,7 @@ function AppointmentsHome( { petIDs, appointmentData }) {
     function handleViewAll () {
         navigation.navigate('HomeAppointmentDetailsScreen')   
     }
-    console.log(appointmentData)
+
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>

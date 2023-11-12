@@ -12,6 +12,18 @@ import GreenDot from '../../assets/green_dot.svg'
 function AppointmentItemHome( { data, petIDs } ) {
     const updateDateFormat = `${data.item.date.slice(5,7)}/${data.item.date.slice(8,10)}/${data.item.date.slice(0,4)}`
 
+    let petTypeBoolean = "" // Dog === True, Cat === False
+    let petName = ""
+    
+    try {
+        if (petIDs[data.item.pet_id][1] === "Dog") petTypeBoolean = true
+        if (petIDs[data.item.pet_id][1] === "Cat") petTypeBoolean = false
+        petName = petIDs[data.item.pet_id][0]
+    } catch (error) {
+        petTypeBoolean = true // Default Dog
+        petName = ""
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.lineAccent}></View>
@@ -40,14 +52,14 @@ function AppointmentItemHome( { data, petIDs } ) {
                 <View style={styles.bottomContainer}>
                     <View style={styles.bottomSubContainerLeft}>
                         {
-                            petIDs[data.item.pet_id][1] === "Dog" ?
+                            petTypeBoolean ?
                             <Image source={require(`../../assets/temp_pet_pic_dog.jpg`)} style={styles.petImg}/> :
                             <Image source={require(`../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/> 
                         }
                         <Text 
                             style={[styleMaster.defaultFont]}
                             numberOfLines={1}    
-                        >{`${petIDs[data.item.pet_id][0]}`}</Text>
+                        >{petName}</Text>
                     </View>
                     <View style={styles.bottomSubContainerRight}>
                         <View style={styles.icon}>
