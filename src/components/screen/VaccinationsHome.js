@@ -15,9 +15,6 @@ function VaccinationsHome( {petIDs, vaccinationsData }) {
     const itemSeparator = () => <View style={{ marginVertical: scale_mod(8) }} />; // Gap for Flatlist
     // console.log(petIDs)
 
-
-
-
     return (
         <View style={styles.container}>
             <View style={styles.headingContainer}>
@@ -26,7 +23,7 @@ function VaccinationsHome( {petIDs, vaccinationsData }) {
                     <Text style={[styleMaster.defaultFont, styles.viewAll]}>View All</Text>
                 </TouchableOpacity>
             </View>
-            {vaccinationsData.length !== undefined ||
+            {vaccinationsData.length !== undefined && 
             vaccinationsData.length > 0 
             ? 
             <View style={styles.contentContainerActive}>

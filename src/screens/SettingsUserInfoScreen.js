@@ -25,7 +25,7 @@ import { resetVaccinationsData } from "../store/reducers/vaccinationsDataReducer
 
 // Import API Call
 import { updateUser, deleteUser } from "../server/user.js";
-import { deletePet, deletePetsByUser } from "../server/pet.js";
+import { deletePetsByUser } from "../server/pet.js";
 import { deleteAppointmentsByUser } from "../server/appointment.js";
 import { deleteVaccinationsByUser } from "../server/vaccinations.js";
 
@@ -70,13 +70,9 @@ function SettingsUserInfoScreen(props) {
     // Redux 
     const dispatch = useDispatch(); // useDispatch
     const userData = useSelector((state) => state.userData.data)
-    /*
-        {"__v": 0, "_id": "6539503228bb6c8cbc5e42d4", "address": "123 Street", "city": "Brooklyn", "createdAt": "2023-10-25T17:28:18.302Z", "ec_name": "", "ec_notes": "", "ec_phone": "", "ec_relationship": "", "email": "ryan.ehrlich@ymail.com", "first_name": "Ryan", "image": "", "last_name": "Retesting again", "password": "12345", "phone": "", "state": "NY", "updatedAt": "2023-10-27T14:39:41.743Z", "zip": ""}
-    */
-
-    let textInputArr = Object.values(textInputData)
 
     useEffect(() => {
+        let textInputArr = Object.values(textInputData)
         setDisabled(checkOneField(textInputArr))
     }, [textInputData])
 
