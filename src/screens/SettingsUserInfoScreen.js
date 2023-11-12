@@ -18,10 +18,16 @@ import ReturnArrowSVG from "../assets/return_arrow_blue.svg"
 
 // Import State Management
 import { useSelector, useDispatch } from "react-redux";
-import { updateUserData } from '../store/reducers/userDataReducer.js'
+import { updateUserData, resetUserData } from '../store/reducers/userDataReducer.js'
+import { resetPetData } from "../store/reducers/petDataReducer.js";
+import { resetAppointmentData } from "../store/reducers/appointmentDataReducer.js";
+import { resetVaccinationsData } from "../store/reducers/vaccinationsDataReducer.js";
 
 // Import API Call
-import { updateUser } from "../server/user.js";
+import { updateUser, deleteUser } from "../server/user.js";
+import { deletePet, deletePetsByUser } from "../server/pet.js";
+import { deleteAppointmentsByUser } from "../server/appointment.js";
+import { deleteVaccinationsByUser } from "../server/vaccinations.js";
 
 function SettingsUserInfoScreen(props) {
     const [ textInputData, setTextDataInput ] = useState({
@@ -168,7 +174,22 @@ function SettingsUserInfoScreen(props) {
         // navigation.navigate("SettingsScreen")
     }
 
-    console.log(showDeleteButton)
+    async function handleDeleteUser () {
+        // Delete from database
+        const userIDToRemove = userData["_id"]
+        await deleteUser(userIDToRemove)
+        await deletePetsByUser(userIDToRemove)
+        await deleteAppointmentsByUser(userIDToRemove)
+        await deleteVaccinationsByUser(userIDToRemove)
+        // Clear Redux Store (State Management)
+        dispatch(resetUserData());
+        dispatch(resetPetData());
+        dispatch(resetVaccinationsData());
+        dispatch(resetAppointmentData());
+        // Navigate to Home Screen
+        navigation.navigate("LoginScreen")
+    }
+
 
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
@@ -350,7 +371,7 @@ function SettingsUserInfoScreen(props) {
                         <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
                             { showDeleteButton ?
                                 <TouchableOpacity 
-                                    onPress={() => console.log('delete')}
+                                    onPress={() => handleDeleteUser()}
 
                                 >
                                     <Text style={[styleMaster.defaultFont, styles.deleteText]}>Delete User</Text>

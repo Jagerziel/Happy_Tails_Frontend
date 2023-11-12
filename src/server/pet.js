@@ -76,3 +76,14 @@ export const deletePet = async (id) => {
     }
 };
 
+// Delete Pets By User
+export const deletePetsByUser = async (id) => {
+    try{
+        await fetch(URL + `user/${id}`, {
+          method: "DELETE",
+        });
+        return `Pets deleted for user id ${id}`
+    } catch (error) {
+        console.log(`Delete Appointment failed: ${error}`)
+    }
+};
