@@ -133,13 +133,13 @@ function SettingsScreen(props) {
             path={"Emergency Contact"}
           />
         </View>
-        <View style={styles.staticInputContainer}>
+        {/* <View style={styles.staticInputContainer}>
           <StaticInputFieldArrow
             name={"TESTING SCREEN"}
             arrowNext={() => arrowNext("TESTING SCREEN")}
             path={"TESTING SCREEN"}
           />
-        </View>
+        </View> */}
       </ScrollView>
       <Navigation />
     </SafeAreaView>

@@ -40,7 +40,8 @@ function SettingsUserInfoScreen(props) {
         state: "",
         city: "",
         zip: "",
-        ec_name: "",
+        ec_first_name: "",
+        ec_last_name: "",
         ec_phone: "",
         image: "",
     })
@@ -55,7 +56,8 @@ function SettingsUserInfoScreen(props) {
         state: false,
         city: false,
         zip: false,
-        ec_name: false,
+        ec_first_name: false,
+        ec_last_name: false,
         ec_phone: false,
         image: false,
     })
@@ -143,7 +145,8 @@ function SettingsUserInfoScreen(props) {
             state: "",
             city: "",
             zip: "",
-            ec_name: "",
+            ec_first_name: "",
+            ec_last_name: "",
             ec_phone: "",
             image: "",
         })
@@ -158,7 +161,8 @@ function SettingsUserInfoScreen(props) {
             state: false,
             city: false,
             zip: false,
-            ec_name: false,
+            ec_first_name: false,
+            ec_last_name: false,
             ec_phone: false,
             image: false,
         })

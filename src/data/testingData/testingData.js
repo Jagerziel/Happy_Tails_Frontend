@@ -10,8 +10,9 @@ export const userData = [
         state: "New York",
         city: "Brooklyn",
         zip: "11229",
-        ec_name: "Lois",
-        ec_phone: "Lane",
+        ec_first_name: "Lois",
+        ec_last_name: "Lane",
+        ec_phone: "(111) 111-1111",
         image: "https://images.unsplash.com/photo-1532202802379-df93d543bac3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
     }
 ]
