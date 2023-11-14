@@ -74,6 +74,17 @@ function SettingsECScreen(props) {
         setDisabled(checkOneField(textInputArr))
     }, [textInputData])
 
+    useEffect(() => {
+        if (
+            userData.ec_first_name === "" &&
+            userData.ec_last_name === "" &&
+            userData.ec_relationship === "" &&
+            userData.ec_phone === "" 
+        ) {
+            setShowDeleteButton(false)
+        }
+    }, [])
+
     // Navigation
     const navigation = useNavigation();
     const route = useRoute();
