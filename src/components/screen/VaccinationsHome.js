@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingBottom: scale_mod(8),
-        borderBottomWidth: 2,
+        borderBottomWidth: 1,
         borderBottomColor: colors.greyscale08,
         marginBottom: scale_mod(14),
     },

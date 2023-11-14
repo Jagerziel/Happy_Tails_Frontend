@@ -96,12 +96,12 @@ function SettingsUserInfoScreen(props) {
         if (showDeleteButton === true) setShowDeleteButton(false)
     }
 
-    function displayInfo ( key, defaultInfo ) {
-        if ( textInputData[key] !== "" ) return textInputData[key]
-        if ( userData[key] !== "") return userData[key]
-        if ( userData[key] === "") return defaultInfo
-        return "First Name"
-    }
+    // function displayInfo ( key, defaultInfo ) {
+    //     if ( textInputData[key] !== "" ) return textInputData[key]
+    //     if ( userData[key] !== "") return userData[key]
+    //     if ( userData[key] === "") return defaultInfo
+    //     return "First Name"
+    // }
 
     function handleTextInput ( key, text ) {
         setTextDataInput({...textInputData, [key]: text})
@@ -221,7 +221,7 @@ function SettingsUserInfoScreen(props) {
                     </View>
                     <ScrollView
                         keyboardShouldPersistTaps={"handled"}
-
+                        showsVerticalScrollIndicator={false}
                     >
 
                         <View style={styles.headerContainer}>

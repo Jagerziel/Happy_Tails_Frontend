@@ -60,7 +60,7 @@ function AddPet09( { addPetData, setAddPetData, addPetComponents, setAddPetsComp
         />
         <TouchableOpacity 
           style={styles.skipContainer} 
-          onPress={() => handleSkip('name')}
+          onPress={() => handleSkip('image')}
         >
           <Text style={[styleMaster.defaultFont, styles.skipText]}>Skip</Text>
         </TouchableOpacity>
