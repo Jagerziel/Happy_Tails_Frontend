@@ -181,6 +181,64 @@ function SettingsECScreen(props) {
     }
 
     async function handleDeleteEC () {
+        // Update  
+        let updatedData = ({
+            first_name: userData.first_name,
+            last_name: userData.last_name,
+            email: userData.email,
+            phone: userData.phone,
+            address: userData.address,
+            state: userData.state,
+            city: userData.city,
+            zip: userData.zip,
+            image: userData.image,
+            password: userData.password,
+            ec_first_name: "", 
+            ec_last_name: "", 
+            ec_relationship: "", 
+            ec_phone: "", 
+            
+        })
+        const updatedUser = await updateUser(updatedData, userData["_id"])
+
+        dispatch(updateUserData(updatedUser))
+
+        setTextDataInput({
+            first_name: "",
+            last_name: "",
+            email: "",
+            phone: "",
+            password: "",
+            address: "",
+            state: "",
+            city: "",
+            zip: "",
+            ec_first_name: "",
+            ec_last_name: "",
+            ec_phone: "",
+            ec_relationship: "",
+            image: "",
+        })
+
+        setEditUserData({
+            first_name: false,
+            last_name: false,
+            email: false,
+            phone: false,
+            password: false,
+            address: false,
+            state: false,
+            city: false,
+            zip: false,
+            ec_first_name: false,
+            ec_last_name: false,
+            ec_phone: false,
+            ec_relationship: false,
+            image: false,
+        })
+
+        setShowDeleteButton(false)
+
         console.log('handleDeleteEC button pressed')
     }
 
