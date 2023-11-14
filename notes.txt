@@ -38,3 +38,6 @@ rnss: creates react native stylesheet
 ##### LINUX CLI COMMANDS #####
 hostname -I: get private hostname
 
+##### VS CODE SHORTCUTS #####
+ALT+C controls case sensitivity for ALT+D (multiple selection)
+ALT+W controls whole-word selection for ALT+D (multiple selection) 

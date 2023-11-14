@@ -67,7 +67,10 @@ function SettingsECScreen(props) {
     const dispatch = useDispatch(); // useDispatch
     const userData = useSelector((state) => state.userData.data)
 
-
+    useEffect(() => {
+        let textInputArr = Object.values(textInputData)
+        setDisabled(checkOneField(textInputArr))
+    }, [textInputData])
 
     // Navigation
     const navigation = useNavigation();
@@ -77,7 +80,19 @@ function SettingsECScreen(props) {
         navigation.navigate("SettingsScreen")
     }
 
+    function handleEditData( key ) {
+        if (lastSelected !== "") {
+            setEditUserData({...editUserData, [lastSelected]: false, [key]: true})
+        } else {
+            setEditUserData({...editUserData, [key]: true})
+        }
+        setLastSelected(key)
+        if (showDeleteButton === true) setShowDeleteButton(false)
+    }
 
+    function handleTextInput ( key, text ) {
+        setTextDataInput({...textInputData, [key]: text})
+    }
 
     async function handleSaveEC () {
         /* 
