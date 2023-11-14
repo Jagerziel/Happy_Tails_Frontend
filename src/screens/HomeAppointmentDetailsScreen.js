@@ -1,13 +1,12 @@
 // Import React
 import React, { useState, useMemo } from "react";
-import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
+import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Dimensions } from "react-native";
 
 // Import Components
 import AppointmentDetailItemHome from "../components/screen/AppointmentDetailItemHome.js";
 import Navigation from "../components/shared/Navigation.js";
-
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
