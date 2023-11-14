@@ -18,9 +18,9 @@ import MyPetsDetailsScreen from './src/screens/MyPetsDetailsScreen.js';
 import LoginScreen from './src/screens/LoginScreen.js'
 import LoginAccountScreen from './src/screens/LoginAccountScreen.js';
 import UpdatePetScreen from './src/screens/UpdatePetScreen.js'
-import UserProfileScreen from './src/screens/UserProfileScreen.js'
 import SettingsScreen from './src/screens/SettingsScreen.js';
 import SettingsChangePINScreen from './src/screens/SettingsChangePINScreen.js';
+import SettingsECScreen from './src/screens/SettingsECScreen.js';
 import SettingsUserInfoScreen from './src/screens/SettingsUserInfoScreen.js';
 import TESTINGSCREEN from './src/screens/TESTINGSCREEN.js';
 
@@ -87,9 +87,9 @@ export default function App() {
             <Stack.Screen name="AboutUsScreen" component={AboutUsScreen}/>
             <Stack.Screen name="SettingsScreen" component={SettingsScreen}/>
             <Stack.Screen name="SettingsChangePINScreen" component={SettingsChangePINScreen}/>
+            <Stack.Screen name="SettingsECScreen" component={SettingsECScreen}/>
             <Stack.Screen name="SettingsUserInfoScreen" component={SettingsUserInfoScreen}/>
             <Stack.Screen name="UpdatePetScreen" component={UpdatePetScreen}/>
-            <Stack.Screen name="UserProfileScreen" component={UserProfileScreen}/>
             <Stack.Screen name="TESTINGSCREEN" component={TESTINGSCREEN}/>
           </Stack.Navigator>
         </NavigationContainer>

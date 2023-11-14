@@ -63,6 +63,9 @@ function SettingsScreen(props) {
     if (path === "User Info") {
       navigation.navigate("SettingsUserInfoScreen");
     }
+    if (path === "Emergency Contact") {
+      navigation.navigate("SettingsECScreen")
+    }
     if (path === "TESTING SCREEN") {
       navigation.navigate("TESTINGSCREEN")
     }
