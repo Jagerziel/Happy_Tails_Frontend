@@ -18,13 +18,27 @@ import { useSelector, useDispatch } from "react-redux";
 
 function HomeVaccinationsViewAllScreen(props) {
 
+    // Navigation
+    const navigation = useNavigation();
+    const route = useRoute();
 
-
-
+    function handleReturnToPrev () {
+        navigation.navigate("HomeScreen")
+    }
 
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
+            <View style={[styleMaster.subParent, styles.subContainer]}>
+                <View style={styles.returnContainer}>
+                    <TouchableOpacity onPress={() => handleReturnToPrev()}>
+                        <ReturnArrowSVG />
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.headerContainer}>
+                    <Text style={[styleMaster.defaultFont, styles.headerText]}>Vaccination</Text>
+                </View>
             <Text>TESTING</Text>
+            </View>
         </SafeAreaView>
     );
 }
@@ -35,5 +49,28 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.grayscale06,
-    }
+    },
+    subContainer: {
+        // borderWidth: 2,
+        display: "flex",
+        alignItems: "center",
+        paddingLeft: scale_mod(16),
+        paddingRight: scale_mod(16),
+    },
+        returnContainer: {
+        alignSelf: 'flex-start',
+        paddingBottom: scale_mod(12),
+    },
+        headerContainer: {
+        display: 'flex',
+        flexDirection: "row",
+        alignItems: 'center',
+        justifyContent: "space-between",
+        paddingBottom: scale_mod(24),
+        alignSelf: "flex-start",
+    },
+        headerText: {
+        fontSize: scale_V(32),
+        fontFamily: "RalewayBold",
+    },
 })

@@ -92,7 +92,7 @@ function HomeAppointmentDetailsScreen(props) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.headerContainer}>
-                <Text style={[styleMaster.defaultFont, styles.headerText]}>Appointments</Text>
+                    <Text style={[styleMaster.defaultFont, styles.headerText]}>Appointments</Text>
                 </View>
                 <View style={styles.appointmentToggleContainer}>
                     <View style={[styles.appointmentToggleItem, {
