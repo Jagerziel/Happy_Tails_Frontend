@@ -1,5 +1,5 @@
 // Import React
-import React, { useState, useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
@@ -17,13 +17,33 @@ import { sortByDateAndTime } from "../data/functions/sortData.js";
 import { useSelector, useDispatch } from "react-redux";
 
 function HomeVaccinationsViewAllScreen(props) {
+    const [ selectedPetID, setSelectedPetID ] = useState("")
 
+    // Redux 
+    const dispatch = useDispatch(); // useDispatch
+    const petData = useSelector((state) => state.petData.data);
+    const vaccinationsData = useSelector((state) => state.vaccinationsData.data);
+
+    const filteredVaccinations = useMemo(() => {
+        return vaccinationsData.filter((item) => item['pet_id'] === selectedPetID)
+    }, [selectedPetID])
+
+    console.log(filteredVaccinations)
+
+    useEffect(() => {
+        if (petData.length > 0) setSelectedPetID(petData[0]["_id"])
+    }, [])
+    // console.log(selectedPetID)
     // Navigation
     const navigation = useNavigation();
     const route = useRoute();
 
     function handleReturnToPrev () {
         navigation.navigate("HomeScreen")
+    }
+
+    function handlePetSelection () {
+        
     }
 
     return (
@@ -37,7 +57,12 @@ function HomeVaccinationsViewAllScreen(props) {
                 <View style={styles.headerContainer}>
                     <Text style={[styleMaster.defaultFont, styles.headerText]}>Vaccination</Text>
                 </View>
-            <Text>TESTING</Text>
+
+
+
+
+
+
             </View>
         </SafeAreaView>
     );
