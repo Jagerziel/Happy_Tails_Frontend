@@ -1,6 +1,6 @@
 // Import React
 import React, { useEffect, useState } from 'react';
-import { Alert, SafeAreaView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Alert, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Components
@@ -24,6 +24,50 @@ import { updateUserData } from '../store/reducers/userDataReducer.js'
 import { updateUser } from "../server/user.js";
 
 function SettingsECScreen(props) {
+    const [ textInputData, setTextDataInput ] = useState({
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone: "",
+        password: "",
+        address: "",
+        state: "",
+        city: "",
+        zip: "",
+        ec_first_name: "",
+        ec_last_name: "",
+        ec_phone: "",
+        image: "",
+    })
+
+    const [ editUserData, setEditUserData ] = useState({
+        first_name: false,
+        last_name: false,
+        email: false,
+        phone: false,
+        password: false,
+        address: false,
+        state: false,
+        city: false,
+        zip: false,
+        ec_first_name: false,
+        ec_last_name: false,
+        ec_phone: false,
+        image: false,
+    })
+
+    // Track last selected field
+    const [ lastSelected, setLastSelected ] = useState("")
+    // Status of whether update button should be disabled
+    const [ disabled, setDisabled ] = useState(true)
+    // Toggle between delete button and update button
+    const [ showDeleteButton, setShowDeleteButton ] = useState(true)
+
+    // Redux 
+    const dispatch = useDispatch(); // useDispatch
+    const userData = useSelector((state) => state.userData.data)
+
+
 
     // Navigation
     const navigation = useNavigation();
@@ -32,6 +76,75 @@ function SettingsECScreen(props) {
     function handleReturnToPrev () {
         navigation.navigate("SettingsScreen")
     }
+
+
+
+    async function handleSaveEC () {
+        /* 
+        **************************************************
+        UPDATE STORED USER DATA
+        **************************************************
+        */
+        // Update  
+        // let updatedData = ({
+        //     first_name: textInputData.first_name === "" ? userData.first_name : textInputData.first_name,
+        //     last_name: textInputData.last_name === "" ? userData.last_name : textInputData.last_name,
+        //     email: textInputData.email === "" ? userData.email : textInputData.email,
+        //     phone: textInputData.phone === "" ? userData.phone : textInputData.phone,
+        //     address: textInputData.address === "" ? userData.address : textInputData.address,
+        //     state: textInputData.state === "" ? userData.state : textInputData.state,
+        //     city: textInputData.city === "" ? userData.city : textInputData.city,
+        //     zip: textInputData.zip === "" ? userData.zip : textInputData.zip,
+        //     image: userData.image,
+        //     password: userData.password,
+        //     ec_name: userData.ec_name, 
+        //     ec_notes: userData.ec_notes, 
+        //     ec_phone: userData.ec_phone, 
+        //     ec_relationship: userData.ec_relationship,
+        // })
+        // const updatedUser = await updateUser(updatedData, userData["_id"])
+
+
+        // dispatch(updateUserData(updatedUser))
+
+        // setTextDataInput({
+        //     first_name: "",
+        //     last_name: "",
+        //     email: "",
+        //     phone: "",
+        //     password: "",
+        //     address: "",
+        //     state: "",
+        //     city: "",
+        //     zip: "",
+        //     ec_first_name: "",
+        //     ec_last_name: "",
+        //     ec_phone: "",
+        //     image: "",
+        // })
+
+        // setEditUserData({
+        //     first_name: false,
+        //     last_name: false,
+        //     email: false,
+        //     phone: false,
+        //     password: false,
+        //     address: false,
+        //     state: false,
+        //     city: false,
+        //     zip: false,
+        //     ec_first_name: false,
+        //     ec_last_name: false,
+        //     ec_phone: false,
+        //     image: false,
+        // })
+
+        // setShowDeleteButton(true)
+
+        console.log('Emergency Contact Information Saved')
+    }
+
+
 
 
     function handleDeleteECAlert () {
@@ -75,7 +188,23 @@ function SettingsECScreen(props) {
                     >
 
 
+                        <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
+                            { showDeleteButton ?
+                                <TouchableOpacity 
+                                    onPress={() => handleDeleteECAlert()}
 
+                                >
+                                    <Text style={[styleMaster.defaultFont, styles.deleteText]}>Delete EC</Text>
+                                </TouchableOpacity> :
+                                <LoginScreenButton 
+                                    text={'Save'} 
+                                    handlePress={() => {
+                                        handleSaveEC()
+                                    }}
+                                    disabled={disabled}
+                                />
+                            }
+                        </View>
 
                     </ScrollView>
                     <View style={{paddingBottom: scale_mod(80)}}></View>
@@ -90,10 +219,10 @@ export default SettingsECScreen;
 
 const styles = StyleSheet.create({
     container: {
+        borderWidth: 2,
         flex: 1,
         backgroundColor: colors.grayscale06,
         alignItems: "center",
-        // justifyContent: "center",
     },
     returnContainer: {
         alignSelf: 'flex-start',

@@ -170,8 +170,6 @@ function SettingsUserInfoScreen(props) {
         setShowDeleteButton(true)
 
         console.log('User Information Saved')
-
-        // navigation.navigate("SettingsScreen")
     }
 
     function handleDeleteUserAlert () {
