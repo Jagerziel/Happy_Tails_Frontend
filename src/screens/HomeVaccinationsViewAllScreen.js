@@ -5,6 +5,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Components
 import Navigation from "../components/shared/Navigation.js";
+import VaccinationsViewAllItemHome from "../components/screen/VaccinationsViewAllItemHome .js";
 
 // Import Constants
 import { styleMaster } from "../constants/stylesMaster.js";
@@ -28,7 +29,7 @@ function HomeVaccinationsViewAllScreen(props) {
         return vaccinationsData.filter((item) => item['pet_id'] === selectedPetID)
     }, [selectedPetID])
 
-    console.log(filteredVaccinations)
+    console.log(filteredVaccinations.length)
 
     useEffect(() => {
         if (petData.length > 0) setSelectedPetID(petData[0]["_id"])
@@ -42,9 +43,11 @@ function HomeVaccinationsViewAllScreen(props) {
         navigation.navigate("HomeScreen")
     }
 
-    function handlePetSelection () {
-        
+    function handlePetSelection ( pet_id ) {
+        setSelectedPetID(pet_id)
     }
+
+    const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(12) }} />; // Gap for Flatlist
 
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
@@ -57,7 +60,23 @@ function HomeVaccinationsViewAllScreen(props) {
                 <View style={styles.headerContainer}>
                     <Text style={[styleMaster.defaultFont, styles.headerText]}>Vaccination</Text>
                 </View>
-
+                <View style={styles.petSelectionContainer}>
+                    <FlatList 
+                        keyExtractor={(petData) => petData["_id"]}
+                        ItemSeparatorComponent={itemSeparator} // Gap between items
+                        data={petData} // Data
+                        renderItem={(data) => 
+                            <VaccinationsViewAllItemHome 
+                                data={data}
+                                selectedPetID={selectedPetID}
+                                handlePetSelection={handlePetSelection}
+                            />
+                        }
+                        showsHorizontalScrollIndicator = { false } // Removes Scrollbar
+                        scrollEnabled={ true } // Enables Scrolling
+                        horizontal // Key to making flatlist scrollable
+                    />
+                </View>
 
 
 
@@ -91,11 +110,14 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: 'center',
         justifyContent: "space-between",
-        paddingBottom: scale_mod(24),
+        paddingBottom: scale_mod(40),
         alignSelf: "flex-start",
     },
         headerText: {
         fontSize: scale_V(32),
         fontFamily: "RalewayBold",
+    },
+    petSelectionContainer: {
+        paddingBottom: scale_mod(40),
     },
 })
