@@ -80,10 +80,10 @@ function Navigation() {
         <Feather
           name="settings"
           size={scale_mod(24)}
-          color={iconColor(["SettingsScreen", "SettingsChangePINScreen", "SettingsUserInfoScreen"])}
+          color={iconColor(["SettingsScreen", "SettingsChangePINScreen", "SettingsECScreen", "SettingsUserInfoScreen"])}
         />
         <Text
-          style={[styles.buttonText, { color: iconColor(["SettingsScreen", "SettingsChangePINScreen", "SettingsUserInfoScreen"]) }]}
+          style={[styles.buttonText, { color: iconColor(["SettingsScreen", "SettingsChangePINScreen", "SettingsECScreen", "SettingsUserInfoScreen"]) }]}
         >
           Settings
         </Text>

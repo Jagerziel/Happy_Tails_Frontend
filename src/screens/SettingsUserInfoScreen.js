@@ -223,7 +223,6 @@ function SettingsUserInfoScreen(props) {
                         keyboardShouldPersistTaps={"handled"}
                         showsVerticalScrollIndicator={false}
                     >
-
                         <View style={styles.headerContainer}>
                             <Text style={[styleMaster.defaultFont, styles.headerText]}>
                                 First Name
@@ -402,7 +401,7 @@ function SettingsUserInfoScreen(props) {
                             }
                         </View>
                     </ScrollView>
-                <View style={{paddingBottom: scale_mod(80)}}></View>
+                    <View style={{paddingBottom: scale_mod(80)}}></View>
                 </View>
             </TouchableWithoutFeedback>
             <Navigation />
