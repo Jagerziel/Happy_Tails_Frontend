@@ -163,9 +163,6 @@ function SettingsECScreen(props) {
         console.log('Emergency Contact Information Saved')
     }
 
-
-
-
     function handleDeleteECAlert () {
         Alert.alert('Are you sure you want to delete Emergency Contact?', `The contact info can’t be restored once deleted`,
             [
@@ -182,12 +179,9 @@ function SettingsECScreen(props) {
         )
     }
 
-
     async function handleDeleteEC () {
         console.log('handleDeleteEC button pressed')
     }
-
-
 
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
@@ -217,20 +211,79 @@ function SettingsECScreen(props) {
                         </View>
                         <View style={styles.inputContainer}>
                             {
-                                !editUserData.first_name ?    
-                                <TouchableOpacity onPress={() => handleEditData('first_name')}>
+                                !editUserData.ec_first_name ?    
+                                <TouchableOpacity onPress={() => handleEditData('ec_first_name')}>
                                     <StaticInputFieldCustom 
-                                        name={textInputData['first_name'] === "" ? userData.first_name : textInputData['first_name']}
+                                        name={textInputData['ec_first_name'] === "" ? userData.ec_first_name : textInputData['ec_first_name']}
                                     />
                                 </TouchableOpacity> :
                                 <TextInputField 
-                                    name={"first_name"} 
+                                    name={"ec_first_name"} 
                                     placeholder={"First Name"} 
                                     handleTextInput={handleTextInput}
                                 />
                             }
                         </View>
-
+                        <View style={styles.headerContainer}>
+                            <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                                Last Name
+                            </Text>
+                        </View>
+                        <View style={styles.inputContainer}>
+                            {
+                                !editUserData.ec_last_name ?    
+                                <TouchableOpacity onPress={() => handleEditData('ec_last_name')}>
+                                    <StaticInputFieldCustom 
+                                        name={textInputData['ec_last_name'] === "" ? userData.ec_last_name : textInputData['ec_last_name']}
+                                    />
+                                </TouchableOpacity> :
+                                <TextInputField 
+                                    name={"ec_last_name"} 
+                                    placeholder={"Last Name"} 
+                                    handleTextInput={handleTextInput}
+                                />
+                            }
+                        </View>
+                        <View style={styles.headerContainer}>
+                            <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                                Relationship
+                            </Text>
+                        </View>
+                        <View style={styles.inputContainer}>
+                            {
+                                !editUserData.ec_relationship ?    
+                                <TouchableOpacity onPress={() => handleEditData('ec_relationship')}>
+                                    <StaticInputFieldCustom 
+                                        name={textInputData['ec_relationship'] === "" ? userData.ec_relationship : textInputData['ec_relationship']}
+                                    />
+                                </TouchableOpacity> :
+                                <TextInputField 
+                                    name={"ec_relationship"} 
+                                    placeholder={"Relationship"} 
+                                    handleTextInput={handleTextInput}
+                                />
+                            }
+                        </View>
+                        <View style={styles.headerContainer}>
+                            <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                                Phone Number
+                            </Text>
+                        </View>
+                        <View style={styles.inputContainer}>
+                            {
+                                !editUserData.ec_phone ?    
+                                <TouchableOpacity onPress={() => handleEditData('ec_phone')}>
+                                    <StaticInputFieldCustom 
+                                        name={textInputData['ec_phone'] === "" ? userData.ec_phone : textInputData['ec_phone']}
+                                    />
+                                </TouchableOpacity> :
+                                <TextInputField 
+                                    name={"ec_phone"} 
+                                    placeholder={"Phone Number"} 
+                                    handleTextInput={handleTextInput}
+                                />
+                            }
+                        </View>
                         <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
                             { showDeleteButton ?
                                 <TouchableOpacity 
@@ -294,7 +347,4 @@ const styles = StyleSheet.create({
         color: colors.error,
         textDecorationLine: 'underline',
     },
-
-
-
 })
