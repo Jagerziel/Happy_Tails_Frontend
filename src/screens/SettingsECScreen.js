@@ -197,6 +197,11 @@ function SettingsECScreen(props) {
                                 <ReturnArrowSVG />
                             </TouchableOpacity>
                     </View>
+                    <View style={styles.titleContainer}>
+                        <Text style={[styles.defaultFont, styles.titleText]}>
+                            {'Emergency \nContact'}
+                        </Text>
+                    </View>
                     <ScrollView
                         keyboardShouldPersistTaps={"handled"}
                         showsVerticalScrollIndicator={false}
@@ -242,6 +247,14 @@ const styles = StyleSheet.create({
     returnContainer: {
         alignSelf: 'flex-start',
         paddingBottom: scale_mod(12),
+    },
+    titleContainer: {
+        paddingBottom: scale_mod(32),
+    },
+    titleText: {
+        fontFamily: 'RalewayBold',
+        fontSize: scale_V(32),
+        color: colors.darkBlue,
     },
     headerText: {
         fontSize: scale_V(14),  
