@@ -103,26 +103,27 @@ function SettingsECScreen(props) {
         **************************************************
         */
         // Update  
-        // let updatedData = ({
-        //     first_name: textInputData.first_name === "" ? userData.first_name : textInputData.first_name,
-        //     last_name: textInputData.last_name === "" ? userData.last_name : textInputData.last_name,
-        //     email: textInputData.email === "" ? userData.email : textInputData.email,
-        //     phone: textInputData.phone === "" ? userData.phone : textInputData.phone,
-        //     address: textInputData.address === "" ? userData.address : textInputData.address,
-        //     state: textInputData.state === "" ? userData.state : textInputData.state,
-        //     city: textInputData.city === "" ? userData.city : textInputData.city,
-        //     zip: textInputData.zip === "" ? userData.zip : textInputData.zip,
-        //     image: userData.image,
-        //     password: userData.password,
-        //     ec_name: userData.ec_name, 
-        //     ec_notes: userData.ec_notes, 
-        //     ec_phone: userData.ec_phone, 
-        //     ec_relationship: userData.ec_relationship,
-        // })
-        // const updatedUser = await updateUser(updatedData, userData["_id"])
+        let updatedData = ({
+            first_name: userData.first_name,
+            last_name: userData.last_name,
+            email: userData.email,
+            phone: userData.phone,
+            address: userData.address,
+            state: userData.state,
+            city: userData.city,
+            zip: userData.zip,
+            image: userData.image,
+            password: userData.password,
+            ec_first_name: textInputData.ec_first_name === "" ? userData.ec_first_name : textInputData.ec_first_name, 
+            ec_last_name: textInputData.ec_last_name === "" ? userData.ec_last_name : textInputData.ec_last_name, 
+            ec_relationship: textInputData.ec_relationship === "" ? userData.ec_relationship : textInputData.ec_relationship, 
+            ec_phone: textInputData.ec_phone === "" ? userData.ec_phone : textInputData.ec_phone, 
+            
+        })
+        const updatedUser = await updateUser(updatedData, userData["_id"])
 
 
-        // dispatch(updateUserData(updatedUser))
+        dispatch(updateUserData(updatedUser))
 
         setTextDataInput({
             first_name: "",

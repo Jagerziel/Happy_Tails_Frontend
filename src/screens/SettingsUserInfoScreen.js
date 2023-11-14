@@ -120,8 +120,8 @@ function SettingsUserInfoScreen(props) {
             zip: textInputData.zip === "" ? userData.zip : textInputData.zip,
             image: userData.image,
             password: userData.password,
-            ec_name: userData.ec_name, 
-            ec_notes: userData.ec_notes, 
+            ec_first_name: userData.ec_first_name, 
+            ec_last_name: userData.ec_last_name, 
             ec_phone: userData.ec_phone, 
             ec_relationship: userData.ec_relationship,
         })
