@@ -16,12 +16,15 @@ import { sortByDateAndTime } from "../data/functions/sortData.js";
 // State Management
 import { useSelector, useDispatch } from "react-redux";
 
-import React from 'react';
-
 function HomeVaccinationsViewAllScreen(props) {
+
+
+
+
+
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
-            
+            <Text>TESTING</Text>
         </SafeAreaView>
     );
 }

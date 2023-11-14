@@ -1,6 +1,7 @@
 // Import React
 import React from 'react';
 import { Image, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
 import { colors } from '../../constants/colorPalette.js';
@@ -10,7 +11,16 @@ import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScali
 // Import Components
 import VaccinationsItemHome from './VaccinationsItemHome.js';
 
-function VaccinationsHome( {petIDs, vaccinationsData }) {
+function VaccinationsHome( { petIDs, vaccinationsData }) {
+    // Navigation
+    const navigation = useNavigation();
+    const route = useRoute();
+
+    function handleViewALl () {
+        console.log('view all pressed (VaccinationsHome.js)')
+        navigation.navigate("HomeVaccinationsViewAllScreen")
+    }
+    
     // console.log(vaccinationsData)
     const itemSeparator = () => <View style={{ marginVertical: scale_mod(8) }} />; // Gap for Flatlist
     // console.log(petIDs)
@@ -19,7 +29,7 @@ function VaccinationsHome( {petIDs, vaccinationsData }) {
         <View style={styles.container}>
             <View style={styles.headingContainer}>
                 <Text style={[styleMaster.defaultFont, styles.title]}>Vaccinations</Text>
-                <TouchableOpacity onPress={() => console.log('view all pressed (VaccinationsHome.js)')}>
+                <TouchableOpacity onPress={() => handleViewALl()}>
                     <Text style={[styleMaster.defaultFont, styles.viewAll]}>View All</Text>
                 </TouchableOpacity>
             </View>
