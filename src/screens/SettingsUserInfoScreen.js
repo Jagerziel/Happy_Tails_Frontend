@@ -43,6 +43,7 @@ function SettingsUserInfoScreen(props) {
         ec_first_name: "",
         ec_last_name: "",
         ec_phone: "",
+        ec_relationship: "",
         image: "",
     })
 
@@ -59,6 +60,7 @@ function SettingsUserInfoScreen(props) {
         ec_first_name: false,
         ec_last_name: false,
         ec_phone: false,
+        ec_relationship: false,
         image: false,
     })
 
@@ -141,6 +143,7 @@ function SettingsUserInfoScreen(props) {
             ec_first_name: "",
             ec_last_name: "",
             ec_phone: "",
+            ec_relationship: "",
             image: "",
         })
 
@@ -157,6 +160,7 @@ function SettingsUserInfoScreen(props) {
             ec_first_name: false,
             ec_last_name: false,
             ec_phone: false,
+            ec_relationship: false,
             image: false,
         })
 

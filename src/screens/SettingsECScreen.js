@@ -37,6 +37,7 @@ function SettingsECScreen(props) {
         ec_first_name: "",
         ec_last_name: "",
         ec_phone: "",
+        ec_relationship: "",
         image: "",
     })
 
@@ -53,6 +54,7 @@ function SettingsECScreen(props) {
         ec_first_name: false,
         ec_last_name: false,
         ec_phone: false,
+        ec_relationship: false,
         image: false,
     })
 
@@ -122,39 +124,41 @@ function SettingsECScreen(props) {
 
         // dispatch(updateUserData(updatedUser))
 
-        // setTextDataInput({
-        //     first_name: "",
-        //     last_name: "",
-        //     email: "",
-        //     phone: "",
-        //     password: "",
-        //     address: "",
-        //     state: "",
-        //     city: "",
-        //     zip: "",
-        //     ec_first_name: "",
-        //     ec_last_name: "",
-        //     ec_phone: "",
-        //     image: "",
-        // })
+        setTextDataInput({
+            first_name: "",
+            last_name: "",
+            email: "",
+            phone: "",
+            password: "",
+            address: "",
+            state: "",
+            city: "",
+            zip: "",
+            ec_first_name: "",
+            ec_last_name: "",
+            ec_phone: "",
+            ec_relationship: "",
+            image: "",
+        })
 
-        // setEditUserData({
-        //     first_name: false,
-        //     last_name: false,
-        //     email: false,
-        //     phone: false,
-        //     password: false,
-        //     address: false,
-        //     state: false,
-        //     city: false,
-        //     zip: false,
-        //     ec_first_name: false,
-        //     ec_last_name: false,
-        //     ec_phone: false,
-        //     image: false,
-        // })
+        setEditUserData({
+            first_name: false,
+            last_name: false,
+            email: false,
+            phone: false,
+            password: false,
+            address: false,
+            state: false,
+            city: false,
+            zip: false,
+            ec_first_name: false,
+            ec_last_name: false,
+            ec_phone: false,
+            ec_relationship: false,
+            image: false,
+        })
 
-        // setShowDeleteButton(true)
+        setShowDeleteButton(true)
 
         console.log('Emergency Contact Information Saved')
     }
@@ -206,7 +210,26 @@ function SettingsECScreen(props) {
                         keyboardShouldPersistTaps={"handled"}
                         showsVerticalScrollIndicator={false}
                     >
-
+                        <View style={styles.headerContainer}>
+                            <Text style={[styleMaster.defaultFont, styles.headerText]}>
+                                First Name
+                            </Text>
+                        </View>
+                        <View style={styles.inputContainer}>
+                            {
+                                !editUserData.first_name ?    
+                                <TouchableOpacity onPress={() => handleEditData('first_name')}>
+                                    <StaticInputFieldCustom 
+                                        name={textInputData['first_name'] === "" ? userData.first_name : textInputData['first_name']}
+                                    />
+                                </TouchableOpacity> :
+                                <TextInputField 
+                                    name={"first_name"} 
+                                    placeholder={"First Name"} 
+                                    handleTextInput={handleTextInput}
+                                />
+                            }
+                        </View>
 
                         <View style={[styles.inputContainer, {paddingTop: scale_mod(32)}]}>
                             { showDeleteButton ?
