@@ -1,6 +1,6 @@
 // Import React
 import React, { useEffect, useMemo, useState } from "react";
-import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
+import { FlatList, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Components
@@ -47,7 +47,7 @@ function HomeVaccinationsViewAllScreen(props) {
         setSelectedPetID(pet_id)
     }
 
-    const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(12) }} />; // Gap for Flatlist
+    const itemSeparator = () => <View style={{ marginHorizontal: scale_mod(6) }} />; // Gap for Flatlist
 
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
@@ -77,12 +77,20 @@ function HomeVaccinationsViewAllScreen(props) {
                         horizontal // Key to making flatlist scrollable
                     />
                 </View>
-
+                <View style={styles.vaccinationDisplayContainer}>
+                    <View style={styles.vaccinationTitleContainer}>
+                        <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection01]}>ONE</Text>
+                        <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection02]}>TWO</Text>
+                        <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection02]}>THREE</Text>
+                        
+                    </View>
+                </View>
 
 
 
 
             </View>
+            <Navigation />
         </SafeAreaView>
     );
 }
@@ -95,11 +103,13 @@ const styles = StyleSheet.create({
         backgroundColor: colors.grayscale06,
     },
     subContainer: {
-        // borderWidth: 2,
+        borderWidth: 2,
+        flex: 1,
         display: "flex",
         alignItems: "center",
         paddingLeft: scale_mod(16),
         paddingRight: scale_mod(16),
+        marginBottom: scale_mod(80),
     },
         returnContainer: {
         alignSelf: 'flex-start',
@@ -118,6 +128,34 @@ const styles = StyleSheet.create({
         fontFamily: "RalewayBold",
     },
     petSelectionContainer: {
-        paddingBottom: scale_mod(40),
+        // borderWidth: 2,
+        height: scale_mod(38),
+        marginBottom: scale_mod(40),
+    },
+    vaccinationDisplayContainer: {
+        borderWidth: 2,
+        width: '100%',
+        borderRadius: 8,
+        paddingTop: scale_mod(24),
+        paddingBottom: scale_mod(24),
+        paddingLeft: scale_mod(16),
+        paddingRight: scale_mod(16),
+    }, 
+    vaccinationTitleContainer: {
+        display: 'flex',
+        flexDirection: "row",
+        width: '100%',
+        borderWidth: 2,
+    },
+    vaccinationTitleFormat: {
+        
+    },
+    vaccinationTitleSection01: {
+        borderWidth: 2,
+        width: '46%',
+    },
+    vaccinationTitleSection02: {
+        borderWidth: 2,
+        width: '27%',
     },
 })
