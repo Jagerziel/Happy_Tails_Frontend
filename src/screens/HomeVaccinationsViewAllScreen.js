@@ -13,7 +13,7 @@ import { styleMaster } from "../constants/stylesMaster.js";
 import { scale_H, scale_V, scale_mod } from "../data/functions/normalizeScaling.js";
 import { colors } from "../constants/colorPalette.js";
 import ReturnArrowSVG from "../assets/return_arrow_blue.svg"
-import { sortByDateAndTime } from "../data/functions/sortData.js";
+import { sortByDate } from "../data/functions/sortData.js";
 
 // State Management
 import { useSelector, useDispatch } from "react-redux";
@@ -27,7 +27,8 @@ function HomeVaccinationsViewAllScreen(props) {
     const vaccinationsData = useSelector((state) => state.vaccinationsData.data);
 
     const filteredVaccinations = useMemo(() => {
-        return vaccinationsData.filter((item) => item['pet_id'] === selectedPetID)
+        data = vaccinationsData.filter((item) => item['pet_id'] === selectedPetID)
+        return sortByDate(data, 'expiration_date', 'all')
     }, [selectedPetID])
 
     useEffect(() => {
