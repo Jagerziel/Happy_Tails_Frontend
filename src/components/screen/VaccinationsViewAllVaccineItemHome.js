@@ -8,24 +8,50 @@ import { styleMaster } from '../../constants/stylesMaster.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 
 function VaccinationsViewAllVaccineItemHome( { data } ) {
-    
-    return (
-        <TouchableOpacity 
-            onPress={() => handlePetSelection(data.item["_id"])}
-            style={[styles.container, {
-                borderColor: selectedPetID === data.item['_id'] ? colors.primaryFade : colors.grayscale05
+    console.log(data.item)
+    // const updateDateFormat = `${data.item.date.slice(5,7)}/${data.item.date.slice(8,10)}/${data.item.last_vaccine_date.slice(0,4)}`
 
-            }]}
-            disabled={ selectedPetID === data.item['_id'] } // Conditionally Disable Button
+    function updateDateFormat ( date ) {
+        return `${date.slice(5,7)}/${date.slice(8,10)}/${date.slice(0,4)}`
+    }
+
+    /*
+{"__v": 0, "_id": "654fa991b21d1573d90e52e7", "createdAt": "2023-11-11T16:19:29.040Z", "expiration_date": "2025/03/16", "last_vaccine_date": "2020/03/16", "pet_id": "653fc0b489f2742b8e25aec1", "updatedAt": "2023-11-11T16:19:29.040Z", "user_id": "6539503228bb6c8cbc5e42d4", "vaccine": "Super Rabies Vaccine"}
+    */
+    // console.log(updateDateFormat(data.item.last_vaccine_date))
+
+    return (
+        <View
+            style={[styles.container]}
         >
-            <Text
-                style={[styleMaster.defaultFont, styles.text]}
-                numberOfLines={1}
-                includeFontPadding={false}
-            >
-                {`hello`}
-            </Text>
-        </TouchableOpacity>
+            <View style={[styles.textContainer, styles.section01]}>
+                <Text
+                    style={[styleMaster.defaultFont, styles.text]}
+                    numberOfLines={2}
+                    includeFontPadding={false}
+                >
+                    {`${data.item.vaccine}`}
+                </Text>
+            </View>
+            <View style={[styles.textContainer, styles.section02]}>
+                <Text
+                    style={[styleMaster.defaultFont, styles.text]}
+                    numberOfLines={1}
+                    includeFontPadding={false}
+                >
+                    {updateDateFormat(data.item.last_vaccine_date)}
+                </Text>
+            </View>
+            <View style={[styles.textContainer, styles.section02]}>
+                <Text
+                    style={[styleMaster.defaultFont, styles.text]}
+                    numberOfLines={1}
+                    includeFontPadding={false}
+                >
+                    {updateDateFormat(data.item.expiration_date)}
+                </Text>
+            </View>
+        </View>
     );
 }
 
@@ -33,20 +59,28 @@ export default VaccinationsViewAllVaccineItemHome;
 
 const styles = StyleSheet.create({
     container: {
-        borderWidth: 2,
-        width: scale_mod(112),
-        height: scale_mod(38),
+        // borderWidth: 2,
+        width: '100%',
         display: 'flex',
+        flexDirection: 'row',
+    },
+    textContainer: {
         justifyContent: 'center',
-        // alignItems: 'center',
-        paddingLeft: scale_mod(12),
-        paddingRight: scale_mod(12),
-        borderRadius: 8,
-        backgroundColor: colors.white,
     },
     text: {
-        fontFamily: 'RalewayRegular',
+        fontFamily: 'RalewaySemiBold',
         fontSize: scale_V(13), 
+        fontVariant: ['lining-nums', 'proportional-nums'],
+        color: colors.darkBlue,
         // lineHeight: scale_V(22)
-    }
+    },
+    section01: {
+        // borderWidth: 2,
+        width: '40%',
+    },
+    section02: {
+        // borderWidth: 2,
+        fontVariant: ['lining-nums', 'proportional-nums'],
+        width: '30%',
+    },
 })
