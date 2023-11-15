@@ -79,9 +79,9 @@ function HomeVaccinationsViewAllScreen(props) {
                 </View>
                 <View style={styles.vaccinationDisplayContainer}>
                     <View style={styles.vaccinationTitleContainer}>
-                        <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection01]}>ONE</Text>
-                        <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection02]}>TWO</Text>
-                        <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection02]}>THREE</Text>
+                        <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection01]}>Type</Text>
+                        <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection02]}>Date Given</Text>
+                        <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection02]}>Date Due</Text>
                         
                     </View>
                 </View>
@@ -145,17 +145,21 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: "row",
         width: '100%',
-        borderWidth: 2,
+        paddingBottom: scale_mod(12.5),
+        borderBottomWidth: 0.5,
+        borderBottomColor: colors.grayscale08,
+        // borderWidth: 2,
     },
     vaccinationTitleFormat: {
-        
+        fontFamily: 'RalewayBold',
+        fontSize: scale_V(15),
     },
     vaccinationTitleSection01: {
-        borderWidth: 2,
-        width: '46%',
+        // borderWidth: 2,
+        width: '40%',
     },
     vaccinationTitleSection02: {
-        borderWidth: 2,
-        width: '27%',
+        // borderWidth: 2,
+        width: '30%',
     },
 })
