@@ -82,8 +82,8 @@ function HomeVaccinationsViewAllScreen(props) {
                         <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection01]}>Type</Text>
                         <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection02]}>Date Given</Text>
                         <Text style={[styleMaster.defaultFont, styles.vaccinationTitleFormat, styles.vaccinationTitleSection02]}>Date Due</Text>
-                        
                     </View>
+                    
                 </View>
 
 
