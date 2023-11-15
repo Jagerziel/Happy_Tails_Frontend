@@ -15,6 +15,14 @@ function VaccinationsViewAllVaccineItemHome( { data } ) {
         return `${date.slice(5,7)}/${date.slice(8,10)}/${date.slice(0,4)}`
     }
 
+    // Identify today's date and set at beginning of day
+    let today = new Date()
+    today.setHours(0, 0, 0, 0)
+    // Convert Date Item for Comparison
+    const dateForParse = data.item['expiration_date'].replaceAll("/","-")
+    const convertDate = new Date(Date.parse(`${dateForParse}T00:00:00`))
+
+    let expired = convertDate.getTime() < today.getTime() ? true : false
     /*
 {"__v": 0, "_id": "654fa991b21d1573d90e52e7", "createdAt": "2023-11-11T16:19:29.040Z", "expiration_date": "2025/03/16", "last_vaccine_date": "2020/03/16", "pet_id": "653fc0b489f2742b8e25aec1", "updatedAt": "2023-11-11T16:19:29.040Z", "user_id": "6539503228bb6c8cbc5e42d4", "vaccine": "Super Rabies Vaccine"}
     */
@@ -44,7 +52,9 @@ function VaccinationsViewAllVaccineItemHome( { data } ) {
             </View>
             <View style={[styles.textContainer, styles.section02]}>
                 <Text
-                    style={[styleMaster.defaultFont, styles.text]}
+                    style={[styleMaster.defaultFont, styles.text, {
+                        color: expired ? colors.error : colors.darkBlue
+                    }]}
                     numberOfLines={1}
                     includeFontPadding={false}
                 >

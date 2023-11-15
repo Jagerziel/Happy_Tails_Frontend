@@ -27,8 +27,11 @@ function HomeVaccinationsViewAllScreen(props) {
     const vaccinationsData = useSelector((state) => state.vaccinationsData.data);
 
     const filteredVaccinations = useMemo(() => {
-        data = vaccinationsData.filter((item) => item['pet_id'] === selectedPetID)
-        return sortByDate(data, 'expiration_date', 'all')
+        if (vaccinationsData.length > 0) {
+            data = vaccinationsData.filter((item) => item['pet_id'] === selectedPetID)
+            return sortByDate(data, 'expiration_date', 'all')
+        }
+        return []
     }, [selectedPetID])
 
     useEffect(() => {
