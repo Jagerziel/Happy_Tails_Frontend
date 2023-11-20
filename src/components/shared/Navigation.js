@@ -4,6 +4,8 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Icons
 import { AntDesign, Entypo, Feather, MaterialIcons } from "@expo/vector-icons"; //Home
+import HomeNavIcon from '../../assets/homeNavIcon.svg'
+import HomeNavIconSelected from '../../assets/homeNavIconSelected.svg'
 
 // Constants
 import { colors } from "../../constants/colorPalette.js";
@@ -18,9 +20,16 @@ function Navigation() {
   function iconColor(arr) {
     for (let i = 0; i < arr.length; i++) {
       if (route.name === arr[i]) return colors.primary;
-
     }
     return colors.grayscale03;
+  }
+
+  function checkCurrSelection ( selectionArr ) {
+    for (let i = 0; i < selectionArr.length; i++) {
+      if (route.name === selectionArr[i]) return true
+
+    }
+    return false
   }
 
   return (
@@ -29,7 +38,8 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("HomeScreen")}
       >
-        <AntDesign name="home" size={scale_mod(24)} color={iconColor(["HomeScreen", "HomeAppointmentDetailsScreen", "HomeVaccinationsViewAllScreen"])} />
+        {checkCurrSelection(["HomeScreen", "HomeAppointmentDetailsScreen", "HomeVaccinationsViewAllScreen"]) ?
+        <HomeNavIconSelected /> : <HomeNavIcon />}
         <Text style={[styles.buttonText, { color: iconColor(["HomeScreen", "HomeAppointmentDetailsScreen", "HomeVaccinationsViewAllScreen"]) }]}>
           Home
         </Text>
