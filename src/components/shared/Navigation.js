@@ -6,6 +6,8 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { AntDesign, Entypo, Feather, MaterialIcons } from "@expo/vector-icons"; //Home
 import HomeNavIcon from '../../assets/homeNavIcon.svg'
 import HomeNavIconSelected from '../../assets/homeNavIconSelected.svg'
+import PetNavIcon from '../../assets/petNavIcon.svg'
+import PetNavIconSelected from '../../assets/petNavIconSelected.svg'
 
 // Constants
 import { colors } from "../../constants/colorPalette.js";
@@ -15,6 +17,14 @@ import { scale_H, scale_V, scale_mod } from "../../data/functions/normalizeScali
 function Navigation() {
   const navigation = useNavigation();
   const route = useRoute();
+
+  const navbarSelections = {
+    home: ["HomeScreen", "HomeAppointmentDetailsScreen", "HomeVaccinationsViewAllScreen"],
+    myPets: ["MyPetsScreen", "MyPetsDetailsScreen"],
+    booking: ["BookingScreen"],
+    info: ["AboutUsScreen"],
+    settings: ["SettingsScreen", "SettingsChangePINScreen", "SettingsECScreen", "SettingsUserInfoScreen"],
+  }
 
   // Dynamically render color of icon on nav bar
   function iconColor(arr) {
@@ -38,9 +48,9 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("HomeScreen")}
       >
-        {checkCurrSelection(["HomeScreen", "HomeAppointmentDetailsScreen", "HomeVaccinationsViewAllScreen"]) ?
+        {checkCurrSelection(navbarSelections.home) ?
         <HomeNavIconSelected /> : <HomeNavIcon />}
-        <Text style={[styles.buttonText, { color: iconColor(["HomeScreen", "HomeAppointmentDetailsScreen", "HomeVaccinationsViewAllScreen"]) }]}>
+        <Text style={[styles.buttonText, { color: iconColor(navbarSelections.home) }]}>
           Home
         </Text>
       </TouchableOpacity>
@@ -48,12 +58,9 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("MyPetsScreen")}
       >
-        <MaterialIcons
-          name="pets"
-          size={scale_mod(24)}
-          color={iconColor(["MyPetsScreen", "MyPetsDetailsScreen"])}
-        />
-        <Text style={[styles.buttonText, { color: iconColor(["MyPetsScreen", "MyPetsDetailsScreen"]) }]}>
+        {checkCurrSelection(navbarSelections.myPets) ?
+        <PetNavIconSelected /> : <PetNavIcon />}
+        <Text style={[styles.buttonText, { color: iconColor(navbarSelections.myPets) }]}>
           My Pets
         </Text>
       </TouchableOpacity>
@@ -64,10 +71,10 @@ function Navigation() {
         <AntDesign
           name="calendar"
           size={scale_mod(26)}
-          color={iconColor(["BookingScreen"])}
+          color={iconColor(navbarSelections.booking)}
         />
         <Text
-          style={[styles.buttonText, { color: iconColor(["BookingScreen"]) }]}
+          style={[styles.buttonText, { color: iconColor(navbarSelections.booking) }]}
         >
           Book
         </Text>
@@ -76,9 +83,9 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("AboutUsScreen")}
       >
-        <Entypo name="star" size={scale_mod(27)} color={iconColor(["AboutUsScreen"])} />
+        <Entypo name="star" size={scale_mod(27)} color={iconColor(navbarSelections.info)} />
         <Text
-          style={[styles.buttonText, { color: iconColor(["AboutUsScreen"]) }]}
+          style={[styles.buttonText, { color: iconColor(navbarSelections.info) }]}
         >
           About Us
         </Text>
@@ -90,10 +97,10 @@ function Navigation() {
         <Feather
           name="settings"
           size={scale_mod(24)}
-          color={iconColor(["SettingsScreen", "SettingsChangePINScreen", "SettingsECScreen", "SettingsUserInfoScreen"])}
+          color={iconColor(navbarSelections.settings)}
         />
         <Text
-          style={[styles.buttonText, { color: iconColor(["SettingsScreen", "SettingsChangePINScreen", "SettingsECScreen", "SettingsUserInfoScreen"]) }]}
+          style={[styles.buttonText, { color: iconColor(navbarSelections.settings) }]}
         >
           Settings
         </Text>
