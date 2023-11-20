@@ -12,9 +12,8 @@ import BookNavIcon from '../../assets/bookNavIcon.svg'
 import BookNavIconSelected from '../../assets/bookNavIconSelected.svg'
 import InfoNavIcon from '../../assets/infoNavIcon.svg'
 import InfoNavIconSelected from '../../assets/infoNavIconSelected.svg'
-
-
-
+import SettingsNavIcon from '../../assets/settingsNavIcon.svg'
+import SettingsNavIconSelected from '../../assets/settingsNavIconSelected.svg'
 
 // Constants
 import { colors } from "../../constants/colorPalette.js";
@@ -92,18 +91,15 @@ function Navigation() {
         <Text
           style={[styles.buttonText, { color: iconColor(navbarSelections.info) }]}
         >
-          About Us
+          Info
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate("SettingsScreen")}
       >
-        <Feather
-          name="settings"
-          size={scale_mod(24)}
-          color={iconColor(navbarSelections.settings)}
-        />
+        {checkCurrSelection(navbarSelections.settings) ?
+        <SettingsNavIconSelected /> : <SettingsNavIcon />}
         <Text
           style={[styles.buttonText, { color: iconColor(navbarSelections.settings) }]}
         >
