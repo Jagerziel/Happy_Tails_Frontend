@@ -8,6 +8,13 @@ import HomeNavIcon from '../../assets/homeNavIcon.svg'
 import HomeNavIconSelected from '../../assets/homeNavIconSelected.svg'
 import PetNavIcon from '../../assets/petNavIcon.svg'
 import PetNavIconSelected from '../../assets/petNavIconSelected.svg'
+import BookNavIcon from '../../assets/bookNavIcon.svg'
+import BookNavIconSelected from '../../assets/bookNavIconSelected.svg'
+import InfoNavIcon from '../../assets/infoNavIcon.svg'
+import InfoNavIconSelected from '../../assets/infoNavIconSelected.svg'
+
+
+
 
 // Constants
 import { colors } from "../../constants/colorPalette.js";
@@ -68,11 +75,8 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("BookingScreen")}
       >
-        <AntDesign
-          name="calendar"
-          size={scale_mod(26)}
-          color={iconColor(navbarSelections.booking)}
-        />
+        {checkCurrSelection(navbarSelections.booking) ?
+        <BookNavIconSelected /> : <BookNavIcon />}
         <Text
           style={[styles.buttonText, { color: iconColor(navbarSelections.booking) }]}
         >
@@ -83,7 +87,8 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("AboutUsScreen")}
       >
-        <Entypo name="star" size={scale_mod(27)} color={iconColor(navbarSelections.info)} />
+        {checkCurrSelection(navbarSelections.info) ?
+        <InfoNavIconSelected /> : <InfoNavIcon />}
         <Text
           style={[styles.buttonText, { color: iconColor(navbarSelections.info) }]}
         >
