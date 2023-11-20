@@ -76,7 +76,7 @@ function AppointmentDetailItemHome( {
                 <LoginScreenButtonCustom 
                     text={"Cancel"}
                     handlePress={handleCancelAppt}
-                    disabled={true}
+                    disabled={false}
                     width={148}
                     height={40}
                     borderRadius={8}

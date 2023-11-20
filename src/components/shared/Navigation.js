@@ -29,8 +29,8 @@ function Navigation() {
         style={styles.button}
         onPress={() => navigation.navigate("HomeScreen")}
       >
-        <AntDesign name="home" size={scale_mod(24)} color={iconColor(["HomeScreen", "HomeAppointmentDetailsScreen"])} />
-        <Text style={[styles.buttonText, { color: iconColor(["HomeScreen", "HomeAppointmentDetailsScreen"]) }]}>
+        <AntDesign name="home" size={scale_mod(24)} color={iconColor(["HomeScreen", "HomeAppointmentDetailsScreen", "HomeVaccinationsViewAllScreen"])} />
+        <Text style={[styles.buttonText, { color: iconColor(["HomeScreen", "HomeAppointmentDetailsScreen", "HomeVaccinationsViewAllScreen"]) }]}>
           Home
         </Text>
       </TouchableOpacity>
