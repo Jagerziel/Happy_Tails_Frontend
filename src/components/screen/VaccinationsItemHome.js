@@ -13,6 +13,11 @@ import Dog from '../../assets/temp_pet_pic_dog.jpg'
 import Cat from '../../assets/temp_pet_pic_cat.jpg'
 
 function VaccinationsItemHome( { data, petIDs } ) {
+    function updateDateFormat ( date ) {
+        return `${date.slice(5,7)}/${date.slice(8,10)}/${date.slice(0,4)}`
+    }
+
+
     return (
         <View style={styles.container}>
             <View style={styles.dateContainer}>
@@ -25,7 +30,7 @@ function VaccinationsItemHome( { data, petIDs } ) {
                     includeFontPadding={false}
                     numberOfLines={1}
                 >
-                    {data.item.expiration_date}
+                    {updateDateFormat(data.item.expiration_date)}
                 </Text>
             </View>
             <View style={styles.vaccineContainer}>

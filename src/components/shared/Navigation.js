@@ -3,7 +3,6 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Icons
-import { AntDesign, Entypo, Feather, MaterialIcons } from "@expo/vector-icons"; //Home
 import HomeNavIcon from '../../assets/homeNavIcon.svg'
 import HomeNavIconSelected from '../../assets/homeNavIconSelected.svg'
 import PetNavIcon from '../../assets/petNavIcon.svg'
