@@ -14,7 +14,12 @@ import { weekday } from "../../data/data/data.js";
 import LoginScreenButtonCustom from "../shared/LoginScreenButtonCustom.js";
 import LoginScreenButtonWhiteCustom from "../shared/LoginScreenButtonWhiteCustom.js";
 
+// State Management
+import { useSelector, useDispatch } from "react-redux";
+import { updateAppointmentData } from "../../store/reducers/appointmentDataReducer.js";
 
+// Import API
+import { deleteAppointment } from "../../server/appointment.js";
 
 function AppointmentModalCancelHome( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData } ) {
     // Handle Date Objects
@@ -27,10 +32,27 @@ function AppointmentModalCancelHome( { modalController, setModalController, moda
     const navigation = useNavigation()
     const route = useRoute()
     
-    function handleCancel () {
-        setModalController({...modalController, [modalName]: false, cancelConfirmButton: true })
+    // Redux 
+    const dispatch = useDispatch(); // useDispatch
+    const appointmentData = useSelector((state) => state.appointmentData.data); // Retrieve Appointment data
+
+
+    // console.log(bookingData['_id'])
+    // console.log(appointmentData.filter((data) => data['_id'] !== bookingData['_id']))
+    async function handleCancel () {
         console.log('Cancel Button Pressed')
-    }
+        
+        /*  
+            REMOVE DATA FROM DB AND REDUX
+            */
+           await deleteAppointment(bookingData['_id']) // Erase from database
+           
+           const updatedAppointmentData = await appointmentData.filter((data) => data['_id'] !== bookingData['_id'])
+           
+           dispatch(updateAppointmentData(updatedAppointmentData))
+           
+           await setModalController({...modalController, [modalName]: false, cancelConfirmButton: true })
+        }
 
     function handleReturn () {
         setModalController({...modalController, [modalName]: false})
