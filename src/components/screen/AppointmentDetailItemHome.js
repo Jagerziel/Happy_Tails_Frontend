@@ -13,6 +13,7 @@ import GreenDot from '../../assets/green_dot.svg'
 // Import Components
 import LoginScreenButtonCustom from '../../components/shared/LoginScreenButtonCustom.js'
 import AppointmentModalCancelHome from './AppointmentModalCancelHome.js';
+import AppointmentModalCancelledHome from './AppointmentModalCancelledHome.js';
 
 function AppointmentDetailItemHome( { 
     data, 
@@ -24,8 +25,6 @@ function AppointmentDetailItemHome( {
 } ) {
     const updateDateFormat = `${data.item.date.slice(5,7)}/${data.item.date.slice(8,10)}/${data.item.date.slice(0,4)}`
 
-
-    console.log(petIDs)
     return (
         <View style={styles.container}>
             <View style={styles.subContainer}>
@@ -103,6 +102,12 @@ function AppointmentDetailItemHome( {
                 modalName={'cancelButton'}
                 bookingData={data.item}
                 currPetSelectionNameType={petIDs[data.item.pet_id]}
+            />
+            <AppointmentModalCancelledHome
+                modalController={modalController}
+                setModalController={setModalController}
+                modalName={'cancelConfirmButton'}
+                bookingData={data.item}
             />
         </View>
     );

@@ -16,7 +16,7 @@ import LoginScreenButtonWhiteCustom from "../shared/LoginScreenButtonWhiteCustom
 
 
 
-function AppointmentModalCancelledHome( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData } ) {
+function AppointmentModalCancelledHome( { modalController, setModalController, modalName, bookingData } ) {
     // Handle Date Objects
     const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
     const dateForParse = bookingData.date.replaceAll("/","-")
@@ -30,6 +30,7 @@ function AppointmentModalCancelledHome( { modalController, setModalController, m
     function handleHome () {
         setModalController({...modalController, [modalName]: false})
         console.log('Cancel Button Pressed')
+        navigation.navigate("HomeScreen")
     }
 
     return (
@@ -47,7 +48,7 @@ function AppointmentModalCancelledHome( { modalController, setModalController, m
                         <View style={styles.textHolderContainer}>
                             <View style={[styles.textHolder]}>
                                 <Text style={[styleMaster.defaultFont, styles.title]}>
-                                    {`Are you sure you want to cancel ${currPetSelectionNameType[0]}'${currPetSelectionNameType[0][currPetSelectionNameType[0].length - 1] === 's' ? "" : 's'} appointment?`}
+                                    {`Appointment was cancelled!`}
                                 </Text>
                             </View>
                             <View style={styles.textHolderSubcontainer}>
@@ -89,8 +90,7 @@ const styles = StyleSheet.create({
         // borderWidth: 2,
         backgroundColor: colors.white,
         width: scale_mod(328),
-        aspectRatio: 0.816/1,
-        paddingTop: scale_mod(34),
+        aspectRatio: 1.068/1,        paddingTop: scale_mod(34),
         paddingBottom: scale_mod(34),
         paddingLeft: scale_mod(16),
         paddingRight: scale_mod(16),
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     title: {
         // borderWidth: 2,
         fontFamily: 'RalewayBold',
-        fontSize: scale_V(21),
+        fontSize: scale_V(20),
     },
     content: {
         // borderWidth: 2,

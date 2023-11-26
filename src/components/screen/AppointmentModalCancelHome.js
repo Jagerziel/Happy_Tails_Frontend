@@ -28,7 +28,7 @@ function AppointmentModalCancelHome( { modalController, setModalController, moda
     const route = useRoute()
     
     function handleCancel () {
-        console.log(currPetSelectionNameType)
+        setModalController({...modalController, [modalName]: false, cancelConfirmButton: true })
         console.log('Cancel Button Pressed')
     }
 
