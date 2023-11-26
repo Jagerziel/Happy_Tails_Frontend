@@ -7,7 +7,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { scale_H, scale_V, scale_mod} from '../../data/functions/normalizeScaling.js'
 import { styleMaster } from "../../constants/stylesMaster.js";
 import { colors } from "../../constants/colorPalette.js";
-import WarningSVG from '../../assets/warning.svg'
+import WarningSVG from '../../assets/warning_orange.svg'
 import { weekday } from "../../data/data/data.js";
 
 // Import Components
