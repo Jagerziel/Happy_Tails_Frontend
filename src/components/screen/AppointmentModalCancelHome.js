@@ -16,7 +16,7 @@ import LoginScreenButtonWhiteCustom from "../shared/LoginScreenButtonWhiteCustom
 
 
 
-function AppointmentModalCancelHome( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData, setBookingData } ) {
+function AppointmentModalCancelHome( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData } ) {
     // Handle Date Objects
     const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
     const dateForParse = bookingData.date.replaceAll("/","-")
@@ -28,7 +28,6 @@ function AppointmentModalCancelHome( { modalController, setModalController, moda
     const route = useRoute()
     
     function handleCancel () {
-        // navigation.navigate("HomeScreen")
         console.log(currPetSelectionNameType)
         console.log('Cancel Button Pressed')
     }
