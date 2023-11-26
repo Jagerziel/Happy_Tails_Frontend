@@ -16,12 +16,12 @@ import LoginScreenButtonWhiteCustom from "../shared/LoginScreenButtonWhiteCustom
 
 
 
-function CancelApptModal( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData, setBookingData } ) {
+function AppointmentModalCancelHome( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData, setBookingData } ) {
     // Handle Date Objects
-    const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
-    const dateForParse = bookingData.date.replaceAll("/","-")
-    const convertDate = new Date(Date.parse(`${dateForParse}T00:00:00`))
-    const dayOfWeek = weekday[convertDate.getDay()]
+    // const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
+    // const dateForParse = bookingData.date.replaceAll("/","-")
+    // const convertDate = new Date(Date.parse(`${dateForParse}T00:00:00`))
+    // const dayOfWeek = weekday[convertDate.getDay()]
 
     // Navigation
     const navigation = useNavigation()
@@ -33,7 +33,7 @@ function CancelApptModal( { modalController, setModalController, modalName, curr
     }
 
     function handleReturn () {
-        setModalController({...modalController, cancelModalOpen: false})
+        setModalController({...modalController, [modalName]: false})
     }
 
     return (
@@ -51,15 +51,17 @@ function CancelApptModal( { modalController, setModalController, modalName, curr
                         <View style={styles.textHolderContainer}>
                             <View style={[styles.textHolder]}>
                                 <Text style={[styleMaster.defaultFont, styles.title]}>
-                                    {`Are you sure you want to cancel ${currPetSelectionNameType.name}'${currPetSelectionNameType.name[currPetSelectionNameType.name.length - 1] === 's' ? "" : 's'} appointment?`}
+                                    {/* {`Are you sure you want to cancel ${currPetSelectionNameType.name}'${currPetSelectionNameType.name[currPetSelectionNameType.name.length - 1] === 's' ? "" : 's'} appointment?`} */}
+                                    Title 01
                                 </Text>
                             </View>
                             <View style={styles.textHolderSubcontainer}>
                                 <View style={[styles.textHolder]}>
                                     <Text style={[styleMaster.defaultFont, styles.content]}>
-                                        {
+                                        {/* {
                                             `on ${dayOfWeek}, ${reformatDate} at ${bookingData.time}`
-                                        }
+                                        } */}
+                                        Day
                                     </Text>
                                 </View>
                             </View>
@@ -86,7 +88,7 @@ function CancelApptModal( { modalController, setModalController, modalName, curr
     );
 }
 
-export default CancelApptModal;
+export default AppointmentModalCancelHome;
 
 const styles = StyleSheet.create({
     modalPositioning: {

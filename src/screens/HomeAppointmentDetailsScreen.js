@@ -6,6 +6,7 @@ import { Dimensions } from "react-native";
 
 // Import Components
 import AppointmentDetailItemHome from "../components/screen/AppointmentDetailItemHome.js";
+import AppointmentModalCancelHome from "../components/screen/AppointmentModalCancelHome.js";
 import Navigation from "../components/shared/Navigation.js";
 
 // Import Constants
@@ -20,6 +21,11 @@ import { useSelector, useDispatch } from "react-redux";
 
 function HomeAppointmentDetailsScreen(props) {
     const [ showUpcomming, setShowUpcomming ] = useState(true)
+    const [ modalController, setModalController ] = useState({
+        cancelButton: false,
+        cancelConfirmButton: false,
+        rescheduleButtom: false,
+    })
 
     // Navigation
     const navigation = useNavigation();
@@ -65,9 +71,13 @@ function HomeAppointmentDetailsScreen(props) {
 
     function handleCancelAppt () {
         console.log("Appointment Cancelled Button Pressed")
+        setModalController({...modalController, "cancelButton": true})
         /*  
         REMOVE DATA FROM DB AND TO REDUX.  RESET USESTATE.  NAVIGATE HOME.
         */
+
+
+
     }
   
     function handleRescheduleAppt () {
@@ -156,6 +166,11 @@ function HomeAppointmentDetailsScreen(props) {
                 }
                 </View>
             </View>
+            <AppointmentModalCancelHome
+                modalController={modalController}
+                setModalController={setModalController}
+                modalName={'cancelButton'}
+            />
             <Navigation />
         </SafeAreaView>
     );
