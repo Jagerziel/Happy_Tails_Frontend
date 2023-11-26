@@ -75,9 +75,6 @@ function HomeAppointmentDetailsScreen(props) {
         /*  
         REMOVE DATA FROM DB AND TO REDUX.  RESET USESTATE.  NAVIGATE HOME.
         */
-
-
-
     }
   
     function handleRescheduleAppt () {
@@ -144,6 +141,8 @@ function HomeAppointmentDetailsScreen(props) {
                             petIDs={petIDs}
                             handleCancelAppt={handleCancelAppt}
                             handleRescheduleAppt={handleRescheduleAppt}
+                            modalController={modalController}
+                            setModalController={setModalController}
                         />} // Component to be rendered
                         showsVerticalScrollIndicator = { false } // Removes Scrollbar
                         scrollEnabled={ true } // Enables Scrolling
@@ -158,6 +157,8 @@ function HomeAppointmentDetailsScreen(props) {
                             petIDs={petIDs}
                             handleCancelAppt={handleCancelAppt}
                             handleRescheduleAppt={handleRescheduleAppt}
+                            modalController={modalController}
+                            setModalController={setModalController}
                         />} // Component to be rendered
                         showsVerticalScrollIndicator = { false } // Removes Scrollbar
                         scrollEnabled={ true } // Enables Scrolling
@@ -166,11 +167,6 @@ function HomeAppointmentDetailsScreen(props) {
                 }
                 </View>
             </View>
-            <AppointmentModalCancelHome
-                modalController={modalController}
-                setModalController={setModalController}
-                modalName={'cancelButton'}
-            />
             <Navigation />
         </SafeAreaView>
     );

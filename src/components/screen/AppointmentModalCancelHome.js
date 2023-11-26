@@ -18,10 +18,10 @@ import LoginScreenButtonWhiteCustom from "../shared/LoginScreenButtonWhiteCustom
 
 function AppointmentModalCancelHome( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData, setBookingData } ) {
     // Handle Date Objects
-    // const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
-    // const dateForParse = bookingData.date.replaceAll("/","-")
-    // const convertDate = new Date(Date.parse(`${dateForParse}T00:00:00`))
-    // const dayOfWeek = weekday[convertDate.getDay()]
+    const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
+    const dateForParse = bookingData.date.replaceAll("/","-")
+    const convertDate = new Date(Date.parse(`${dateForParse}T00:00:00`))
+    const dayOfWeek = weekday[convertDate.getDay()]
 
     // Navigation
     const navigation = useNavigation()
@@ -29,6 +29,7 @@ function AppointmentModalCancelHome( { modalController, setModalController, moda
     
     function handleCancel () {
         // navigation.navigate("HomeScreen")
+        console.log(currPetSelectionNameType)
         console.log('Cancel Button Pressed')
     }
 
@@ -51,17 +52,15 @@ function AppointmentModalCancelHome( { modalController, setModalController, moda
                         <View style={styles.textHolderContainer}>
                             <View style={[styles.textHolder]}>
                                 <Text style={[styleMaster.defaultFont, styles.title]}>
-                                    {/* {`Are you sure you want to cancel ${currPetSelectionNameType.name}'${currPetSelectionNameType.name[currPetSelectionNameType.name.length - 1] === 's' ? "" : 's'} appointment?`} */}
-                                    Title 01
+                                    {`Are you sure you want to cancel ${currPetSelectionNameType[0]}'${currPetSelectionNameType[0][currPetSelectionNameType[0].length - 1] === 's' ? "" : 's'} appointment?`}
                                 </Text>
                             </View>
                             <View style={styles.textHolderSubcontainer}>
                                 <View style={[styles.textHolder]}>
                                     <Text style={[styleMaster.defaultFont, styles.content]}>
-                                        {/* {
+                                        {
                                             `on ${dayOfWeek}, ${reformatDate} at ${bookingData.time}`
-                                        } */}
-                                        Day
+                                        }
                                     </Text>
                                 </View>
                             </View>
