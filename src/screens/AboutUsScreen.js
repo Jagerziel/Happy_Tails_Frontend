@@ -22,12 +22,31 @@ function AboutUsScreen(props) {
     <SafeAreaView style={[styleMaster.parent, styles.container]}>
       <ScrollView style={[styleMaster.subParent]}>
         <View style={styles.headerContainer}>
-          <Text style={[styleMaster.defaultFont, styles.headerText]}>About Us</Text>
+          <Text style={[styleMaster.defaultFont, styles.headerText]}>Contact Info</Text>
         </View>
         <Text style={[styleMaster.defaultFont, styles.title]}>Our Address</Text>
         <View>
           <Text style={[styleMaster.defaultFont, styles.text]}>4140 Parker Rd.</Text>
           <Text style={[styleMaster.defaultFont, styles.text]}>Allentown, New Mexico 31134</Text>
+        </View>
+        <Text style={[styleMaster.defaultFont, styles.title]}>Hours</Text>
+        <View style={[styles.hoursContainer]}>
+          <View style={styles.hoursSubContainer}>
+            <Text style={[styleMaster.defaultFont, styles.text]}>Mon-Fri:</Text>
+          </View>
+          <Text style={[styleMaster.defaultFont, styles.text, {fontFamily: 'RobotoLight'}]}>6am - 7pm</Text>
+        </View>
+        <View style={[styles.hoursContainer]}>
+          <View style={styles.hoursSubContainer}>
+            <Text style={[styleMaster.defaultFont, styles.text]}>Sat:</Text>
+          </View>
+          <Text style={[styleMaster.defaultFont, styles.text, {fontFamily: 'RobotoLight'}]}>8am - 5pm</Text>
+        </View>
+        <View style={[styles.hoursContainer]}>
+          <View style={styles.hoursSubContainer}>
+            <Text style={[styleMaster.defaultFont, styles.text]}>Sun:</Text>
+          </View>
+          <Text style={[styleMaster.defaultFont, styles.text, {fontFamily: 'RobotoLight'}]}>9am - 4pm</Text>
         </View>
         <Text style={[styleMaster.defaultFont, styles.title]}>Phone Number</Text>
         <View>
@@ -69,14 +88,23 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: scale_V(32),
     fontFamily: "RalewayBold",
+    color: colors.darkBlue02,
   },
   title: {
     fontSize: scale_V(21),
     fontFamily: "RalewayBold",
     paddingTop: scale_mod(28),
     paddingBottom: scale_mod(8),
+    color: colors.darkBlue02,
   },
   text: {
 
+  },
+  hoursContainer: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  hoursSubContainer: {
+    width: scale_mod(81),
   },
 });
