@@ -57,7 +57,7 @@ function AppointmentItemHome( { data, petIDs } ) {
                             <Image source={require(`../../assets/temp_pet_pic_cat.jpg`)} style={styles.petImg}/> 
                         }
                         <Text 
-                            style={[styleMaster.defaultFont]}
+                            style={[styleMaster.defaultFont, styles.petNameText]}
                             numberOfLines={1}    
                         >{petName}</Text>
                     </View>
@@ -155,19 +155,27 @@ const styles = StyleSheet.create({
         marginRight: scale_mod(8),
     },
     bottomContainer: {
+        // borderWidth: 2,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     bottomSubContainerLeft: {
+        // borderWidth: 2,
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingRight: 2, 
+    },
+    petNameText: {
+        // borderWidth: 2,
     },
     bottomSubContainerRight: {
+        // borderWidth: 2,
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        
     },
 })

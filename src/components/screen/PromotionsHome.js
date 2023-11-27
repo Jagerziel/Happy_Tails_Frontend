@@ -57,7 +57,13 @@ const styles = StyleSheet.create({
         paddingLeft: scale_mod(16),
         paddingRight: scale_mod(16),
         paddingBottom: scale_mod(24),
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        shadowOffset: {width: scale_mod(2), height: scale_mod(5)},
+        // shadowOpacity: 0.15,
+        shadowRadius: scale_mod(10),
+        shadowColor: '#9F9F9F',
+        elevation: 3,  
+        zIndex: 1,
 
     },
     content: {
