@@ -9,6 +9,11 @@ import NextArrow from '../../assets/next_arrow.svg'
 
 // Selectable SVGs
 import PillIcon from '../../assets/PillIcon.svg'
+import LabratoryIcon from '../../assets/LabratoryIcon.svg'
+import VaccinationIcon from '../../assets/VaccinationIcon.svg'
+import AllergiesIcon from '../../assets/AllergiesIcon.svg'
+import InvoicesIcon from '../../assets/InvoicesIcon.svg'
+import ClinicIcon from '../../assets/ClinicIcon.svg'
 
 
 
@@ -16,6 +21,11 @@ function StaticInputFieldArrow( { name, arrowNext, svg } ) {
 
     function svgVerify ( key ) {
         if (key === 'PillIcon') return <PillIcon />
+        if (key === 'LabratoryIcon') return <LabratoryIcon />
+        if (key === 'VaccinationIcon') return <VaccinationIcon />
+        if (key === 'AllergiesIcon') return <AllergiesIcon />
+        if (key === 'InvoicesIcon') return <InvoicesIcon />
+        if (key === 'ClinicIcon') return <ClinicIcon />
         return false
     }
 
@@ -24,7 +34,9 @@ function StaticInputFieldArrow( { name, arrowNext, svg } ) {
         <View style={styles.container}
         >
             <View style={styles.subContainer}> 
-                <View style={styles.svgContainer}>
+                <View style={[styles.svgContainer, {
+                    width: svg ? scale_mod(40) : 0,
+                }]}>
                     {
                         svg ? 
                         svgVerify(svg) 
@@ -64,7 +76,7 @@ const styles = StyleSheet.create({
     },
     svgContainer: {
         borderWidth: 2,
-        width: scale_mod(40),
+
     },
     textField: {
         textAlign: 'left',
