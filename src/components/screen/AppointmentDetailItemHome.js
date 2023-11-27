@@ -8,7 +8,7 @@ import { styleMaster } from '../../constants/stylesMaster.js';
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 import Calendar from '../../assets/calendar.svg'
 import Clock from '../../assets/clock.svg'
-import GreenDot from '../../assets/green_dot.svg'
+import CheckMarkCircle from '../../assets/check_mark_circle.svg'
 
 // Import Components
 import LoginScreenButtonCustom from '../../components/shared/LoginScreenButtonCustom.js'
@@ -70,7 +70,7 @@ function AppointmentDetailItemHome( {
                     </View>
                     <View style={styles.bottomSubContainerRight}>
                         <View style={styles.icon}>
-                            <GreenDot height={scale_mod(8)} width={scale_mod(8)}/>
+                            <CheckMarkCircle height={scale_mod(15)} width={scale_mod(15)}/>
                         </View>
                         <Text style={[styleMaster.defaultFont, {fontSize: scale_V(14), paddingLeft: scale_mod(8)}]}>{data.item.status}</Text>
                     </View>
