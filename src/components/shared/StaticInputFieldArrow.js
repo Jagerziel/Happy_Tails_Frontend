@@ -26,9 +26,8 @@ function StaticInputFieldArrow( { name, arrowNext, svg } ) {
         if (key === 'AllergiesIcon') return <AllergiesIcon />
         if (key === 'InvoicesIcon') return <InvoicesIcon />
         if (key === 'ClinicIcon') return <ClinicIcon />
-        return false
+        return <View></View>
     }
-
 
     return (
         <View style={styles.container}
