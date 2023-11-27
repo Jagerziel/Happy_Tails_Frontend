@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'RalewayBold',
         fontSize: scale_V(32),
-        color: colors.black,
+        color: colors.darkBlue02,
         textAlign: 'center',
     },
     buttonContainer: {

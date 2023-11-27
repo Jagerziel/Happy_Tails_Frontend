@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   heading: {
     fontFamily: 'RalewayBold',
     fontSize: scale_V(26),
-    color: colors.black,
+    color: colors.darkBlue02,
     textAlign: 'left',
   },
   petSelectContainer: {

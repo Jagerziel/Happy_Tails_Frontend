@@ -180,7 +180,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: scale_V(26),
-    fontFamily: 'RalewayBold'
+    fontFamily: 'RalewayBold',
+    color: colors.darkBlue02,
   },
   subHeader: {
     fontSize: scale_V(14),  

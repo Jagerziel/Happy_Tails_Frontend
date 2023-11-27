@@ -158,6 +158,7 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: scale_V(32),
     fontFamily: "RalewayBold",
+    color: colors.darkBlue02,
   },
   petsContainer: {
     // borderWidth: 2,
