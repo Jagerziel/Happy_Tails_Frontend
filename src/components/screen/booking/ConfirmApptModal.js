@@ -178,7 +178,8 @@ const styles = StyleSheet.create({
         // borderWidth: 2,
         fontFamily: 'RalewayBold',
         fontSize: scale_V(21),
-        paddingBottom: scale_mod(8)
+        paddingBottom: scale_mod(8),
+        color: colors.darkBlue02,
     },
     contentLeft: {
         // borderWidth: 2,

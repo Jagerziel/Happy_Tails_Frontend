@@ -149,18 +149,19 @@ const styles = StyleSheet.create({
         width: '100%',
         includeFontPadding: false,
         textAlign: "center",
-        textAlign: "center",
         paddingRight: scale_mod(20), //Offsets space taken by return arrow
         fontFamily: "RalewayBold",
         fontSize: scale_V(17),
-      },
-      titleContainer: {
+        color: colors.darkBlue02,
+    },
+    titleContainer: {
         paddingBottom: scale_mod(20), // Prev Assumed Value 40 from docs
-      },
-      titleText: {
+    },
+    titleText: {
         fontSize: scale_V(26),
-        fontFamily: "RalewayBold"
-      },
+        fontFamily: "RalewayBold",
+        color: colors.darkBlue02,
+    },
       symptomsParentContainer: {
         width: '100%',
         display: "flex",

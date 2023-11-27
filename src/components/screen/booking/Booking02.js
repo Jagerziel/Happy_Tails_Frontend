@@ -156,10 +156,10 @@ const styles = StyleSheet.create({
         width: '100%',
         includeFontPadding: false,
         textAlign: "center",
-        textAlign: "center",
         paddingRight: scale_mod(20), //Offsets space taken by return arrow
         fontFamily: "RalewayBold",
         fontSize: scale_V(17),
+        color: colors.darkBlue02,
       },
       titleContainer: {
         paddingBottom: scale_mod(40),
@@ -167,7 +167,8 @@ const styles = StyleSheet.create({
       },
       titleText: {
         fontSize: scale_V(26),
-        fontFamily: "RalewayBold"
+        fontFamily: "RalewayBold",
+        color: colors.darkBlue02,
       },
       datePickerContainer: {
         // borderWidth: 2,

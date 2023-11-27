@@ -182,10 +182,10 @@ const styles = StyleSheet.create({
         width: '100%',
         includeFontPadding: false,
         textAlign: "center",
-        textAlign: "center",
         paddingRight: scale_mod(20), //Offsets space taken by return arrow
         fontFamily: "RalewayBold",
         fontSize: scale_V(17),
+        color: colors.darkBlue02,
       },
       confirmationContainer: {
         // borderWidth: 2,
@@ -217,6 +217,7 @@ const styles = StyleSheet.create({
         fontSize: scale_V(26),
         fontFamily: "RobotoBold",
         paddingLeft: scale_mod(16),
+        color: colors.darkBlue02,
       },
       lineBreak: {
         marginTop: scale_mod(16),
