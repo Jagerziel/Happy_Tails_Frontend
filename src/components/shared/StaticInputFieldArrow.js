@@ -7,11 +7,32 @@ import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScali
 import { styleMaster } from '../../constants/stylesMaster.js';
 import NextArrow from '../../assets/next_arrow.svg'
 
-function StaticInputFieldArrow( { name, arrowNext } ) {
+// Selectable SVGs
+import PillIcon from '../../assets/PillIcon.svg'
+
+
+
+function StaticInputFieldArrow( { name, arrowNext, svg } ) {
+
+    function svgVerify ( key ) {
+        if (key === 'PillIcon') return <PillIcon />
+        return false
+    }
+
+
     return (
         <View style={styles.container}
         >
-            <Text style={[styleMaster.defaultFont, styles.textField]}>{name}</Text>
+            <View style={styles.subContainer}> 
+                <View style={styles.svgContainer}>
+                    {
+                        svg ? 
+                        svgVerify(svg) 
+                        : <View></View>
+                    }
+                </View>
+                <Text style={[styleMaster.defaultFont, styles.textField]}>{name}</Text>
+            </View>
             <TouchableOpacity onPress={arrowNext}>
                 <NextArrow />
             </TouchableOpacity>
@@ -36,6 +57,14 @@ const styles = StyleSheet.create({
         paddingRight: scale_mod(15),
         backgroundColor: colors.white,
         paddingTop: 0,
+    },
+    subContainer: {
+        display: 'flex',
+        flexDirection: 'row'
+    },
+    svgContainer: {
+        borderWidth: 2,
+        width: scale_mod(40),
     },
     textField: {
         textAlign: 'left',

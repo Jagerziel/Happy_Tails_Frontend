@@ -125,7 +125,7 @@ function MyPetsDetailsScreen( { route, navigation } ) {
           </View>
         </View>
         <View style={styles.arrowInputFieldGap}>
-            <StaticInputFieldArrow name={"Medications"} arrowNext={() => arrowNext('Medications')} path={'Medications'}/>
+            <StaticInputFieldArrow name={"Medications"} arrowNext={() => arrowNext('Medications')} path={'Medications'} svg={"PillIcon"}/>
         </View>
         <View style={styles.arrowInputFieldGap}>
             <StaticInputFieldArrow name={"Labratory"} arrowNext={() => arrowNext('Labratory')} path={'Labratory'}/>
