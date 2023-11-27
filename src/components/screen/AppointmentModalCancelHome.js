@@ -40,19 +40,21 @@ function AppointmentModalCancelHome( { modalController, setModalController, moda
     // console.log(bookingData['_id'])
     // console.log(appointmentData.filter((data) => data['_id'] !== bookingData['_id']))
     async function handleCancel () {
-        console.log('Cancel Button Pressed')
+        console.log('Cancel Button Pressed to remove data')
+        setModalController({...modalController, [modalName]: false, cancelConfirmButton: true })
         
         /*  
             REMOVE DATA FROM DB AND REDUX
-            */
-           await deleteAppointment(bookingData['_id']) // Erase from database
-           
-           const updatedAppointmentData = await appointmentData.filter((data) => data['_id'] !== bookingData['_id'])
-           
-           dispatch(updateAppointmentData(updatedAppointmentData))
-
-           await setModalController({...modalController, [modalName]: false, cancelConfirmButton: true })
-        }
+        */
+        await deleteAppointment(bookingData['_id']) // Erase from database
+        
+        const updatedAppointmentData = await appointmentData.filter((data) => data['_id'] !== bookingData['_id'])
+        
+        
+        dispatch(updateAppointmentData(updatedAppointmentData))
+        
+        console.log('cancelling')
+    }
 
     function handleReturn () {
         setModalController({...modalController, [modalName]: false})
