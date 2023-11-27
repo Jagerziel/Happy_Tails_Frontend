@@ -78,10 +78,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: "space-between",
     paddingBottom: scale_mod(4),
+    color: colors.darkBlue02,
   },
   headerText: {
     fontSize: scale_V(32),
     fontFamily: "RalewayBold",
+    color: colors.darkBlue02,
   },
   staticInputContainer: {
     paddingTop: scale_mod(8),

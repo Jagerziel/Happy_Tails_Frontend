@@ -218,6 +218,11 @@ function SettingsUserInfoScreen(props) {
                         keyboardShouldPersistTaps={"handled"}
                         showsVerticalScrollIndicator={false}
                     >
+                        <View style={styles.masterHeadingContainer}>
+                            <Text style={[styleMaster.defaultFont, styles.masterHeaderTitle]}>
+                                User Info
+                            </Text>
+                        </View>
                         <View style={styles.headerContainer}>
                             <Text style={[styleMaster.defaultFont, styles.headerText]}>
                                 First Name
@@ -417,17 +422,25 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         paddingBottom: scale_mod(12),
     },
+    masterHeadingContainer: {
+        paddingBottom: scale_mod(24),
+    },
+    masterHeaderTitle: {
+        fontFamily: 'RalewayBold',
+        fontSize: scale_mod(32),
+        color: colors.darkBlue02,
+    },
     headerContainer: {
         display: 'flex',
         flexDirection: "row",
         alignItems: 'center',
         justifyContent: "space-between",
-        paddingBottom: scale_mod(4),
+        paddingBottom: scale_mod(8),
     },
     headerText: {
         fontSize: scale_V(14),  
-        paddingTop: scale_mod(8),
-        paddingBottom: scale_mod(4),
+        paddingTop: scale_mod(16),
+        // paddingBottom: scale_mod(4),
         fontFamily: "RalewayBold",
         color: colors.grayscale02,
     },

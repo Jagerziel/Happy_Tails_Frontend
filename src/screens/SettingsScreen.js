@@ -168,6 +168,7 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: scale_V(32),
     fontFamily: "RalewayBold",
+    color: colors.darkBlue02,
   },
   logoutText: {
     fontFamily: "RobotoLight",
@@ -179,6 +180,7 @@ const styles = StyleSheet.create({
     fontFamily: "RalewayBold",
     paddingTop: scale_mod(28),
     paddingBottom: scale_mod(8),
+    color: colors.darkBlue02,
   },
   staticInputContainer: {
     paddingTop: scale_mod(8),
