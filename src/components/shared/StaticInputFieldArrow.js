@@ -75,8 +75,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     svgContainer: {
-        borderWidth: 2,
-
+        // borderWidth: 2,
     },
     textField: {
         textAlign: 'left',

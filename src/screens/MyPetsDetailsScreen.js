@@ -128,19 +128,19 @@ function MyPetsDetailsScreen( { route, navigation } ) {
             <StaticInputFieldArrow name={"Medications"} arrowNext={() => arrowNext('Medications')} path={'Medications'} svg={"PillIcon"}/>
         </View>
         <View style={styles.arrowInputFieldGap}>
-            <StaticInputFieldArrow name={"Labratory"} arrowNext={() => arrowNext('Labratory')} path={'Labratory'}/>
+            <StaticInputFieldArrow name={"Labratory"} arrowNext={() => arrowNext('Labratory')} path={'Labratory'} svg={"LabratoryIcon"}/>
         </View>
         <View style={styles.arrowInputFieldGap}>
-            <StaticInputFieldArrow name={"Vaccination"} arrowNext={() => arrowNext('Vaccination')} path={'Vaccination'}/>
+            <StaticInputFieldArrow name={"Vaccination"} arrowNext={() => arrowNext('Vaccination')} path={'Vaccination'} svg={"VaccinationIcon"}/>
         </View>
         <View style={styles.arrowInputFieldGap}>
-            <StaticInputFieldArrow name={"Allergies"} arrowNext={() => arrowNext('Allergies')} path={'Allergies'}/>
+            <StaticInputFieldArrow name={"Allergies"} arrowNext={() => arrowNext('Allergies')} path={'Allergies'} svg={"AllergiesIcon"}/>
         </View>
         <View style={styles.arrowInputFieldGap}>
-            <StaticInputFieldArrow name={"Invoices"} arrowNext={() => arrowNext('Invoices')} path={'Invoices'}/>
+            <StaticInputFieldArrow name={"Invoices"} arrowNext={() => arrowNext('Invoices')} path={'Invoices'} svg={"InvoicesIcon"}/>
         </View>
         <View style={styles.arrowInputFieldGap}>
-            <StaticInputFieldArrow name={"Clinic Visits History"} arrowNext={() => arrowNext('Clinic Visits History')} path={'Clinic Visits History'}/>
+            <StaticInputFieldArrow name={"Clinic Visits History"} arrowNext={() => arrowNext('Clinic Visits History')} path={'Clinic Visits History'} svg={"ClinicIcon"}/>
         </View>
         <View style={styles.deactivateContainer}>
           <LoginScreenButton text={'Deactivate Profile'} handlePress={() => deactivate('Deactivate')}/>
