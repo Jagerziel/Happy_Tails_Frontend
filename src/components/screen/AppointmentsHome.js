@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
         fontSize: scale_V(21),
         fontWeight: "bold",
         paddingBottom: scale_mod(14),
+        color: colors.darkBlue02,
     },
     viewAll: {
         color: colors.secondary,

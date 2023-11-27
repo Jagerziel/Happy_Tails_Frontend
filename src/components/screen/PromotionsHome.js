@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         fontSize: scale_V(21),
         fontWeight: "bold",
         paddingBottom: scale_mod(16),
+        color: colors.darkBlue02,
     },
     contentContainer: {
         // borderWidth: 2,
