@@ -84,11 +84,6 @@ function SettingsScreen(props) {
           <Text style={[styleMaster.defaultFont, styles.headerText]}>
             Settings
           </Text>
-          <TouchableOpacity onPress={() => handleLogout()}>
-            <Text style={[styleMaster.defaultFont, styles.logoutText]}>
-              Log Out
-            </Text>
-          </TouchableOpacity>
         </View>
         <Text style={[styleMaster.defaultFont, styles.title]}>General</Text>
         <View style={styles.staticInputContainer}>
@@ -143,6 +138,11 @@ function SettingsScreen(props) {
             path={"TESTING SCREEN"}
           />
         </View> */}
+        <TouchableOpacity onPress={() => handleLogout()}>
+          <Text style={[styleMaster.defaultFont, styles.logoutText]}>
+            Log Out
+          </Text>
+        </TouchableOpacity>
       </ScrollView>
       <Navigation />
     </SafeAreaView>
@@ -171,18 +171,19 @@ const styles = StyleSheet.create({
     color: colors.darkBlue02,
   },
   logoutText: {
+    paddingTop: scale_mod(32),
     fontFamily: "RobotoLight",
-    color: colors.black,
-    paddingRight: scale_mod(7),
+    color: colors.greyscale09,
+    paddingLeft: scale_mod(19),
   },
   title: {
     fontSize: scale_V(21),
     fontFamily: "RalewayBold",
-    paddingTop: scale_mod(28),
-    paddingBottom: scale_mod(8),
+    paddingTop: scale_mod(32),
+    paddingBottom: scale_mod(4),
     color: colors.darkBlue02,
   },
   staticInputContainer: {
-    paddingTop: scale_mod(8),
+    paddingTop: scale_mod(12),
   },
 });

@@ -61,8 +61,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     text: {
-        fontSize: scale_V(26),
-        fontFamily: 'RalewayBold'
+        fontSize: scale_V(21),
+        fontFamily: 'RalewaySemiBold',
+        color: colors.darkBlue02,
     },
     checkMarkContainer: {
         // borderWidth: 2,

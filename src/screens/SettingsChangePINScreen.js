@@ -68,16 +68,14 @@ const styles = StyleSheet.create({
   },
   returnContainer: {
     alignSelf: 'flex-start',
-    // paddingTop: scale_mod(23),
-    // paddingLeft: scale_mod(15),
-    paddingBottom: scale_mod(12),
+    paddingBottom: scale_mod(24),
   },
   headerContainer: {
     display: 'flex',
     flexDirection: "row",
     alignItems: 'center',
     justifyContent: "space-between",
-    paddingBottom: scale_mod(4),
+    paddingBottom: scale_mod(24),
     color: colors.darkBlue02,
   },
   headerText: {
@@ -86,6 +84,6 @@ const styles = StyleSheet.create({
     color: colors.darkBlue02,
   },
   staticInputContainer: {
-    paddingTop: scale_mod(8),
+    paddingBottom: scale_mod(12),
   }
 });

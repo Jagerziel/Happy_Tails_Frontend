@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     },
     textField: {
         textAlign: 'left',
-        fontSize: scale_V(18),
+        fontSize: scale_V(17),
         includeFontPadding: false, // Removes default padding for Text 
         fontFamily: 'RobotoLight',
     }  
