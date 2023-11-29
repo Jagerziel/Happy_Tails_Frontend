@@ -69,7 +69,7 @@ function MyPetsScreen(props) {
   const userData = useSelector((state) => state.userData.data)
   const petData = useSelector((state) => state.petData.data);
   // console.log(petData)
-  const itemSeparator = () => <View style={{ marginVertical: scale_mod(24) }} />; // Gap for Flatlist
+  const itemSeparator = () => <View style={{ marginVertical: scale_mod(12) }} />; // Gap for Flatlist
 
   function handleAddPet (target) {
     setAddPetsComponents({...addPetComponents, MyPetsScreen: false, AddPet01: true})
@@ -152,8 +152,8 @@ const styles = StyleSheet.create({
   headingContainer: {
     // borderWidth: 2,
     // borderColor: 'red',
-    paddingTop: scale_mod(46),
-    paddingBottom: scale_mod(40),
+    // paddingTop: scale_mod(46),
+    paddingBottom: scale_mod(24),
   },
   heading: {
     fontSize: scale_V(32),
@@ -162,11 +162,12 @@ const styles = StyleSheet.create({
   },
   petsContainer: {
     // borderWidth: 2,
-    height: scale_mod(474),
+    height: scale_mod(528),
     borderRadius: scale_mod(7),
     marginBottom: scale_mod(24),
   },
   buttonContainer: {
+    // paddingTop: scale_mod(10),
     alignSelf: "center"
   }
 });
