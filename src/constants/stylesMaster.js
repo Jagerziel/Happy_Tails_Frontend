@@ -8,7 +8,7 @@ export const styleMaster = StyleSheet.create({
     },
     subParent: {
         flex: 1,
-        padding: scale_mod(13),
+        padding: scale_mod(16),
     },
     viewAllLink: {
         color: colors.secondary,

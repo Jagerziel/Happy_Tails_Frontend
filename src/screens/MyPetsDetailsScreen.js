@@ -174,8 +174,8 @@ const styles = StyleSheet.create({
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
-    paddingTop: scale_mod(62),
-    paddingBottom: scale_mod(24),
+    paddingTop: scale_mod(34),
+    paddingBottom: scale_mod(8),
   },
   petImg: {
     height: scale_mod(100),
@@ -194,8 +194,8 @@ const styles = StyleSheet.create({
   },
   subHeader: {
     fontSize: scale_V(14),  
-    paddingTop: scale_mod(8),
-    paddingBottom: scale_mod(4),
+    paddingTop: scale_mod(16),
+    paddingBottom: scale_mod(8),
     fontFamily: "RalewayBold",
     color: colors.grayscale02,
   },
