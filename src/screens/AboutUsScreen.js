@@ -13,7 +13,7 @@ import { colors } from "../constants/colorPalette.js";
 
 function AboutUsScreen(props) {
   function handlePress(target) {
-    Alert.alert(`Under Construction`,`Start a New Chat feature coming soon!`)
+    Alert.alert(`Under Construction`,`Call Us feature coming soon!`)
     console.log(`${target} button pressed`);
   }
 
@@ -24,7 +24,7 @@ function AboutUsScreen(props) {
         <View style={styles.headerContainer}>
           <Text style={[styleMaster.defaultFont, styles.headerText]}>Contact Info</Text>
         </View>
-        <Text style={[styleMaster.defaultFont, styles.title]}>Our Address</Text>
+        <Text style={[styleMaster.defaultFont, styles.title]} >Our Address</Text>
         <View>
           <Text style={[styleMaster.defaultFont, styles.text]}>4140 Parker Rd.</Text>
           <Text style={[styleMaster.defaultFont, styles.text]}>Allentown, New Mexico 31134</Text>
@@ -56,12 +56,14 @@ function AboutUsScreen(props) {
         <View>
           <Text style={[styleMaster.defaultFont, styles.text]}>bill.sanders@example.com</Text>
         </View>
-        <Text style={[styleMaster.defaultFont, styles.title]}>Do you have a question?</Text>
+        <Text style={[styleMaster.defaultFont, styles.title, { paddingTop: scale_mod(32), paddingBottom: 0 }]}>Do you have a question?</Text>
         <Text style={[styleMaster.defaultFont, styles.title, { paddingTop: 0, paddingBottom: scale_mod(32)}]}>Ask it right now!</Text>
-        <LoginScreenButton 
-          text={"Start a New chat"}
-          handlePress={() => handlePress("Start a New Chat")}
-        />
+        <View style={styles.buttonContainer}>
+          <LoginScreenButton 
+            text={"Call Us"}
+            handlePress={() => handlePress("Call Us")}
+          />
+        </View>
 
       </ScrollView>
       <Navigation />
@@ -75,7 +77,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.grayscale06,
-    alignItems: "center",
     justifyContent: "center",
   },
   headerContainer: {
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: 'center',
     justifyContent: "space-between",
-    paddingBottom: scale_mod(4),
+    paddingBottom: scale_mod(8),
   },
   headerText: {
     fontSize: scale_V(32),
@@ -91,14 +92,16 @@ const styles = StyleSheet.create({
     color: colors.darkBlue02,
   },
   title: {
+    // borderWidth: 2,
     fontSize: scale_V(21),
     fontFamily: "RalewayBold",
-    paddingTop: scale_mod(28),
-    paddingBottom: scale_mod(8),
+    paddingTop: scale_mod(16),
+    paddingBottom: scale_mod(14),
     color: colors.darkBlue02,
+    includeFontPadding: false
   },
   text: {
-
+    // borderWidth: 2,
   },
   hoursContainer: {
     display: "flex",
@@ -107,4 +110,7 @@ const styles = StyleSheet.create({
   hoursSubContainer: {
     width: scale_mod(81),
   },
+  buttonContainer: {
+    alignSelf: "center",
+  },  
 });
