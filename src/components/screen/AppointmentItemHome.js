@@ -65,7 +65,7 @@ function AppointmentItemHome( { data, petIDs } ) {
                         <View style={styles.icon}>
                             <CheckMarkCircle height={scale_mod(15)} width={scale_mod(15)}/>
                         </View>
-                        <Text style={[styleMaster.defaultFont, {fontSize: scale_V(14), paddingLeft: scale_mod(8)}]}>{data.item.status}</Text>
+                        <Text style={[styleMaster.defaultFont, {fontSize: scale_V(14), paddingLeft: scale_mod(8), color: colors.green}]}>{data.item.status}</Text>
                     </View>
                 </View>
             </View>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
         height: '100%',
         flex: 1,
         backgroundColor: colors.white,
-        paddingTop: scale_mod(15),
+        paddingTop: scale_mod(16),
         paddingLeft: scale_mod(18),
         paddingRight: scale_mod(18),
         paddingBottom: scale_mod(15),
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingBottom: scale_mod(8),
+        paddingBottom: scale_mod(6),
         borderBottomWidth: 1,
         borderBottomColor: colors.greyscale08,
     },
@@ -124,11 +124,13 @@ const styles = StyleSheet.create({
         fontFamily: "RobotoRegular"
     },
     visitTypeContainer: {
+        // borderWidth: 2,
         display: 'flex',
         flexDirection: 'row',
         width: '100%',
         // overflow: 'hidden',
         alignItems: 'center',
+        paddingBottom: scale_mod(6),
     },
     visitTypeHeader: {
         // borderWidth: 1,
@@ -140,8 +142,8 @@ const styles = StyleSheet.create({
     visitTypeText: {
         // borderWidth: 1,
         flex: 1, // Ensures num of Lines doesn't overflow past View window
-        fontFamily: 'RobotoLight',
-        fontSize: scale_V(15),
+        fontFamily: 'RobotoRegular',
+        fontSize: scale_V(14),
     },
     icon: {
         // borderWidth: 2,
@@ -170,6 +172,7 @@ const styles = StyleSheet.create({
     },
     petNameText: {
         // borderWidth: 2,
+        fontSize: scale_mod(14)
     },
     bottomSubContainerRight: {
         // borderWidth: 2,
