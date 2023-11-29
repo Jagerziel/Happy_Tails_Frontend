@@ -392,10 +392,10 @@ const styles = StyleSheet.create({
     },
     returnContainer: {
         alignSelf: 'flex-start',
-        paddingBottom: scale_mod(12),
+        paddingBottom: scale_mod(32),
     },
     titleContainer: {
-        paddingBottom: scale_mod(32),
+        paddingBottom: scale_mod(8),
     },
     titleText: {
         fontFamily: 'RalewayBold',
@@ -404,8 +404,8 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontSize: scale_V(14),  
-        paddingTop: scale_mod(8),
-        paddingBottom: scale_mod(4),
+        paddingTop: scale_mod(16),
+        paddingBottom: scale_mod(8),
         fontFamily: "RalewayBold",
         color: colors.grayscale02,
     },
