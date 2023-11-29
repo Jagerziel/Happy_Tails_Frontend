@@ -7,7 +7,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { scale_H, scale_V, scale_mod } from "../../../data/functions/normalizeScaling.js";
 import { styleMaster } from "../../../constants/stylesMaster.js";
 import { colors } from "../../../constants/colorPalette.js";
-import WarningSVG from '../../../assets/warning.svg'
+import WarningSVG from '../../../assets/warning_orange.svg'
 import { weekday } from "../../../data/data/data.js";
 
 // Import Components
@@ -65,7 +65,7 @@ function CancelApptModal( { modalController, setModalController, modalName, curr
                                 <View style={[styles.textHolder]}>
                                     <Text style={[styleMaster.defaultFont, styles.content]}>
                                         {
-                                            `on ${dayOfWeek}, ${reformatDate} at ${bookingData.time}`
+                                            `${dayOfWeek}, ${reformatDate} at ${bookingData.time}`
                                         }
                                     </Text>
                                 </View>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         width: scale_mod(328),
         aspectRatio: 0.816/1,
-        paddingTop: scale_mod(34),
+        paddingTop: scale_mod(32),
         paddingBottom: scale_mod(34),
         paddingLeft: scale_mod(16),
         paddingRight: scale_mod(16),
@@ -128,25 +128,30 @@ const styles = StyleSheet.create({
         // borderWidth: 2,
         width: '100%',
         flex: 1,
-        marginTop: scale_mod(24),
+        marginTop: scale_mod(12),
     },
     textHolderSubcontainer: {
+        // borderWidth: 2,
         flex: 1,
         display: "flex",
-        justifyContent: "center",
+        paddingTop: scale_mod(12),
+        // justifyContent: "center",
     },
     textHolder: {
         width: '100%',
     },
     title: {
+        // borderWidth: 2,
         fontFamily: 'RalewayBold',
         fontSize: scale_V(21),
         color: colors.darkBlue02,
+        textAlign: "center",
     },
     content: {
         // borderWidth: 2,
         fontFamily: 'RobotoLight',
         fontSize: scale_V(17),
+        textAlign: "center",
     },
     buttonContainer: {
         display: "flex",
