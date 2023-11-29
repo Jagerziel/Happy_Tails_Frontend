@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: scale_V(18),
+        lineHeight: scale_V(20),
         color: colors.white,
     },
 });

@@ -20,6 +20,7 @@ import StaticInputField from "../components/shared/StaticInputField.js";
 import StaticInputFieldCustom from "../components/shared/StaticInputFieldCustom.js";
 import StaticInputFieldArrow from "../components/shared/StaticInputFieldArrow.js";
 import LoginScreenButton from "../components/shared/LoginScreenButton.js";
+import LoginScreenButtonWhite from "../components/shared/LoginScreenButtonWhite.js";
 
 // State Management
 import { useSelector, useDispatch } from "react-redux";
@@ -152,7 +153,7 @@ function MyPetsDetailsScreen( { route, navigation } ) {
             <StaticInputFieldArrow name={"Clinic Visits History"} arrowNext={() => arrowNext('Clinic Visits History')} path={'Clinic Visits History'} svg={"ClinicIcon"}/>
         </View>
         <View style={styles.deactivateContainer}>
-          <LoginScreenButton text={'Deactivate Profile'} handlePress={() => deactivate('Deactivate')}/>
+          <LoginScreenButtonWhite text={'Deactivate Profile'} handlePress={() => deactivate('Deactivate')}/>
         </View>
         {/* Override Nav Bar */}
         <View style={{paddingTop: 120}}></View>
@@ -206,14 +207,15 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: "space-between",
     aspectRatio: 6.83/1,
+    marginBottom: scale_mod(24),
   },
   arrowInputFieldGap: {
-    paddingBottom: scale_mod(8)
+    paddingBottom: scale_mod(12)
   },
   deactivateContainer: {
     width: '100%',
     display: "flex",
     alignItems: 'center',
-    paddingTop: scale_mod(26),
+    paddingTop: scale_mod(20),
   }
 });
