@@ -5,7 +5,7 @@ import { TextInput, TouchableOpacity, StyleSheet, Text, View } from 'react-nativ
 import { scale_H, scale_V, scale_mod } from '../../data/functions/normalizeScaling.js';
 import { styleMaster } from '../../constants/stylesMaster.js';
 // Import Assets
-import Return_Arrow from '../../assets/return_arrow.svg'
+import Return_Arrow from '../../assets/return_arrow_blue.svg'
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 
