@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: "space-between",
     aspectRatio: 6.83/1,
-    marginBottom: scale_mod(24),
+    marginBottom: scale_mod(12),
   },
   arrowInputFieldGap: {
     paddingBottom: scale_mod(12)

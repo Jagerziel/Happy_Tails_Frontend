@@ -201,7 +201,6 @@ function SettingsUserInfoScreen(props) {
         navigation.navigate("LoginScreen")
     }
 
-
     return (
         <SafeAreaView style={[styleMaster.parent, styles.container]}>
             <TouchableWithoutFeedback
@@ -420,10 +419,10 @@ const styles = StyleSheet.create({
     },
     returnContainer: {
         alignSelf: 'flex-start',
-        paddingBottom: scale_mod(12),
+        paddingBottom: scale_mod(34),
     },
     masterHeadingContainer: {
-        paddingBottom: scale_mod(24),
+        paddingBottom: scale_mod(8),
     },
     masterHeaderTitle: {
         fontFamily: 'RalewayBold',
@@ -440,7 +439,6 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: scale_V(14),  
         paddingTop: scale_mod(16),
-        // paddingBottom: scale_mod(4),
         fontFamily: "RalewayBold",
         color: colors.grayscale02,
     },
@@ -448,8 +446,8 @@ const styles = StyleSheet.create({
         width: scale_mod(343)
     },
     deleteText: {
-        fontSize: scale_V(13),
-        color: colors.error,
-        textDecorationLine: 'underline',
+        fontSize: scale_V(15),
+        color: colors.greyscale09,
+        fontFamily: "RobotoLight",
     },
 });
