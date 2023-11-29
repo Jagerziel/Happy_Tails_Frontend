@@ -1,6 +1,6 @@
 // Import React
 import React from "react";
-import { Image, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 // Import Constants
@@ -12,6 +12,7 @@ import {
   scale_mod,
 } from "../data/functions/normalizeScaling.js";
 import { months } from "../data/data/data.js";
+import ReturnArrow from '../assets/return_arrow_blue.svg'
 
 // Import Components
 import Navigation from "../components/shared/Navigation";
@@ -31,7 +32,6 @@ import { deletePet } from "../server/pet.js";
 import { deleteAppointmentsByPet } from "../server/appointment.js";
 import { deleteVaccinationsByPet } from "../server/vaccinations.js";
 
-
 function MyPetsDetailsScreen( { route, navigation } ) {
   const { data } = route.params
   // console.log(data)
@@ -40,7 +40,11 @@ function MyPetsDetailsScreen( { route, navigation } ) {
   const petData = useSelector((state) => state.petData.data); // Retrieve Pet Data
   const vaccinationsData = useSelector((state) => state.vaccinationsData.data); // Retrieve Vaccinations data
   const appointmentData = useSelector((state) => state.appointmentData.data); // Retrieve Appointment data
-  
+
+  function arrowPrevious () {
+    navigation.navigate('MyPetsScreen')
+  }
+
   function arrowNext ( path ) {
     console.log(`${path} button pressed`)
   }
@@ -76,6 +80,11 @@ function MyPetsDetailsScreen( { route, navigation } ) {
   return (
     <SafeAreaView style={[styles.container, styleMaster.parent]}>
       <ScrollView style={[styleMaster.subParent]}>
+        <View>
+          <TouchableOpacity onPress={() => arrowPrevious()}>
+            <ReturnArrow />
+          </TouchableOpacity>
+        </View>
         <View style={styles.petContainer}>
         <View>
                 {
