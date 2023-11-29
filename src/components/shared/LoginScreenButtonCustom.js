@@ -46,6 +46,6 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: colors.white,
-        fontFamily: "RobotoLight",
+        fontFamily: "RobotoRegular",
     },
 });

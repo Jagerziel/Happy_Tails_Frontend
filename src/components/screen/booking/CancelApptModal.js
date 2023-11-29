@@ -14,8 +14,6 @@ import { weekday } from "../../../data/data/data.js";
 import LoginScreenButtonCustom from "../../shared/LoginScreenButtonCustom.js";
 import LoginScreenButtonWhiteCustom from "../../shared/LoginScreenButtonWhiteCustom.js";
 
-
-
 function CancelApptModal( { modalController, setModalController, modalName, currPetSelectionNameType, bookingData, setBookingData } ) {
     // Handle Date Objects
     const reformatDate = `${bookingData.date.slice(5,7)}/${bookingData.date.slice(8, 10)}/${bookingData.date.slice(0,4)}`
@@ -141,7 +139,6 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     title: {
-        // borderWidth: 2,
         fontFamily: 'RalewayBold',
         fontSize: scale_V(21),
         color: colors.darkBlue02,

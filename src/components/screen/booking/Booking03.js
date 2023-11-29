@@ -152,131 +152,131 @@ function Booking03( { bookComponent, setBookComponent, bookingData, setBookingDa
 export default Booking03
 
 const styles = StyleSheet.create({
-    container: {
-        // borderWidth: 2,
-        flex: 1,
-        backgroundColor: colors.grayscale06,
-      },
-      subContainer: {
-        // borderWidth: 2,
-        display: "flex",
-        alignContent: "center",
-      },
-      contentContainer: {
-        // borderWidth: 2,
-        display: "flex",
-        alignItems: "center",
-      },
-      headerContainer: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        paddingBottom: scale_mod(65),
-        width: '100%',
-      },
-      returnContainer: {
-        // borderWidth: 2,
-        width: scale_mod(20)
-      },
-      headerText: {
-        width: '100%',
-        includeFontPadding: false,
-        textAlign: "center",
-        paddingRight: scale_mod(20), //Offsets space taken by return arrow
-        fontFamily: "RalewayBold",
-        fontSize: scale_V(17),
-        color: colors.darkBlue02,
-      },
-      confirmationContainer: {
-        // borderWidth: 2,
-        display: "flex",
-        justifyContent: "space-between",
-        width: scale_mod(344),
-        aspectRatio: .72/1,
-        backgroundColor: colors.white,
-        borderRadius: 8,
-        paddingTop: scale_mod(24),
-        paddingBottom: scale_mod(34),
-      },
-      titleContainer: {
-        // borderWidth: 2,
-        marginLeft: scale_mod(16),
-        marginRight: scale_mod(16),
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
+  container: {
+    // borderWidth: 2,
+    flex: 1,
+    backgroundColor: colors.grayscale06,
+  },
+  subContainer: {
+    // borderWidth: 2,
+    display: "flex",
+    alignContent: "center",
+  },
+  contentContainer: {
+    // borderWidth: 2,
+    display: "flex",
+    alignItems: "center",
+  },
+  headerContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    paddingBottom: scale_mod(34),
+    width: '100%',
+  },
+  returnContainer: {
+    // borderWidth: 2,
+    width: scale_mod(20)
+  },
+  headerText: {
+    width: '100%',
+    includeFontPadding: false,
+    textAlign: "center",
+    paddingRight: scale_mod(20), //Offsets space taken by return arrow
+    fontFamily: "RalewayBold",
+    fontSize: scale_V(17),
+    color: colors.darkBlue02,
+  },
+  confirmationContainer: {
+    // borderWidth: 2,
+    display: "flex",
+    justifyContent: "space-between",
+    width: scale_mod(344),
+    aspectRatio: .76/1,
+    backgroundColor: colors.white,
+    borderRadius: 8,
+    paddingTop: scale_mod(16),
+    paddingBottom: scale_mod(32),
+  },
+  titleContainer: {
+    // borderWidth: 2,
+    marginLeft: scale_mod(16),
+    marginRight: scale_mod(16),
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
 
-      },
-      petImg: {
-        height: scale_mod(100),
-        width: scale_mod(100),
-        resizeMode: 'cover',
-        borderRadius: scale_mod(7),
-      },
-      titleText: {
-        fontSize: scale_V(26),
-        fontFamily: "RobotoBold",
-        paddingLeft: scale_mod(16),
-        color: colors.darkBlue02,
-      },
-      lineBreak: {
-        marginTop: scale_mod(16),
-        marginBottom: scale_mod(18),
-        marginLeft: scale_mod(16),
-        marginRight: scale_mod(16),
-        borderWidth: 0.5,
-        borderColor: "#E4E4E4"
-      },
-      dateTimeContainer: {
-        // borderWidth: 2,
-        marginLeft: scale_mod(16),
-        marginRight: scale_mod(16),
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-      },
-      dateTime: {
-        // borderWidth: 2,
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-
-      },
-      dateTimeText: {
-        fontFamily: "RalewayRegular",
-        fontSize: scale_V(15),
-        includeFontPadding: false,
-        alignSelf: "center",
-        paddingLeft: scale_mod(8),
-      },
-      detailsContainer: {
-        // borderWidth: 2,
-        marginLeft: scale_mod(16),
-        marginRight: scale_mod(16),
-        display: "flex",
-        flexDirection: "row",
-        marginTop: scale_mod(24),
-      },
-      detailsTitle: {
-        paddingRight: scale_mod(8),
-        fontFamily: "RalewayBold",
-        fontSize: scale_V(14),
-        color: colors.grayscale02,
-      },
-      detailsContentContainer: {
-        // borderWidth: 2,
-        flex: 1,
-        maxHeight: scale_mod(60),
-      },
-      detailsContent: {
-        color: colors.grayscale02,
-        fontFamily: "RobotoLight",
-        fontSize: scale_mod(15),
-      },
-      buttonContainer: {
-        alignSelf: "center",
-      },
-      buttonSpacer: {
-        paddingTop: scale_mod(16),
-      },
+  },
+  petImg: {
+    height: scale_mod(100),
+    width: scale_mod(100),
+    resizeMode: 'cover',
+    borderRadius: scale_mod(7),
+  },
+  titleText: {
+    fontSize: scale_V(26),
+    fontFamily: "RobotoBold",
+    paddingLeft: scale_mod(16),
+    color: colors.darkBlue02,
+  },
+  lineBreak: {
+    marginTop: scale_mod(16),
+    marginBottom: scale_mod(16),
+    marginLeft: scale_mod(16),
+    marginRight: scale_mod(16),
+    borderWidth: 0.5,
+    borderColor: "#E4E4E4"
+  },
+  dateTimeContainer: {
+    // borderWidth: 2,
+    marginLeft: scale_mod(16),
+    marginRight: scale_mod(16),
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  dateTime: {
+    // borderWidth: 2,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: scale_mod(12),
+  },
+  dateTimeText: {
+    fontFamily: "RobotoRegular",
+    fontSize: scale_V(15),
+    includeFontPadding: false,
+    alignSelf: "center",
+    paddingLeft: scale_mod(8),
+  },
+  detailsContainer: {
+    // borderWidth: 2,
+    marginLeft: scale_mod(16),
+    marginRight: scale_mod(16),
+    display: "flex",
+    flexDirection: "row",
+    marginTop: scale_mod(12),
+  },
+  detailsTitle: {
+    paddingRight: scale_mod(8),
+    fontFamily: "RalewayBold",
+    fontSize: scale_V(14),
+    color: colors.grayscale02,
+  },
+  detailsContentContainer: {
+    // borderWidth: 2,
+    flex: 1,
+    maxHeight: scale_mod(60),
+  },
+  detailsContent: {
+    color: colors.grayscale02,
+    fontFamily: "RobotoLight",
+    fontSize: scale_mod(15),
+  },
+  buttonContainer: {
+    alignSelf: "center",
+  },
+  buttonSpacer: {
+    paddingTop: scale_mod(16),
+  },
 })
