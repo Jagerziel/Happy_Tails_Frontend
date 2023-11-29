@@ -133,13 +133,14 @@ const styles = StyleSheet.create({
       },
       subContainer: {
         display: "flex",
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        padding: scale_mod(24),
       },
       headerContainer: {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        paddingBottom: scale_mod(65),
+        paddingBottom: scale_mod(34),
       },
       returnContainer: {
         // borderWidth: 2,
@@ -155,41 +156,43 @@ const styles = StyleSheet.create({
         color: colors.darkBlue02,
     },
     titleContainer: {
-        paddingBottom: scale_mod(20), // Prev Assumed Value 40 from docs
+        paddingBottom: scale_mod(24), // Prev Assumed Value 40 from docs
     },
     titleText: {
         fontSize: scale_V(26),
         fontFamily: "RalewayBold",
         color: colors.darkBlue02,
     },
-      symptomsParentContainer: {
+    symptomsParentContainer: {
         width: '100%',
         display: "flex",
-      },
-      symptomsContainer: {
+    },
+    symptomsContainer: {
         // borderWidth: 2,
         flexDirection: 'column', 
         alignSelf: "center"     
-      },
-      textInput: {
+    },
+    textInput: {
         alignSelf: "center",
-        paddingTop: scale_mod(14),
-      },    
-      subTitle: {
+        paddingTop: scale_mod(9),
+    },    
+    subTitle: {
         fontFamily: "RalewayBold",
         fontSize: scale_V(21),
-        paddingTop: scale_mod(21),
+        paddingTop: scale_mod(16),
     },
     subText: {
-        fontSize: scale_V(14),
+        fontSize: scale_V(15),
         paddingTop: scale_mod(8),
-      },
-      attachContainer: {
-        paddingTop: scale_mod(18),
+        fontFamily: 'RobotoLight',
+        color: colors.black,
+    },
+    attachContainer: {
+        paddingTop: scale_mod(26),
         padding: scale_mod(14),
-      },
-      buttonContainer: {
+    },
+    buttonContainer: {
         alignSelf: "center",
         paddingBottom: scale_mod(34),
-      }
+    }
 })

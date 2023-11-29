@@ -32,7 +32,8 @@ export default SymptomsItem;
 
 const styles = StyleSheet.create({
     container: {
-        // borderWidth: 2,
+        // borderWidth: 1,
+        borderColor: colors.primary,
         margin: scale_mod(7),
         paddingTop: scale_mod(10),
         paddingBottom: scale_mod(10),

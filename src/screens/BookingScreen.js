@@ -220,6 +220,7 @@ const styles = StyleSheet.create({
   subContainer: {
     // borderWidth: 2,
     // borderColor: 'red',
+    padding: scale_mod(24),
     marginBottom: scale_mod(70),
     display: "flex",
     justifyContent: 'space-between'
