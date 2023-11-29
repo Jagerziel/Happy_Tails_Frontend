@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
         color: colors.error,
         fontFamily: "RobotoRegular",
         lineHeight: scale_V(16),
-        fontSize: scale_V(15),
+        fontSize: scale_V(14),
     },
     vaccineContainer: {
         flex: 8,
@@ -82,9 +82,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     vaccineText: {
-        fontFamily: "RobotoLight",
+        fontFamily: "RobotoRegular",
         lineHeight: scale_V(16),
-        fontSize: scale_V(15),
+        fontSize: scale_V(14),
+        color: colors.darkBlue02,
     },
     imgContainer: {
         flex: 1,

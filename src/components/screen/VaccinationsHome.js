@@ -93,7 +93,8 @@ const styles = StyleSheet.create({
     },
     viewAll: {
         color: colors.secondary,
-        fontSize: scale_V(17),
+        fontSize: scale_V(14),
+        fontFamily: 'RobotoRegular'
     },
     contentContainerActive: {
         // borderColor: "red",

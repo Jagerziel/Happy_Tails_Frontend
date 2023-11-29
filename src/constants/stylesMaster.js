@@ -12,6 +12,7 @@ export const styleMaster = StyleSheet.create({
     },
     viewAllLink: {
         color: colors.secondary,
+        
     },
     defaultFont: {
         fontSize: scale_V(16),
