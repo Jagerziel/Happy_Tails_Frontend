@@ -57,7 +57,7 @@ export default DateTimePicker;
 const styles = StyleSheet.create({
     container: {
         borderWidth: scale_mod(2),
-        borderColor: colors.grayscale03,
+        borderColor: colors.white,
         width: scale_mod(328),
         aspectRatio: 6.83/1,
         display: 'flex',
@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
     textField: {
         textAlign: 'left',
         fontSize: scale_V(15),
+        color: colors.darkBlue02,
         includeFontPadding: false, // Removes default padding for Text 
-        fontFamily: 'RobotoLight',
+        fontFamily: 'RobotoRegular',
     }  
 });

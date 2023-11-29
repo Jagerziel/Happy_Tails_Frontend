@@ -135,6 +135,7 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: 'space-between',
         alignContent: "center",
+        padding: scale_mod(24),
       },
       contentContainer: {
         // borderWidth: 2,
@@ -145,7 +146,7 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        paddingBottom: scale_mod(65),
+        paddingBottom: scale_mod(34),
         width: '100%',
       },
       returnContainer: {
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
         color: colors.darkBlue02,
       },
       titleContainer: {
-        paddingBottom: scale_mod(40),
+        paddingBottom: scale_mod(24),
         alignSelf: "flex-start"
       },
       titleText: {
@@ -175,7 +176,7 @@ const styles = StyleSheet.create({
       },
       timePickerContainer: {
         // borderWidth: 2,
-        marginTop: scale_mod(36),
+        marginTop: scale_mod(24),
         paddingTop: scale_mod(16),
         paddingBottom: scale_mod(36),
         paddingLeft: scale_mod(16),
@@ -184,6 +185,10 @@ const styles = StyleSheet.create({
         aspectRatio: 1.41/1,
         backgroundColor: colors.white,
         borderRadius: 13,
+        // shadowOffset: {width: scale_mod(2), height: scale_mod(5)},
+        // shadowRadius: scale_mod(10),
+        // shadowOpacity: 0.2,
+        // shadowColor: '#767680',
       },
       timePickerHeaderContainer: {
         // borderWidth: 2,
@@ -197,6 +202,7 @@ const styles = StyleSheet.create({
       timePickerHeader: {
         fontFamily: "RobotoBold",
         fontSize: scale_mod(20),
+        color: colors.darkBlue
       },
       buttonContainer: {
         alignSelf: "center",

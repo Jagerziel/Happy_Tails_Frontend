@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
     }, 
     text: {
-        fontSize: scale_V(15)
+        fontSize: scale_V(15),
+        lineHeight: scale_V(16),
     }
 
 })

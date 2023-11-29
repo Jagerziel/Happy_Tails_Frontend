@@ -42,7 +42,7 @@ const ToggleButtonCustom = ({
             }}>
             <Text
                 style={{
-                color: colors.black,
+                color: colors.darkBlue,
                 fontSize: scale_V(15),
                 fontFamily: "RobotoBold",
                 }}>
@@ -62,7 +62,7 @@ const ToggleButtonCustom = ({
             }}>
             <Text
                 style={{
-                color: colors.black,
+                color: colors.darkBlue,
                 fontSize: scale_V(15),
                 fontFamily: "RobotoBold",
                 }}>
