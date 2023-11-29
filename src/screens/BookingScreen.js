@@ -225,11 +225,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   headerContainer: {
-    // flex: 1,
+    // borderWidth: 2,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    paddingBottom: scale_mod(65),
+    marginBottom: scale_mod(34),
   },
   returnContainer: {
     // borderWidth: 2,
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
     color: colors.darkBlue02,
   },
   titleContainer: {
-    paddingBottom: scale_mod(40),
+    paddingBottom: scale_mod(24),
   },
   titleText: {
     fontSize: scale_V(26),
@@ -254,11 +254,12 @@ const styles = StyleSheet.create({
   },
   petsContainer: {
     // borderWidth: 2,
-    height: scale_mod(400),
+    height: scale_mod(440),
     borderRadius: scale_mod(7),
     marginBottom: scale_mod(24),
   },
   buttonContainer: {
+    // borderWidth: 2,
     alignSelf: "center",
     paddingBottom: scale_mod(34),
   }
